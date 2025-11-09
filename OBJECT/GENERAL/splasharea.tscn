@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://x3ofcbouhouu"]
+
+[ext_resource type="Script" uid="uid://c6gf88sgq55pe" path="res://splasharea.gd" id="1_7d7ow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj8kb"]
+size = Vector2(292, 20)
+
+[node name="Splasharea" type="Area2D" unique_id=1702593450]
+script = ExtResource("1_7d7ow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1740224557]
+shape = SubResource("RectangleShape2D_jj8kb")

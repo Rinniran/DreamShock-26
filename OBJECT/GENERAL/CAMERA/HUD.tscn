@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctf2hfhhl7gc7"]
+
+[ext_resource type="Texture2D" uid="uid://cfnmydsk6otbv" path="res://SPRITE/UI/Healthicon1.png" id="1_448hv"]
+[ext_resource type="Texture2D" uid="uid://5xsxn0wktqqm" path="res://SPRITE/UI/guicon1.png" id="2_54c3f"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://SPRITE/FONT/Score.fnt" id="3_73pjk"]
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://SPRITE/FONT/kromagrad_16x16.fnt" id="4_54c3f"]
+
+[node name="Hud" type="Control" unique_id=304665899]
+z_index = 250
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=327409915]
+position = Vector2(23, 21)
+texture = ExtResource("1_448hv")
+
+[node name="Guicon1" type="Sprite2D" parent="." unique_id=1906617311]
+position = Vector2(49, 11)
+texture = ExtResource("2_54c3f")
+
+[node name="Label" type="Label" parent="." unique_id=2093322048]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 99.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("3_73pjk")
+theme_override_font_sizes/font_size = 9
+text = "00"
+
+[node name="Label" type="Label" parent="Label" unique_id=1428312024]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 15.0
+offset_right = 36.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("3_73pjk")
+theme_override_font_sizes/font_size = 9
+text = "score"
+
+[node name="Label2" type="Label" parent="Label" unique_id=1479954815]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 24.0
+offset_right = 79.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("3_73pjk")
+theme_override_font_sizes/font_size = 9
+text = "00000000"
+
+[node name="Label3" type="Label" parent="Label" unique_id=491381180]
+layout_mode = 0
+offset_left = -56.0
+offset_top = 202.0
+offset_right = 56.0
+offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("3_73pjk")
+theme_override_font_sizes/font_size = 9
+text = "credits: 05"
+
+[node name="Label4" type="Label" parent="Label" unique_id=532441793]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 34.0
+offset_right = -18.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("4_54c3f")
+theme_override_font_sizes/font_size = 16
+text = "02
+"
