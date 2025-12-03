@@ -720,3 +720,4 @@ texture = ExtResource("21_025e7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1316330835]
 stream = ExtResource("23_pophd")
+autoplay = true

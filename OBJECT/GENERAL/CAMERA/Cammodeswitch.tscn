@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://m6vkfobvirxu"]
+
+[ext_resource type="Script" uid="uid://di7muc7ikgj7g" path="res://OBJECT/GENERAL/CAMERA/cammodeswitch.gd" id="1_rbqt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj0tx"]
+size = Vector2(20, 235)
+
+[node name="Cammodeswitch" type="Area2D" unique_id=1852398627]
+script = ExtResource("1_rbqt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1655316216]
+position = Vector2(0, 107.5)
+shape = SubResource("RectangleShape2D_yj0tx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

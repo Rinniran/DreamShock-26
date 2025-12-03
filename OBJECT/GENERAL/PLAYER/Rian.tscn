@@ -169,7 +169,7 @@ _data = {
 &"main": SubResource("Animation_nufnn")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1112045618]
+[node name="Player" type="CharacterBody2D" unique_id=1112045618 groups=["Player"]]
 floor_constant_speed = true
 floor_snap_length = 5.0
 script = ExtResource("1_1u5cg")
@@ -209,7 +209,7 @@ script = ExtResource("4_6ri42")
 [node name="Move" type="Node" parent="StateMachine" unique_id=1795009709]
 script = ExtResource("5_6ri42")
 
-[node name="Dash" type="Node" parent="StateMachine" unique_id=2119392054]
+[node name="Dash" type="Node" parent="StateMachine" unique_id=2119392054 groups=["Player"]]
 script = ExtResource("6_hnyge")
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1967489877]

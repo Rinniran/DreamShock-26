@@ -27,13 +27,34 @@ func _physics_process(delta: float) -> void:
 			cam_d.UPRIGHT:
 				if target.position.x > position.x:
 					position.x += speed * delta
-					position.y -= speed *  delta
 					if position.x > target.position.x:
 						position.x = target.position.x
-						position.y = target.position.y + 48
+				if (target.position.y + 8) < position.y:
+					position.y -= speed * delta
+					if position.y < (target.position.y +8):
+						position.y = (target.position.y + 8)
 			cam_d.LEFT:
 				if target.position.x < position.x:
 					position.x -= speed * delta
 					if position.x > target.position.x:
 						position.x = target.position.x
+			cam_d.UP:
+				if (target.position.y + 8) < position.y:
+					position.y -= speed * delta
+					if position.y < target.position.y + 8:
+						position.y = target.position.y +8
+			cam_d.DOWN:
+				if (target.position.y - 8) > position.y:
+					position.y += speed * delta
+					if position.y + target.position.y - 8:
+						position.y = target.position.y - 8
+			cam_d.DOWNRIGHT:
+				if target.position.x > position.x:
+					position.x += speed * delta
+					if position.x > target.position.x:
+						position.x = target.position.x
+				if (target.position.y - 8) > position.y:
+					position.y += speed * delta
+					if position.y + target.position.y - 8:
+						position.y = target.position.y - 8
 	pass
