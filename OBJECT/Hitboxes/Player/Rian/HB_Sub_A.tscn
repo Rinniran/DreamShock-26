@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://rckhhjosmy48"]
+
+[ext_resource type="Script" uid="uid://baeb5x4cdtocx" path="res://OBJECT/Hitboxes/Player/PLHB.gd" id="1_7ihfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xur1"]
+size = Vector2(50, 34)
+
+[node name="HbSubA" type="Area2D" unique_id=92751368 groups=["Pl_Attack"]]
+script = ExtResource("1_7ihfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1258750877]
+position = Vector2(24, 7)
+shape = SubResource("RectangleShape2D_1xur1")

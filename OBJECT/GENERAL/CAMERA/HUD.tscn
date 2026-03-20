@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctf2hfhhl7gc7"]
+[gd_scene format=3 uid="uid://ctf2hfhhl7gc7"]
 
-[ext_resource type="Texture2D" uid="uid://cfnmydsk6otbv" path="res://SPRITE/UI/Healthicon1.png" id="1_448hv"]
-[ext_resource type="Texture2D" uid="uid://5xsxn0wktqqm" path="res://SPRITE/UI/guicon1.png" id="2_54c3f"]
-[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://SPRITE/FONT/Score.fnt" id="3_73pjk"]
-[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://SPRITE/FONT/kromagrad_16x16.fnt" id="4_54c3f"]
+[ext_resource type="Script" uid="uid://c4qmy7bxd158c" path="res://OBJECT/GENERAL/CAMERA/hud.gd" id="1_73pjk"]
+[ext_resource type="Texture2D" uid="uid://cfnmydsk6otbv" path="res://Sprites/UI/Healthicon1.png" id="1_448hv"]
+[ext_resource type="Texture2D" uid="uid://5xsxn0wktqqm" path="res://Sprites/UI/guicon1.png" id="2_54c3f"]
+[ext_resource type="Texture2D" uid="uid://c4mxp4c6kfxlb" path="res://Sprites/UI/Healthicon2.png" id="3_3g7x6"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="3_73pjk"]
+[ext_resource type="Texture2D" uid="uid://dyprkqh3pmxot" path="res://Sprites/UI/Healthicon3.png" id="4_0lboj"]
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="4_54c3f"]
+[ext_resource type="Texture2D" uid="uid://vhavq3jvwoel" path="res://Sprites/UI/Healthicon4.png" id="5_sisv3"]
+[ext_resource type="Texture2D" uid="uid://c5pgogir01jdb" path="res://Sprites/UI/Healthicon5.png" id="6_jtsl8"]
+[ext_resource type="Texture2D" uid="uid://e0hqclvrxmfp" path="res://Sprites/UI/Healthicon6.png" id="7_mkmqj"]
 
 [node name="Hud" type="Control" unique_id=304665899]
 z_index = 250
@@ -13,8 +19,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_73pjk")
+hp5 = ExtResource("1_448hv")
+hp4 = ExtResource("3_3g7x6")
+hp3 = ExtResource("4_0lboj")
+hp2 = ExtResource("5_sisv3")
+hp1 = ExtResource("6_jtsl8")
+hp0 = ExtResource("7_mkmqj")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=327409915]
+[node name="Life" type="Sprite2D" parent="." unique_id=327409915]
 position = Vector2(23, 21)
 texture = ExtResource("1_448hv")
 
@@ -22,7 +35,7 @@ texture = ExtResource("1_448hv")
 position = Vector2(49, 11)
 texture = ExtResource("2_54c3f")
 
-[node name="Label" type="Label" parent="." unique_id=2093322048]
+[node name="Piececnt" type="Label" parent="." unique_id=2093322048]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 6.0
@@ -32,42 +45,42 @@ theme_override_fonts/font = ExtResource("3_73pjk")
 theme_override_font_sizes/font_size = 9
 text = "00"
 
-[node name="Label" type="Label" parent="Label" unique_id=1428312024]
+[node name="Label" type="Label" parent="." unique_id=1428312024]
 layout_mode = 0
-offset_left = -15.0
-offset_top = 15.0
-offset_right = 36.0
-offset_bottom = 38.0
+offset_left = 44.0
+offset_top = 21.0
+offset_right = 95.0
+offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("3_73pjk")
 theme_override_font_sizes/font_size = 9
 text = "score"
 
-[node name="Label2" type="Label" parent="Label" unique_id=1479954815]
+[node name="Label2" type="Label" parent="." unique_id=1479954815]
 layout_mode = 0
-offset_left = -4.0
-offset_top = 24.0
-offset_right = 79.0
-offset_bottom = 37.0
+offset_left = 55.0
+offset_top = 30.0
+offset_right = 138.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("3_73pjk")
 theme_override_font_sizes/font_size = 9
 text = "00000000"
 
-[node name="Label3" type="Label" parent="Label" unique_id=491381180]
+[node name="Label3" type="Label" parent="." unique_id=491381180]
 layout_mode = 0
-offset_left = -56.0
-offset_top = 202.0
-offset_right = 56.0
-offset_bottom = 215.0
+offset_left = 3.0
+offset_top = 208.0
+offset_right = 115.0
+offset_bottom = 221.0
 theme_override_fonts/font = ExtResource("3_73pjk")
 theme_override_font_sizes/font_size = 9
 text = "credits: 05"
 
-[node name="Label4" type="Label" parent="Label" unique_id=532441793]
+[node name="Label4" type="Label" parent="." unique_id=532441793]
 layout_mode = 0
-offset_left = -51.0
-offset_top = 34.0
-offset_right = -18.0
-offset_bottom = 69.0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 41.0
+offset_bottom = 75.0
 theme_override_fonts/font = ExtResource("4_54c3f")
 theme_override_font_sizes/font_size = 16
 text = "02

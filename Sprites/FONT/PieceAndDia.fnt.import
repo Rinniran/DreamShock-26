@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://dtdumefhft06d"
+path="res://.godot/imported/PieceAndDia.fnt-6a9e989f2c469fa0201f69d2d6a28f64.fontdata"
+
+[deps]
+
+source_file="res://Sprites/FONT/PieceAndDia.fnt"
+dest_files=["res://.godot/imported/PieceAndDia.fnt-6a9e989f2c469fa0201f69d2d6a28f64.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

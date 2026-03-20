@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b8x8oigqkfsbf"]
+
+[ext_resource type="Script" uid="uid://bk66bcxcqkgah" path="res://OBJECT/GENERAL/camstopper.gd" id="1_hkvve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8lfy"]
+size = Vector2(20, 301)
+
+[node name="Camstopper" type="Area2D" unique_id=690083097]
+script = ExtResource("1_hkvve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1703301404]
+position = Vector2(0, 99.5)
+shape = SubResource("RectangleShape2D_n8lfy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

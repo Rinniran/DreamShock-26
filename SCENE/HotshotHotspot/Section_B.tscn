@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://sp4aj5u4w5we"]
+[gd_scene format=4 uid="uid://sp4aj5u4w5we"]
 
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_4vup6"]
-[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://SPRITE/FONT/Score.fnt" id="2_5lawy"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="2_5lawy"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="3_m21pd"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="4_wyij0"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="5_sri01"]

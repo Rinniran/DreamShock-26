@@ -6,6 +6,7 @@ class_name StateMachine
 var states := {}
 
 #The current active state node
+var state_name
 var active_state
 var active_params: Array
 var previous_state
@@ -74,7 +75,6 @@ func _setup_states():
 func change_state(new_state, data := {}):
 	#If the state doesn't exist, show an error.
 	assert(states.has(new_state), "State not found: " + new_state)
-	
 	is_changing_state = true
 	frame_changed_state = 0#SyncManager.current_tick
 	
@@ -96,6 +96,7 @@ func change_state(new_state, data := {}):
 	active_state = states[new_state]
 	active_state._setup()
 	state_specific(new_state)
+	state_name = str(new_state)
 	
 	var default_data = {}
 	if active_state.has_method("_get_default_data"):

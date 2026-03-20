@@ -1,28 +1,34 @@
-[gd_scene load_steps=76 format=4 uid="uid://0oqjlx6seerv"]
+[gd_scene format=4 uid="uid://0oqjlx6seerv"]
 
-[ext_resource type="Texture2D" uid="uid://4lpp0l8s7sms" path="res://SPRITE/STAGE/STICKCITY/Buildings1.png" id="1_1xd4t"]
+[ext_resource type="Texture2D" uid="uid://4lpp0l8s7sms" path="res://Sprites/STAGE/STICKCITY/Buildings1.png" id="1_1xd4t"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="1_d5e5l"]
-[ext_resource type="Texture2D" uid="uid://buhhi4srurccv" path="res://SPRITE/BG/Nightmarelake.png" id="2_6pfuq"]
+[ext_resource type="Texture2D" uid="uid://buhhi4srurccv" path="res://Sprites/BG/Nightmarelake.png" id="2_6pfuq"]
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="2_7agfa"]
-[ext_resource type="Texture2D" uid="uid://dye4teu77th2d" path="res://SPRITE/STAGE/STICKCITY/Water.png" id="2_fcfhg"]
-[ext_resource type="Texture2D" uid="uid://5otp8m5bg8xn" path="res://SPRITE/STAGE/STICKCITY/Snow.png" id="2_wavk6"]
-[ext_resource type="Texture2D" uid="uid://b2ofrhb8oeh00" path="res://SPRITE/STAGE/STICKCITY/Snow3.png" id="3_b11bm"]
+[ext_resource type="Texture2D" uid="uid://dye4teu77th2d" path="res://Sprites/STAGE/STICKCITY/Water.png" id="2_fcfhg"]
+[ext_resource type="Texture2D" uid="uid://5otp8m5bg8xn" path="res://Sprites/STAGE/STICKCITY/Snow.png" id="2_wavk6"]
+[ext_resource type="Texture2D" uid="uid://b2ofrhb8oeh00" path="res://Sprites/STAGE/STICKCITY/Snow3.png" id="3_b11bm"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_wavk6"]
-[ext_resource type="Texture2D" uid="uid://bdaas54l1j7qs" path="res://SPRITE/STAGE/STICKCITY/Snow2.png" id="4_5xarx"]
-[ext_resource type="Texture2D" uid="uid://du5jwc5540i5g" path="res://SPRITE/STAGE/STICKCITY/TRAIN.png" id="5_kkw8l"]
-[ext_resource type="Texture2D" uid="uid://c4grfk377ygyw" path="res://SPRITE/STAGE/STICKCITY/CAR.png" id="6_qpo4r"]
-[ext_resource type="Texture2D" uid="uid://c8cdia4d4ews3" path="res://SPRITE/STAGE/STICKCITY/STREETLAMP.png" id="7_b11bm"]
-[ext_resource type="Texture2D" uid="uid://dgmxd5xr3dhpt" path="res://SPRITE/STAGE/STICKCITY/EP1TileTerrain.png" id="8_wj346"]
-[ext_resource type="Texture2D" uid="uid://bicri4vt3h6q0" path="res://SPRITE/STAGE/STICKCITY/PLATFORMTILESA.png" id="9_4x6vq"]
+[ext_resource type="Texture2D" uid="uid://bdaas54l1j7qs" path="res://Sprites/STAGE/STICKCITY/Snow2.png" id="4_5xarx"]
+[ext_resource type="Texture2D" uid="uid://du5jwc5540i5g" path="res://Sprites/STAGE/STICKCITY/TRAIN.png" id="5_kkw8l"]
+[ext_resource type="Texture2D" uid="uid://c4grfk377ygyw" path="res://Sprites/STAGE/STICKCITY/CAR.png" id="6_qpo4r"]
+[ext_resource type="Texture2D" uid="uid://c8cdia4d4ews3" path="res://Sprites/STAGE/STICKCITY/STREETLAMP.png" id="7_b11bm"]
+[ext_resource type="Texture2D" uid="uid://dgmxd5xr3dhpt" path="res://Sprites/STAGE/STICKCITY/EP1TileTerrain.png" id="8_wj346"]
+[ext_resource type="Texture2D" uid="uid://bicri4vt3h6q0" path="res://Sprites/STAGE/STICKCITY/PLATFORMTILESA.png" id="9_4x6vq"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="10_3kbuv"]
-[ext_resource type="Texture2D" uid="uid://dm4uh7w34t77q" path="res://SPRITE/STAGE/STICKCITY/IceCrystal.png" id="10_5xarx"]
+[ext_resource type="Texture2D" uid="uid://dm4uh7w34t77q" path="res://Sprites/STAGE/STICKCITY/IceCrystal.png" id="10_5xarx"]
 [ext_resource type="Script" uid="uid://c6gf88sgq55pe" path="res://splasharea.gd" id="12_t66ja"]
-[ext_resource type="Texture2D" uid="uid://c4k1hj64ipksk" path="res://SPRITE/BG/SC01.png" id="13_2wia1"]
-[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://SPRITE/FONT/kromagrad_16x16.fnt" id="15_ryt6j"]
-[ext_resource type="Texture2D" uid="uid://byx3wd48xjtso" path="res://SPRITE/VFX/Crit.png" id="16_qpk7e"]
-[ext_resource type="Texture2D" uid="uid://dmqeti7tn78uy" path="res://SPRITE/VFX/Energygreen16.png" id="20_pjh2l"]
-[ext_resource type="Texture2D" uid="uid://c0t6x1satas12" path="res://SPRITE/STAGE/STICKCITY/SCAFFOLDING.png" id="21_025e7"]
-[ext_resource type="AudioStream" uid="uid://cp8mu1an0a57v" path="res://AUDIO/BGM/STG01_A.mp3" id="23_pophd"]
+[ext_resource type="Texture2D" uid="uid://c4k1hj64ipksk" path="res://Sprites/BG/SC01.png" id="13_2wia1"]
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="15_ryt6j"]
+[ext_resource type="Texture2D" uid="uid://byx3wd48xjtso" path="res://Sprites/VFX/Crit.png" id="16_qpk7e"]
+[ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="20_g1d73"]
+[ext_resource type="Texture2D" uid="uid://dmqeti7tn78uy" path="res://Sprites/VFX/Energygreen16.png" id="20_pjh2l"]
+[ext_resource type="Texture2D" uid="uid://c0t6x1satas12" path="res://Sprites/STAGE/STICKCITY/SCAFFOLDING.png" id="21_025e7"]
+[ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="25_e0vgs"]
+[ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="25_npqjk"]
+[ext_resource type="PackedScene" uid="uid://cu7h7iaq4fl0p" path="res://OBJECT/Hazards/Hellstar.tscn" id="26_e0vgs"]
+[ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="27_uljnl"]
+[ext_resource type="PackedScene" uid="uid://b8x8oigqkfsbf" path="res://OBJECT/GENERAL/Camstopper.tscn" id="28_6m0s6"]
+[ext_resource type="PackedScene" uid="uid://cw85tfj2obtbr" path="res://OBJECT/GENERAL/Enemy/DemonOrb/DemonOrb.tscn" id="29_1d10w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryt6j"]
 atlas = ExtResource("2_6pfuq")
@@ -571,6 +577,15 @@ preprocess = 1.63
 fixed_fps = 59
 process_material = SubResource("ParticleProcessMaterial_pophd")
 
+[node name="StickhuskGun4" parent="Extra sprites" unique_id=1157533759 instance=ExtResource("20_g1d73")]
+position = Vector2(1725, 157)
+
+[node name="StickhuskGun5" parent="Extra sprites" unique_id=1596648944 instance=ExtResource("20_g1d73")]
+position = Vector2(1835, 155)
+
+[node name="StickhuskGun6" parent="Extra sprites" unique_id=1750797294 instance=ExtResource("20_g1d73")]
+position = Vector2(1614, 156)
+
 [node name="Splasharea" type="Area2D" parent="." unique_id=1702593450]
 unique_name_in_owner = true
 position = Vector2(2350, 211)
@@ -719,5 +734,142 @@ position = Vector2(-124, 0)
 texture = ExtResource("21_025e7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1316330835]
-stream = ExtResource("23_pophd")
 autoplay = true
+
+[node name="StickhuskSword" parent="." unique_id=539039351 instance=ExtResource("25_e0vgs")]
+position = Vector2(473, 174)
+
+[node name="StickhuskSword4" parent="." unique_id=1674982033 instance=ExtResource("25_e0vgs")]
+position = Vector2(735, 135)
+
+[node name="StickhuskSword5" parent="." unique_id=1238275149 instance=ExtResource("25_e0vgs")]
+position = Vector2(889, 48)
+
+[node name="StickhuskSword6" parent="." unique_id=130280164 instance=ExtResource("25_e0vgs")]
+position = Vector2(1376, 29)
+
+[node name="StickhuskSword2" parent="." unique_id=1076484445 instance=ExtResource("25_e0vgs")]
+position = Vector2(900, 164)
+
+[node name="StickhuskSword3" parent="." unique_id=702369033 instance=ExtResource("25_e0vgs")]
+position = Vector2(1034, 92)
+
+[node name="Gliob" parent="." unique_id=607066051 instance=ExtResource("25_npqjk")]
+position = Vector2(1947, 147)
+
+[node name="Gliob2" parent="." unique_id=449553448 instance=ExtResource("25_npqjk")]
+position = Vector2(1982, 121)
+
+[node name="Gliob3" parent="." unique_id=474702249 instance=ExtResource("25_npqjk")]
+position = Vector2(2026, 135)
+
+[node name="Gliob4" parent="." unique_id=1271712846 instance=ExtResource("25_npqjk")]
+position = Vector2(2048, 104)
+
+[node name="Gliob5" parent="." unique_id=591188355 instance=ExtResource("25_npqjk")]
+position = Vector2(2071, 125)
+
+[node name="Gliob6" parent="." unique_id=514115791 instance=ExtResource("25_npqjk")]
+position = Vector2(2100, 133)
+
+[node name="Gliob7" parent="." unique_id=488314140 instance=ExtResource("25_npqjk")]
+position = Vector2(2122, 113)
+
+[node name="Hellstar4" parent="." unique_id=1128315010 instance=ExtResource("26_e0vgs")]
+position = Vector2(3333, 43)
+
+[node name="Hellstar5" parent="." unique_id=680970338 instance=ExtResource("26_e0vgs")]
+position = Vector2(3492, 112)
+
+[node name="Hellstar6" parent="." unique_id=1510150023 instance=ExtResource("26_e0vgs")]
+position = Vector2(3610, 40)
+
+[node name="Hellstar7" parent="." unique_id=1878739225 instance=ExtResource("26_e0vgs")]
+position = Vector2(3769, 106)
+
+[node name="Piece" parent="." unique_id=375776827 instance=ExtResource("27_uljnl")]
+position = Vector2(200, 169)
+
+[node name="Piece2" parent="." unique_id=497731923 instance=ExtResource("27_uljnl")]
+position = Vector2(241, 170)
+
+[node name="Piece3" parent="." unique_id=567361359 instance=ExtResource("27_uljnl")]
+position = Vector2(282, 169)
+
+[node name="Piece4" parent="." unique_id=1576383965 instance=ExtResource("27_uljnl")]
+position = Vector2(1127, 64)
+
+[node name="Piece5" parent="." unique_id=1682733728 instance=ExtResource("27_uljnl")]
+position = Vector2(1158, 65)
+
+[node name="Piece6" parent="." unique_id=661838513 instance=ExtResource("27_uljnl")]
+position = Vector2(1083, 161)
+
+[node name="Piece7" parent="." unique_id=1357589445 instance=ExtResource("27_uljnl")]
+position = Vector2(1117, 163)
+
+[node name="Piece8" parent="." unique_id=1314424214 instance=ExtResource("27_uljnl")]
+position = Vector2(1155, 162)
+
+[node name="Piece9" parent="." unique_id=171710146 instance=ExtResource("27_uljnl")]
+position = Vector2(1424, 94)
+
+[node name="Piece10" parent="." unique_id=2144538581 instance=ExtResource("27_uljnl")]
+position = Vector2(1502, 46)
+
+[node name="Piece11" parent="." unique_id=2110416082 instance=ExtResource("27_uljnl")]
+position = Vector2(1540, 46)
+
+[node name="Piece12" parent="." unique_id=1652998403 instance=ExtResource("27_uljnl")]
+position = Vector2(2279, 176)
+
+[node name="Piece13" parent="." unique_id=509224768 instance=ExtResource("27_uljnl")]
+position = Vector2(2299, 150)
+
+[node name="Piece14" parent="." unique_id=300945259 instance=ExtResource("27_uljnl")]
+position = Vector2(2324, 128)
+
+[node name="Piece15" parent="." unique_id=792347739 instance=ExtResource("27_uljnl")]
+position = Vector2(2354, 116)
+
+[node name="Piece16" parent="." unique_id=826646855 instance=ExtResource("27_uljnl")]
+position = Vector2(2384, 128)
+
+[node name="Piece17" parent="." unique_id=678138248 instance=ExtResource("27_uljnl")]
+position = Vector2(2412, 150)
+
+[node name="Piece18" parent="." unique_id=120116545 instance=ExtResource("27_uljnl")]
+position = Vector2(2437, 175)
+
+[node name="Piece19" parent="." unique_id=886110156 instance=ExtResource("27_uljnl")]
+position = Vector2(3223, 166)
+
+[node name="Piece20" parent="." unique_id=1356897382 instance=ExtResource("27_uljnl")]
+position = Vector2(3257, 165)
+
+[node name="Piece21" parent="." unique_id=1764478547 instance=ExtResource("27_uljnl")]
+position = Vector2(3287, 165)
+
+[node name="Piece22" parent="." unique_id=604444943 instance=ExtResource("27_uljnl")]
+position = Vector2(3581, 165)
+
+[node name="Piece23" parent="." unique_id=1065435651 instance=ExtResource("27_uljnl")]
+position = Vector2(3617, 165)
+
+[node name="Piece24" parent="." unique_id=1030682935 instance=ExtResource("27_uljnl")]
+position = Vector2(3651, 165)
+
+[node name="Piece25" parent="." unique_id=621592206 instance=ExtResource("27_uljnl")]
+position = Vector2(3900, 68)
+
+[node name="Piece26" parent="." unique_id=1900620893 instance=ExtResource("27_uljnl")]
+position = Vector2(3931, 88)
+
+[node name="Piece27" parent="." unique_id=1509028149 instance=ExtResource("27_uljnl")]
+position = Vector2(3964, 112)
+
+[node name="Camstopper" parent="." unique_id=690083097 instance=ExtResource("28_6m0s6")]
+position = Vector2(2628, -13)
+
+[node name="DemonOrb" parent="." unique_id=1817796248 instance=ExtResource("29_1d10w")]
+position = Vector2(2437, -6)

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c44c8yipwlhap"]
+
+[ext_resource type="Script" uid="uid://8hpqwru8lvre" path="res://OBJECT/Projectiles/Enemy/ENPJ.gd" id="1_xrov4"]
+[ext_resource type="Texture2D" uid="uid://bxbfoabt3t13f" path="res://Sprites/Projectiles/Pellet.png" id="2_8al50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbhrt"]
+atlas = ExtResource("2_8al50")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g6jy"]
+atlas = ExtResource("2_8al50")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0vug"]
+atlas = ExtResource("2_8al50")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0yyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbhrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g6jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0vug")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epu8s"]
+size = Vector2(16, 15)
+
+[node name="Pellet" type="Area2D" unique_id=1911026051 groups=["En_Attack"]]
+z_index = 8
+script = ExtResource("1_xrov4")
+lifetime = 120
+speed = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]
+sprite_frames = SubResource("SpriteFrames_i0yyw")
+autoplay = "default"
+frame_progress = 0.5924169
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925499707]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_epu8s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

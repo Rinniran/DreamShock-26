@@ -27,12 +27,15 @@ var score = 0
 var player1 = null
 var player2 = null
 
+var pieces = 0
+
 var camera = null
 
 func _physics_process(delta: float) -> void:
-	if get_tree().get_node_count() > 100:
-		Engine.time_scale = .6
-		ProjectSettings.set_setting("physics_ticks_per_second", 48)
-	else:
-		Engine.time_scale = 0.918
-		ProjectSettings.set_setting("physics_ticks_per_second", 59.18)
+	#if get_tree().get_node_count() > 100:
+		#Engine.time_scale = .6
+		#ProjectSettings.set_setting("physics_ticks_per_second", 48)
+	#else:
+		#Engine.time_scale = 0.918
+		#ProjectSettings.set_setting("physics_ticks_per_second", 59.18)
+	pass

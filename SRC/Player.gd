@@ -21,16 +21,26 @@ var IN_CUTSCENE = false
 @export var character = player.RIAN
 
 @onready var sprite = $Sprite
-@onready var anim = $Sprite/Animation
 @onready var state = $StateMachine
 @onready var splash = $Watersplash
 @onready var col = $CollisionShape2D
+@onready var hurb = $hurtbox
+@onready var blood = $BloodPlayer
 
 func _ready() -> void:
+	Global.player1 = self
 	state.initialize()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	if state.state_name != "Damage" && state.state_name != "Die":
+		blood.emitting = false
+		
+	for hazards in hurb.get_overlapping_areas():
+		if state.state_name != "Damage" && state.state_name != "Die" && state.state_name != "DashAttack":
+			if hazards.is_in_group("Enemy") || hazards.is_in_group("En_Attack"):
+				damageHandle(1)
+	
 	if is_on_floor():
 		dashes = 2
 	if IN_CUTSCENE == false:
@@ -42,8 +52,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction && CAN_MOVE:
-		testnum = testnum << 2
-		print_debug(testnum)
+		
 		velocity.x = direction * SPEED * delta
 		if direction < 0:
 			sprite.flip_h = true
@@ -55,3 +64,7 @@ func _physics_process(delta: float) -> void:
 	if CAMERA != null:
 		position.x = clamp(position.x,CAMERA.position.x - 150, CAMERA.position.x + 150)
 	move_and_slide()
+
+func damageHandle(damage):
+	Global.p1health -= damage
+	state.change_state("Damage")

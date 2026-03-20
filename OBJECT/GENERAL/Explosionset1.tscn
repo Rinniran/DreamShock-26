@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnwvme2apmrnt"]
+[gd_scene format=3 uid="uid://bnwvme2apmrnt"]
 
-[ext_resource type="Texture2D" uid="uid://caw1e88utwhp0" path="res://SPRITE/VFX/explosion1.png" id="1_ulrfj"]
+[ext_resource type="Texture2D" uid="uid://caw1e88utwhp0" path="res://Sprites/VFX/explosion1.png" id="1_ulrfj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_swc8e"]
 particles_animation = true
@@ -21,9 +21,7 @@ anim_speed_max = 0.87
 
 [node name="Explosionset1" type="GPUParticles2D" unique_id=1707340589]
 material = SubResource("CanvasItemMaterial_swc8e")
-emitting = false
 texture = ExtResource("1_ulrfj")
-preprocess = 1.31
 fixed_fps = 59
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_kej43")

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bywa25c8iq3jf"]
+
+[ext_resource type="Script" uid="uid://bmbjnos57p6ai" path="res://OBJECT/Projectiles/Player/PLPJ.gd" id="1_xjb3k"]
+[ext_resource type="Texture2D" uid="uid://budikfs4hrapu" path="res://Sprites/Players/Rian/ScarfATKFinal.png" id="2_88n16"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7fcy"]
+atlas = ExtResource("2_88n16")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl1h4"]
+atlas = ExtResource("2_88n16")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbkit"]
+atlas = ExtResource("2_88n16")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7agwk"]
+atlas = ExtResource("2_88n16")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxjoy"]
+atlas = ExtResource("2_88n16")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8fqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7fcy")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl1h4")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbkit")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7agwk")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxjoy")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7agwk")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbkit")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl1h4")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epu8s"]
+size = Vector2(51, 34)
+
+[node name="PrRiSubA" type="Area2D" unique_id=1911026051 groups=["Pl_Attack"]]
+script = ExtResource("1_xjb3k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]
+sprite_frames = SubResource("SpriteFrames_i8fqn")
+autoplay = "default"
+frame_progress = 0.90567666
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925499707]
+position = Vector2(-1.5, 5)
+shape = SubResource("RectangleShape2D_epu8s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

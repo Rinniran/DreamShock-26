@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://djfrl5kpvrlu4"]
+[gd_scene format=3 uid="uid://djfrl5kpvrlu4"]
 
-[ext_resource type="Texture2D" uid="uid://c574sd6d4fjf2" path="res://SPRITE/VFX/Debris Wood.png" id="1_3kqp6"]
+[ext_resource type="Texture2D" uid="uid://c574sd6d4fjf2" path="res://Sprites/VFX/Debris Wood.png" id="1_3kqp6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fexwx"]
 particles_animation = true

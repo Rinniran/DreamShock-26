@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://2admungtnrbx"]
+
+[ext_resource type="Texture2D" uid="uid://cr1fwqfviqv8i" path="res://Sprites/VFX/BloodPlayer.png" id="1_eudea"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oi2ro"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wp2ek"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 307.69
+gravity = Vector3(0, 98, 0)
+scale_min = 0.049999997
+scale_max = 0.5
+anim_speed_min = 2.46
+anim_speed_max = 2.46
+
+[node name="BloodPlayer" type="GPUParticles2D" unique_id=1707340589]
+material = SubResource("CanvasItemMaterial_oi2ro")
+amount = 97
+texture = ExtResource("1_eudea")
+explosiveness = 0.41
+fixed_fps = 59
+interpolate = false
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_wp2ek")

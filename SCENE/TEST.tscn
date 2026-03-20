@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://b0awmcj2wus6b"]
+[gd_scene format=4 uid="uid://b0awmcj2wus6b"]
 
-[ext_resource type="Texture2D" uid="uid://cjklgq8c2squq" path="res://SPRITE/BG/basic.png" id="1_c0mkr"]
+[ext_resource type="Texture2D" uid="uid://cjklgq8c2squq" path="res://Sprites/BG/basic.png" id="1_c0mkr"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_jq2om"]
-[ext_resource type="Texture2D" uid="uid://bycinyn4a70oi" path="res://SPRITE/TILE/OutsideChunksA.png" id="3_kmcby"]
-[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://SPRITE/FONT/kromagrad_16x16.fnt" id="4_kr8j7"]
+[ext_resource type="Texture2D" uid="uid://bycinyn4a70oi" path="res://Sprites/TILE/OutsideChunksA.png" id="3_kmcby"]
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="4_kr8j7"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="5_kr8j7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kl05"]

@@ -5,7 +5,7 @@ func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
-	root.anim.play("RianRun")
+	root.sprite.play("jump")
 	root.velocity.y = root.JUMP_VELOCITY
 
 
@@ -27,12 +27,12 @@ func _step():
 	if Input.is_action_just_pressed("PAD1_A"):
 		# if root.position.distance_to(Enemy.position) < 5:
 		#parent.change_state("throw")
-		if Input.is_action_just_pressed("PAD1_UP"):
-			parent.change_state("Attackup_g")
-		elif Input.is_action_just_pressed("PAD1_DOWN"):
-			parent.change_state("Attackdown_g")
-		else:
-			parent.change_state("Attackstraight_g")
+		#if Input.is_action_just_pressed("PAD1_UP"):
+			#parent.change_state("Attackup_g")
+		#elif Input.is_action_just_pressed("PAD1_DOWN"):
+			#parent.change_state("Attackdown_g")
+		#else:
+		parent.change_state("Attack1")
 	
 	if Input.is_action_just_pressed("PAD1_C") && root.dashes > 0:
 		parent.change_state("Dash")

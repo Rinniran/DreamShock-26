@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://egep0w5jwe6y"]
+[gd_scene format=3 uid="uid://egep0w5jwe6y"]
 
-[ext_resource type="Texture2D" uid="uid://b5xll4mtgkwqi" path="res://SPRITE/VFX/Debris Metal.png" id="1_14tu7"]
+[ext_resource type="Texture2D" uid="uid://b5xll4mtgkwqi" path="res://Sprites/VFX/Debris Metal.png" id="1_14tu7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fexwx"]
 particles_animation = true

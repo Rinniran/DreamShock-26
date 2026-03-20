@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cu7h7iaq4fl0p"]
+
+[ext_resource type="Script" uid="uid://dwli2nbg3b2mr" path="res://OBJECT/Hazards/hellstar.gd" id="1_5tsas"]
+[ext_resource type="Texture2D" uid="uid://dms0sou33xb30" path="res://Sprites/Hazards/HellBlade.png" id="2_pa6nb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_difry"]
+atlas = ExtResource("2_pa6nb")
+region = Rect2(0, 0, 115, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x62bt"]
+atlas = ExtResource("2_pa6nb")
+region = Rect2(115, 0, 115, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5b32"]
+atlas = ExtResource("2_pa6nb")
+region = Rect2(230, 0, 115, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc2ra"]
+atlas = ExtResource("2_pa6nb")
+region = Rect2(345, 0, 115, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naul2"]
+atlas = ExtResource("2_pa6nb")
+region = Rect2(460, 0, 115, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu8io"]
+atlas = ExtResource("2_pa6nb")
+region = Rect2(575, 0, 115, 116)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktoaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_difry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x62bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5b32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc2ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naul2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu8io")
+}],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6jvw"]
+size = Vector2(20, 66)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28cpu"]
+radius = 59.008472
+
+[node name="Hellstar" type="CharacterBody2D" unique_id=1363026494]
+collision_layer = 0
+script = ExtResource("1_5tsas")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=907504809]
+sprite_frames = SubResource("SpriteFrames_ktoaj")
+autoplay = "default"
+frame_progress = 0.94683564
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1619867522]
+position = Vector2(0, 23)
+shape = SubResource("RectangleShape2D_b6jvw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=658394758 groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=523223153]
+shape = SubResource("CircleShape2D_28cpu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1414774214]
+rect = Rect2(-59, -58, 118, 117)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
