@@ -1,7 +1,10 @@
 extends BaseState
 
+@onready var snd = $Shot
+
 func _enter(data = {}):
 	super()
+	root.anim_can_resume_after_hitstop = false
 	root.anim.play("Attack")
 	root.velocity.x = 0
 	
@@ -18,6 +21,7 @@ func _step():
 		else:
 			pj.direction.x = 1
 			pj.position.x = root.position.x + 48
+		snd.play()
 		get_parent().add_child(pj)
 	
 	if parent.state_time > 50:

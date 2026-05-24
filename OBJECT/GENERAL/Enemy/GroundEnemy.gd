@@ -1,28 +1,52 @@
 extends CharacterBody2D
+@export var hitstopnull = false
+@export var hurtstop = 2
+@export var can_flinch = false
 @export var hp:float = 4
-@export var speed = 165
-@export var unlocks_screen = false
-var gravity = 25
-@export var gravity_enabled = true
+@export var speed: int = 165
+@export var unlocks_screen: bool = false
+var gravity: int = 25
+@export var gravity_enabled: bool = true
 @export var extanim:AnimationPlayer
-@export var has_damage_state = true
+@export var has_damage_state: bool = true
+@export var dropped_item:PackedScene
+@export var deathsound:AudioStreamPlayer
+@export var hurtsound:AudioStreamPlayer
+@export var impact_flash:CanvasLayer
+@export var anim_can_resume_after_hitstop = true
 
 
-@onready var state = $StateMachine
-@onready var sprite = $Sprite2D
-@onready var anim = $Sprite2D/AnimationPlayer
-@onready var gdl = $Gapdetectleft
-@onready var gdr = $Gapdetectright
-@onready var col = $Hurtbox/CollisionShape2D
+@onready var state:Node = $StateMachine
+@onready var sprite:Sprite2D = $Sprite2D
+@onready var anim:AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var gdl:RayCast2D = $Gapdetectleft
+@onready var gdr:RayCast2D = $Gapdetectright
+@onready var col:CollisionShape2D = $Hurtbox/CollisionShape2D
 
 func _ready() -> void:
 	state.initialize()
+	
 
 func _physics_process(delta: float) -> void:
 	if gravity_enabled:
 		velocity.y += gravity
-	state.advance()
-	move_and_slide()
+	
+	
+	if !Global.hitstop:
+		move_and_slide()
+		
+		state.advance()
+		if !anim.is_playing() && anim_can_resume_after_hitstop:
+			anim.play()
+		if extanim != null:
+			if !extanim.is_playing() && (!anim.animation_finished || anim_can_resume_after_hitstop):
+				extanim.play()
+	else:
+		if hitstopnull:
+			state.advance()
+		velocity.x = 0
+		velocity.y = 0
+		anim.pause()
 	if !$VisibleOnScreenNotifier2D.is_on_screen():
 		set_physics_process(false)
 	
@@ -30,6 +54,11 @@ func _physics_process(delta: float) -> void:
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	set_physics_process(false)
 
+func drop_item():
+	if dropped_item != null:
+		var item = dropped_item.instantiate()
+		item.global_position = global_position
+		get_parent().add_child(item)
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	set_physics_process(true)
@@ -38,10 +67,23 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Pl_Attack"):
 		hp -= area.damage
+		if hurtsound != null:
+			hurtsound.stop()
+			hurtsound.play()
+		
+		Global.chaintime = Global.chaintimereset
+		Global.chain += 1
+		Global.score += 100 * (Global.chain)
 		if hp <= 0:
 			if unlocks_screen:
 				Global.camera.locked = false
 			state.change_state("Die")
 		else:
-			if has_damage_state == true:
-				state.change_state("Damage")
+			if area.is_in_group("Heavy"):
+				if has_damage_state == true:
+					if can_flinch:
+						anim.stop()
+						anim.play()
+					#Global.hitstopframes = hurtstop
+					#Global.hitstop = true
+					state.change_state("Damage")

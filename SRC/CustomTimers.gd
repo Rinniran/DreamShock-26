@@ -2,9 +2,9 @@ extends Node
 class_name CustomTimers
 
 var timers = {}
-var freeze = false
-var timer_id = 0
-var manual_advance = false
+var freeze: bool = false
+var timer_id: int = 0
+var manual_advance: bool = false
 
 
 func _ready():

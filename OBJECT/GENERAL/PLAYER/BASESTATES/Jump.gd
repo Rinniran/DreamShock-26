@@ -5,6 +5,7 @@ func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
+	root.anim_can_resume_after_hitstop = false
 	root.sprite.play("jump")
 	root.velocity.y = root.JUMP_VELOCITY
 

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cjdidtrm5d4dy"]
+
+[ext_resource type="Texture2D" uid="uid://7hfotgapgcfy" path="res://Sprites/TITLE.png" id="1_aus35"]
+[ext_resource type="Script" uid="uid://dcjp1gpapgx07" path="res://SCENE/title.gd" id="1_wphqg"]
+[ext_resource type="PackedScene" uid="uid://b8bifb5oo7aap" path="res://SCENE/StickCity/Streets.tscn" id="2_1c8io"]
+[ext_resource type="FontFile" uid="uid://drhw2csgehm8s" path="res://SPRITE/FONT/Abnerverse 2.1.ttf" id="2_g1tle"]
+[ext_resource type="Script" uid="uid://cmembxeokf3w4" path="res://SCENE/blinkobject.gd" id="3_wphqg"]
+[ext_resource type="AudioStream" uid="uid://qbdvvxfieelg" path="res://AUDIO/BGM/Intro.wav" id="4_g1tle"]
+
+[node name="Title" type="Node2D" unique_id=1745316778]
+script = ExtResource("1_wphqg")
+next_scene = ExtResource("2_1c8io")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1561528403]
+texture = ExtResource("1_aus35")
+centered = false
+
+[node name="Credit" type="Label" parent="Title" unique_id=1336968398]
+offset_top = 217.0
+offset_right = 320.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_g1tle")
+theme_override_font_sizes/font_size = 8
+text = "developed by chronicle, 2026
+characters by hertzblush, story by scouteregg"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pressstart" type="Label" parent="Title" unique_id=913999655]
+offset_top = 161.0
+offset_right = 320.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_g1tle")
+theme_override_font_sizes/font_size = 8
+text = "press start"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_wphqg")
+ticks_to_count = 60
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=645835913]
+stream = ExtResource("4_g1tle")
+volume_db = -20.989
+autoplay = true

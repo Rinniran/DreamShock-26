@@ -9,12 +9,14 @@ var MSPEED = 360
 
 func _enter(data = {}):
 	super._enter(data)
+	root.anim_can_resume_after_hitstop = true
 	if not root.is_on_floor():
 		root.dashes -= 1
 	root.sprite.play("dash")
 	root.GRAV_ENABLED = false
 	root.CAN_MOVE = false
 	root.velocity.y = 0
+	
 
 
 func _step():
@@ -25,13 +27,17 @@ func _step():
 	var Kright = Input.is_action_pressed("PAD1_RIGHT")
 	var rspr = root.sprite
 	
+	if parent.state_time > 18:
+		root.hurbcol.disabled = false
+	else:
+		root.hurbcol.disabled = true
 	
 	if Kleft and Kup :
 		rspr.flip_h = true
 		root.velocity.x = -MSPEED
 		root.velocity.y = -MSPEED
 		rspr.play("ADUpDiag")
-	elif Kleft and Kdown:
+	elif Kleft and Kdown and !root.is_on_floor():
 		rspr.flip_h = true
 		root.velocity.x = -MSPEED
 		root.velocity.y = MSPEED
@@ -55,7 +61,7 @@ func _step():
 		root.velocity.x = MSPEED
 		root.velocity.y = -MSPEED
 		
-	elif Kright and Kdown:
+	elif Kright and Kdown and !root.is_on_floor():
 		rspr.flip_h = false
 		root.velocity.x = MSPEED
 		if root.is_on_floor():
@@ -75,7 +81,7 @@ func _step():
 	elif Kup:
 		root.velocity.y = -MSPEED
 		rspr.play("ADUp")
-	elif Kdown:
+	elif Kdown and !root.is_on_floor():
 		root.velocity.y = MSPEED
 		rspr.play("ADDown")
 	else:
@@ -96,12 +102,16 @@ func _step():
 		get_parent().add_child(aft)
 		aftimagetimer = 2
 	if Input.is_action_just_pressed("PAD1_A"):
+		root.hurbcol.disabled = false
 		parent.change_state("DashAttack")
 	if Input.is_action_just_released("PAD1_C"):
+		root.hurbcol.disabled = false
 		parent.change_state("Idle")
 	if (Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0) && root.is_on_floor():
+		root.hurbcol.disabled = false
 		parent.change_state("Jump")
 	if parent.state_time >= 25:
+		root.hurbcol.disabled = false
 		if root.is_on_floor():
 			parent.change_state("Idle")
 		else:

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b0xvsdaqcwbgi"]
+
+[ext_resource type="Script" uid="uid://cpybshj0uib15" path="res://OBJECT/GENERAL/PLAYER/SHMUPPLAYER.gd" id="1_kqnfr"]
+[ext_resource type="Texture2D" uid="uid://bukwog83hutsr" path="res://SPRITE/PLAYER/RianShmupIdle.png" id="2_gq0ay"]
+[ext_resource type="PackedScene" uid="uid://whfbq3i07okj" path="res://OBJECT/Shmup/Buddy.tscn" id="3_gq0ay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb2x4"]
+size = Vector2(3, 3)
+
+[node name="RianShmup" type="CharacterBody2D" unique_id=578941716]
+script = ExtResource("1_kqnfr")
+
+[node name="RianShmupIdle" type="Sprite2D" parent="." unique_id=1746287850]
+texture = ExtResource("2_gq0ay")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=140266292]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1340435148]
+position = Vector2(-0.5, 4.5)
+shape = SubResource("RectangleShape2D_gb2x4")
+
+[node name="Floof" parent="." unique_id=216628062 instance=ExtResource("3_gq0ay")]
+position = Vector2(-3, 37)
+
+[node name="Floof2" parent="." unique_id=1854740802 instance=ExtResource("3_gq0ay")]
+position = Vector2(23, 19)
+
+[node name="Floof3" parent="." unique_id=376298457 instance=ExtResource("3_gq0ay")]
+position = Vector2(23, -23)
+
+[node name="Floof4" parent="." unique_id=297858021 instance=ExtResource("3_gq0ay")]
+position = Vector2(2, -43)

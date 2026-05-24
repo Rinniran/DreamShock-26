@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdnb1n6v64d5p"]
+[gd_scene format=3 uid="uid://cdnb1n6v64d5p"]
 
 [ext_resource type="Script" uid="uid://7t2b5so7adtm" path="res://OBJECT/GENERAL/CAMERA/camera.gd" id="1_foxfk"]
 

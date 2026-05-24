@@ -11,11 +11,12 @@ func _enter(data = {}):
 	super._enter(data)
 	if not root.is_on_floor():
 		root.dashes -= 1
+	root.anim_can_resume_after_hitstop = true
 	root.sprite.play("attackair")
 	root.GRAV_ENABLED = false
 	root.CAN_MOVE = false
 	root.velocity.y = 0
-	var pj = preload("res://OBJECT/Hitboxes/Player/Rian/HB_DshAtk.tscn").instantiate()
+	var pj = preload("uid://dmhq1stc35g8v").instantiate()
 	pj.position = root.position
 	pj.own = root
 	get_parent().add_child(pj)

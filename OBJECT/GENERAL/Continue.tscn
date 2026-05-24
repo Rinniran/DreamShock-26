@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c102movvnxm0t"]
+
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://SPRITE/FONT/Score.fnt" id="1_2ypil"]
+
+[node name="Continue" type="CanvasLayer" unique_id=49813649]
+
+[node name="continue" type="Label" parent="." unique_id=1024612390]
+offset_left = 21.0
+offset_top = 73.0
+offset_right = 309.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("1_2ypil")
+theme_override_font_sizes/font_size = 27
+text = "continue?"
+
+[node name="continue2" type="Label" parent="." unique_id=1230715151]
+offset_left = 12.0
+offset_top = 119.0
+offset_right = 309.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("1_2ypil")
+theme_override_font_sizes/font_size = 27
+text = "9"
+horizontal_alignment = 1

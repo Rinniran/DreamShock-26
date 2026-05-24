@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://p1lwjfvqjd4q"]
+
+[ext_resource type="Script" uid="uid://d25c5c2kd2ant" path="res://OBJECT/GENERAL/timeout.gd" id="1_1ibkg"]
+[ext_resource type="Texture2D" uid="uid://bo4mhrvtlh8kq" path="res://SPRITE/UI/TIME OVER.png" id="2_ms6lb"]
+
+[sub_resource type="Animation" id="Animation_2c3a7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_32gyw"]
+resource_name = "doit"
+length = 3.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 3.0666666, 3.4333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4h0q"]
+_data = {
+&"RESET": SubResource("Animation_2c3a7"),
+&"doit": SubResource("Animation_32gyw")
+}
+
+[node name="Timeout" type="CanvasLayer" unique_id=828501576]
+script = ExtResource("1_1ibkg")
+
+[node name="TimeOver" type="Sprite2D" parent="." unique_id=1345347949]
+position = Vector2(160, 93)
+scale = Vector2(1, 1e-05)
+texture = ExtResource("2_ms6lb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TimeOver" unique_id=774691549]
+libraries/ = SubResource("AnimationLibrary_x4h0q")
+autoplay = &"doit"

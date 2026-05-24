@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="20_g1d73"]
 [ext_resource type="Texture2D" uid="uid://dmqeti7tn78uy" path="res://Sprites/VFX/Energygreen16.png" id="20_pjh2l"]
 [ext_resource type="Texture2D" uid="uid://c0t6x1satas12" path="res://Sprites/STAGE/STICKCITY/SCAFFOLDING.png" id="21_025e7"]
+[ext_resource type="AudioStream" uid="uid://cp8mu1an0a57v" path="res://AUDIO/BGM/STG01_A.mp3" id="24_1d10w"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="25_e0vgs"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="25_npqjk"]
 [ext_resource type="PackedScene" uid="uid://cu7h7iaq4fl0p" path="res://OBJECT/Hazards/Hellstar.tscn" id="26_e0vgs"]
@@ -734,6 +735,7 @@ position = Vector2(-124, 0)
 texture = ExtResource("21_025e7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1316330835]
+stream = ExtResource("24_1d10w")
 autoplay = true
 
 [node name="StickhuskSword" parent="." unique_id=539039351 instance=ExtResource("25_e0vgs")]

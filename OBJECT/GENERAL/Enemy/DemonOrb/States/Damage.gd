@@ -1,8 +1,8 @@
 extends BaseState
 
 func _enter(data = {}):
-	parent.change_state(las
-	
+	#parent.change_state(las
+	pass
 	
 func _step():
 	super()

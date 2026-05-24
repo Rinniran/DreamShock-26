@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://s1dkdtggo50s"]
+
+[ext_resource type="Script" uid="uid://20iixyaaey1d" path="res://OBJECT/GENERAL/Enemy/explosion_streak.gd" id="1_ssedh"]
+[ext_resource type="Texture2D" uid="uid://o6l61x6uaxwr" path="res://SPRITE/VFX/ExplosionStreak.png" id="2_h4iac"]
+
+[node name="ExplosionStreak" type="Node2D" unique_id=91575692]
+script = ExtResource("1_ssedh")
+
+[node name="ExplosionStreak" type="Sprite2D" parent="." unique_id=763221360]
+z_index = 26
+texture = ExtResource("2_h4iac")
+offset = Vector2(1.55, -48.23)

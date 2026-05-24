@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://30mygoq6istp"]
+
+[ext_resource type="Texture2D" uid="uid://4bjkmsyxnql1" path="res://SPRITE/UI/TimeExtension.png" id="1_tfsvi"]
+[ext_resource type="AudioStream" uid="uid://bnqg7iwpbdrhf" path="res://AUDIO/SE/TimeExtension.mp3" id="2_gy0ek"]
+
+[sub_resource type="GDScript" id="GDScript_xrs26"]
+script/source = "extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	Global.time += 4
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_snd_finished() -> void:
+	queue_free()
+"
+
+[sub_resource type="Animation" id="Animation_cat2e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimeExtension:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cj8fq"]
+resource_name = "main"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimeExtension:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.8233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ukxl5"]
+_data = {
+&"RESET": SubResource("Animation_cat2e"),
+&"main": SubResource("Animation_cj8fq")
+}
+
+[node name="TimeExt" type="CanvasLayer" unique_id=254086587]
+script = SubResource("GDScript_xrs26")
+
+[node name="TimeExtension" type="Sprite2D" parent="." unique_id=583479381]
+position = Vector2(162, 110)
+texture = ExtResource("1_tfsvi")
+
+[node name="snd" type="AudioStreamPlayer" parent="." unique_id=1506221568]
+stream = ExtResource("2_gy0ek")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1312176214]
+libraries/ = SubResource("AnimationLibrary_ukxl5")
+autoplay = &"main"
+
+[connection signal="finished" from="snd" to="." method="_on_snd_finished"]

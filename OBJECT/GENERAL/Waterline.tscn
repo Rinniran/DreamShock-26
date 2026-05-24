@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://deh7qnxq2bkat"]
+
+[ext_resource type="Texture2D" uid="uid://bnrieiydyhvki" path="res://SPRITE/STAGE/STICKCITY/WaterLine.png" id="1_muegm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xguai"]
+atlas = ExtResource("1_muegm")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epxa1"]
+atlas = ExtResource("1_muegm")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xl7gc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xguai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epxa1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Waterline" type="AnimatedSprite2D" unique_id=1127223773]
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_xl7gc")
+autoplay = "default"
+frame_progress = 0.7553564

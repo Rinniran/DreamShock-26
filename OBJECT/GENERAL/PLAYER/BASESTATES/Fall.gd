@@ -6,6 +6,7 @@ var movechoice
 
 func _enter(data = {}):
 	super._enter(data)
+	root.anim_can_resume_after_hitstop = false
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
 	root.sprite.play("fall")
@@ -14,9 +15,11 @@ func _enter(data = {}):
 func _step():
 	super._step()
 	if root.velocity.y < 0:
-		root.sprite.play("jump")
+		if root.sprite.animation != "jump":
+			root.sprite.play("jump")
 	else:
-		root.sprite.play("fall")
+		if root.sprite.animation != "fall":
+			root.sprite.play("fall")
 	if root.is_on_floor():
 		if root.velocity.x != 0:
 			parent.change_state("Move")

@@ -21,8 +21,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	
-	position += direction * speed
+	if !Global.hitstop:
+		position += direction * speed
 	
 	if lifetime > 0:
 		lifetime -= 1

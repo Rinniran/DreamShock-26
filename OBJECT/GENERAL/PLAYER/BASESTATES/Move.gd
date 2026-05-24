@@ -8,6 +8,7 @@ func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
+	root.anim_can_resume_after_hitstop = true
 	if root.is_on_floor():
 			root.sprite.play("run")
 

@@ -2,9 +2,7 @@ extends BaseState
 
 func _enter(data = {}):
 	super()
-	root.anim.play("Idle")
-	root.velocity.x = 0
-	
+	root.anim_can_resume_after_hitstop = true
 func _step():
 	super()
 	if parent.state_time > 25:

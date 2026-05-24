@@ -2,6 +2,7 @@ extends BaseState
 
 func _enter(data = {}):
 	super()
+	root.anim_can_resume_after_hitstop = true
 	root.anim.play("Idle")
 	root.velocity.x = 0
 	

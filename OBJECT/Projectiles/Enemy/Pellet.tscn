@@ -39,7 +39,7 @@ size = Vector2(16, 15)
 z_index = 8
 script = ExtResource("1_xrov4")
 lifetime = 120
-speed = 3
+speed = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]
 sprite_frames = SubResource("SpriteFrames_i0yyw")

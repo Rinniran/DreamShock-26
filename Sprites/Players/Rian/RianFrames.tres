@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://r80t4efwyqoy" path="res://Sprites/Players/Rian/Rian_lookbehind.png" id="20_nqn2t"]
 [ext_resource type="Texture2D" uid="uid://cs5vv0vqhp5d2" path="res://Sprites/Players/Rian/Rian_Run_Final.png" id="21_t4bhh"]
 [ext_resource type="Texture2D" uid="uid://cuumie1foul11" path="res://Sprites/Players/Rian/Rian_Stop.png" id="22_2w44h"]
+[ext_resource type="Texture2D" uid="uid://bpydyjf3s3ht3" path="res://Sprites/Players/Rian/Rian_Damage.png" id="22_6xceg"]
 [ext_resource type="Texture2D" uid="uid://s4qs2voflkdu" path="res://Sprites/Players/Rian/Rian_Waveburst.png" id="23_2gasc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60j0b"]
@@ -684,6 +685,30 @@ region = Rect2(48, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2iv5"]
 atlas = ExtResource("20_nqn2t")
 region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw07t"]
+atlas = ExtResource("22_6xceg")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygdtg"]
+atlas = ExtResource("22_6xceg")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na0ec"]
+atlas = ExtResource("22_6xceg")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgd5e"]
+atlas = ExtResource("22_6xceg")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnexr"]
+atlas = ExtResource("22_6xceg")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts2pt"]
+atlas = ExtResource("22_6xceg")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hyqoc"]
 atlas = ExtResource("21_t4bhh")
@@ -1505,6 +1530,29 @@ animations = [{
 "loop": false,
 "name": &"lookback",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw07t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygdtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na0ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgd5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnexr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts2pt")
+}],
+"loop": false,
+"name": &"outoftime",
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,

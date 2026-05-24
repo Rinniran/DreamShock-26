@@ -57,13 +57,13 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=1112045618 groups=["Player"]]
 collision_layer = 0
 floor_constant_speed = true
-floor_snap_length = 5.0
+floor_snap_length = 12.0
 script = ExtResource("1_1u5cg")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=504892373]
 z_index = 3
 sprite_frames = ExtResource("9_nufnn")
-animation = &"attackair"
+animation = &"attackg_a"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934587294]
@@ -124,6 +124,15 @@ autoplay = &"main"
 z_index = 2
 emitting = false
 amount = 25
+
+[node name="Collect" type="Area2D" parent="." unique_id=801312799 groups=["Player"]]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collect" unique_id=519722010]
+position = Vector2(-0.5, 5.5)
+shape = SubResource("RectangleShape2D_m8pqb")
+debug_color = Color(0.7333331, 0, 1, 0.41960785)
 
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Idle" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Attack1" method="_on_sprite_animation_finished"]

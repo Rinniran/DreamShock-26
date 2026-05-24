@@ -74,12 +74,10 @@ hframes = 10
 vframes = 7
 
 [node name="ExplosionA" type="AnimationPlayer" parent="." unique_id=1914989770]
-libraries = {
-&"": SubResource("AnimationLibrary_cmlbf")
-}
+libraries/ = SubResource("AnimationLibrary_cmlbf")
 autoplay = &"Explode"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1918341948]
 stream = ExtResource("2_31nqb")
-volume_db = 4.16
+volume_db = -2.511
 pitch_scale = 2.68

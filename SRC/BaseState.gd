@@ -2,7 +2,7 @@
 class_name BaseState
 extends Node
 
-const tick_time = 0.016
+const tick_time: float = 0.016
 
 var root
 var parent: StateMachine

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://x5sjwrimtdmi"]
+
+[ext_resource type="Script" uid="uid://b50x4v6jglpln" path="res://addons/modplayer/ModPlayer.gd" id="1"]
+
+[node name="ModPlayer" type="Node" unique_id=224053713]
+script = ExtResource("1")

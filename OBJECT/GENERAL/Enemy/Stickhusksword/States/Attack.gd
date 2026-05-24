@@ -2,6 +2,7 @@ extends BaseState
 
 func _enter(data = {}):
 	root.anim.play("Move")
+	root.anim_can_resume_after_hitstop = true
 	if root.position.distance_to(Global.player1.position) > 80:
 		root.sprite.flip_h = !root.sprite.flip_h
 	else:

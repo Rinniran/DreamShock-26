@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://b4cohwcf5qglj" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/Damage.gd" id="8_al6q0"]
 [ext_resource type="Script" uid="uid://ceav17rd4dlg3" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/Attack.gd" id="9_tabdg"]
 [ext_resource type="Script" uid="uid://bgw81u0vyohey" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/Die.gd" id="10_toqg6"]
+[ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="12_n1so1"]
+[ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="13_5q3op"]
+[ext_resource type="AudioStream" uid="uid://8tnq6ok8uy62" path="res://AUDIO/SE/explosion.wav" id="14_gmpe2"]
 
 [sub_resource type="Animation" id="Animation_e3nyc"]
 resource_name = "Attack"
@@ -170,6 +173,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Explosion:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_8wqly"]
 resource_name = "Idle"
@@ -276,6 +291,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [32, 33, 34, 35, 36, 37]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AttackBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_i1cpl"]
 length = 0.001
@@ -363,6 +390,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Explosion:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kklak"]
 _data = {
@@ -383,13 +422,18 @@ size = Vector2(20, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47olj"]
 size = Vector2(91, 37)
 
-[node name="StickhuskSword" type="CharacterBody2D" unique_id=1817796248]
+[node name="StickhuskSword" type="CharacterBody2D" unique_id=1817796248 node_paths=PackedStringArray("deathsound", "hurtsound")]
 z_index = 1
 collision_layer = 0
 floor_constant_speed = true
 floor_max_angle = 1.0960667
 floor_snap_length = 11.8
 script = ExtResource("1_8k7kb")
+hurtstop = 3
+can_flinch = true
+speed = 120
+deathsound = NodePath("DeathImpact")
+hurtsound = NodePath("Hurt")
 
 [node name="BloodHusk" parent="." unique_id=1707340589 instance=ExtResource("2_al6q0")]
 z_index = 1
@@ -461,6 +505,19 @@ target_position = Vector2(0, 23)
 [node name="Gapdetectright" type="RayCast2D" parent="." unique_id=579960719]
 position = Vector2(11, 6)
 target_position = Vector2(0, 23)
+
+[node name="Hurt" type="AudioStreamPlayer" parent="." unique_id=670223138]
+stream = ExtResource("12_n1so1")
+volume_db = -18.316
+
+[node name="DeathImpact" type="AudioStreamPlayer" parent="." unique_id=1925964863]
+stream = ExtResource("13_5q3op")
+volume_db = -12.842
+
+[node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1122047780]
+stream = ExtResource("14_gmpe2")
+volume_db = -5.272
+pitch_scale = 2.68
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

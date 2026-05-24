@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ci6gc8yf3f1im"]
+
+[ext_resource type="Script" uid="uid://di6ujari0rt7j" path="res://OBJECT/GENERAL/next_stage_trigger.gd" id="1_wbg83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s10o3"]
+size = Vector2(72, 568)
+
+[node name="NextStageTrigger" type="Area2D" unique_id=68347106]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_wbg83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2127651265]
+position = Vector2(1, 62)
+shape = SubResource("RectangleShape2D_s10o3")
+debug_color = Color(0.7, 0, 0.4083331, 0.41960785)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xur1"]
 size = Vector2(61, 61)
 
-[node name="HbDshAtk" type="Area2D" unique_id=92751368 groups=["Pl_Attack"]]
+[node name="HbDshAtk" type="Area2D" unique_id=92751368 groups=["Heavy", "Pl_Attack"]]
 script = ExtResource("1_q8ko6")
 damage = 2
 lifetime = 25

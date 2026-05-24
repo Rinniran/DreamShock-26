@@ -1,6 +1,7 @@
 extends BaseState
 
 func _enter(data = {}):
+	root.anim_can_resume_after_hitstop = false
 	if Global.player1.position.x < root.position.x:
 		root.sprite.flip_h = false
 	else:

@@ -6,6 +6,7 @@ func _enter(data = {}):
 	root.CAN_MOVE = false
 	root.GRAV_ENABLED = true
 	root.blood.emitting = true
+	root.anim_can_resume_after_hitstop = true
 	root.sprite.play("damage")
 	root.velocity.y = 0
 	root.velocity.y -= 300

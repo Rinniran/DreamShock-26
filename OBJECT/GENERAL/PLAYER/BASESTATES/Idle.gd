@@ -6,6 +6,7 @@ var movechoice
 
 func _enter(data = {}):
 	super._enter(data)
+	root.anim_can_resume_after_hitstop = true
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
 	root.sprite.play("idle")

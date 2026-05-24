@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dxv434isnc224" path="res://OBJECT/GENERAL/Enemy/DemonOrb/States/Die.gd" id="7_alte7"]
 [ext_resource type="Script" uid="uid://d1k42k44l4nge" path="res://OBJECT/GENERAL/Enemy/DemonOrb/States/Phase2.gd" id="7_pc5cf"]
 [ext_resource type="PackedScene" uid="uid://bnwvme2apmrnt" path="res://OBJECT/GENERAL/Explosionset1.tscn" id="8_8lh26"]
+[ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="10_k4474"]
+[ext_resource type="AudioStream" uid="uid://5gxtvlt82ww3" path="res://AUDIO/SE/CRIT.wav" id="10_pc5cf"]
 
 [sub_resource type="Animation" id="Animation_e3nyc"]
 resource_name = "Attack"
@@ -464,20 +466,24 @@ _data = {
 
 [node name="Node2D" type="Node2D" unique_id=2067682784]
 
-[node name="DemonOrb" type="CharacterBody2D" parent="." unique_id=1817796248 node_paths=PackedStringArray("extanim")]
-z_index = 1
+[node name="DemonOrb" type="CharacterBody2D" parent="." unique_id=1817796248 node_paths=PackedStringArray("extanim", "deathsound", "hurtsound", "impact_flash")]
+z_index = -6
 position = Vector2(290, 167)
 collision_layer = 0
 floor_constant_speed = true
 floor_max_angle = 1.0960667
 floor_snap_length = 11.1
 script = ExtResource("1_uk5q7")
+hitstopnull = true
 hp = 20.0
 speed = 60
 unlocks_screen = true
 gravity_enabled = false
 extanim = NodePath("AnimationPlayer")
 has_damage_state = false
+deathsound = NodePath("../bighit")
+hurtsound = NodePath("Hurt")
+impact_flash = NodePath("CanvasLayer")
 
 [node name="BloodHusk" parent="DemonOrb" unique_id=1707340589 instance=ExtResource("2_v88x5")]
 z_index = 1
@@ -488,7 +494,6 @@ position = Vector2(1, 8)
 texture = ExtResource("3_ylihn")
 flip_h = true
 hframes = 18
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DemonOrb/Sprite2D" unique_id=637600276]
 libraries/ = SubResource("AnimationLibrary_kklak")
@@ -548,6 +553,23 @@ emitting = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DemonOrb" unique_id=812095152]
 libraries/ = SubResource("AnimationLibrary_k4474")
 autoplay = &"phase1"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DemonOrb" unique_id=1409607168]
+layer = -1
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="DemonOrb/CanvasLayer" unique_id=1739595135]
+z_as_relative = false
+offset_right = 320.0
+offset_bottom = 238.0
+
+[node name="Hurt" type="AudioStreamPlayer" parent="DemonOrb" unique_id=1671206265]
+stream = ExtResource("10_k4474")
+volume_db = -10.322
+
+[node name="bighit" type="AudioStreamPlayer" parent="." unique_id=1181277264]
+stream = ExtResource("10_pc5cf")
+volume_db = -13.456
 
 [connection signal="area_entered" from="DemonOrb/Hurtbox" to="DemonOrb" method="_on_hurtbox_area_entered"]
 [connection signal="screen_entered" from="DemonOrb/VisibleOnScreenNotifier2D" to="DemonOrb" method="_on_visible_on_screen_notifier_2d_screen_entered"]

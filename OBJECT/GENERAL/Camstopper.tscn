@@ -6,6 +6,8 @@
 size = Vector2(20, 301)
 
 [node name="Camstopper" type="Area2D" unique_id=690083097]
+collision_layer = 257
+collision_mask = 257
 script = ExtResource("1_hkvve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1703301404]

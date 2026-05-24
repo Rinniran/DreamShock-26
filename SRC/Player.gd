@@ -6,17 +6,19 @@ enum player
 	BLIP
 }
 
-const SPEED = 6000.0
-const DASHSPEED = 5000.0
-const JUMP_VELOCITY = -400.0
-const GRAVITY = 1100.0
-var dashes = 2
-var is_rian = true
-var is_blip = false
-var CAN_MOVE = true
-var GRAV_ENABLED = true
-var testnum = 2
-var IN_CUTSCENE = false
+const SPEED: float = 6000.0
+const DASHSPEED: float = 5000.0
+const JUMP_VELOCITY: float = -400.0
+const GRAVITY: float = 1100.0
+var anim_can_resume_after_hitstop = false
+var dashes: int = 2
+var is_rian: bool = true
+var is_blip: bool = false
+var CAN_MOVE: bool = true
+var GRAV_ENABLED: bool = true
+var testnum: int = 2
+var IN_CUTSCENE: bool = false
+@export var hitstopnull = false
 @export var CAMERA:Camera2D
 @export var character = player.RIAN
 
@@ -25,6 +27,7 @@ var IN_CUTSCENE = false
 @onready var splash = $Watersplash
 @onready var col = $CollisionShape2D
 @onready var hurb = $hurtbox
+@onready var hurbcol = $hurtbox/CollisionShape2D
 @onready var blood = $BloodPlayer
 
 func _ready() -> void:
@@ -46,8 +49,7 @@ func _physics_process(delta: float) -> void:
 	if IN_CUTSCENE == false:
 		state.advance()
 	#print_debug(velocity.x)
-	if not is_on_floor() && GRAV_ENABLED:
-		velocity.y += GRAVITY * delta
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -63,7 +65,18 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	if CAMERA != null:
 		position.x = clamp(position.x,CAMERA.position.x - 150, CAMERA.position.x + 150)
-	move_and_slide()
+		position.x = clamp(position.x,CAMERA.limit_left + 10, CAMERA.limit_right - 10)
+	if !Global.hitstop:
+		if not is_on_floor() && GRAV_ENABLED:
+			velocity.y += GRAVITY * delta
+		state.advance()
+		move_and_slide()
+		if !sprite.is_playing() && (!sprite.animation_finished || anim_can_resume_after_hitstop):
+			sprite.play()
+	else:
+		if hitstopnull:
+			state.advance()
+		sprite.stop()
 
 func damageHandle(damage):
 	Global.p1health -= damage

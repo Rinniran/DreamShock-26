@@ -9,15 +9,22 @@ func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
+	root.anim_can_resume_after_hitstop = false
 	root.sprite.play("attackg_a")
 
 
 func _step():
 	super._step()
+	if !Global.hitstop:
+		if root.sprite.is_playing() == false:
+			root.sprite.play()
 	
-	
-	
-	if root.sprite.frame > 3:
+	if root.sprite.frame >= 4:
+		if root.is_on_floor():
+			parent.change_state("Idle")
+		else:
+			parent.change_state("Fall")
+	if root.sprite.frame >= 3:
 		if Input.is_action_just_pressed("PAD1_C"):
 			parent.change_state("Dash")
 		if Input.is_action_just_pressed("PAD1_A"):
@@ -29,14 +36,14 @@ func _step():
 	
 	if root.sprite.frame == 3:
 		if didbox == false:
-			var hitbox = preload("res://OBJECT/Hitboxes/Player/Rian/HB_Sub_A.tscn").instantiate()
+			var hitbox = preload("uid://rckhhjosmy48").instantiate()
 			hitbox.position = root.position
 			hitbox.own = root
 			get_parent().add_child(hitbox)
 			didbox = true
 		
 		if didpj == false:
-			var pj = preload("res://OBJECT/Projectiles/Player/PR_Ri_Sub_A.tscn").instantiate()
+			var pj = preload("uid://bywa25c8iq3jf").instantiate()
 			pj.position = root.position
 			pj.own = root
 			if root.sprite.flip_h == false:
@@ -48,6 +55,8 @@ func _step():
 	else:
 		didbox = false
 		didpj = false
+	
+	
 	
 
 

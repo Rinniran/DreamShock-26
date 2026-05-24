@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4d4oayw85ffp"
+path="res://.godot/imported/Chronicle Splash.mp3-04fc9349a471492ca2bd1a211a48678b.mp3str"
+
+[deps]
+
+source_file="res://AUDIO/BGM/Chronicle Splash.mp3"
+dest_files=["res://.godot/imported/Chronicle Splash.mp3-04fc9349a471492ca2bd1a211a48678b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

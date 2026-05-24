@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://o3cqd4kts4be"]
+
+[ext_resource type="Texture2D" uid="uid://cbbhixk5qjoyc" path="res://Sprites/VFX/Hit(fx)_8.png" id="1_8a6q8"]
+[ext_resource type="Script" uid="uid://b5ir2kdtxvdlc" path="res://OBJECT/GENERAL/impact_spark.gd" id="2_u7wkf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjk38"]
+atlas = ExtResource("1_8a6q8")
+region = Rect2(0, 0, 49, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtrui"]
+atlas = ExtResource("1_8a6q8")
+region = Rect2(49, 0, 49, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52smp"]
+atlas = ExtResource("1_8a6q8")
+region = Rect2(98, 0, 49, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrhaf"]
+atlas = ExtResource("1_8a6q8")
+region = Rect2(147, 0, 49, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1a35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjk38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtrui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52smp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrhaf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="ImpactSpark" type="AnimatedSprite2D" unique_id=1896964679]
+z_index = 79
+sprite_frames = SubResource("SpriteFrames_q1a35")
+autoplay = "default"
+script = ExtResource("2_u7wkf")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

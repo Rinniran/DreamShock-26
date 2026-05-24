@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdxhtqqkdsa1o"
-path="res://.godot/imported/pal0.png-0562a07f420ca0aa21dce9099d737e5f.ctex"
+uid="uid://cbbhixk5qjoyc"
+path="res://.godot/imported/Hit(fx)_8.png-6a6fd3c3d05a2ee1d1bba29f55636195.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PALETTE/pal0.png"
-dest_files=["res://.godot/imported/pal0.png-0562a07f420ca0aa21dce9099d737e5f.ctex"]
+source_file="res://Sprites/VFX/Hit(fx)_8.png"
+dest_files=["res://.godot/imported/Hit(fx)_8.png-6a6fd3c3d05a2ee1d1bba29f55636195.ctex"]
 
 [params]
 
