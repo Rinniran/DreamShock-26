@@ -139,6 +139,40 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nryoh")
 
+[sub_resource type="Environment" id="Environment_4g6p8"]
+background_mode = 3
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 2.62
+ssao_intensity = 3.42
+ssil_enabled = true
+ssil_radius = 4.75
+ssil_intensity = 4.49
+ssil_sharpness = 0.61
+ssil_normal_rejection = 0.63
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.92
+glow_strength = 0.99
+glow_mix = 0.0
+glow_bloom = 0.17
+glow_blend_mode = 4
+glow_hdr_threshold = 1.86
+glow_hdr_scale = 2.12
+glow_hdr_luminance_cap = 40.67
+glow_map_strength = 0.76
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2034
+volumetric_fog_emission_energy = 171.39
+volumetric_fog_length = 260.99
+adjustment_enabled = true
+adjustment_brightness = 1.02
+adjustment_contrast = 1.135
+adjustment_saturation = 1.07
+
 [node name="Streets" type="Node2D" unique_id=327141923 node_paths=PackedStringArray("M_Player")]
 modulate = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("1_tt0hx")
@@ -1783,3 +1817,6 @@ texture = ExtResource("27_3yxvb")
 [node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("30_4g6p8")]
 position = Vector2(6422, -115)
 stage = ExtResource("31_a31gp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2118099498]
+environment = SubResource("Environment_4g6p8")

@@ -26,8 +26,8 @@ var p2slotb: int = weapon.NORMAL
 var score: int = 0
 var activegame:bool = false
 
-var player1: Player = null
-var player2: Player = null
+var player1: Node = null
+var player2: Node = null
 
 var pieces: int = 0
 

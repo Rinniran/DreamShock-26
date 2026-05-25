@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://detdyqnsgyww1"]
+
+[ext_resource type="Script" uid="uid://bmbjnos57p6ai" path="res://OBJECT/Projectiles/Player/PLPJ.gd" id="1_r4bw4"]
+[ext_resource type="Texture2D" uid="uid://bidf7exr5jk88" path="res://SPRITE/SHMUP/FloofProj.png" id="2_r4bw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxdif"]
+atlas = ExtResource("2_r4bw4")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2ihn"]
+atlas = ExtResource("2_r4bw4")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvpqj"]
+atlas = ExtResource("2_r4bw4")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q6yn"]
+atlas = ExtResource("2_r4bw4")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xksxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxdif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2ihn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvpqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q6yn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epu8s"]
+size = Vector2(21, 21)
+
+[node name="PrFloof" type="Area2D" unique_id=1911026051 groups=["Pl_Attack"]]
+script = ExtResource("1_r4bw4")
+damage = 1.0
+lifetime = 25
+speed = 15
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]
+sprite_frames = SubResource("SpriteFrames_xksxn")
+autoplay = "default"
+frame_progress = 0.8368549
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925499707]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_epu8s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

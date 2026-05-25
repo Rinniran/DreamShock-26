@@ -1,11 +1,10 @@
 extends CharacterBody2D
-class_name Player
+class_name Player2D
 enum player
 {
 	RIAN,
 	BLIP
 }
-
 const SPEED: float = 6000.0
 const DASHSPEED: float = 5000.0
 const JUMP_VELOCITY: float = -400.0
@@ -21,6 +20,7 @@ var IN_CUTSCENE: bool = false
 @export var hitstopnull = false
 @export var CAMERA:Camera2D
 @export var character = player.RIAN
+@export var is_3d:bool = false
 
 @onready var sprite = $Sprite
 @onready var state = $StateMachine

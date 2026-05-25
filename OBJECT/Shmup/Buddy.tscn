@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://whfbq3i07okj"]
 
 [ext_resource type="Texture2D" uid="uid://bsodfakwrlupu" path="res://SPRITE/SHMUP/Floof.png" id="1_5hxk1"]
+[ext_resource type="Script" uid="uid://dymwmhex0cdes" path="res://OBJECT/Shmup/buddy.gd" id="2_rt2uy"]
 
 [node name="Floof" type="Sprite2D" unique_id=216628062]
 texture = ExtResource("1_5hxk1")
+script = ExtResource("2_rt2uy")

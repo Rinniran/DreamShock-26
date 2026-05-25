@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cpybshj0uib15" path="res://OBJECT/GENERAL/PLAYER/SHMUPPLAYER.gd" id="1_kqnfr"]
 [ext_resource type="Texture2D" uid="uid://bukwog83hutsr" path="res://SPRITE/PLAYER/RianShmupIdle.png" id="2_gq0ay"]
 [ext_resource type="PackedScene" uid="uid://whfbq3i07okj" path="res://OBJECT/Shmup/Buddy.tscn" id="3_gq0ay"]
+[ext_resource type="AudioStream" uid="uid://bbn5kk7mtlogv" path="res://AUDIO/SE/dash.wav" id="4_gb2x4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gb2x4"]
 size = Vector2(3, 3)
@@ -10,7 +11,7 @@ size = Vector2(3, 3)
 [node name="RianShmup" type="CharacterBody2D" unique_id=578941716]
 script = ExtResource("1_kqnfr")
 
-[node name="RianShmupIdle" type="Sprite2D" parent="." unique_id=1746287850]
+[node name="SPR" type="Sprite2D" parent="." unique_id=1746287850]
 texture = ExtResource("2_gq0ay")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=140266292]
@@ -30,3 +31,8 @@ position = Vector2(23, -23)
 
 [node name="Floof4" parent="." unique_id=297858021 instance=ExtResource("3_gq0ay")]
 position = Vector2(2, -43)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=961019580]
+stream = ExtResource("4_gb2x4")
+volume_db = -15.978
+pitch_scale = 2.19

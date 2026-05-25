@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cbfbnotkpff2o"]
+
+[ext_resource type="Script" uid="uid://bmbjnos57p6ai" path="res://OBJECT/Projectiles/Player/PLPJ.gd" id="1_261jl"]
+[ext_resource type="Texture2D" uid="uid://mufxbl0vxahg" path="res://SPRITE/SHMUP/RianProj.png" id="2_2fgt2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lf6gu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2fgt2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epu8s"]
+size = Vector2(32, 12)
+
+[node name="PrShmup" type="Area2D" unique_id=1911026051 groups=["Pl_Attack"]]
+script = ExtResource("1_261jl")
+lifetime = 25
+speed = 15
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]
+sprite_frames = SubResource("SpriteFrames_lf6gu")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925499707]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_epu8s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
