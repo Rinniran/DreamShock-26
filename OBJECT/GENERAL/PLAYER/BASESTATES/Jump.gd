@@ -7,7 +7,10 @@ func _enter(data = {}):
 	root.GRAV_ENABLED = true
 	root.anim_can_resume_after_hitstop = false
 	root.sprite.play("jump")
-	root.velocity.y = root.JUMP_VELOCITY
+	if !root.is_3d:
+		root.velocity.y = root.JUMP_VELOCITY
+	else:
+		root.velocity.y = -root.JUMP_VELOCITY
 
 
 func _step():
@@ -21,9 +24,12 @@ func _step():
 	
 	if Input.is_action_just_released("PAD1_B"):
 		root.velocity.y = 0
-	
-	if root.velocity.y > 0:
-		parent.change_state("Fall")
+	if !root.is_3d:
+		if root.velocity.y > 0:
+			parent.change_state("Fall")
+	else:
+		if root.velocity.y < 0:
+			parent.change_state("Fall")
 	 
 	if Input.is_action_just_pressed("PAD1_A"):
 		# if root.position.distance_to(Enemy.position) < 5:
@@ -33,7 +39,11 @@ func _step():
 		#elif Input.is_action_just_pressed("PAD1_DOWN"):
 			#parent.change_state("Attackdown_g")
 		#else:
-		parent.change_state("Attack1")
+		if root.vecair:
+			if root.DAttacked == false:
+				parent.change_state("DashAttack")
+		else:
+			parent.change_state("Attack1")
 	
 	if Input.is_action_just_pressed("PAD1_C") && root.dashes > 0:
 		parent.change_state("Dash")

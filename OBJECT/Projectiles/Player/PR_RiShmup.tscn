@@ -18,6 +18,8 @@ animations = [{
 size = Vector2(32, 12)
 
 [node name="PrShmup" type="Area2D" unique_id=1911026051 groups=["Pl_Attack"]]
+collision_layer = 257
+collision_mask = 257
 script = ExtResource("1_261jl")
 lifetime = 25
 speed = 15

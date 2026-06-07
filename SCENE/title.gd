@@ -3,6 +3,8 @@ extends Node2D
 @export var next_scene:PackedScene
 
 func _ready() -> void:
+	if is_instance_valid(Global.musicP):
+		Global.musicP.stop()
 	Global.activegame = false
 
 func _physics_process(delta: float) -> void:

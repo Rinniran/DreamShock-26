@@ -83,6 +83,8 @@ animations = [{
 size = Vector2(51, 34)
 
 [node name="PrRiSubA" type="Area2D" unique_id=1911026051 groups=["Pl_Attack"]]
+collision_layer = 257
+collision_mask = 257
 script = ExtResource("1_xjb3k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]

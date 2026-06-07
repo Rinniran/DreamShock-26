@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://2g77aqembx5y"]
+
+[ext_resource type="Script" uid="uid://dk2x2s1tic8lk" path="res://OBJECT/GENERAL/PLAYER/Player3D.gd" id="1_d4ccf"]
+[ext_resource type="SpriteFrames" uid="uid://mmxrrknshg8v" path="res://Sprites/Players/Rian/RianFrames.tres" id="1_t8gxs"]
+[ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="3_hgeiq"]
+[ext_resource type="Script" uid="uid://b76k1rlnekikc" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Idle.gd" id="4_4vbe6"]
+[ext_resource type="Script" uid="uid://b6c77ktdi2aem" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/atk.gd" id="5_w1ruu"]
+[ext_resource type="Script" uid="uid://g6neud6whrd" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Move.gd" id="6_i5v2g"]
+[ext_resource type="Script" uid="uid://4tgyl85c2cgf" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Dash3D.gd" id="7_hgeiq"]
+[ext_resource type="Script" uid="uid://b8hggaop6e3xn" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/DashAttack.gd" id="8_pews0"]
+[ext_resource type="Script" uid="uid://cbcml1oblom77" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Jump.gd" id="9_qjpvp"]
+[ext_resource type="Script" uid="uid://heb8j8txrrst" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Damage.gd" id="10_gi5bo"]
+[ext_resource type="Script" uid="uid://cedofh331p4nq" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Fall.gd" id="11_7x8f8"]
+[ext_resource type="PackedScene" uid="uid://kwqamvscgntn" path="res://OBJECT/GENERAL/BloodPlayer3D.tscn" id="12_hgeiq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3wg1g"]
+radius = 0.09716797
+height = 0.46173096
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ob1lw"]
+size = Vector3(0.13861084, 0.2927246, 0.24047852)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hgeiq"]
+size = Vector3(0.20921326, 0.08984375, 0.23840332)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4vbe6"]
+size = Vector3(0.20921326, 0.08984375, 0.23840332)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1ruu"]
+size = Vector3(0.20921326, 0.08984375, 0.23840332)
+
+[node name="Rian3D" type="CharacterBody3D" unique_id=1101168583]
+script = ExtResource("1_d4ccf")
+
+[node name="Sprite" type="AnimatedSprite3D" parent="." unique_id=2099421025]
+texture_filter = 0
+sprite_frames = ExtResource("1_t8gxs")
+animation = &"idle"
+frame_progress = 0.82558185
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1295021835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007509142, -0.0067772567, -0.003284067)
+shape = SubResource("CapsuleShape3D_3wg1g")
+
+[node name="hurtbox" type="Area3D" parent="." unique_id=848570803]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox" unique_id=2024517278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007171631, -0.0748291, -0.006713867)
+shape = SubResource("BoxShape3D_ob1lw")
+debug_color = Color(0.8493334, 0, 0.91, 0.8039216)
+
+[node name="StateMachine" type="Node" parent="." unique_id=1576108269]
+script = ExtResource("3_hgeiq")
+root_node_path = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=808891456]
+script = ExtResource("4_4vbe6")
+
+[node name="Attack1" type="Node" parent="StateMachine" unique_id=1037599680]
+script = ExtResource("5_w1ruu")
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=1233623224]
+script = ExtResource("6_i5v2g")
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=1487091732 groups=["Player"]]
+script = ExtResource("7_hgeiq")
+
+[node name="DashAttack" type="Node" parent="StateMachine" unique_id=1692344851 groups=["Player"]]
+script = ExtResource("8_pews0")
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1468560570]
+script = ExtResource("9_qjpvp")
+
+[node name="Damage" type="Node" parent="StateMachine" unique_id=987277606]
+script = ExtResource("10_gi5bo")
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=838540589]
+script = ExtResource("11_7x8f8")
+
+[node name="BloodPlayer" parent="." unique_id=309641387 instance=ExtResource("12_hgeiq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+emitting = false
+
+[node name="LPBox" type="Area3D" parent="." unique_id=1875748647]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LPBox" unique_id=323644851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016075134, -0.18164063, -0.005065918)
+shape = SubResource("BoxShape3D_hgeiq")
+debug_color = Color(1, 0.14999998, 0.90083325, 0.41960785)
+
+[node name="MPBox" type="Area3D" parent="." unique_id=1804846232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.090164125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MPBox" unique_id=1901367938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016075134, -0.17842048, -0.005065918)
+shape = SubResource("BoxShape3D_4vbe6")
+debug_color = Color(1, 0.9575, 0.14999998, 0.41960785)
+
+[node name="HPBox" type="Area3D" parent="." unique_id=1745186616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.090164125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HPBox" unique_id=318217503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016075134, -0.08527583, -0.005065918)
+shape = SubResource("BoxShape3D_w1ruu")
+debug_color = Color(0.14999998, 1, 0.9716667, 0.41960785)

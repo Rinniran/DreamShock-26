@@ -14,6 +14,7 @@ func _step():
 	if parent.state_time == 15:
 		var pj = preload("res://OBJECT/Projectiles/Enemy/Pellet.tscn").instantiate()
 		pj.position.y = root.position.y
+		pj.direction.y = randf_range(-0.4,0.4)
 		pj.own = root
 		if root.sprite.flip_h == false:
 			pj.direction.x = -1

@@ -3,6 +3,7 @@ extends BaseState
 
 func _enter(data = {}):
 	super._enter(data)
+	root.vecair = false
 	root.CAN_MOVE = false
 	root.GRAV_ENABLED = true
 	root.blood.emitting = true

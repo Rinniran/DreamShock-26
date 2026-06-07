@@ -4,7 +4,7 @@ extends BaseState
 var moverandomizer = RandomNumberGenerator.new()
 var movechoice
 var aftimagetimer = 2
-var MSPEED = 360
+var MSPEED = 350
 
 
 func _enter(data = {}):
@@ -27,10 +27,7 @@ func _step():
 	var Kright = Input.is_action_pressed("PAD1_RIGHT")
 	var rspr = root.sprite
 	
-	if parent.state_time > 18:
-		root.hurbcol.disabled = false
-	else:
-		root.hurbcol.disabled = true
+	root.hurbcol.disabled = true
 	
 	if Kleft and Kup :
 		rspr.flip_h = true
@@ -86,19 +83,20 @@ func _step():
 		rspr.play("ADDown")
 	else:
 		parent.change_state("Idle")
-
-
-	
 	
 	if aftimagetimer > 0:
 		aftimagetimer -= 1
 	else:
-		var aft = preload("res://OBJECT/GENERAL/Afterimage.tscn").instantiate()
+		var aft
+		if root.is_3d:
+			aft = preload("res://OBJECT/GENERAL/Afterimage3D.tscn").instantiate()
+		else:
+			aft = preload("res://OBJECT/GENERAL/Afterimage.tscn").instantiate()
+			aft.z_index = root.sprite.z_index - 1 
 		aft.texture = root.sprite.sprite_frames.get_frame_texture(root.sprite.animation, root.sprite.frame)
 		aft.flip_h = root.sprite.flip_h
-		aft.global_position.x = root.sprite.global_position.x
-		aft.global_position.y = root.sprite.global_position.y
-		aft.z_index = root.sprite.z_index - 1 
+		aft.global_position = root.sprite.global_position
+		
 		get_parent().add_child(aft)
 		aftimagetimer = 2
 	if Input.is_action_just_pressed("PAD1_A"):
@@ -109,6 +107,7 @@ func _step():
 		parent.change_state("Idle")
 	if (Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0) && root.is_on_floor():
 		root.hurbcol.disabled = false
+		root.vecair = true
 		parent.change_state("Jump")
 	if parent.state_time >= 25:
 		root.hurbcol.disabled = false

@@ -8,7 +8,7 @@ extends CanvasLayer
 
 @onready var hpico = $Life
 @onready var pccn = $Piececnt
-@onready var lvcnt = $Label4
+@onready var amcnt = $Label4
 @onready var score = $Label2
 @onready var timer = $Timer
 @onready var hpbar = $Health
@@ -20,7 +20,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	hpbar.value = Global.p1health
 	pccn.text = str(Global.pieces)
-	lvcnt.text = str(Global.p1lives)
+	amcnt.text = str(Global.ammo)
 	score.text = str(Global.score)
 	timer.text = str(Global.time)
 	

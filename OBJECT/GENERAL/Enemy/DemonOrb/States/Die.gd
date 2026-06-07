@@ -9,7 +9,7 @@ func _enter(data = {}):
 	root.impact_flash.visible = true
 	Global.hitstopframes = 80
 	Global.hitstop = true
-	var obj = preload("res://OBJECT/GENERAL/impactspark.tscn").instantiate()
+	var obj = preload("uid://o3cqd4kts4be").instantiate()
 	obj.global_position = root.sprite.global_position 
 	get_parent().add_child(obj)
 

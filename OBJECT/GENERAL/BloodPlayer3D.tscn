@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://kwqamvscgntn"]
+
+[ext_resource type="Texture2D" uid="uid://cr1fwqfviqv8i" path="res://Sprites/VFX/BloodPlayer.png" id="1_y78a8"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wp2ek"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+angle_min = 533.2
+angle_max = 569.2
+spread = 175.893
+initial_velocity_max = 30.57
+gravity = Vector3(0, -40, 0)
+scale_min = 0.0
+scale_max = 0.5
+anim_speed_min = 2.46
+anim_speed_max = 2.46
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y78a8"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_y78a8")
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lcsn7"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("StandardMaterial3D_y78a8")
+
+[node name="BloodPlayer" type="GPUParticles3D" unique_id=309641387]
+amount = 97
+explosiveness = 0.41
+fixed_fps = 58
+interpolate = false
+trail_enabled = true
+trail_lifetime = 2.59
+process_material = SubResource("ParticleProcessMaterial_wp2ek")
+draw_pass_1 = SubResource("PlaneMesh_lcsn7")

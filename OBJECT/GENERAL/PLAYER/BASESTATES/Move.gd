@@ -9,21 +9,27 @@ func _enter(data = {}):
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
 	root.anim_can_resume_after_hitstop = true
-	if root.is_on_floor():
-			root.sprite.play("run")
+	
 
 
 func _step():
 	super._step()
-	
+	if root.is_on_floor() && !Global.hitstop && root.sprite.animation != "run":
+			root.vecair = false
+			root.sprite.play("run")
 	if root.velocity.x == 0:
 		parent.change_state("Idle")
 	
-	if Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0:
-		parent.change_state("Jump")
-	
-	if root.velocity.y > 0:
-		parent.change_state("Fall") 
+	if !root.is_3d:
+		if Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0:
+			parent.change_state("Jump")
+		if root.velocity.y > 0:
+			parent.change_state("Fall") 
+	else:
+		if Input.is_action_just_pressed("PAD1_B") || root.velocity.y > 0:
+			parent.change_state("Jump")
+		if root.velocity.y < 0:
+			parent.change_state("Fall") 
 	
 	if Input.is_action_just_pressed("PAD1_A"):
 		# if root.position.distance_to(Enemy.position) < 5:

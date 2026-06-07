@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://rd5layhyacwp"]
+
+[ext_resource type="PackedScene" uid="uid://2g77aqembx5y" path="res://OBJECT/GENERAL/PLAYER/Rian3D.tscn" id="1_gdu0o"]
+[ext_resource type="PackedScene" uid="uid://drlphexnad464" path="res://OBJECT/GENERAL/CAMERA/Camera3D.tscn" id="2_6b0ju"]
+[ext_resource type="Script" uid="uid://cwo3ld44ocipw" path="res://addons/psx/scripts/PsxWorldEnvironment.gd" id="3_r204b"]
+
+[sub_resource type="Environment" id="Environment_n5xw1"]
+background_mode = 1
+background_color = Color(0.016666412, 0, 1, 1)
+background_energy_multiplier = 0.23
+ambient_light_source = 2
+glow_enabled = true
+glow_intensity = 1.32
+glow_hdr_luminance_cap = 51.27
+
+[sub_resource type="BoxMesh" id="BoxMesh_yi36x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdu0o"]
+shading_mode = 2
+diffuse_mode = 1
+specular_mode = 2
+disable_ambient_light = true
+albedo_color = Color(0.16666675, 1, 0, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gdu0o"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="3dTest" type="Node3D" unique_id=2008892004]
+
+[node name="Rian3D" parent="." unique_id=1101168583 node_paths=PackedStringArray("CAMERA") instance=ExtResource("1_gdu0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09142995, 0.545527, -0.049022675)
+CAMERA = NodePath("../Camera3d")
+
+[node name="Camera3d" parent="." unique_id=1206199940 node_paths=PackedStringArray("target") instance=ExtResource("2_6b0ju")]
+transform = Transform3D(1, 0, 0, 0, 0.99013895, 0.14008906, 0, -0.14008906, 0.99013895, 0.09142995, 0.90075004, 1.4546533)
+target = NodePath("../Rian3D")
+
+[node name="PsxWorldEnvironment" type="WorldEnvironment" parent="." unique_id=1350229873]
+environment = SubResource("Environment_n5xw1")
+script = ExtResource("3_r204b")
+metadata/_custom_type_script = "uid://cwo3ld44ocipw"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1191687264]
+transform = Transform3D(6.63581, 0, 0, 0, 1, 0, 0, 0, 3.1513302, 2.595667, -0.7690059, 0)
+mesh = SubResource("BoxMesh_yi36x")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdu0o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1674325145]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1240545602]
+shape = SubResource("ConcavePolygonShape3D_gdu0o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1230405246]
+transform = Transform3D(0.4070077, 0.83910805, -0.360891, 1.3739047e-08, 0.3950967, 0.91863954, 0.9134247, -0.37389338, 0.16080737, 0, 4.097461, 0.20044851)
+light_color = Color(0.2665611, 0.2228091, 0.9999545, 1)
+light_energy = 14.812
+light_indirect_energy = 7.835
+light_volumetric_fog_energy = 2.541
+light_angular_distance = 35.06
+light_specular = 1.797
+shadow_enabled = true
+shadow_blur = 1.663

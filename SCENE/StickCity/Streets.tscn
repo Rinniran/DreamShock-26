@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://4lpp0l8s7sms" path="res://Sprites/STAGE/STICKCITY/Buildings1.png" id="27_3yxvb"]
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="30_4g6p8"]
 [ext_resource type="PackedScene" uid="uid://vmbn3u2qwdgl" path="res://SCENE/StickCity/Plaza.tscn" id="31_a31gp"]
+[ext_resource type="PackedScene" uid="uid://do44vagptmp5f" path="res://OBJECT/GENERAL/Capsule.tscn" id="33_p7bt1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_clmtf"]
 polygon = PackedVector2Array(3761, -414, 768, 44, 37, 62, -144, 36, 231, -23, 236, -47, 557, -130, 563, -160, 1102, -313, 2858.234, -372.5334, 2933, -411)
@@ -173,10 +174,9 @@ adjustment_brightness = 1.02
 adjustment_contrast = 1.135
 adjustment_saturation = 1.07
 
-[node name="Streets" type="Node2D" unique_id=327141923 node_paths=PackedStringArray("M_Player")]
+[node name="Streets" type="Node2D" unique_id=327141923]
 modulate = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("1_tt0hx")
-M_Player = NodePath("AudioStreamPlayer")
 Stage_Music = ExtResource("26_2wyfc")
 LowTime_Music = ExtResource("3_e8sht")
 
@@ -208,7 +208,7 @@ position = Vector2(1040, 221)
 occluder = SubResource("OccluderPolygon2D_clmtf")
 
 [node name="Player" parent="." unique_id=1112045618 node_paths=PackedStringArray("CAMERA") instance=ExtResource("2_3h4rv")]
-position = Vector2(56, 163)
+position = Vector2(105, 163)
 CAMERA = NodePath("../Camera")
 
 [node name="Camera" parent="." unique_id=258370969 node_paths=PackedStringArray("target") instance=ExtResource("3_3h4rv")]
@@ -1784,11 +1784,6 @@ position = Vector2(6130, 153)
 modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6154, 177)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=440091579]
-stream = ExtResource("26_2wyfc")
-volume_db = -9.602
-autoplay = true
-
 [node name="Buildings1" type="Sprite2D" parent="." unique_id=1256588949]
 z_index = -22
 position = Vector2(5767, -37)
@@ -1820,3 +1815,6 @@ stage = ExtResource("31_a31gp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2118099498]
 environment = SubResource("Environment_4g6p8")
+
+[node name="Capsule" parent="." unique_id=786621984 instance=ExtResource("33_p7bt1")]
+position = Vector2(3788, -298)

@@ -3,7 +3,8 @@
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_dtwwn"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_jg7cs"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_18pqr"]
-[ext_resource type="AudioStream" uid="uid://bi07gme260gqe" path="res://AUDIO/BGM/SC_Plaza.ogg" id="2_76byf"]
+[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="2_y21vy"]
+[ext_resource type="AudioStream" uid="uid://bodxt8yc6thqs" path="res://AUDIO/BGM/SC_Streets_LT.ogg" id="3_axpav"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_udeur"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="4_b3hcm"]
 [ext_resource type="Texture2D" uid="uid://b12sm4wadhw51" path="res://SPRITE/STAGE/STICKCITY/BuildingA.png" id="5_b3hcm"]
@@ -22,10 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="20_bpytk"]
 [ext_resource type="PackedScene" uid="uid://crp0mtm2vkmkl" path="res://SCENE/StickCity/Park.tscn" id="21_y21vy"]
 
-[node name="Plaza" type="Node2D" unique_id=2107951573 node_paths=PackedStringArray("M_Player")]
+[node name="Plaza" type="Node2D" unique_id=2107951573]
 script = ExtResource("1_jg7cs")
-M_Player = NodePath("BGM")
-Stage_Music = ExtResource("2_76byf")
+Stage_Music = ExtResource("2_y21vy")
+LowTime_Music = ExtResource("3_axpav")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1156793548]
 tile_set = ExtResource("1_dtwwn")
@@ -642,9 +643,6 @@ position = Vector2(5885, 337)
 
 [node name="Camstopper" parent="." unique_id=690083097 instance=ExtResource("17_jg7cs")]
 position = Vector2(6060, 292)
-
-[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=235112886]
-volume_db = -3.101
 
 [node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("20_bpytk")]
 position = Vector2(7044, 407)

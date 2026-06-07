@@ -9,7 +9,7 @@ script/source = "extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.time += 4
+	Global.time += 5 + int(Global.chain / 100)
 	pass # Replace with function body.
 
 

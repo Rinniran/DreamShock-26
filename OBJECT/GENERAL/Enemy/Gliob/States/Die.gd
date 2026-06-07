@@ -3,7 +3,6 @@ extends BaseState
 func _enter(data = {}):
 	root.col.disabled = true
 	Global.kills += 1
-	print_debug("Still misfiring?")
 	Global.chaintime = Global.chaintimereset
 	Global.chain += 1
 	

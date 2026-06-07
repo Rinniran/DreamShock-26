@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cuumie1foul11" path="res://Sprites/Players/Rian/Rian_Stop.png" id="22_2w44h"]
 [ext_resource type="Texture2D" uid="uid://bpydyjf3s3ht3" path="res://Sprites/Players/Rian/Rian_Damage.png" id="22_6xceg"]
 [ext_resource type="Texture2D" uid="uid://s4qs2voflkdu" path="res://Sprites/Players/Rian/Rian_Waveburst.png" id="23_2gasc"]
+[ext_resource type="Texture2D" uid="uid://celb2x4yv0ekq" path="res://SPRITE/PLAYER/RianParry.png" id="23_xnomq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60j0b"]
 atlas = ExtResource("1_fcdai")
@@ -709,6 +710,14 @@ region = Rect2(192, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ts2pt"]
 atlas = ExtResource("22_6xceg")
 region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_431rp"]
+atlas = ExtResource("23_xnomq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxf44"]
+atlas = ExtResource("23_xnomq")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hyqoc"]
 atlas = ExtResource("21_t4bhh")
@@ -1553,6 +1562,22 @@ animations = [{
 "loop": false,
 "name": &"outoftime",
 "speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_431rp")
+}],
+"loop": false,
+"name": &"parryair",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxf44")
+}],
+"loop": false,
+"name": &"parryground",
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,

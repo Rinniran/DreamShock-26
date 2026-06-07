@@ -10,18 +10,26 @@ func _enter(data = {}):
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
 	root.sprite.play("idle")
+	root.vecair = false
 
 
 func _step():
 	super._step()
 	if root.velocity.x > 0.0 || root.velocity.x < 0.0:
 		parent.change_state("Move")
+	if !Global.hitstop && root.sprite.animation != "Idle":
+		root.sprite.play("idle")
 	
-	if Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0:
-		parent.change_state("Jump")
-	
-	if root.velocity.y > 0:
-		parent.change_state("Fall") 
+	if !root.is_3d:
+		if Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0:
+			parent.change_state("Jump")
+		if root.velocity.y > 0:
+			parent.change_state("Fall") 
+	else:
+		if Input.is_action_just_pressed("PAD1_B") || root.velocity.y > 0:
+			parent.change_state("Jump")
+		if root.velocity.y < 0:
+			parent.change_state("Fall") 
 	
 	if parent.state_time == 200:
 		root.sprite.play("WaitA")

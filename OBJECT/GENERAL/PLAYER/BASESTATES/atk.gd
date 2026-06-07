@@ -9,6 +9,8 @@ func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
+	if root.vecair == true:
+		root.vecair = true
 	root.anim_can_resume_after_hitstop = false
 	root.sprite.play("attackg_a")
 
@@ -18,6 +20,13 @@ func _step():
 	if !Global.hitstop:
 		if root.sprite.is_playing() == false:
 			root.sprite.play()
+		
+	if root.is_on_floor() && !Global.hitstop && root.sprite.animation != "attackg_a":
+			root.sprite.play("attackg_a")
+	
+	if parent.state_time > 5:
+		if root.is_on_floor():
+			root.vecair = false
 	
 	if root.sprite.frame >= 4:
 		if root.is_on_floor():
@@ -25,6 +34,7 @@ func _step():
 		else:
 			parent.change_state("Fall")
 	if root.sprite.frame >= 3:
+		
 		if Input.is_action_just_pressed("PAD1_C"):
 			parent.change_state("Dash")
 		if Input.is_action_just_pressed("PAD1_A"):

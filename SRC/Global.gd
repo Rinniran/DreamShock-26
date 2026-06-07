@@ -23,6 +23,8 @@ var p1slotb: int = weapon.NORMAL
 var p2slota: int = weapon.NORMAL
 var p2slotb: int = weapon.NORMAL
 
+var ammo = 0
+
 var score: int = 0
 var activegame:bool = false
 
@@ -31,12 +33,12 @@ var player2: Node = null
 
 var pieces: int = 0
 
-var camera: Camera2D = null
+var camera: Node = null
 
 var kills = 0
 var killcount = 0
 var ms = 0
-var tereq = 5
+var tereq = 8
 
 var time = 30
 
@@ -45,9 +47,17 @@ var timedeathoff = false
 var hitstop = false
 var hitstopframes = 0
 
+var invincibile_time = 0
+var invincibility = false
+
 var chain = 0
 var chaintimereset = 99
 var chaintime = chaintimereset
+
+@onready var musicP = AudioStreamPlayer.new()
+
+func _ready() -> void:
+	add_child(musicP)
 
 func _physics_process(delta: float) -> void:
 	#if get_tree().get_node_count() > 100:
@@ -73,6 +83,11 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(te)
 		kills = 0
 	
+	if invincibile_time > 0:
+		invincibility = true
+		invincibile_time -= 1
+	else:
+		invincibility = false
 	
 	if hitstopframes > 0:
 		hitstopframes -= 1
