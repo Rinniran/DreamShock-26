@@ -13,7 +13,7 @@ enum pardir
 	LOW
 }
 
-const SPEED: float = 6000.0
+const SPEED: float = 7000.0
 const DASHSPEED: float = 5000.0
 const JUMP_VELOCITY: float = -400.0
 const GRAVITY: float = 1100.0
@@ -33,10 +33,13 @@ var conparries = 0
 var iframes = 0
 var vecair = false
 var DAttacked = false
+var isKilled = false
 @export var hitstopnull = false
 @export var CAMERA:Camera2D
 @export var character = player.RIAN
 @export var is_3d:bool = false
+@export var Dsound:AudioStreamPlayer
+@export var dc:AudioStreamPlayer
 
 @onready var sprite = $Sprite
 @onready var state = $StateMachine
@@ -46,12 +49,23 @@ var DAttacked = false
 @onready var hurbcol = $hurtbox/CollisionShape2D
 @onready var blood = $BloodPlayer
 @onready var inpart = $InvincibleParticle
+@onready var white = $CanvasLayer/White
+@onready var black = $CanvasLayer/Black
+@onready var dcdet = $DownCrushDetect2
+
+@onready var damit = $CHit
+@onready var aah = $DeathVoice
 
 func _ready() -> void:
 	Global.player1 = self
 	state.initialize()
 
 func _physics_process(delta: float) -> void:
+	
+	if (Global.p1health <= 0 || dcdet.is_colliding()) && isKilled == false:
+		state.change_state("Die")
+		isKilled = true
+	
 	# Add the gravity.
 	if state.state_name != "Damage" && state.state_name != "Die":
 		blood.emitting = false

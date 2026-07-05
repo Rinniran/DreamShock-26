@@ -3,8 +3,7 @@ extends BaseState
 func _enter(data = {}):
 	root.anim.play("Damage")
 	root.anim_can_resume_after_hitstop = false
-	Global.chaintime = Global.chaintimereset
-	Global.chain += 1
+	Global.addcombo()
 	Global.score += 100 * (Global.chain)
 func _step():
 	super()

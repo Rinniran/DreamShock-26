@@ -3,19 +3,25 @@
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_5ojoh"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_g8c0t"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_5g15u"]
-[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="2_m3e0v"]
+[ext_resource type="AudioStream" uid="uid://bnqipvsejdtw0" path="res://AUDIO/BGM/SC_Park.ogg" id="2_m3e0v"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_l8sfm"]
-[ext_resource type="AudioStream" uid="uid://bodxt8yc6thqs" path="res://AUDIO/BGM/SC_Streets_LT.ogg" id="3_xxs3b"]
+[ext_resource type="AudioStream" uid="uid://tlxh67lkg8we" path="res://AUDIO/BGM/SC_Park_LT.ogg" id="3_xxs3b"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="4_bkajp"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="5_wxs8g"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="6_g8c0t"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="7_m3e0v"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="8_xxs3b"]
+[ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="12_mabfb"]
+[ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="13_qmpaw"]
+[ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="14_14kmh"]
+[ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="15_tkb76"]
 
 [node name="Park" type="Node2D" unique_id=333858184]
 script = ExtResource("1_g8c0t")
+MusicVolume = -12.0
 Stage_Music = ExtResource("2_m3e0v")
 LowTime_Music = ExtResource("3_xxs3b")
+stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1800692040]
 tile_set = ExtResource("1_5ojoh")
@@ -399,3 +405,19 @@ position = Vector2(8440, 561)
 position = Vector2(8470, 561)
 
 [node name="Hud" parent="." unique_id=832355996 instance=ExtResource("8_xxs3b")]
+
+[node name="100combo" type="AudioStreamPlayer" parent="." unique_id=855371547]
+stream = ExtResource("12_mabfb")
+volume_db = -8.667
+
+[node name="200combo" type="AudioStreamPlayer" parent="." unique_id=1401831371]
+stream = ExtResource("13_qmpaw")
+volume_db = -8.667
+
+[node name="300combo" type="AudioStreamPlayer" parent="." unique_id=475701472]
+stream = ExtResource("14_14kmh")
+volume_db = -8.667
+
+[node name="400combo" type="AudioStreamPlayer" parent="." unique_id=1680941936]
+stream = ExtResource("15_tkb76")
+volume_db = -8.667

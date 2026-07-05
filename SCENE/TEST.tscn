@@ -180,3 +180,4 @@ text = "stick city!"
 position = Vector2(161, 108)
 position_smoothing_enabled = true
 target = NodePath("../Rian")
+speed = 8000

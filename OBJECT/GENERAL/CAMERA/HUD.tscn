@@ -921,6 +921,7 @@ position = Vector2(49, 11)
 texture = ExtResource("2_54c3f")
 
 [node name="Time" type="Label" parent="." unique_id=434569915]
+visible = false
 offset_left = 159.0
 offset_top = 1.0
 offset_right = 223.0
@@ -957,15 +958,6 @@ theme_override_fonts/font = ExtResource("3_73pjk")
 theme_override_font_sizes/font_size = 9
 text = "00000000"
 
-[node name="Label3" type="Label" parent="." unique_id=491381180]
-offset_left = 4.0
-offset_top = 224.0
-offset_right = 116.0
-offset_bottom = 237.0
-theme_override_fonts/font = ExtResource("3_73pjk")
-theme_override_font_sizes/font_size = 9
-text = "credits: 05"
-
 [node name="Label4" type="Label" parent="." unique_id=532441793]
 offset_left = 8.0
 offset_top = 40.0
@@ -977,6 +969,7 @@ text = "02
 "
 
 [node name="Timer" type="Label" parent="." unique_id=349170791]
+visible = false
 offset_left = 155.0
 offset_top = 16.0
 offset_right = 188.0

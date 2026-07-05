@@ -3,8 +3,7 @@ extends BaseState
 func _enter(data = {}):
 	root.col.disabled = true
 	Global.kills += 1
-	Global.chaintime = Global.chaintimereset
-	Global.chain += 1
+	Global.addcombo()
 	
 	Global.score += 100 * (Global.chain)
 	var ex = preload("res://OBJECT/GENERAL/ExplosionA.tscn").instantiate()

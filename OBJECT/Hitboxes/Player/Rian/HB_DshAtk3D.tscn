@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bltd8upc18pke"]
+
+[ext_resource type="Script" uid="uid://bvoweaeq036mj" path="res://OBJECT/Hitboxes/Player/PLHB3D.gd" id="1_3dsl6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3dsl6"]
+size = Vector3(0.34680176, 0.36627197, 0.26541138)
+
+[node name="HbDshAtk" type="Area3D" unique_id=679755747 groups=["Heavy", "Pl_Attack"]]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_3dsl6")
+damage = 2
+lifetime = 25
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1857463571]
+shape = SubResource("BoxShape3D_3dsl6")

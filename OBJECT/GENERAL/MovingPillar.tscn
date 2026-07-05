@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://c5v2jeb5bw1an"]
+
+[ext_resource type="Texture2D" uid="uid://b8khi0pm7epss" path="res://SPRITE/STAGE/DOCILEDUNES/MovingPillar.png" id="1_gwgef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oukjy"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qely1"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4528a"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4k2p"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nshs2"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er0xj"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85n71"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01jv1"]
+atlas = ExtResource("1_gwgef")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lr3mb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oukjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qely1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4528a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4k2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nshs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er0xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85n71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01jv1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuf72"]
+size = Vector2(63, 127)
+
+[sub_resource type="Animation" id="Animation_wgg3n"]
+resource_name = "Go"
+length = 2.5333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8666667, 1.2333333, 2),
+"transitions": PackedFloat32Array(0.43527535, 1, 0.51763237, 0.6155722),
+"update": 0,
+"values": [Vector2(0, 64), Vector2(0, -64), Vector2(0, -64), Vector2(0, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_2j64r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfi2a"]
+_data = {
+&"Go": SubResource("Animation_wgg3n"),
+&"RESET": SubResource("Animation_2j64r")
+}
+
+[node name="MovingPillar" type="Node2D" unique_id=1588820009]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1689422874]
+position = Vector2(0, 64)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2088349132]
+sprite_frames = SubResource("SpriteFrames_lr3mb")
+autoplay = "default"
+frame_progress = 0.6050462
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1758514242]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_kuf72")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=956136738]
+libraries/ = SubResource("AnimationLibrary_lfi2a")
+autoplay = &"Go"

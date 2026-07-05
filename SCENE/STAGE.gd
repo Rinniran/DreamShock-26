@@ -4,11 +4,18 @@ var M_Player:AudioStreamPlayer = Global.musicP
 @export var MusicVolume = -9.6
 @export var Stage_Music:AudioStream
 @export var LowTime_Music:AudioStream
+@export var stagepath = ""
 @onready var Invincible_Music = preload("res://AUDIO/BGM/INVINCIBLE.ogg")
+
+@onready var combovoice = [$"100combo", $"200combo", $"300combo", $"400combo"]
 
 
 func _ready() -> void:
-		Global.activegame = true
+		Global.combovoice = combovoice
+		Global.activegame = false
+		if M_Player != null && M_Player.stream != null && !M_Player.playing:
+			M_Player.play()
+		Global.continuepath = stagepath
 
 
 func _process(delta: float) -> void:

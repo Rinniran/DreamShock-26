@@ -22,11 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://b8x8oigqkfsbf" path="res://OBJECT/GENERAL/Camstopper.tscn" id="17_jg7cs"]
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="20_bpytk"]
 [ext_resource type="PackedScene" uid="uid://crp0mtm2vkmkl" path="res://SCENE/StickCity/Park.tscn" id="21_y21vy"]
+[ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="23_3brrw"]
+[ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="24_ywq1t"]
+[ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="25_t25rv"]
+[ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="26_owhp5"]
 
 [node name="Plaza" type="Node2D" unique_id=2107951573]
 script = ExtResource("1_jg7cs")
 Stage_Music = ExtResource("2_y21vy")
 LowTime_Music = ExtResource("3_axpav")
+stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1156793548]
 tile_set = ExtResource("1_dtwwn")
@@ -647,3 +652,19 @@ position = Vector2(6060, 292)
 [node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("20_bpytk")]
 position = Vector2(7044, 407)
 stage = ExtResource("21_y21vy")
+
+[node name="100combo" type="AudioStreamPlayer" parent="." unique_id=1195083553]
+stream = ExtResource("23_3brrw")
+volume_db = -8.667
+
+[node name="200combo" type="AudioStreamPlayer" parent="." unique_id=618775073]
+stream = ExtResource("24_ywq1t")
+volume_db = -8.667
+
+[node name="300combo" type="AudioStreamPlayer" parent="." unique_id=614859354]
+stream = ExtResource("25_t25rv")
+volume_db = -8.667
+
+[node name="400combo" type="AudioStreamPlayer" parent="." unique_id=1363151742]
+stream = ExtResource("26_owhp5")
+volume_db = -8.667

@@ -10,8 +10,7 @@ func _enter(data = {}):
 	get_parent().add_child(obj)
 	root.anim_can_resume_after_hitstop = true
 	Global.kills += 1
-	Global.chaintime = Global.chaintimereset
-	Global.chain += 1
+	Global.addcombo()
 	Global.score += 100 * (Global.chain)
 	root.anim.play("Die")
 	root.drop_item()

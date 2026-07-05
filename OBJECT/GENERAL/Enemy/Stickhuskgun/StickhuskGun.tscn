@@ -450,6 +450,7 @@ size = Vector2(91, 37)
 [node name="StickhuskGun" type="CharacterBody2D" unique_id=1817796248 node_paths=PackedStringArray("deathsound", "hurtsound")]
 z_index = 1
 collision_layer = 0
+collision_mask = 3
 floor_constant_speed = true
 floor_max_angle = 1.0960667
 floor_snap_length = 11.1
@@ -528,10 +529,12 @@ rect = Rect2(-54, -42, 103, 77)
 [node name="Gapdetectleft" type="RayCast2D" parent="." unique_id=2014269729]
 position = Vector2(-11, 6)
 target_position = Vector2(0, 23)
+collision_mask = 3
 
 [node name="Gapdetectright" type="RayCast2D" parent="." unique_id=579960719]
 position = Vector2(11, 6)
 target_position = Vector2(0, 23)
+collision_mask = 3
 
 [node name="Explosionset1" parent="." unique_id=1748899483 instance=ExtResource("11_3qxib")]
 position = Vector2(0, -2)

@@ -5,8 +5,7 @@ class_name Piece
 
 func _on_area_entered(area: Area2D) -> void:
 	if $sp.animation != "collect" && area.is_in_group("Player"):
-		Global.chaintime = Global.chaintimereset
-		Global.chain += 1
+		Global.addcombo()
 		Global.score += 100 * (Global.chain)
 		Global.pieces += 1
 		Global.ms = 0

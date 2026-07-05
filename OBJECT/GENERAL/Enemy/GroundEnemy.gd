@@ -71,8 +71,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			hurtsound.stop()
 			hurtsound.play()
 		
-		Global.chaintime = Global.chaintimereset
-		Global.chain += 1
+		Global.addcombo()
 		Global.score += 100 * (Global.chain)
 		if hp <= 0:
 			if unlocks_screen:

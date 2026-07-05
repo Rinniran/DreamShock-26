@@ -3,7 +3,7 @@ extends BaseState
 func _enter(data = {}):
 	Global.kills += 1
 	root.anim_can_resume_after_hitstop = false
-	root.col.disabled = true
+	root.col.queue_free()
 	root.extanim.pause()
 	root.deathsound.play()
 	root.impact_flash.visible = true

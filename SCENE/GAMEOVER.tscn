@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://csb2hcuqyvwqw"]
+
+[ext_resource type="Script" uid="uid://btopfc0piphe4" path="res://SCENE/gameover.gd" id="1_gwv1l"]
+[ext_resource type="Shader" uid="uid://cw6wack0a3fn6" path="res://SCENE/GAMEOVER.gdshader" id="1_x0dtu"]
+[ext_resource type="Texture2D" uid="uid://bhgdfsywtgbh" path="res://Sprites/GAMEOVER.png" id="2_i36ql"]
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="3_i36ql"]
+[ext_resource type="Texture2D" uid="uid://doo055qjeo4xr" path="res://Sprites/MenuCursor.png" id="4_mspmj"]
+
+[sub_resource type="Gradient" id="Gradient_i36ql"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x0dtu"]
+frequency = 0.0669
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hunpc"]
+width = 320
+height = 320
+noise = SubResource("FastNoiseLite_x0dtu")
+color_ramp = SubResource("Gradient_i36ql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ooa7i"]
+shader = ExtResource("1_x0dtu")
+shader_parameter/inner_color = Color(0.003921569, 1, 0.8627451, 1)
+shader_parameter/outer_color = Color(0.7912103, 0.0006378287, 0.81899464, 1)
+shader_parameter/inner_threshold = 0.36
+shader_parameter/outer_threshold = 0.1
+shader_parameter/soft_edge = 0.2
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_hunpc")
+shader_parameter/multiplier = 1.0
+shader_parameter/stretch = Vector2(2, 2)
+
+[node name="Gameover" type="Node2D" unique_id=1696564669 node_paths=PackedStringArray("cursor")]
+script = ExtResource("1_gwv1l")
+cursor = NodePath("MenuCursor")
+
+[node name="Gameover" type="Sprite2D" parent="." unique_id=183839545]
+material = SubResource("ShaderMaterial_ooa7i")
+texture = ExtResource("2_i36ql")
+centered = false
+
+[node name="Contlabel" type="Label" parent="." unique_id=1349752362]
+offset_left = 35.0
+offset_top = 189.0
+offset_right = 163.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("3_i36ql")
+text = "continue"
+
+[node name="QuitLabel" type="Label" parent="." unique_id=296821395]
+offset_left = 183.0
+offset_top = 190.0
+offset_right = 311.0
+offset_bottom = 213.0
+theme_override_fonts/font = ExtResource("3_i36ql")
+text = "quit"
+horizontal_alignment = 1
+
+[node name="MenuCursor" type="Sprite2D" parent="." unique_id=1583868317]
+position = Vector2(194, 197)
+texture = ExtResource("4_mspmj")

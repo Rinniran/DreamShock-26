@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dahio5ccpil3v"]
+
+[ext_resource type="Script" uid="uid://bvoweaeq036mj" path="res://OBJECT/Hitboxes/Player/PLHB3D.gd" id="1_ofyx0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofyx0"]
+size = Vector3(0.5615283, 0.32044068, 0.40005615)
+
+[node name="HbSubA" type="Area3D" unique_id=304956238 groups=["Heavy", "Pl_Attack"]]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_ofyx0")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1274751118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23826414, -0.022917122, -0.0077673346)
+shape = SubResource("BoxShape3D_ofyx0")

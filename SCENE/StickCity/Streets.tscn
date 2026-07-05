@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cbu5vrt6u1p8d" path="res://SPRITE/STAGE/STICKCITY/Sc_Broke.png" id="6_8p28j"]
 [ext_resource type="Texture2D" uid="uid://3l0u37flgwfs" path="res://SPRITE/STAGE/STICKCITY/StupidSign.png" id="7_gcveo"]
 [ext_resource type="Texture2D" uid="uid://ckml45783w0yb" path="res://SPRITE/STAGE/STICKCITY/Debris.png" id="8_58xuq"]
-[ext_resource type="Texture2D" uid="uid://f45uf1p00lrr" path="res://SPRITE/TILE/Oneway Scaffold.png" id="8_ee55t"]
 [ext_resource type="Texture2D" uid="uid://bo6sr1duqn5s4" path="res://SPRITE/STAGE/STICKCITY/Tree1.png" id="9_wddkb"]
 [ext_resource type="Texture2D" uid="uid://c65ercymab7if" path="res://SPRITE/STAGE/STICKCITY/Bushes.png" id="10_cou6f"]
 [ext_resource type="Texture2D" uid="uid://usnyops48ni7" path="res://SPRITE/STAGE/STICKCITY/WallBush.png" id="11_61et4"]
@@ -22,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0qymshti65c" path="res://OBJECT/STAGE/SCITY/Rooftop.tscn" id="16_hcws7"]
 [ext_resource type="Texture2D" uid="uid://dyylivnh7hlq3" path="res://SPRITE/STAGE/STICKCITY/Drain.png" id="17_8mt64"]
 [ext_resource type="Texture2D" uid="uid://6regg0dqnjxx" path="res://SPRITE/STAGE/STICKCITY/LightYellowBig.png" id="17_smwp7"]
+[ext_resource type="TileSet" uid="uid://bj5noqea8lfq1" path="res://SCENE/OnewayA.tres" id="21_xee4y"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="22_nvtpt"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="23_nryoh"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="24_2wyfc"]
@@ -32,61 +32,13 @@
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="30_4g6p8"]
 [ext_resource type="PackedScene" uid="uid://vmbn3u2qwdgl" path="res://SCENE/StickCity/Plaza.tscn" id="31_a31gp"]
 [ext_resource type="PackedScene" uid="uid://do44vagptmp5f" path="res://OBJECT/GENERAL/Capsule.tscn" id="33_p7bt1"]
+[ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="33_xee4y"]
+[ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="34_jaa3x"]
+[ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="35_us16h"]
+[ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="36_lolfe"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_clmtf"]
 polygon = PackedVector2Array(3761, -414, 768, 44, 37, 62, -144, 36, 231, -23, 236, -47, 557, -130, 563, -160, 1102, -313, 2858.234, -372.5334, 2933, -411)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_58xuq"]
-tile_data = PackedInt32Array(0, 327680, 0, 65536, 327680, 1, 65537, 393216, 1, 131073, 393216, 2, 65538, 458752, 1, 131074, 393216, 1, 196610, 393216, 2, 196611, 393216, 1, 262147, 393216, 2, 262148, 393216, 1, 327684, 393216, 2, 262149, 458752, 1, 327685, 458752, 2, 327686, 196608, 0, 327687, 65536, 0, 393223, 65536, 1, 327688, 131072, 0, 393224, 131072, 1, 393225, 196608, 1, 393226, 196608, 0, 393227, 196608, 0, 393228, 196608, 0, 393229, 196608, 0, 393230, 196608, 0, 393231, 196608, 0)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_wddkb"]
-tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 196608, 0, 3, 196608, 0, 4, 196608, 0, 5, 196608, 0, 6, 196608, 0, 7, 196608, 0)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_cou6f"]
-tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 196608, 0, 3, 196608, 0, 4, 196608, 0, 5, 196608, 0, 6, 196608, 0, 7, 196608, 0, 8, 65536, 0, 65544, 65536, 1, 9, 131072, 0, 65545, 131072, 1, 65546, 196608, 1, 65547, 65536, 0, 131083, 65536, 1, 65548, 131072, 0, 131084, 131072, 1, 131085, 196608, 1, 131086, 65536, 0, 196622, 65536, 1, 131087, 131072, 0, 196623, 131072, 1, 196624, 196608, 1, 196625, 65536, 0, 262161, 65536, 1, 196626, 131072, 0, 262162, 131072, 1, 262163, 196608, 1, 262164, 65536, 0, 327700, 65536, 1, 262165, 131072, 0, 327701, 131072, 1, 327702, 196608, 1, 327703, 65536, 0, 393239, 65536, 1, 327704, 131072, 0, 393240, 131072, 1, 393241, 196608, 1, 393242, 196608, 268435456, 393243, 196608, 268435456, 393244, 196608, 268435456, 393245, 196608, 268435456, 393246, 196608, 268435456, 393247, 196608, 268435456, 393248, 196608, 268435456, 393249, 0, 268435456)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61et4"]
-texture = ExtResource("8_ee55t")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0.5109577, 8, 8, -8, 8)
-0:0/0/physics_layer_0/polygon_0/one_way = true
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 0, 4, 8, 8, -8, 8)
-1:0/0/physics_layer_0/polygon_0/one_way = true
-2:0/0 = 0
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
-3:0/0/physics_layer_0/polygon_0/one_way = true
-5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -8, -8, 8, 8, 0, 8)
-5:0/0/physics_layer_0/polygon_0/one_way = true
-6:0/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -4, 8, 4, -8, 0)
-2:1/0/physics_layer_0/polygon_0/one_way = true
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, 0, 8, 8, -8, 4)
-3:1/0/physics_layer_0/polygon_0/one_way = true
-4:1/0 = 0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, 4, 8, 8, -8, 4)
-4:1/0/physics_layer_0/polygon_0/one_way = true
-5:1/0 = 0
-6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, 0, 8, -8, 0)
-6:1/0/physics_layer_0/polygon_0/one_way = true
-7:1/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, 0, 8, 0, 8, 8, -4, 4, -8, 0)
-7:2/0/physics_layer_0/polygon_0/one_way = true
-
-[sub_resource type="TileSet" id="TileSet_dywee"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_61et4")
-pattern_0 = SubResource("TileMapPattern_58xuq")
-pattern_1 = SubResource("TileMapPattern_wddkb")
-pattern_2 = SubResource("TileMapPattern_cou6f")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js17h"]
 texture = ExtResource("14_k3ec5")
@@ -179,6 +131,7 @@ modulate = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("1_tt0hx")
 Stage_Music = ExtResource("26_2wyfc")
 LowTime_Music = ExtResource("3_e8sht")
+stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="Node" type="Node" parent="." unique_id=1149708822]
 
@@ -774,6 +727,8 @@ frame_progress = 0.6429813
 
 [node name="Rooftop" parent="SpriteDecor" unique_id=1944486232 instance=ExtResource("16_hcws7")]
 position = Vector2(4492, -450)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Drain" type="Sprite2D" parent="SpriteDecor" unique_id=714988058]
 position = Vector2(2912, 335)
@@ -784,7 +739,7 @@ position = Vector2(3168, 332)
 texture = ExtResource("17_8mt64")
 
 [node name="TileMap2" type="TileMap" parent="." unique_id=1798082057]
-tile_set = SubResource("TileSet_dywee")
+tile_set = ExtResource("21_xee4y")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1310636, 131072, 268435457, -1310635, 65536, 268435457, -1376169, 458752, 268435458, -1376168, 393216, 268435458, -1441703, 393216, 268435458, -1572774, 393216, 268435457, -1507238, 393216, 268435458, -1572773, 393216, 268435458, -1638308, 327680, 268435457, -1310643, 196608, 268435456, -1310642, 196608, 268435456, -1310641, 196608, 268435456, -1310640, 196608, 268435456, -1310639, 196608, 268435456, -1310638, 196608, 268435456, -1310637, 196608, 268435457, -1376172, 131072, 268435456, -1376171, 65536, 268435456, -1376170, 196608, 268435456, -1441705, 458752, 268435457, -1441704, 393216, 268435457, -1507239, 393216, 268435457, -1638310, 458752, 268435457, -1638309, 393216, 268435457, -1703844, 327680, 268435456, -1310652, 196608, 0, -1703883, 327680, 0, -1638347, 327680, 1, -1638346, 393216, 1, -1572810, 393216, 2, -1638345, 458752, 1, -1572809, 393216, 1, -1507273, 393216, 2, -1507272, 393216, 1, -1441736, 393216, 2, -1441735, 393216, 1, -1376199, 393216, 2, -1441734, 458752, 1, -1376198, 458752, 2, -1376197, 196608, 0, -1376196, 65536, 0, -1310660, 65536, 1, -1376195, 131072, 0, -1310659, 131072, 1, -1310658, 196608, 1, -1310657, 196608, 0, -1310656, 196608, 0, -1310655, 196608, 0, -1310654, 196608, 0, -1310653, 196608, 0, -1310644, 196608, 0, -1310645, 196608, 0, -1310646, 196608, 0, -1310647, 196608, 0, -1310648, 196608, 0, -1310649, 196608, 0, -1310650, 196608, 0, -1310651, 196608, 0, -982952, 0, 268435456, -982953, 65536, 268435456, -982954, 131072, 268435456, -917417, 65536, 268435457, -917418, 131072, 268435457, -917419, 262144, 268435457, -851915, 0, 0, -851914, 196608, 0, -851913, 196608, 0, -851912, 196608, 0, -851911, 196608, 0, -851910, 196608, 0, -851909, 196608, 0, -851908, 196608, 0, -851907, 65536, 0, -786371, 65536, 1, -851906, 131072, 0, -786370, 131072, 1, -786369, 196608, 1, -786368, 65536, 0, -720832, 65536, 1, -786367, 131072, 0, -720831, 131072, 1, -720830, 196608, 1, -720829, 65536, 0, -655293, 65536, 1, -720828, 131072, 0, -655292, 131072, 1, -655291, 196608, 1, -655290, 65536, 0, -589754, 65536, 1, -655289, 131072, 0, -589753, 131072, 1, -589752, 196608, 1, -589751, 65536, 0, -524215, 65536, 1, -589750, 131072, 0, -524214, 131072, 1, -524213, 196608, 1, -524212, 65536, 0, -458676, 65536, 1, -524211, 131072, 0, -458675, 131072, 1, -458674, 196608, 1, -458666, 0, 268435456, -458667, 196608, 268435456, -458668, 196608, 268435456, -458669, 196608, 268435456, -458670, 196608, 268435456, -458671, 196608, 268435456, -458672, 196608, 268435456, -458673, 196608, 268435456, -130977, 0, 268435456, -130978, 196608, 268435456, -130979, 196608, 268435456, -130980, 196608, 268435456, -130981, 196608, 268435456, -130982, 196608, 268435456, -130983, 196608, 268435456, -130984, 196608, 268435456, -130985, 65536, 268435456, -130986, 131072, 268435456, -65449, 65536, 268435457, -65450, 131072, 268435457, -65451, 196608, 268435457, -65452, 65536, 268435456, -65453, 131072, 268435456, 84, 65536, 268435457, 83, 131072, 268435457, 82, 196608, 268435457, 81, 65536, 268435456, 80, 131072, 268435456, 65617, 65536, 268435457, 65616, 131072, 268435457, 65615, 196608, 268435457, 65614, 65536, 268435456, 65613, 131072, 268435456, 131150, 65536, 268435457, 131149, 131072, 268435457, 131148, 196608, 268435457, 131147, 65536, 268435456, 131146, 131072, 268435456, 196683, 65536, 268435457, 196682, 131072, 268435457, 196681, 196608, 268435457, 196680, 65536, 268435456, 196679, 131072, 268435456, 262216, 65536, 268435457, 262215, 131072, 268435457, 262214, 196608, 268435457, 262213, 196608, 0, 262212, 196608, 0, 262211, 196608, 0, 262210, 196608, 0, 262209, 196608, 0, 262208, 196608, 0, 262207, 196608, 0, 262206, 0, 0, -524236, 131072, 0, -524237, 65536, 0, -524238, 196608, 0, -524239, 196608, 0, -524240, 196608, 0, -524241, 196608, 0, -524242, 196608, 0, -524243, 196608, 0, -524244, 196608, 0, -524245, 0, 0, -458697, 131072, 0, -458698, 65536, 0, -458699, 196608, 1, -458700, 131072, 1, -458701, 65536, 1, -393158, 131072, 0, -393159, 65536, 0, -393160, 196608, 1, -393161, 131072, 1, -393162, 65536, 1, -327619, 131072, 0, -327620, 65536, 0, -327621, 196608, 1, -327622, 131072, 1, -327623, 65536, 1, -262080, 131072, 0, -262081, 65536, 0, -262082, 196608, 1, -262083, 131072, 1, -262084, 65536, 1, -196541, 131072, 0, -196542, 65536, 0, -196543, 196608, 1, -196544, 131072, 1, -196545, 65536, 1, -130996, 0, 268435456, -130997, 196608, 268435456, -130998, 196608, 268435456, -130999, 196608, 268435456, -131000, 196608, 268435456, -131001, 196608, 268435456, -131002, 196608, 268435456, -131003, 196608, 268435456, -131004, 196608, 1, -131005, 131072, 1, -131006, 65536, 1, -1441577, 0, 0, -1441576, 65536, 0, -1376040, 65536, 1, -1441575, 131072, 0, -1376039, 131072, 1, -1376038, 196608, 1, -1376037, 196608, 0, -1376036, 196608, 0, -1376035, 196608, 0, -1376034, 196608, 0, -1376033, 196608, 0, -1376032, 196608, 0, -1376031, 196608, 0, -1507100, 393216, 268435457, -1507101, 393216, 268435456, -1441564, 393216, 268435458, -1441565, 393216, 268435457, -1441566, 458752, 268435457, -1376029, 393216, 268435458, -1376030, 458752, 268435458, -1572636, 393216, 268435456, -1638171, 393216, 268435456, -1572635, 393216, 268435457, -1507099, 393216, 268435458, -1703706, 393216, 268435456, -1638170, 393216, 268435457, -1572634, 393216, 268435458, -1769241, 393216, 268435456, -1703705, 393216, 268435457, -1638169, 393216, 268435458, -1769239, 196608, 0, -1769240, 65536, 268435456, -1703704, 65536, 268435457, -1769238, 196608, 0, -1769237, 196608, 0, -1769236, 196608, 0, -1769235, 196608, 0, -1769234, 0, 268435456)
 
@@ -937,10 +892,10 @@ position = Vector2(1852, 175)
 position = Vector2(1326, -14)
 
 [node name="StickhuskSword10" parent="Enemies" unique_id=1101529151 instance=ExtResource("22_nvtpt")]
-position = Vector2(1064, -58)
+position = Vector2(1065, -67)
 
 [node name="StickhuskSword11" parent="Enemies" unique_id=1065218648 instance=ExtResource("22_nvtpt")]
-position = Vector2(928, -103)
+position = Vector2(929, -114)
 
 [node name="StickhuskGun" parent="Enemies" unique_id=1342182544 instance=ExtResource("23_nryoh")]
 position = Vector2(1392, -247)
@@ -1803,6 +1758,7 @@ texture = ExtResource("27_3yxvb")
 z_index = -42
 position = Vector2(1257, -81)
 texture = ExtResource("27_3yxvb")
+metadata/_edit_lock_ = true
 
 [node name="Buildings4" type="Sprite2D" parent="." unique_id=44845373]
 z_index = -27
@@ -1818,3 +1774,19 @@ environment = SubResource("Environment_4g6p8")
 
 [node name="Capsule" parent="." unique_id=786621984 instance=ExtResource("33_p7bt1")]
 position = Vector2(3788, -298)
+
+[node name="100combo" type="AudioStreamPlayer" parent="." unique_id=503311631]
+stream = ExtResource("33_xee4y")
+volume_db = -8.667
+
+[node name="200combo" type="AudioStreamPlayer" parent="." unique_id=1694552090]
+stream = ExtResource("34_jaa3x")
+volume_db = -8.667
+
+[node name="300combo" type="AudioStreamPlayer" parent="." unique_id=361494678]
+stream = ExtResource("35_us16h")
+volume_db = -8.667
+
+[node name="400combo" type="AudioStreamPlayer" parent="." unique_id=211717496]
+stream = ExtResource("36_lolfe")
+volume_db = -8.667

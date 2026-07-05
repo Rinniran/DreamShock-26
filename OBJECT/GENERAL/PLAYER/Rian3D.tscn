@@ -4,10 +4,10 @@
 [ext_resource type="SpriteFrames" uid="uid://mmxrrknshg8v" path="res://Sprites/Players/Rian/RianFrames.tres" id="1_t8gxs"]
 [ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="3_hgeiq"]
 [ext_resource type="Script" uid="uid://b76k1rlnekikc" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Idle.gd" id="4_4vbe6"]
-[ext_resource type="Script" uid="uid://b6c77ktdi2aem" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/atk.gd" id="5_w1ruu"]
+[ext_resource type="Script" uid="uid://bfbelynkmda4f" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/atk3D.gd" id="5_hgeiq"]
 [ext_resource type="Script" uid="uid://g6neud6whrd" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Move.gd" id="6_i5v2g"]
 [ext_resource type="Script" uid="uid://4tgyl85c2cgf" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Dash3D.gd" id="7_hgeiq"]
-[ext_resource type="Script" uid="uid://b8hggaop6e3xn" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/DashAttack.gd" id="8_pews0"]
+[ext_resource type="Script" uid="uid://baq8t7vnf5u86" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/DashAttack3D.gd" id="8_4vbe6"]
 [ext_resource type="Script" uid="uid://cbcml1oblom77" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Jump.gd" id="9_qjpvp"]
 [ext_resource type="Script" uid="uid://heb8j8txrrst" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Damage.gd" id="10_gi5bo"]
 [ext_resource type="Script" uid="uid://cedofh331p4nq" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Fall.gd" id="11_7x8f8"]
@@ -57,7 +57,7 @@ root_node_path = NodePath("..")
 script = ExtResource("4_4vbe6")
 
 [node name="Attack1" type="Node" parent="StateMachine" unique_id=1037599680]
-script = ExtResource("5_w1ruu")
+script = ExtResource("5_hgeiq")
 
 [node name="Move" type="Node" parent="StateMachine" unique_id=1233623224]
 script = ExtResource("6_i5v2g")
@@ -66,7 +66,7 @@ script = ExtResource("6_i5v2g")
 script = ExtResource("7_hgeiq")
 
 [node name="DashAttack" type="Node" parent="StateMachine" unique_id=1692344851 groups=["Player"]]
-script = ExtResource("8_pews0")
+script = ExtResource("8_4vbe6")
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1468560570]
 script = ExtResource("9_qjpvp")

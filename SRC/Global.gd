@@ -53,6 +53,9 @@ var invincibility = false
 var chain = 0
 var chaintimereset = 99
 var chaintime = chaintimereset
+var combovoice = null
+
+var continuepath = ""
 
 @onready var musicP = AudioStreamPlayer.new()
 
@@ -79,8 +82,8 @@ func _physics_process(delta: float) -> void:
 		time -= 1
 		ms = 0
 	if kills >= tereq:
-		var te = preload("res://OBJECT/GENERAL/time_ext.tscn").instantiate()
-		get_parent().add_child(te)
+		#var te = preload("res://OBJECT/GENERAL/time_ext.tscn").instantiate()
+		#get_parent().add_child(te)
 		kills = 0
 	
 	if invincibile_time > 0:
@@ -95,3 +98,16 @@ func _physics_process(delta: float) -> void:
 		hitstop = false
 	#print_debug(player1.sprite.is_playing())
 	pass
+
+func addcombo():
+	Global.chaintime = Global.chaintimereset
+	Global.chain += 1
+	match(chain):
+		100:
+			combovoice[0].play()
+		200:
+			combovoice[1].play()
+		300:
+			combovoice[2].play()
+		400:
+			combovoice[3].play()

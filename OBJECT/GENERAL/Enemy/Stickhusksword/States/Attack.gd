@@ -3,7 +3,7 @@ extends BaseState
 func _enter(data = {}):
 	root.anim.play("Move")
 	root.anim_can_resume_after_hitstop = true
-	if root.position.distance_to(Global.player1.position) > 80:
+	if root.global_position.distance_to(Global.player1.global_position) > 80:
 		root.sprite.flip_h = !root.sprite.flip_h
 	else:
 		if Global.player1.position.x < root.position.x:
@@ -27,7 +27,7 @@ func _step():
 	if parent.state_time >= 60:
 		parent.change_state("Idle")
 	
-	if root.position.distance_to(Global.player1.position) < 48:
+	if root.global_position.distance_to(Global.player1.global_position) < 48:
 		parent.change_state("Attack")
 	
 

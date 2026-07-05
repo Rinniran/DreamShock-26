@@ -1,0 +1,56 @@
+[gd_resource type="TileSet" format=3 uid="uid://bj5noqea8lfq1"]
+
+[ext_resource type="Texture2D" uid="uid://f45uf1p00lrr" path="res://SPRITE/TILE/Oneway Scaffold.png" id="1_t38sh"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_58xuq"]
+tile_data = PackedInt32Array(0, 327680, 0, 65536, 327680, 1, 65537, 393216, 1, 131073, 393216, 2, 65538, 458752, 1, 131074, 393216, 1, 196610, 393216, 2, 196611, 393216, 1, 262147, 393216, 2, 262148, 393216, 1, 327684, 393216, 2, 262149, 458752, 1, 327685, 458752, 2, 327686, 196608, 0, 327687, 65536, 0, 393223, 65536, 1, 327688, 131072, 0, 393224, 131072, 1, 393225, 196608, 1, 393226, 196608, 0, 393227, 196608, 0, 393228, 196608, 0, 393229, 196608, 0, 393230, 196608, 0, 393231, 196608, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_wddkb"]
+tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 196608, 0, 3, 196608, 0, 4, 196608, 0, 5, 196608, 0, 6, 196608, 0, 7, 196608, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_cou6f"]
+tile_data = PackedInt32Array(0, 0, 0, 1, 196608, 0, 2, 196608, 0, 3, 196608, 0, 4, 196608, 0, 5, 196608, 0, 6, 196608, 0, 7, 196608, 0, 8, 65536, 0, 65544, 65536, 1, 9, 131072, 0, 65545, 131072, 1, 65546, 196608, 1, 65547, 65536, 0, 131083, 65536, 1, 65548, 131072, 0, 131084, 131072, 1, 131085, 196608, 1, 131086, 65536, 0, 196622, 65536, 1, 131087, 131072, 0, 196623, 131072, 1, 196624, 196608, 1, 196625, 65536, 0, 262161, 65536, 1, 196626, 131072, 0, 262162, 131072, 1, 262163, 196608, 1, 262164, 65536, 0, 327700, 65536, 1, 262165, 131072, 0, 327701, 131072, 1, 327702, 196608, 1, 327703, 65536, 0, 393239, 65536, 1, 327704, 131072, 0, 393240, 131072, 1, 393241, 196608, 1, 393242, 196608, 268435456, 393243, 196608, 268435456, 393244, 196608, 268435456, 393245, 196608, 268435456, 393246, 196608, 268435456, 393247, 196608, 268435456, 393248, 196608, 268435456, 393249, 0, 268435456)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61et4"]
+texture = ExtResource("1_t38sh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0.5109577, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 0, 4, 8, 8, -8, 8)
+1:0/0/physics_layer_0/polygon_0/one_way = true
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+3:0/0/physics_layer_0/polygon_0/one_way = true
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -8, -8, 8, 8, 0, 8)
+5:0/0/physics_layer_0/polygon_0/one_way = true
+6:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -4, 8, 4, -8, 0)
+2:1/0/physics_layer_0/polygon_0/one_way = true
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, 0, 8, 8, -8, 4)
+3:1/0/physics_layer_0/polygon_0/one_way = true
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, 4, 8, 8, -8, 4)
+4:1/0/physics_layer_0/polygon_0/one_way = true
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, 0, 8, -8, 0)
+6:1/0/physics_layer_0/polygon_0/one_way = true
+7:1/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, 0, 8, 0, 8, 8, -4, 4, -8, 0)
+7:2/0/physics_layer_0/polygon_0/one_way = true
+
+[resource]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_61et4")
+pattern_0 = SubResource("TileMapPattern_58xuq")
+pattern_1 = SubResource("TileMapPattern_wddkb")
+pattern_2 = SubResource("TileMapPattern_cou6f")
