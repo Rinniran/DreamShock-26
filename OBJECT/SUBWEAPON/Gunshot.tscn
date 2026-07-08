@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dd4jfodjlvbd6"]
+
+[ext_resource type="Texture2D" uid="uid://qqq0x8xwhgt7" path="res://Sprites/Players/Rian/VectorSummon/Shotgun_Shot.png" id="1"]
+[ext_resource type="Script" uid="uid://cjo34hf6y7px8" path="res://OBJECT/SUBWEAPON/Gunshot.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://5cktg0xb6knj" path="res://AUDIO/SE/Shoot.wav" id="3"]
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1")
+region = Rect2(48, 0, 48, 24)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("1")
+region = Rect2(96, 0, 48, 24)
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="5"]
+size = Vector2(254.528, 25)
+
+[node name="Shot" type="Area2D" unique_id=1107209084 groups=["Pl_Attack", "Player"]]
+collision_layer = 259
+collision_mask = 259
+script = ExtResource("2")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=137208900]
+position = Vector2(0.125309, -23.9376)
+rotation = -1.57602
+sprite_frames = SubResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610384382]
+position = Vector2(-1.42502, -129.7)
+rotation = -1.5707964
+shape = SubResource("5")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=270567279]
+position = Vector2(12, -4)
+rotation = -1.5707964
+target_position = Vector2(245.99664, 1.285018)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1194056260]
+position = Vector2(1.19209e-07, -3)
+rotation = -1.5707964
+target_position = Vector2(253.99654, 1.3268075)
+
+[node name="RayCast2D3" type="RayCast2D" parent="." unique_id=1136705182]
+position = Vector2(-12, -2)
+rotation = -1.5707964
+target_position = Vector2(249.00705, -0.69928455)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=953314222]
+stream = ExtResource("3")
+volume_db = -16.312
+autoplay = true
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

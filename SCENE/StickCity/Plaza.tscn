@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="14_vjixb"]
 [ext_resource type="PackedScene" uid="uid://cw85tfj2obtbr" path="res://OBJECT/GENERAL/Enemy/DemonOrb/DemonOrb.tscn" id="16_g3daw"]
 [ext_resource type="PackedScene" uid="uid://b8x8oigqkfsbf" path="res://OBJECT/GENERAL/Camstopper.tscn" id="17_jg7cs"]
+[ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="19_t25rv"]
+[ext_resource type="PackedScene" uid="uid://4m0fc5dvpkjf" path="res://OBJECT/GENERAL/Enemy/Eyepiece/Eyepiece.tscn" id="19_ywq1t"]
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="20_bpytk"]
 [ext_resource type="PackedScene" uid="uid://crp0mtm2vkmkl" path="res://SCENE/StickCity/Park.tscn" id="21_y21vy"]
 [ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="23_3brrw"]
@@ -621,15 +623,14 @@ position = Vector2(5373, 459)
 
 [node name="StickhuskGun" parent="Enemies" unique_id=729021928 instance=ExtResource("14_vjixb")]
 position = Vector2(993, 365)
+dropped_item = ExtResource("19_t25rv")
 
 [node name="StickhuskGun4" parent="Enemies" unique_id=1607797963 instance=ExtResource("14_vjixb")]
 position = Vector2(2965, 791)
 
 [node name="StickhuskGun5" parent="Enemies" unique_id=776191115 instance=ExtResource("14_vjixb")]
 position = Vector2(3554, 730)
-
-[node name="StickhuskGun6" parent="Enemies" unique_id=1522151199 instance=ExtResource("14_vjixb")]
-position = Vector2(3816, 736)
+dropped_item = ExtResource("19_t25rv")
 
 [node name="StickhuskGun7" parent="Enemies" unique_id=15990542 instance=ExtResource("14_vjixb")]
 position = Vector2(4482, 623)
@@ -642,6 +643,15 @@ position = Vector2(5206, 460)
 
 [node name="StickhuskGun10" parent="Enemies" unique_id=1036114239 instance=ExtResource("14_vjixb")]
 position = Vector2(5468, 460)
+
+[node name="Eyepiece" parent="Enemies" unique_id=1149563767 instance=ExtResource("19_ywq1t")]
+position = Vector2(3837, 715)
+
+[node name="Eyepiece2" parent="Enemies" unique_id=889300301 instance=ExtResource("19_ywq1t")]
+position = Vector2(3784, 727)
+
+[node name="Eyepiece3" parent="Enemies" unique_id=191888021 instance=ExtResource("19_ywq1t")]
+position = Vector2(3906, 687)
 
 [node name="Node2D" parent="." unique_id=2067682784 instance=ExtResource("16_g3daw")]
 position = Vector2(5885, 337)

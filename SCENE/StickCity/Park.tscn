@@ -11,10 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="6_g8c0t"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="7_m3e0v"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="8_xxs3b"]
+[ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="9_tkb76"]
 [ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="12_mabfb"]
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="13_qmpaw"]
 [ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="14_14kmh"]
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="15_tkb76"]
+[ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="16_14kmh"]
+[ext_resource type="PackedScene" uid="uid://4iip2au6hbyw" path="res://SCENE/StickCity/Bridge.tscn" id="17_14kmh"]
 
 [node name="Park" type="Node2D" unique_id=333858184]
 script = ExtResource("1_g8c0t")
@@ -80,6 +83,7 @@ position = Vector2(978, 236)
 
 [node name="StickhuskGun2" parent="Enemies" unique_id=258522964 instance=ExtResource("5_wxs8g")]
 position = Vector2(1948, 439)
+dropped_item = ExtResource("9_tkb76")
 
 [node name="StickhuskGun3" parent="Enemies" unique_id=1129393943 instance=ExtResource("5_wxs8g")]
 position = Vector2(4286, 182)
@@ -92,6 +96,7 @@ position = Vector2(6107, 324)
 
 [node name="StickhuskGun6" parent="Enemies" unique_id=1065156059 instance=ExtResource("5_wxs8g")]
 position = Vector2(7160, 389)
+dropped_item = ExtResource("9_tkb76")
 
 [node name="Gliob" parent="Enemies" unique_id=724593587 instance=ExtResource("6_g8c0t")]
 position = Vector2(1103, 171)
@@ -421,3 +426,7 @@ volume_db = -8.667
 [node name="400combo" type="AudioStreamPlayer" parent="." unique_id=1680941936]
 stream = ExtResource("15_tkb76")
 volume_db = -8.667
+
+[node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("16_14kmh")]
+position = Vector2(8528, 320)
+stage = ExtResource("17_14kmh")

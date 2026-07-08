@@ -895,6 +895,31 @@ cache/0/29/0/glyphs/2/size = Vector2(0, 0)
 cache/0/29/0/glyphs/2/uv_rect = Rect2(0, 0, 0, 0)
 cache/0/29/0/glyphs/2/texture_idx = -1
 
+[sub_resource type="GDScript" id="GDScript_ukscj"]
+resource_name = "Selector"
+script/source = "extends Sprite2D
+
+@onready var img1 = preload(\"res://SPRITE/UI/SubIcon1.png\")
+@onready var img2 = preload(\"res://SPRITE/UI/SubIcon2.png\")
+@onready var img3 = preload(\"res://SPRITE/UI/SubIcon3.png\")
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	match (Global.currweapon):
+		Global.player1.wea.NONE:
+			texture = null
+		Global.player1.wea.ODACHI:
+			texture = img1
+		Global.player1.wea.SHOTGUN:
+			texture = img2
+		
+	pass
+"
+
 [node name="Hud" type="CanvasLayer" unique_id=832355996]
 script = ExtResource("1_73pjk")
 hp5 = ExtResource("1_448hv")
@@ -921,7 +946,6 @@ position = Vector2(49, 11)
 texture = ExtResource("2_54c3f")
 
 [node name="Time" type="Label" parent="." unique_id=434569915]
-visible = false
 offset_left = 159.0
 offset_top = 1.0
 offset_right = 223.0
@@ -969,7 +993,6 @@ text = "02
 "
 
 [node name="Timer" type="Label" parent="." unique_id=349170791]
-visible = false
 offset_left = 155.0
 offset_top = 16.0
 offset_right = 188.0
@@ -1011,6 +1034,6 @@ theme_override_fonts/font = ExtResource("14_ckw0p")
 text = "chain!"
 
 [node name="SubIcon" type="Sprite2D" parent="." unique_id=1809693882]
-visible = false
 position = Vector2(24, 71)
 texture = ExtResource("15_ckw0p")
+script = SubResource("GDScript_ukscj")

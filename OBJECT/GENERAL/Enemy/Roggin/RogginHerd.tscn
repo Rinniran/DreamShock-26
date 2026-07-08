@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ch7awm8af0wji"]
+
+[ext_resource type="PackedScene" uid="uid://r044t7s1uxvk" path="res://OBJECT/GENERAL/Enemy/Roggin/Roggin.tscn" id="1"]
+[ext_resource type="Script" uid="uid://b8bv1lqf2psx8" path="res://OBJECT/GENERAL/Enemy/Roggin/RogginHerd.gd" id="2"]
+
+[node name="RogginHerd" type="Node2D" unique_id=1497742308]
+script = ExtResource("2")
+rotation_speed = 1.0
+
+[node name="Roggin" parent="." unique_id=1512120743 instance=ExtResource("1")]
+position = Vector2(-1, 57)
+
+[node name="Roggin2" parent="." unique_id=127730806 instance=ExtResource("1")]
+position = Vector2(-74, -18)
+
+[node name="Roggin3" parent="." unique_id=122170977 instance=ExtResource("1")]
+position = Vector2(1, -88)
+
+[node name="Roggin4" parent="." unique_id=568013958 instance=ExtResource("1")]
+position = Vector2(75, -15)

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dwli2nbg3b2mr" path="res://OBJECT/Hazards/hellstar.gd" id="1_5tsas"]
 [ext_resource type="Texture2D" uid="uid://dms0sou33xb30" path="res://Sprites/Hazards/HellBlade.png" id="2_pa6nb"]
+[ext_resource type="AudioStream" uid="uid://b3mnrrsmpgmri" path="res://AUDIO/SE/Lowtime.wav" id="3_pa6nb"]
+[ext_resource type="AudioStream" uid="uid://dgfidf5sfj6l3" path="res://AUDIO/SE/clang-strong.wav" id="4_difry"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_difry"]
 atlas = ExtResource("2_pa6nb")
@@ -48,7 +50,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pu8io")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 40.0
 }]
@@ -57,7 +59,7 @@ animations = [{
 size = Vector2(20, 66)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28cpu"]
-radius = 59.008472
+radius = 47.0
 
 [node name="Hellstar" type="CharacterBody2D" unique_id=1363026494]
 collision_layer = 0
@@ -78,6 +80,13 @@ shape = SubResource("RectangleShape2D_b6jvw")
 shape = SubResource("CircleShape2D_28cpu")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1414774214]
-rect = Rect2(-59, -58, 118, 117)
+rect = Rect2(-89, -86, 173, 179)
+
+[node name="Watchout" type="AudioStreamPlayer" parent="." unique_id=642531086]
+stream = ExtResource("3_pa6nb")
+volume_db = 4.953
+
+[node name="Clang" type="AudioStreamPlayer" parent="." unique_id=1660922211]
+stream = ExtResource("4_difry")
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

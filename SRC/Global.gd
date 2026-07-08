@@ -54,8 +54,10 @@ var chain = 0
 var chaintimereset = 99
 var chaintime = chaintimereset
 var combovoice = null
+var currweapon = null
 
 var continuepath = ""
+var bossactive = false
 
 @onready var musicP = AudioStreamPlayer.new()
 
@@ -70,6 +72,12 @@ func _physics_process(delta: float) -> void:
 		#Engine.time_scale = 0.918
 		#ProjectSettings.set_setting("physics_ticks_per_second", 59.18)
 	
+	if is_instance_valid(player1):
+		if currweapon == null:
+			currweapon = player1.wea.NONE
+	
+	
+	
 	if chain > 0:
 		if chaintime > 0 && hitstop == false :
 			chaintime -= 1
@@ -82,8 +90,8 @@ func _physics_process(delta: float) -> void:
 		time -= 1
 		ms = 0
 	if kills >= tereq:
-		#var te = preload("res://OBJECT/GENERAL/time_ext.tscn").instantiate()
-		#get_parent().add_child(te)
+		var te = preload("res://OBJECT/GENERAL/time_ext.tscn").instantiate()
+		get_parent().add_child(te)
 		kills = 0
 	
 	if invincibile_time > 0:

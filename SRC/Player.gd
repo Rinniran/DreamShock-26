@@ -6,6 +6,14 @@ enum player
 	BLIP
 }
 
+enum wea
+{
+	NONE,
+	ODACHI,
+	DSLASH,
+	SHOTGUN
+}
+
 enum pardir
 {
 	HIGH,
@@ -34,6 +42,8 @@ var iframes = 0
 var vecair = false
 var DAttacked = false
 var isKilled = false
+
+
 @export var hitstopnull = false
 @export var CAMERA:Camera2D
 @export var character = player.RIAN
@@ -52,6 +62,7 @@ var isKilled = false
 @onready var white = $CanvasLayer/White
 @onready var black = $CanvasLayer/Black
 @onready var dcdet = $DownCrushDetect2
+@onready var sgr = $Attachments/ShotgunRotary
 
 @onready var damit = $CHit
 @onready var aah = $DeathVoice
@@ -62,7 +73,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if (Global.p1health <= 0 || dcdet.is_colliding()) && isKilled == false:
+	if (Global.p1health <= 0 || dcdet.is_colliding() || Global.time <= 0) && isKilled == false:
 		state.change_state("Die")
 		isKilled = true
 	
@@ -159,6 +170,10 @@ func _physics_process(delta: float) -> void:
 		if hitstopnull:
 			state.advance()
 		sprite.stop()
+	
+	if Global.currweapon == wea.SHOTGUN && !sgr.visible:
+		sgr.snd.play()
+		sgr.visible = true
 
 func damageHandle(damage):
 	var parriedhigh = false

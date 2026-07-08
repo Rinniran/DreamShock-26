@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="4_em523"]
 [ext_resource type="PackedScene" uid="uid://c5v2jeb5bw1an" path="res://OBJECT/GENERAL/MovingPillar.tscn" id="6_2wd2l"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="7_lby2a"]
+[ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="8_p3vog"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="8_r3mke"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="9_8e1jp"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="9_r3mke"]
+[ext_resource type="PackedScene" uid="uid://bloqulxreh6cq" path="res://OBJECT/GENERAL/Enemy/Chaser/Chaser.tscn" id="10_7nv4h"]
+[ext_resource type="PackedScene" uid="uid://4m0fc5dvpkjf" path="res://OBJECT/GENERAL/Enemy/Eyepiece/Eyepiece.tscn" id="11_4sar3"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="11_c6npm"]
 [ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="12_xumdo"]
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="13_y0xc5"]
@@ -140,6 +143,7 @@ position = Vector2(12602, 832)
 
 [node name="StickhuskGun" parent="Enemies" unique_id=1817796248 instance=ExtResource("7_lby2a")]
 position = Vector2(909, 560)
+dropped_item = ExtResource("8_p3vog")
 
 [node name="StickhuskGun2" parent="Enemies" unique_id=1426236896 instance=ExtResource("7_lby2a")]
 position = Vector2(1125, 559)
@@ -155,6 +159,7 @@ position = Vector2(2047, 558)
 
 [node name="StickhuskGun6" parent="Enemies" unique_id=342587379 instance=ExtResource("7_lby2a")]
 position = Vector2(2077, 556)
+dropped_item = ExtResource("8_p3vog")
 
 [node name="StickhuskGun7" parent="Enemies" unique_id=640828200 instance=ExtResource("7_lby2a")]
 position = Vector2(2956, 559)
@@ -186,38 +191,23 @@ position = Vector2(5394, 560)
 [node name="StickhuskGun16" parent="Enemies" unique_id=1228810135 instance=ExtResource("7_lby2a")]
 position = Vector2(5489, 561)
 
-[node name="StickhuskGun17" parent="Enemies" unique_id=443878043 instance=ExtResource("7_lby2a")]
-position = Vector2(6027, 597)
-
-[node name="StickhuskGun18" parent="Enemies" unique_id=158147490 instance=ExtResource("7_lby2a")]
-position = Vector2(6081, 594)
-
-[node name="StickhuskGun19" parent="Enemies" unique_id=1549972433 instance=ExtResource("7_lby2a")]
-position = Vector2(6143, 592)
-
 [node name="StickhuskGun20" parent="Enemies" unique_id=273867802 instance=ExtResource("7_lby2a")]
 position = Vector2(6824, 620)
+dropped_item = ExtResource("8_p3vog")
 
 [node name="StickhuskGun21" parent="Enemies" unique_id=253157991 instance=ExtResource("7_lby2a")]
 position = Vector2(7752, 871)
+dropped_item = ExtResource("8_p3vog")
 
 [node name="StickhuskGun22" parent="Enemies" unique_id=1097860724 instance=ExtResource("7_lby2a")]
 position = Vector2(7681, 868)
-
-[node name="StickhuskGun23" parent="Enemies" unique_id=1994227951 instance=ExtResource("7_lby2a")]
-position = Vector2(8190, 874)
-
-[node name="StickhuskGun24" parent="Enemies" unique_id=851848040 instance=ExtResource("7_lby2a")]
-position = Vector2(8423, 811)
-
-[node name="StickhuskGun25" parent="Enemies" unique_id=1105901465 instance=ExtResource("7_lby2a")]
-position = Vector2(8332, 832)
 
 [node name="StickhuskGun26" parent="Enemies" unique_id=1283225316 instance=ExtResource("7_lby2a")]
 position = Vector2(8993, 681)
 
 [node name="StickhuskGun27" parent="Enemies" unique_id=1564741721 instance=ExtResource("7_lby2a")]
 position = Vector2(9507, 551)
+dropped_item = ExtResource("8_p3vog")
 
 [node name="StickhuskGun28" parent="Enemies" unique_id=1705297513 instance=ExtResource("7_lby2a")]
 position = Vector2(10161, 615)
@@ -572,6 +562,60 @@ position = Vector2(12842, 753)
 
 [node name="Gliob70" parent="Enemies" unique_id=1659717838 instance=ExtResource("9_8e1jp")]
 position = Vector2(12873, 779)
+
+[node name="Cenem" parent="Enemies" unique_id=1357584292 instance=ExtResource("10_7nv4h")]
+position = Vector2(3114, 425)
+
+[node name="Cenem2" parent="Enemies" unique_id=1700058325 instance=ExtResource("10_7nv4h")]
+position = Vector2(3240, 417)
+
+[node name="Cenem3" parent="Enemies" unique_id=1643069445 instance=ExtResource("10_7nv4h")]
+position = Vector2(8148, 760)
+
+[node name="Eyepiece" parent="Enemies" unique_id=1149563767 instance=ExtResource("11_4sar3")]
+position = Vector2(8190, 864)
+
+[node name="Eyepiece5" parent="Enemies" unique_id=1375632756 instance=ExtResource("11_4sar3")]
+position = Vector2(6124, 585)
+
+[node name="Eyepiece6" parent="Enemies" unique_id=2023970669 instance=ExtResource("11_4sar3")]
+position = Vector2(6091, 563)
+
+[node name="Eyepiece7" parent="Enemies" unique_id=1365284749 instance=ExtResource("11_4sar3")]
+position = Vector2(6062, 588)
+
+[node name="Eyepiece8" parent="Enemies" unique_id=234321611 instance=ExtResource("11_4sar3")]
+position = Vector2(657, 541)
+
+[node name="Eyepiece2" parent="Enemies" unique_id=1897906176 instance=ExtResource("11_4sar3")]
+position = Vector2(8239, 871)
+
+[node name="Eyepiece3" parent="Enemies" unique_id=767371622 instance=ExtResource("11_4sar3")]
+position = Vector2(8323, 830)
+
+[node name="Eyepiece4" parent="Enemies" unique_id=1407500102 instance=ExtResource("11_4sar3")]
+position = Vector2(8445, 809)
+
+[node name="Cenem4" parent="Enemies" unique_id=1896038985 instance=ExtResource("10_7nv4h")]
+position = Vector2(8195, 804)
+
+[node name="Cenem5" parent="Enemies" unique_id=587419427 instance=ExtResource("10_7nv4h")]
+position = Vector2(8643, 566)
+
+[node name="Cenem6" parent="Enemies" unique_id=994739936 instance=ExtResource("10_7nv4h")]
+position = Vector2(8718, 561)
+
+[node name="Cenem7" parent="Enemies" unique_id=782279177 instance=ExtResource("10_7nv4h")]
+position = Vector2(9364, 422)
+
+[node name="Cenem8" parent="Enemies" unique_id=1331014167 instance=ExtResource("10_7nv4h")]
+position = Vector2(9428, 437)
+
+[node name="Cenem9" parent="Enemies" unique_id=1190043163 instance=ExtResource("10_7nv4h")]
+position = Vector2(11682, 619)
+
+[node name="Cenem10" parent="Enemies" unique_id=1204301433 instance=ExtResource("10_7nv4h")]
+position = Vector2(11746, 673)
 
 [node name="Hud" parent="." unique_id=832355996 instance=ExtResource("9_r3mke")]
 

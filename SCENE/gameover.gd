@@ -9,6 +9,8 @@ func _ready() -> void:
 	Global.p1health = 10
 	Global.score = 0
 	Global.pieces = 0
+	Global.activegame = false
+	Global.time = 30
 	pass # Replace with function body.
 
 

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d1b1bdcpb8tnt"]
+
+[ext_resource type="Script" uid="uid://lcybrtyq5ru3" path="res://OBJECT/GENERAL/capsule.gd" id="1_k3ckq"]
+[ext_resource type="Texture2D" uid="uid://bxrduhlhbv5vs" path="res://SPRITE/CAPSULE/Shotguncap.png" id="2_k3ckq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rfdt"]
+size = Vector2(28, 32)
+
+[node name="Capsule" type="Area2D" unique_id=786621984]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_k3ckq")
+item = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773867068]
+texture = ExtResource("2_k3ckq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1112066935]
+shape = SubResource("RectangleShape2D_4rfdt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bycinyn4a70oi" path="res://Sprites/TILE/OutsideChunksA.png" id="24_nvtpt"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="25_nryoh"]
 [ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="26_2wyfc"]
+[ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="26_jaa3x"]
 [ext_resource type="Texture2D" uid="uid://4lpp0l8s7sms" path="res://Sprites/STAGE/STICKCITY/Buildings1.png" id="27_3yxvb"]
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="30_4g6p8"]
 [ext_resource type="PackedScene" uid="uid://vmbn3u2qwdgl" path="res://SCENE/StickCity/Plaza.tscn" id="31_a31gp"]
@@ -899,6 +900,7 @@ position = Vector2(929, -114)
 
 [node name="StickhuskGun" parent="Enemies" unique_id=1342182544 instance=ExtResource("23_nryoh")]
 position = Vector2(1392, -247)
+dropped_item = ExtResource("26_jaa3x")
 
 [node name="StickhuskGun2" parent="Enemies" unique_id=599464373 instance=ExtResource("23_nryoh")]
 position = Vector2(1314, -333)
@@ -914,6 +916,7 @@ position = Vector2(3337, -338)
 
 [node name="StickhuskGun6" parent="Enemies" unique_id=2107615186 instance=ExtResource("23_nryoh")]
 position = Vector2(3582, -345)
+dropped_item = ExtResource("26_jaa3x")
 
 [node name="StickhuskGun7" parent="Enemies" unique_id=356156390 instance=ExtResource("23_nryoh")]
 position = Vector2(3920, 168)

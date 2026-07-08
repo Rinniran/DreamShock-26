@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="17_lbokb"]
 [ext_resource type="AudioStream" uid="uid://crwc6qa56nyh1" path="res://AUDIO/VOICE/RIANDEATHHIT.wav" id="18_7kfsx"]
 [ext_resource type="AudioStream" uid="uid://fr32x3qfcnui" path="res://AUDIO/VOICE/RIANDIE.wav" id="19_ukscj"]
+[ext_resource type="PackedScene" uid="uid://dya04tgynvhxo" path="res://OBJECT/SUBWEAPON/Shotgunrotary.tscn" id="20_ukscj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8pqb"]
 radius = 4.0
@@ -202,7 +203,12 @@ volume_db = 6.272
 
 [node name="DownCrushDetect2" type="RayCast2D" parent="." unique_id=1589465286]
 position = Vector2(0, 2)
-target_position = Vector2(0, 15)
+target_position = Vector2(0, 11)
+
+[node name="Attachments" type="Node" parent="." unique_id=2126489336]
+
+[node name="ShotgunRotary" parent="Attachments" unique_id=1375401057 instance=ExtResource("20_ukscj")]
+visible = false
 
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Idle" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Attack1" method="_on_sprite_animation_finished"]

@@ -1,0 +1,283 @@
+[gd_scene format=3 uid="uid://r044t7s1uxvk"]
+
+[ext_resource type="Texture2D" uid="uid://bvfoq6efmuoj5" path="res://Sprites/ENEMY/Roggin/Idle.png" id="1"]
+[ext_resource type="Script" uid="uid://c7gc3jmky4iuo" path="res://OBJECT/GENERAL/Enemy/GroundEnemy.gd" id="1_owyyf"]
+[ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="4"]
+[ext_resource type="Script" uid="uid://qdqutiufhftb" path="res://OBJECT/GENERAL/Enemy/Roggin/States/Idle.gd" id="5"]
+[ext_resource type="Script" uid="uid://cxdy8igshqj5g" path="res://OBJECT/GENERAL/Enemy/Roggin/States/Die.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://dkn4o7j5wcre2" path="res://OBJECT/GENERAL/BloodHusk.tscn" id="8_4blu0"]
+[ext_resource type="PackedScene" uid="uid://dxol0ejhrr8pk" path="res://OBJECT/GENERAL/Explosionset2.tscn" id="9_iuo3f"]
+[ext_resource type="PackedScene" uid="uid://bnwvme2apmrnt" path="res://OBJECT/GENERAL/Explosionset1.tscn" id="10_i6pco"]
+[ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="11_e68km"]
+[ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="12_qhy2q"]
+[ext_resource type="AudioStream" uid="uid://8tnq6ok8uy62" path="res://AUDIO/SE/explosion.wav" id="13_k1b7m"]
+
+[sub_resource type="RectangleShape2D" id="8"]
+size = Vector2(15, 35)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 48, 61)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("1")
+region = Rect2(48, 0, 48, 61)
+
+[sub_resource type="SpriteFrames" id="11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="3"]
+resource_name = "Die"
+length = 1.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.75, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.19),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="4"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="5"]
+resource_name = "Idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="6"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8cqdh"]
+_data = {
+&"Die": SubResource("3"),
+&"Fall": SubResource("4"),
+&"Idle": SubResource("5"),
+&"Jump": SubResource("6"),
+&"RESET": SubResource("7")
+}
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(16, 38)
+
+[node name="Roggin" type="CharacterBody2D" unique_id=1444593834 node_paths=PackedStringArray("deathsound", "hurtsound") groups=["Enemy"]]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_owyyf")
+hp = 1.0
+gravity_enabled = false
+has_damage_state = false
+deathsound = NodePath("DeathImpact")
+hurtsound = NodePath("Hurt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=816803230]
+position = Vector2(-2.5, 20.5)
+shape = SubResource("8")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1754716723]
+position = Vector2(0, 8)
+sprite_frames = SubResource("11")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=2069818722]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_8cqdh")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1373298118 groups=["TouchHurt"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1666256103]
+position = Vector2(-2, 19)
+shape = SubResource("2")
+disabled = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=792001703]
+script = ExtResource("4")
+root_node_path = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1607238864]
+script = ExtResource("5")
+
+[node name="Die" type="Node" parent="StateMachine" unique_id=1959337121]
+script = ExtResource("6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1378522780]
+
+[node name="BloodHusk" parent="." unique_id=1707340589 instance=ExtResource("8_4blu0")]
+z_index = 1
+emitting = false
+
+[node name="Explosionset2" parent="." unique_id=1644621811 instance=ExtResource("9_iuo3f")]
+z_index = 1
+emitting = false
+
+[node name="Gapdetectleft" type="RayCast2D" parent="." unique_id=1653873789]
+position = Vector2(-11, 6)
+target_position = Vector2(0, 23)
+collision_mask = 3
+
+[node name="Gapdetectright" type="RayCast2D" parent="." unique_id=1034633270]
+position = Vector2(11, 6)
+target_position = Vector2(0, 23)
+collision_mask = 3
+
+[node name="Explosionset1" parent="." unique_id=271536239 instance=ExtResource("10_i6pco")]
+position = Vector2(0, -2)
+emitting = false
+
+[node name="Hurt" type="AudioStreamPlayer" parent="." unique_id=1776865479]
+stream = ExtResource("11_e68km")
+volume_db = -18.316
+
+[node name="DeathImpact" type="AudioStreamPlayer" parent="." unique_id=2008102226]
+stream = ExtResource("12_qhy2q")
+volume_db = -11.582
+
+[node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=185238216]
+stream = ExtResource("13_k1b7m")
+volume_db = -5.272
+pitch_scale = 2.68
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

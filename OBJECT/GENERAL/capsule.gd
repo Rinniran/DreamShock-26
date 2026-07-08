@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Pl_Attack"):
+		$CollisionShape2D.queue_free()
 		match(item):
 			0:
 				Global.invincibile_time = 60 * 16
@@ -37,5 +38,11 @@ func _on_area_entered(area: Area2D) -> void:
 			2:
 				pass
 			3:
-				pass
+				
+				
+				if Global.currweapon != Global.player1.wea.SHOTGUN:
+					Global.currweapon = Global.player1.wea.SHOTGUN
+					Global.ammo =  4
+				else:
+					Global.ammo += 4
 		queue_free()

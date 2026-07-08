@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var hp:float = 4
 @export var speed: int = 165
 @export var unlocks_screen: bool = false
-var gravity: int = 25
+@export var gravity: int = 25
 @export var gravity_enabled: bool = true
 @export var extanim:AnimationPlayer
 @export var has_damage_state: bool = true
@@ -17,7 +17,7 @@ var gravity: int = 25
 
 
 @onready var state:Node = $StateMachine
-@onready var sprite:Sprite2D = $Sprite2D
+@onready var sprite:Node = $Sprite2D
 @onready var anim:AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var gdl:RayCast2D = $Gapdetectleft
 @onready var gdr:RayCast2D = $Gapdetectright

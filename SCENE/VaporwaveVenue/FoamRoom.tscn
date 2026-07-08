@@ -8,7 +8,9 @@
 [ext_resource type="TileSet" uid="uid://bj5noqea8lfq1" path="res://SCENE/OnewayA.tres" id="4_m50kv"]
 [ext_resource type="PackedScene" uid="uid://c5v2jeb5bw1an" path="res://OBJECT/GENERAL/MovingPillar.tscn" id="6_2wd2l"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="7_lby2a"]
+[ext_resource type="PackedScene" uid="uid://4m0fc5dvpkjf" path="res://OBJECT/GENERAL/Enemy/Eyepiece/Eyepiece.tscn" id="9_4eoql"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="9_r3mke"]
+[ext_resource type="PackedScene" uid="uid://ch7awm8af0wji" path="res://OBJECT/GENERAL/Enemy/Roggin/RogginHerd.tscn" id="10_mw180"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="11_c6npm"]
 [ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="12_xumdo"]
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="13_y0xc5"]
@@ -68,7 +70,7 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lby2a")
 
-[node name="MainHall" type="Node2D" unique_id=2107765890]
+[node name="FoamRoom" type="Node2D" unique_id=2107765890]
 script = ExtResource("1_c8uoe")
 MusicVolume = -3.6
 Stage_Music = ExtResource("2_s4pwk")
@@ -116,6 +118,114 @@ position = Vector2(1042, 577)
 
 [node name="StickhuskGun" parent="Enemies" unique_id=1817796248 instance=ExtResource("7_lby2a")]
 position = Vector2(909, 560)
+
+[node name="Eyepiece" parent="Enemies" unique_id=1149563767 instance=ExtResource("9_4eoql")]
+position = Vector2(1292, 708)
+
+[node name="Eyepiece2" parent="Enemies" unique_id=1103147040 instance=ExtResource("9_4eoql")]
+position = Vector2(1504, 770)
+
+[node name="Eyepiece3" parent="Enemies" unique_id=234180422 instance=ExtResource("9_4eoql")]
+position = Vector2(2266, 795)
+
+[node name="Eyepiece4" parent="Enemies" unique_id=2025738072 instance=ExtResource("9_4eoql")]
+position = Vector2(2142, 786)
+
+[node name="Eyepiece5" parent="Enemies" unique_id=1649287342 instance=ExtResource("9_4eoql")]
+position = Vector2(3416, 616)
+
+[node name="Eyepiece6" parent="Enemies" unique_id=207825758 instance=ExtResource("9_4eoql")]
+position = Vector2(3689, 673)
+
+[node name="Eyepiece7" parent="Enemies" unique_id=1843596178 instance=ExtResource("9_4eoql")]
+position = Vector2(4127, 678)
+
+[node name="Eyepiece8" parent="Enemies" unique_id=1774619658 instance=ExtResource("9_4eoql")]
+position = Vector2(5070, 513)
+
+[node name="Eyepiece9" parent="Enemies" unique_id=1909305512 instance=ExtResource("9_4eoql")]
+position = Vector2(4895, 492)
+
+[node name="Eyepiece10" parent="Enemies" unique_id=287842112 instance=ExtResource("9_4eoql")]
+position = Vector2(7098, 680)
+
+[node name="Eyepiece11" parent="Enemies" unique_id=657933419 instance=ExtResource("9_4eoql")]
+position = Vector2(8368, 417)
+
+[node name="Eyepiece12" parent="Enemies" unique_id=2064679888 instance=ExtResource("9_4eoql")]
+position = Vector2(9117, 550)
+
+[node name="Eyepiece13" parent="Enemies" unique_id=932239415 instance=ExtResource("9_4eoql")]
+position = Vector2(9875, 557)
+
+[node name="Eyepiece14" parent="Enemies" unique_id=687413693 instance=ExtResource("9_4eoql")]
+position = Vector2(9960, 550)
+
+[node name="Eyepiece15" parent="Enemies" unique_id=579389299 instance=ExtResource("9_4eoql")]
+position = Vector2(11186, 738)
+
+[node name="Eyepiece16" parent="Enemies" unique_id=120063394 instance=ExtResource("9_4eoql")]
+position = Vector2(11241, 722)
+
+[node name="Eyepiece17" parent="Enemies" unique_id=455876402 instance=ExtResource("9_4eoql")]
+position = Vector2(11305, 738)
+
+[node name="RogginHerd" parent="Enemies" unique_id=1497742308 instance=ExtResource("10_mw180")]
+position = Vector2(712, 504)
+
+[node name="RogginHerd2" parent="Enemies" unique_id=789626478 instance=ExtResource("10_mw180")]
+position = Vector2(1477, 662)
+
+[node name="RogginHerd3" parent="Enemies" unique_id=9939812 instance=ExtResource("10_mw180")]
+position = Vector2(2549, 658)
+
+[node name="RogginHerd4" parent="Enemies" unique_id=1471167679 instance=ExtResource("10_mw180")]
+position = Vector2(3142, 459)
+
+[node name="RogginHerd5" parent="Enemies" unique_id=1426543919 instance=ExtResource("10_mw180")]
+position = Vector2(3396, 441)
+
+[node name="RogginHerd6" parent="Enemies" unique_id=188923986 instance=ExtResource("10_mw180")]
+position = Vector2(4318, 545)
+
+[node name="RogginHerd7" parent="Enemies" unique_id=1621595421 instance=ExtResource("10_mw180")]
+position = Vector2(4603, 471)
+
+[node name="RogginHerd8" parent="Enemies" unique_id=2072796057 instance=ExtResource("10_mw180")]
+position = Vector2(5687, 400)
+
+[node name="RogginHerd9" parent="Enemies" unique_id=1923788768 instance=ExtResource("10_mw180")]
+position = Vector2(6054, 455)
+
+[node name="RogginHerd10" parent="Enemies" unique_id=181120127 instance=ExtResource("10_mw180")]
+position = Vector2(6656, 584)
+
+[node name="RogginHerd11" parent="Enemies" unique_id=1015794826 instance=ExtResource("10_mw180")]
+position = Vector2(7563, 563)
+
+[node name="RogginHerd12" parent="Enemies" unique_id=954609578 instance=ExtResource("10_mw180")]
+position = Vector2(8033, 340)
+
+[node name="RogginHerd13" parent="Enemies" unique_id=872595019 instance=ExtResource("10_mw180")]
+position = Vector2(8205, 242)
+
+[node name="RogginHerd14" parent="Enemies" unique_id=1230129748 instance=ExtResource("10_mw180")]
+position = Vector2(8438, 319)
+
+[node name="RogginHerd15" parent="Enemies" unique_id=1878770354 instance=ExtResource("10_mw180")]
+position = Vector2(9299, 452)
+
+[node name="RogginHerd16" parent="Enemies" unique_id=807429826 instance=ExtResource("10_mw180")]
+position = Vector2(9597, 360)
+
+[node name="RogginHerd17" parent="Enemies" unique_id=248222944 instance=ExtResource("10_mw180")]
+position = Vector2(9850, 445)
+
+[node name="RogginHerd18" parent="Enemies" unique_id=968904133 instance=ExtResource("10_mw180")]
+position = Vector2(10822, 625)
+
+[node name="RogginHerd19" parent="Enemies" unique_id=899701914 instance=ExtResource("10_mw180")]
+position = Vector2(11526, 649)
 
 [node name="Hud" parent="." unique_id=832355996 instance=ExtResource("9_r3mke")]
 
