@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_5ojoh"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_g8c0t"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_5g15u"]
-[ext_resource type="AudioStream" uid="uid://bnqipvsejdtw0" path="res://AUDIO/BGM/SC_Park.ogg" id="2_m3e0v"]
+[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="2_tkb76"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_l8sfm"]
-[ext_resource type="AudioStream" uid="uid://tlxh67lkg8we" path="res://AUDIO/BGM/SC_Park_LT.ogg" id="3_xxs3b"]
+[ext_resource type="AudioStream" uid="uid://bodxt8yc6thqs" path="res://AUDIO/BGM/SC_Streets_LT.ogg" id="3_wjrwo"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="4_bkajp"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="5_wxs8g"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="6_g8c0t"]
@@ -22,8 +22,8 @@
 [node name="Park" type="Node2D" unique_id=333858184]
 script = ExtResource("1_g8c0t")
 MusicVolume = -12.0
-Stage_Music = ExtResource("2_m3e0v")
-LowTime_Music = ExtResource("3_xxs3b")
+Stage_Music = ExtResource("2_tkb76")
+LowTime_Music = ExtResource("3_wjrwo")
 stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1800692040]

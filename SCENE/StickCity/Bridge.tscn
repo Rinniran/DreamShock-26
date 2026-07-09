@@ -3,24 +3,56 @@
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_086eg"]
 [ext_resource type="Texture2D" uid="uid://bckgtq62yc3b5" path="res://Sprites/STAGE/STICKCITY/BridgeTiles.png" id="1_r2v4r"]
 [ext_resource type="AudioStream" uid="uid://sfqot887rikj" path="res://AUDIO/BGM/PRE_BOSS.ogg" id="2_cngef"]
-[ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="3_erke5"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="4_cngef"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="6_6lafa"]
+[ext_resource type="Texture2D" uid="uid://b62kgtdhw63dv" path="res://Sprites/STAGE/STICKCITY/TP3/1.png" id="7_jpdgb"]
 [ext_resource type="PackedScene" uid="uid://4m0fc5dvpkjf" path="res://OBJECT/GENERAL/Enemy/Eyepiece/Eyepiece.tscn" id="7_w5213"]
+[ext_resource type="Texture2D" uid="uid://e0nkafq52lun" path="res://Sprites/STAGE/STICKCITY/TP3/2.PNG" id="8_0jlr8"]
 [ext_resource type="PackedScene" uid="uid://ch7awm8af0wji" path="res://OBJECT/GENERAL/Enemy/Roggin/RogginHerd.tscn" id="8_vo2k1"]
 [ext_resource type="PackedScene" uid="uid://bloqulxreh6cq" path="res://OBJECT/GENERAL/Enemy/Chaser/Chaser.tscn" id="9_5m250"]
+[ext_resource type="Texture2D" uid="uid://5h87q8sr0gdy" path="res://Sprites/STAGE/STICKCITY/TP3/3.png" id="9_uwjo4"]
+[ext_resource type="Texture2D" uid="uid://crlt7gj2qsei7" path="res://Sprites/STAGE/STICKCITY/TP3/4.png" id="10_0dutn"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="10_igpy2"]
 [ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="11_w0m1m"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="11_ywd5o"]
 [ext_resource type="PackedScene" uid="uid://cu7h7iaq4fl0p" path="res://OBJECT/Hazards/Hellstar.tscn" id="12_7pwgt"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="13_rrv3v"]
-[ext_resource type="PackedScene" uid="uid://bc1rxk8mdayjy" path="res://OBJECT/GENERAL/Enemy/Foresight/ForeSight.tscn" id="14_rrv3v"]
 [ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="14_ywd5o"]
 [ext_resource type="PackedScene" uid="uid://b8x8oigqkfsbf" path="res://OBJECT/GENERAL/Camstopper.tscn" id="15_3r6hl"]
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="15_7pwgt"]
-[ext_resource type="PackedScene" uid="uid://dkxw3vj0s2u85" path="res://OBJECT/Hazards/YaibaMissile.tscn" id="16_3r6hl"]
 [ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="16_rrv3v"]
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="17_3r6hl"]
+[ext_resource type="Script" uid="uid://05mlfoeswk76" path="res://SRC/Player.gd" id="24_uolnx"]
+[ext_resource type="SpriteFrames" uid="uid://mmxrrknshg8v" path="res://Sprites/Players/Rian/RianFrames.tres" id="25_e5vf7"]
+[ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="26_6fgeg"]
+[ext_resource type="Script" uid="uid://b76k1rlnekikc" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Idle.gd" id="27_hmfp3"]
+[ext_resource type="Script" uid="uid://b6c77ktdi2aem" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/atk.gd" id="28_2mv5r"]
+[ext_resource type="Script" uid="uid://g6neud6whrd" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Move.gd" id="29_utht8"]
+[ext_resource type="Script" uid="uid://tmjsiij2liqo" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Dash.gd" id="30_qdkji"]
+[ext_resource type="Script" uid="uid://b8hggaop6e3xn" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/DashAttack.gd" id="31_ehcbh"]
+[ext_resource type="Script" uid="uid://cbcml1oblom77" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Jump.gd" id="32_ylx76"]
+[ext_resource type="Script" uid="uid://heb8j8txrrst" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Damage.gd" id="33_e3bjq"]
+[ext_resource type="Script" uid="uid://cedofh331p4nq" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Fall.gd" id="34_hik4u"]
+[ext_resource type="Script" uid="uid://dyk1feymdllav" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Die.gd" id="35_2wglc"]
+[ext_resource type="Script" uid="uid://cwmokx7shnbky" path="res://OBJECT/GENERAL/PLAYER/CUTSCENESTATES/ForesightIdle2.gd" id="35_qdkji"]
+[ext_resource type="Script" uid="uid://cg4b6fcj7h6ay" path="res://OBJECT/GENERAL/PLAYER/CUTSCENESTATES/ForesightJumpBack.gd" id="36_utht8"]
+[ext_resource type="Script" uid="uid://bj1tarngxa4yy" path="res://OBJECT/GENERAL/PLAYER/CUTSCENESTATES/ForesightIdle1.gd" id="36_wfgnl"]
+[ext_resource type="Texture2D" uid="uid://cnrwh8ygiqla0" path="res://Sprites/VFX/InWater.png" id="37_1n10s"]
+[ext_resource type="PackedScene" uid="uid://2admungtnrbx" path="res://OBJECT/GENERAL/BloodPlayer.tscn" id="38_vtd6v"]
+[ext_resource type="PackedScene" uid="uid://uyjc1ju1mqfc" path="res://OBJECT/GENERAL/InvincibleParticle.tscn" id="39_31bgd"]
+[ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="40_f8kec"]
+[ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="41_76vdf"]
+[ext_resource type="AudioStream" uid="uid://crwc6qa56nyh1" path="res://AUDIO/VOICE/RIANDEATHHIT.wav" id="42_mfcfu"]
+[ext_resource type="AudioStream" uid="uid://fr32x3qfcnui" path="res://AUDIO/VOICE/RIANDIE.wav" id="43_swrfm"]
+[ext_resource type="PackedScene" uid="uid://dya04tgynvhxo" path="res://OBJECT/SUBWEAPON/Shotgunrotary.tscn" id="44_ujf1d"]
+[ext_resource type="FontFile" uid="uid://drhw2csgehm8s" path="res://SPRITE/FONT/Abnerverse 2.1.ttf" id="46_guc6x"]
+[ext_resource type="AudioStream" uid="uid://dtpackk5f7ap" path="res://AUDIO/VOICE/CUTSCENE/FORESIGHT/JP/R_02.wav" id="47_6fgeg"]
+[ext_resource type="AudioStream" uid="uid://bkfl7r3gpwbuk" path="res://AUDIO/VOICE/CUTSCENE/FORESIGHT/JP/R_01.wav" id="47_e5vf7"]
+[ext_resource type="AudioStream" uid="uid://dneuldyrmo0g0" path="res://AUDIO/VOICE/CUTSCENE/FORESIGHT/JP/R_03.wav" id="48_hmfp3"]
+[ext_resource type="Script" uid="uid://dubs2rob87k77" path="res://OBJECT/GENERAL/PLAYER/CUTSCENESTATES/SCSPAWNBOSS.gd" id="50_qdkji"]
+[ext_resource type="AudioStream" uid="uid://dc8kvb2o1e8fj" path="res://AUDIO/VOICE/CUTSCENE/FORESIGHT/JP/R_04.wav" id="51_ehcbh"]
+[ext_resource type="AudioStream" uid="uid://dgfidf5sfj6l3" path="res://AUDIO/SE/clang-strong.wav" id="51_utht8"]
+[ext_resource type="Texture2D" uid="uid://cg78gy3a117n2" path="res://Sprites/Cutscene/MOTIVEMONITOR.png" id="53_ehcbh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpvi5"]
 texture = ExtResource("1_r2v4r")
@@ -86,6 +118,476 @@ shader_parameter/frecuencia = 4.065
 shader_parameter/color_a = Color(0.38, 0.011399989, 0.011399989, 1)
 shader_parameter/color_b = Color(0.19, 0.0475, 0, 1)
 
+[sub_resource type="Shader" id="Shader_o1dd6"]
+code = "shader_type canvas_item;
+
+// The amplitude of the wave.
+uniform float waveAmplitude: hint_range(0.0, 1.0) = 0.25;
+// If true corrects the Vertexes to adjust for the UV displacement
+uniform bool correctVertex = true;
+// The frequency of the wave.
+uniform float waveFrequency: hint_range(0.0, 100.0) = 10.0;
+// If true the texture waves vertically otherwise horizontally.
+uniform bool verticalWave = true;
+// If true the sprite will deform to match the waves, otherwise we keep the background color clamped.
+uniform bool keepTransparency = true;
+// If true the TIME constant is used, otherwise progress is used to move the wave.
+uniform bool useTime = true;
+// If useTime is true then use this as a multiplier for the wave speed.
+uniform float waveSpeed: hint_range(0.0, 100.0) = 1.0;
+// If useTime is false then use this as a multiplier for the wave progress.
+uniform float progress: hint_range(0.0, 1.0) = 0.0;
+// How much of the left or top half of the texture is modified.
+uniform float firstHalf: hint_range(0.0, 1.0) = 0.5;
+// How much of the right or bottom half of the texture is modified.
+uniform float secondHalf: hint_range(0.0, 1.0) = 0.5;
+// Keeps one half stuck. Useful for things like flags.
+uniform bool freezeFirstHalf = false;
+// Keeps one half stuck. Useful for things like flags.
+uniform bool freezeSecondHalf = false;
+
+void vertex() {
+	if (correctVertex) {
+		VERTEX = (verticalWave ? vec2(VERTEX.x, VERTEX.y * (1.0 + waveAmplitude)): vec2(VERTEX.x * (1.0 + waveAmplitude), VERTEX.y));
+	}
+}
+
+void fragment() {
+	vec2 uv = UV;
+	float waveUv = (verticalWave ? uv.x : uv.y);
+	float againstWaveUv = (verticalWave ? uv.y: uv.x);
+	float freezeFactor = 1.0;
+	if (freezeFirstHalf) {freezeFactor = waveUv;} else if (freezeSecondHalf) {freezeFactor = 1.0 - waveUv;}
+	if (againstWaveUv < firstHalf || againstWaveUv > 1.0 - secondHalf) {
+		float wave;
+		// Progress based on time or progress variable.
+		if (useTime) {
+			wave = freezeFactor * sin(waveUv * waveFrequency + TIME * waveSpeed) * (waveAmplitude / 4.0);
+		} else {
+			wave = freezeFactor * sin(waveUv * waveFrequency + progress * 2.0 * PI) * (waveAmplitude / 4.0);
+		}
+		vec2 aspect = vec2(TEXTURE_PIXEL_SIZE.x / TEXTURE_PIXEL_SIZE.y, 1.0);
+	    vec2 center = 0.5 * aspect;
+		// Wave the UV.
+		uv -= center;
+		if (verticalWave) {
+		    uv.y += wave;
+			uv.y += uv.y * waveAmplitude;
+		} else {
+		    uv.x += wave;
+			uv.x += uv.x * waveAmplitude;
+		}
+		uv += center;
+		// Clamp the UVs to prevent texture wrapping.
+		uv = clamp(uv, vec2(0.0), vec2(1.0));
+		againstWaveUv = (verticalWave ? uv.y : uv.x);
+		vec4 texColor = texture(TEXTURE, uv);
+		// Apply the calculated color.
+		if (keepTransparency) {
+			if (againstWaveUv <= 0.0 || againstWaveUv >= 1.0) {
+				COLOR.a = 0.0;
+			} else {
+				COLOR = texColor;
+			}
+		} else {
+			COLOR = texColor;
+		}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inobp"]
+shader = SubResource("Shader_o1dd6")
+shader_parameter/waveAmplitude = 0.0310000014725
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 25.238001198805
+shader_parameter/verticalWave = false
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 2.9050001379875
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[sub_resource type="Shader" id="Shader_0dutn"]
+code = "shader_type canvas_item;
+
+// The amplitude of the wave.
+uniform float waveAmplitude: hint_range(0.0, 1.0) = 0.25;
+// If true corrects the Vertexes to adjust for the UV displacement
+uniform bool correctVertex = true;
+// The frequency of the wave.
+uniform float waveFrequency: hint_range(0.0, 100.0) = 10.0;
+// If true the texture waves vertically otherwise horizontally.
+uniform bool verticalWave = true;
+// If true the sprite will deform to match the waves, otherwise we keep the background color clamped.
+uniform bool keepTransparency = true;
+// If true the TIME constant is used, otherwise progress is used to move the wave.
+uniform bool useTime = true;
+// If useTime is true then use this as a multiplier for the wave speed.
+uniform float waveSpeed: hint_range(0.0, 100.0) = 1.0;
+// If useTime is false then use this as a multiplier for the wave progress.
+uniform float progress: hint_range(0.0, 1.0) = 0.0;
+// How much of the left or top half of the texture is modified.
+uniform float firstHalf: hint_range(0.0, 1.0) = 0.5;
+// How much of the right or bottom half of the texture is modified.
+uniform float secondHalf: hint_range(0.0, 1.0) = 0.5;
+// Keeps one half stuck. Useful for things like flags.
+uniform bool freezeFirstHalf = false;
+// Keeps one half stuck. Useful for things like flags.
+uniform bool freezeSecondHalf = false;
+
+void vertex() {
+	if (correctVertex) {
+		VERTEX = (verticalWave ? vec2(VERTEX.x, VERTEX.y * (1.0 + waveAmplitude)): vec2(VERTEX.x * (1.0 + waveAmplitude), VERTEX.y));
+	}
+}
+
+void fragment() {
+	vec2 uv = UV;
+	float waveUv = (verticalWave ? uv.x : uv.y);
+	float againstWaveUv = (verticalWave ? uv.y: uv.x);
+	float freezeFactor = 1.0;
+	if (freezeFirstHalf) {freezeFactor = waveUv;} else if (freezeSecondHalf) {freezeFactor = 1.0 - waveUv;}
+	if (againstWaveUv < firstHalf || againstWaveUv > 1.0 - secondHalf) {
+		float wave;
+		// Progress based on time or progress variable.
+		if (useTime) {
+			wave = freezeFactor * sin(waveUv * waveFrequency + TIME * waveSpeed) * (waveAmplitude / 4.0);
+		} else {
+			wave = freezeFactor * sin(waveUv * waveFrequency + progress * 2.0 * PI) * (waveAmplitude / 4.0);
+		}
+		vec2 aspect = vec2(TEXTURE_PIXEL_SIZE.x / TEXTURE_PIXEL_SIZE.y, 1.0);
+	    vec2 center = 0.5 * aspect;
+		// Wave the UV.
+		uv -= center;
+		if (verticalWave) {
+		    uv.y += wave;
+			uv.y += uv.y * waveAmplitude;
+		} else {
+		    uv.x += wave;
+			uv.x += uv.x * waveAmplitude;
+		}
+		uv += center;
+		// Clamp the UVs to prevent texture wrapping.
+		uv = clamp(uv, vec2(0.0), vec2(1.0));
+		againstWaveUv = (verticalWave ? uv.y : uv.x);
+		vec4 texColor = texture(TEXTURE, uv);
+		// Apply the calculated color.
+		if (keepTransparency) {
+			if (againstWaveUv <= 0.0 || againstWaveUv >= 1.0) {
+				COLOR.a = 0.0;
+			} else {
+				COLOR = texColor;
+			}
+		} else {
+			COLOR = texColor;
+		}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwjo4"]
+shader = SubResource("Shader_0dutn")
+shader_parameter/waveAmplitude = 0.0210000009975
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 71.9050034154875
+shader_parameter/verticalWave = false
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 3.8570001832075
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[sub_resource type="Shader" id="Shader_uwjo4"]
+code = "shader_type canvas_item;
+
+// The amplitude of the wave.
+uniform float waveAmplitude: hint_range(0.0, 1.0) = 0.25;
+// If true corrects the Vertexes to adjust for the UV displacement
+uniform bool correctVertex = true;
+// The frequency of the wave.
+uniform float waveFrequency: hint_range(0.0, 100.0) = 10.0;
+// If true the texture waves vertically otherwise horizontally.
+uniform bool verticalWave = true;
+// If true the sprite will deform to match the waves, otherwise we keep the background color clamped.
+uniform bool keepTransparency = true;
+// If true the TIME constant is used, otherwise progress is used to move the wave.
+uniform bool useTime = true;
+// If useTime is true then use this as a multiplier for the wave speed.
+uniform float waveSpeed: hint_range(0.0, 100.0) = 1.0;
+// If useTime is false then use this as a multiplier for the wave progress.
+uniform float progress: hint_range(0.0, 1.0) = 0.0;
+// How much of the left or top half of the texture is modified.
+uniform float firstHalf: hint_range(0.0, 1.0) = 0.5;
+// How much of the right or bottom half of the texture is modified.
+uniform float secondHalf: hint_range(0.0, 1.0) = 0.5;
+// Keeps one half stuck. Useful for things like flags.
+uniform bool freezeFirstHalf = false;
+// Keeps one half stuck. Useful for things like flags.
+uniform bool freezeSecondHalf = false;
+
+void vertex() {
+	if (correctVertex) {
+		VERTEX = (verticalWave ? vec2(VERTEX.x, VERTEX.y * (1.0 + waveAmplitude)): vec2(VERTEX.x * (1.0 + waveAmplitude), VERTEX.y));
+	}
+}
+
+void fragment() {
+	vec2 uv = UV;
+	float waveUv = (verticalWave ? uv.x : uv.y);
+	float againstWaveUv = (verticalWave ? uv.y: uv.x);
+	float freezeFactor = 1.0;
+	if (freezeFirstHalf) {freezeFactor = waveUv;} else if (freezeSecondHalf) {freezeFactor = 1.0 - waveUv;}
+	if (againstWaveUv < firstHalf || againstWaveUv > 1.0 - secondHalf) {
+		float wave;
+		// Progress based on time or progress variable.
+		if (useTime) {
+			wave = freezeFactor * sin(waveUv * waveFrequency + TIME * waveSpeed) * (waveAmplitude / 4.0);
+		} else {
+			wave = freezeFactor * sin(waveUv * waveFrequency + progress * 2.0 * PI) * (waveAmplitude / 4.0);
+		}
+		vec2 aspect = vec2(TEXTURE_PIXEL_SIZE.x / TEXTURE_PIXEL_SIZE.y, 1.0);
+	    vec2 center = 0.5 * aspect;
+		// Wave the UV.
+		uv -= center;
+		if (verticalWave) {
+		    uv.y += wave;
+			uv.y += uv.y * waveAmplitude;
+		} else {
+		    uv.x += wave;
+			uv.x += uv.x * waveAmplitude;
+		}
+		uv += center;
+		// Clamp the UVs to prevent texture wrapping.
+		uv = clamp(uv, vec2(0.0), vec2(1.0));
+		againstWaveUv = (verticalWave ? uv.y : uv.x);
+		vec4 texColor = texture(TEXTURE, uv);
+		// Apply the calculated color.
+		if (keepTransparency) {
+			if (againstWaveUv <= 0.0 || againstWaveUv >= 1.0) {
+				COLOR.a = 0.0;
+			} else {
+				COLOR = texColor;
+			}
+		} else {
+			COLOR = texColor;
+		}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jlr8"]
+shader = SubResource("Shader_uwjo4")
+shader_parameter/waveAmplitude = 0.2690000127775
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 59.9810028490975
+shader_parameter/verticalWave = false
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 1.0
+shader_parameter/progress = 0.75200003572
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[sub_resource type="GDScript" id="GDScript_7rffo"]
+resource_name = "MCN"
+script/source = "extends Node
+
+@export var active = false
+
+@onready var subs = $CanvasLayer2/Label
+@onready var player = $Player
+@onready var cam = $Camera
+@onready var mon = $MotiveMonitor
+@onready var state = $StateMachine
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	state.initialize()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if active:
+		state.advance()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8pqb"]
+radius = 4.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8pqb"]
+size = Vector2(13, 26)
+
+[sub_resource type="Animation" id="Animation_nufnn"]
+length = 0.24
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 48, 48), Rect2(48, 0, 48, 48), Rect2(96, 0, 48, 48), Rect2(144, 0, 48, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wmlp5"]
+_data = {
+&"main": SubResource("Animation_nufnn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imsq6"]
+size = Vector2(18, 11)
+
+[sub_resource type="GDScript" id="GDScript_bw714"]
+resource_name = "SCSTART"
+script/source = "@tool
+extends BaseState
+
+
+
+
+func _enter(data = {}):
+	super._enter(data)
+	
+
+
+func _step():
+	super._step()
+	
+	match (parent.state_time):
+		5:
+			Global.activegame = false
+			Global.musicP.volume_db = -12
+			root.player.state.change_state(\"CSIdle1\")
+		30:
+			var tw = create_tween()
+			tw.set_trans(Tween.TRANS_QUAD)
+			tw.set_ease(Tween.EASE_IN_OUT)
+			tw.tween_property(root.cam,\"offset:x\", 125, 1.0)
+			root.subs.visible = true
+			root.subs.text = \"Balls. The bridge is out. \\nI might have to just fly across.\"
+			$R01.play()
+		320:
+			var tw = create_tween()
+			tw.set_trans(Tween.TRANS_QUAD)
+			tw.set_ease(Tween.EASE_IN_OUT)
+			tw.tween_property(root.mon,\"position:y\", 113, 1.0)
+			root.subs.text = \"Ah Ah Aaahh. Hold it right there, will you?\"
+		460:
+			root.subs.text = \"And you are...?\"
+			$R02.play()
+		540:
+			root.subs.text = \"Oohh, just a scientist who could really use \\nsome bounty money for her funding, you see!\"
+		800:
+			root.subs.text = \"Hard pass. Anyways, the bridge...\"
+			$R03.play()
+		1200:
+			root.subs.text = \"Low IQ move on my part to even begin to \\nsuspect you'd make this easy for me.\"
+			Global.bossactive = true
+		1520:
+			root.subs.text = \"You're coming with me whether you like it or not.\"
+		1820:
+			var tw = create_tween()
+			tw.set_trans(Tween.TRANS_QUAD)
+			tw.set_ease(Tween.EASE_IN_OUT)
+			tw.tween_property(root.mon,\"position:y\", -113, 3.0)
+			root.subs.visible = false
+			parent.change_state(\"ScSpawnBoss\")
+	
+
+
+
+func _step_frozen():
+	super._step_frozen()
+
+
+func _exit(next_state):
+	
+	super._exit(next_state)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylx76"]
+atlas = ExtResource("53_ehcbh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3bjq"]
+atlas = ExtResource("53_ehcbh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rffo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylx76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3bjq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 18.0
+}]
+
+[sub_resource type="Animation" id="Animation_hik4u"]
+resource_name = "Default"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monitor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0333333),
+"transitions": PackedFloat32Array(1.1486984, 1.6245031),
+"update": 0,
+"values": [Vector2(0, 17), Vector2(0, -22)]
+}
+
+[sub_resource type="Animation" id="Animation_2wglc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monitor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 17)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfgnl"]
+_data = {
+&"Default": SubResource("Animation_hik4u"),
+&"RESET": SubResource("Animation_2wglc")
+}
+
 [node name="Bridge" type="Node2D" unique_id=1560156984]
 script = ExtResource("1_086eg")
 MusicVolume = -4.6
@@ -98,17 +600,6 @@ tile_set = SubResource("TileSet_ywq1t")
 format = 2
 layer_0/tile_data = PackedInt32Array(131072, 0, 1, 196608, 0, 2, 131073, 65536, 1, 196609, 65536, 2, 131074, 65536, 1, 196610, 65536, 2, 131075, 65536, 1, 196611, 65536, 2, 131076, 65536, 1, 196612, 65536, 2, 131077, 65536, 1, 196613, 65536, 2, 131078, 65536, 1, 196614, 65536, 2, 131079, 65536, 1, 196615, 65536, 2, 131080, 65536, 1, 196616, 65536, 2, 131081, 65536, 1, 196617, 65536, 2, 131082, 65536, 1, 196618, 65536, 2, 131083, 65536, 1, 196619, 65536, 2, 131084, 65536, 1, 196620, 65536, 2, 131085, 65536, 1, 196621, 65536, 2, 262144, 0, 3, 327679, 131072, 2, 262143, 131072, 2, 196607, 131072, 2, 131071, 131072, 2, 65535, 131072, 2, -1, 131072, 2, -65537, 131072, 2, 131086, 65536, 1, 196622, 65536, 2, 131087, 65536, 1, 196623, 65536, 2, 131088, 65536, 1, 196624, 65536, 2, 131089, 65536, 1, 196625, 65536, 2, 131090, 65536, 1, 196626, 65536, 2, 131091, 65536, 1, 196627, 65536, 2, 131092, 65536, 1, 196628, 65536, 2, 131093, 65536, 1, 196629, 65536, 2, 131094, 65536, 1, 196630, 65536, 2, 131095, 65536, 1, 196631, 65536, 2, 131096, 65536, 1, 196632, 65536, 2, 131097, 65536, 1, 196633, 65536, 2, 131098, 65536, 1, 196634, 65536, 2, 131099, 65536, 1, 196635, 65536, 2, 131100, 65536, 1, 196636, 65536, 2, 131101, 65536, 1, 196637, 65536, 2, 131102, 65536, 1, 196638, 65536, 2, 131103, 65536, 1, 196639, 65536, 2, 131104, 65536, 1, 196640, 65536, 2, 131105, 65536, 1, 196641, 65536, 2, 131106, 65536, 1, 196642, 65536, 2, 131107, 65536, 1, 196643, 65536, 2, 131108, 65536, 1, 196644, 65536, 2, 131109, 65536, 1, 196645, 65536, 2, 131110, 65536, 1, 196646, 65536, 2, 131111, 65536, 1, 196647, 65536, 2, 131112, 65536, 1, 196648, 65536, 2, 131113, 65536, 1, 196649, 65536, 2, 131114, 131072, 1, 196650, 131072, 2, 131115, 131072, 1, 196651, 131072, 2, 131116, 131072, 1, 196652, 131072, 2, 131117, 131072, 1, 196653, 131072, 2, 131118, 131072, 1, 196654, 131072, 2, 131119, 131072, 1, 196655, 131072, 2, 131120, 131072, 1, 196656, 131072, 2, 131121, 131072, 1, 196657, 131072, 2, 131122, 131072, 1, 196658, 131072, 2, 131123, 131072, 1, 196659, 131072, 2, 131124, 131072, 1, 196660, 131072, 2, 131125, 131072, 1, 196661, 131072, 2, 131126, 131072, 1, 196662, 131072, 2, 131127, 131072, 1, 196663, 131072, 2, 131128, 131072, 1, 196664, 131072, 2, 131129, 131072, 1, 196665, 131072, 2, 131130, 131072, 1, 196666, 131072, 2, 131131, 131072, 1, 196667, 131072, 2, 131132, 196608, 1, 196668, 196608, 2)
 
-[node name="Player" parent="." unique_id=1112045618 node_paths=PackedStringArray("CAMERA") instance=ExtResource("3_erke5")]
-position = Vector2(161, 160)
-CAMERA = NodePath("../Camera")
-
-[node name="Camera" parent="." unique_id=258370969 node_paths=PackedStringArray("target") instance=ExtResource("4_cngef")]
-position = Vector2(161, 119)
-limit_left = 0
-limit_top = 0
-limit_bottom = 318
-target = NodePath("../Player")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1935127917]
 layer = -195
 
@@ -119,7 +610,49 @@ offset_bottom = 238.0
 
 [node name="Hud" parent="CanvasLayer" unique_id=832355996 instance=ExtResource("6_6lafa")]
 
-[node name="Enemies" type="Node2D" parent="." unique_id=2135726321]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer" unique_id=1437488423]
+
+[node name="ParallaxLayer" type="Parallax2D" parent="CanvasLayer/ParallaxBackground" unique_id=2072694195]
+scroll_scale = Vector2(1.02, 1)
+repeat_size = Vector2(364, 0)
+repeat_times = 26
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer" unique_id=2045428065]
+position = Vector2(185, 36)
+texture = ExtResource("7_jpdgb")
+
+[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer/ParallaxBackground" unique_id=398505455]
+scroll_scale = Vector2(1.05, 1)
+repeat_size = Vector2(364, 0)
+repeat_times = 26
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Parallax2D" unique_id=1063646106]
+material = SubResource("ShaderMaterial_inobp")
+position = Vector2(197, 46)
+texture = ExtResource("8_0jlr8")
+
+[node name="Parallax2D2" type="Parallax2D" parent="CanvasLayer/ParallaxBackground" unique_id=1923309908]
+scroll_scale = Vector2(1.08, 1)
+scroll_offset = Vector2(1, -22)
+repeat_size = Vector2(364, 0)
+repeat_times = 26
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Parallax2D2" unique_id=1738221432]
+material = SubResource("ShaderMaterial_uwjo4")
+position = Vector2(199, 58)
+texture = ExtResource("9_uwjo4")
+
+[node name="Parallax2D3" type="Parallax2D" parent="CanvasLayer/ParallaxBackground" unique_id=1958973287]
+scroll_scale = Vector2(2, 1)
+repeat_size = Vector2(364, 0)
+repeat_times = 26
+
+[node name="4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Parallax2D3" unique_id=359502094]
+material = SubResource("ShaderMaterial_0jlr8")
+position = Vector2(198, 58)
+texture = ExtResource("10_0dutn")
+
+[node name="Enemies" type="Node" parent="." unique_id=950743728]
 
 [node name="Eyepiece" parent="Enemies" unique_id=1149563767 instance=ExtResource("7_w5213")]
 position = Vector2(404, 124)
@@ -303,17 +836,9 @@ position = Vector2(1582, -32)
 [node name="Piece35" parent="Pieces" unique_id=1738717074 instance=ExtResource("13_rrv3v")]
 position = Vector2(1613, -1)
 
-[node name="Camstopper" parent="Pieces" unique_id=690083097 instance=ExtResource("15_3r6hl")]
-position = Vector2(1783, -153)
-
-[node name="mainguy" parent="Pieces" unique_id=1507575874 instance=ExtResource("14_rrv3v")]
-position = Vector2(1891, -26)
-
-[node name="Missile" parent="Pieces" unique_id=774573684 instance=ExtResource("16_3r6hl")]
-position = Vector2(-1622, -67)
-
-[node name="Missile2" parent="Pieces" unique_id=1444861790 instance=ExtResource("16_3r6hl")]
-position = Vector2(-1811, -63)
+[node name="Camstopper" parent="Pieces" unique_id=690083097 node_paths=PackedStringArray("activate_cutscene") instance=ExtResource("15_3r6hl")]
+position = Vector2(1821, -153)
+activate_cutscene = NodePath("../../MasterCutsceneNode")
 
 [node name="100combo" type="AudioStreamPlayer" parent="." unique_id=886958332]
 stream = ExtResource("14_ywd5o")
@@ -330,3 +855,226 @@ volume_db = -8.667
 [node name="400combo" type="AudioStreamPlayer" parent="." unique_id=598084367]
 stream = ExtResource("17_3r6hl")
 volume_db = -8.667
+
+[node name="MasterCutsceneNode" type="Node" parent="." unique_id=1576056799]
+script = SubResource("GDScript_7rffo")
+
+[node name="Player" type="CharacterBody2D" parent="MasterCutsceneNode" unique_id=1112045618 node_paths=PackedStringArray("CAMERA", "Dsound", "dc") groups=["Player"]]
+position = Vector2(161, 160)
+collision_layer = 0
+collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 12.0
+script = ExtResource("24_uolnx")
+CAMERA = NodePath("../Camera")
+Dsound = NodePath("Deathhit")
+dc = NodePath("DConfirm")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="MasterCutsceneNode/Player" unique_id=504892373]
+z_index = 3
+sprite_frames = ExtResource("25_e5vf7")
+animation = &"Meh"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MasterCutsceneNode/Player" unique_id=1934587294]
+visible = false
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_m8pqb")
+
+[node name="hurtbox" type="Area2D" parent="MasterCutsceneNode/Player" unique_id=1451857656 groups=["Player"]]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MasterCutsceneNode/Player/hurtbox" unique_id=813100389]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_m8pqb")
+debug_color = Color(0.1833334, 1, 0, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="MasterCutsceneNode/Player" unique_id=515216162]
+script = ExtResource("26_6fgeg")
+root_node_path = NodePath("..")
+
+[node name="Idle" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=960487707]
+script = ExtResource("27_hmfp3")
+
+[node name="Attack1" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=368194089]
+script = ExtResource("28_2mv5r")
+
+[node name="Move" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1795009709]
+script = ExtResource("29_utht8")
+
+[node name="Dash" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=2119392054 groups=["Player"]]
+script = ExtResource("30_qdkji")
+
+[node name="DashAttack" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=246734474 groups=["Player"]]
+script = ExtResource("31_ehcbh")
+
+[node name="Jump" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1967489877]
+script = ExtResource("32_ylx76")
+
+[node name="Damage" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=319629811]
+script = ExtResource("33_e3bjq")
+
+[node name="Fall" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1894827850]
+script = ExtResource("34_hik4u")
+
+[node name="Die" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=5364237]
+script = ExtResource("35_2wglc")
+
+[node name="CSIdle1" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1252814734]
+script = ExtResource("36_wfgnl")
+
+[node name="CSIdle2" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1399782081]
+script = ExtResource("35_qdkji")
+
+[node name="CSJumpBack" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1488321887]
+script = ExtResource("36_utht8")
+
+[node name="Watersplash" type="Sprite2D" parent="MasterCutsceneNode/Player" unique_id=1714057460]
+visible = false
+z_index = 1
+position = Vector2(-3, 13)
+texture = ExtResource("37_1n10s")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="Wateranim" type="AnimationPlayer" parent="MasterCutsceneNode/Player/Watersplash" unique_id=523350936]
+libraries/ = SubResource("AnimationLibrary_wmlp5")
+autoplay = &"main"
+
+[node name="BloodPlayer" parent="MasterCutsceneNode/Player" unique_id=1707340589 instance=ExtResource("38_vtd6v")]
+z_index = 2
+emitting = false
+amount = 25
+
+[node name="Collect" type="Area2D" parent="MasterCutsceneNode/Player" unique_id=801312799 groups=["Player"]]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MasterCutsceneNode/Player/Collect" unique_id=519722010]
+position = Vector2(-0.5, 6.5)
+shape = SubResource("RectangleShape2D_m8pqb")
+debug_color = Color(0.7333331, 0, 1, 0.41960785)
+
+[node name="LPBox" type="Area2D" parent="MasterCutsceneNode/Player" unique_id=1031464800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MasterCutsceneNode/Player/LPBox" unique_id=1252538776]
+position = Vector2(-1, 17.5)
+shape = SubResource("RectangleShape2D_imsq6")
+debug_color = Color(0.7, 0, 0.011666489, 0.41960785)
+
+[node name="MPBox" type="Area2D" parent="MasterCutsceneNode/Player" unique_id=1201329347]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MasterCutsceneNode/Player/MPBox" unique_id=1099265461]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_imsq6")
+debug_color = Color(0.30204865, 0.41313523, 0, 0.41960785)
+
+[node name="HPBox" type="Area2D" parent="MasterCutsceneNode/Player" unique_id=307339055]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MasterCutsceneNode/Player/HPBox" unique_id=1777941526]
+position = Vector2(-1, -5)
+shape = SubResource("RectangleShape2D_imsq6")
+debug_color = Color(0.4424149, 0.0025293673, 0.87135375, 0.41960785)
+
+[node name="InvincibleParticle" parent="MasterCutsceneNode/Player" unique_id=1389773018 instance=ExtResource("39_31bgd")]
+
+[node name="Deathhit" type="AudioStreamPlayer" parent="MasterCutsceneNode/Player" unique_id=1482014082]
+stream = ExtResource("40_f8kec")
+volume_db = -7.404
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MasterCutsceneNode/Player" unique_id=1988149889]
+
+[node name="White" type="ColorRect" parent="MasterCutsceneNode/Player/CanvasLayer" unique_id=295804320]
+visible = false
+offset_right = 320.0
+offset_bottom = 240.0
+
+[node name="Black" type="ColorRect" parent="MasterCutsceneNode/Player/CanvasLayer" unique_id=221513557]
+visible = false
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="DConfirm" type="AudioStreamPlayer" parent="MasterCutsceneNode/Player" unique_id=708916597]
+stream = ExtResource("41_76vdf")
+volume_db = -11.143
+
+[node name="CHit" type="AudioStreamPlayer" parent="MasterCutsceneNode/Player" unique_id=347017058]
+stream = ExtResource("42_mfcfu")
+volume_db = 6.887
+
+[node name="DeathVoice" type="AudioStreamPlayer" parent="MasterCutsceneNode/Player" unique_id=1586918003]
+stream = ExtResource("43_swrfm")
+volume_db = 6.272
+
+[node name="DownCrushDetect2" type="RayCast2D" parent="MasterCutsceneNode/Player" unique_id=1589465286]
+position = Vector2(0, 12)
+target_position = Vector2(0, -13)
+
+[node name="Attachments" type="Node" parent="MasterCutsceneNode/Player" unique_id=2126489336]
+
+[node name="ShotgunRotary" parent="MasterCutsceneNode/Player/Attachments" unique_id=1375401057 instance=ExtResource("44_ujf1d")]
+
+[node name="Camera" parent="MasterCutsceneNode" unique_id=258370969 node_paths=PackedStringArray("target") instance=ExtResource("4_cngef")]
+position = Vector2(161, 119)
+limit_left = 0
+limit_top = 0
+limit_bottom = 318
+target = NodePath("../Player")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="MasterCutsceneNode" unique_id=411573255]
+layer = 112
+
+[node name="Label" type="Label" parent="MasterCutsceneNode/CanvasLayer2" unique_id=200930424]
+visible = false
+z_index = 42
+offset_left = 1.0
+offset_top = 195.0
+offset_right = 320.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("46_guc6x")
+theme_override_font_sizes/font_size = 8
+text = "Balls. the bridge is out."
+horizontal_alignment = 1
+
+[node name="StateMachine" type="Node" parent="MasterCutsceneNode" unique_id=730479895]
+script = ExtResource("26_6fgeg")
+root_node_path = NodePath("..")
+
+[node name="ScStart" type="Node" parent="MasterCutsceneNode/StateMachine" unique_id=581987057]
+script = SubResource("GDScript_bw714")
+
+[node name="R01" type="AudioStreamPlayer" parent="MasterCutsceneNode/StateMachine/ScStart" unique_id=499104916]
+stream = ExtResource("47_e5vf7")
+
+[node name="R02" type="AudioStreamPlayer" parent="MasterCutsceneNode/StateMachine/ScStart" unique_id=2024239426]
+stream = ExtResource("47_6fgeg")
+
+[node name="R03" type="AudioStreamPlayer" parent="MasterCutsceneNode/StateMachine/ScStart" unique_id=2075063244]
+stream = ExtResource("48_hmfp3")
+
+[node name="ScSpawnBoss" type="Node" parent="MasterCutsceneNode/StateMachine" unique_id=2070609205]
+script = ExtResource("50_qdkji")
+
+[node name="R04" type="AudioStreamPlayer" parent="MasterCutsceneNode/StateMachine/ScSpawnBoss" unique_id=1217694126]
+stream = ExtResource("51_ehcbh")
+
+[node name="Clang" type="AudioStreamPlayer" parent="MasterCutsceneNode/StateMachine/ScSpawnBoss" unique_id=1703720353]
+stream = ExtResource("51_utht8")
+
+[node name="MotiveMonitor" type="Node2D" parent="MasterCutsceneNode" unique_id=2094702723]
+position = Vector2(3895, 400)
+
+[node name="Monitor" type="AnimatedSprite2D" parent="MasterCutsceneNode/MotiveMonitor" unique_id=1172479224]
+position = Vector2(0, 17)
+sprite_frames = SubResource("SpriteFrames_7rffo")
+autoplay = "default"
+frame_progress = 0.9838584
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MasterCutsceneNode/MotiveMonitor" unique_id=1167643136]
+libraries/ = SubResource("AnimationLibrary_wfgnl")
+autoplay = &"Default"
+
+[connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Idle" method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Attack1" method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/CSIdle2" method="_on_sprite_animation_finished"]

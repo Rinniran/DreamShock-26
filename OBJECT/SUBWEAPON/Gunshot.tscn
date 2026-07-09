@@ -36,7 +36,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="5"]
 size = Vector2(254.528, 25)
 
-[node name="Shot" type="Area2D" unique_id=1107209084 groups=["Pl_Attack", "Player"]]
+[node name="Shot" type="Area2D" unique_id=1107209084 groups=["Pl_Attack"]]
 collision_layer = 259
 collision_mask = 259
 script = ExtResource("2")

@@ -1775,7 +1775,7 @@ stage = ExtResource("31_a31gp")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2118099498]
 environment = SubResource("Environment_4g6p8")
 
-[node name="Capsule" parent="." unique_id=786621984 instance=ExtResource("33_p7bt1")]
+[node name="Capsule" parent="." unique_id=228143807 instance=ExtResource("33_p7bt1")]
 position = Vector2(3788, -298)
 
 [node name="100combo" type="AudioStreamPlayer" parent="." unique_id=503311631]

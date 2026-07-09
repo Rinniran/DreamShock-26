@@ -10,7 +10,8 @@ func _ready() -> void:
 	Global.score = 0
 	Global.pieces = 0
 	Global.activegame = false
-	Global.time = 30
+	Global.time = 60
+	Global.ammo = 0
 	pass # Replace with function body.
 
 

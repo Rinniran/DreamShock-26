@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dvv02kvpurt26" path="res://Sprites/Players/Rian/Rian_Forwardjump.png" id="7_4xp72"]
 [ext_resource type="Texture2D" uid="uid://b34fq4u8jxaq8" path="res://Sprites/Players/Rian/Rian_Fling.png" id="8_4dn1s"]
 [ext_resource type="Texture2D" uid="uid://b8ibcx260lvah" path="res://Sprites/Players/Rian/Rian_Stance.png" id="9_jxoo1"]
+[ext_resource type="Texture2D" uid="uid://b18524ca51usw" path="res://Sprites/Players/Rian/Rian_CutsceneIdle1.png" id="9_sc3xi"]
+[ext_resource type="Texture2D" uid="uid://cvuw52agcr2iq" path="res://Sprites/Players/Rian/Rian_StickCity_Intro.png" id="10_d0vwv"]
 [ext_resource type="Texture2D" uid="uid://d23flse2pgrky" path="res://Sprites/Players/Rian/Rian_Strafe.png" id="10_ea5n8"]
 [ext_resource type="Texture2D" uid="uid://c0xax40ty4yyj" path="res://Sprites/Players/Rian/Rian_WaitA.png" id="11_lw07t"]
 [ext_resource type="Texture2D" uid="uid://u5os628gp7fk" path="res://Sprites/Players/Rian/Rian_WaitB.png" id="12_ygdtg"]
@@ -267,13 +269,16 @@ region = Rect2(600, 0, 200, 200)
 [sub_resource type="AtlasTexture" id="357"]
 region = Rect2(600, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="330"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jfn2"]
+atlas = ExtResource("9_sc3xi")
 region = Rect2(0, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="331"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqn2t"]
+atlas = ExtResource("9_sc3xi")
 region = Rect2(200, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="332"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4bhh"]
+atlas = ExtResource("9_sc3xi")
 region = Rect2(400, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="326"]
@@ -297,25 +302,32 @@ region = Rect2(800, 0, 200, 200)
 [sub_resource type="AtlasTexture" id="360"]
 region = Rect2(1000, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="170"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w44h"]
+atlas = ExtResource("10_d0vwv")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="171"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gasc"]
+atlas = ExtResource("10_d0vwv")
 region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="172"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bvx3"]
+atlas = ExtResource("10_d0vwv")
 region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="173"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk3wa"]
+atlas = ExtResource("10_d0vwv")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="174"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ahfk"]
+atlas = ExtResource("10_d0vwv")
 region = Rect2(192, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="175"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_82dwo"]
+atlas = ExtResource("10_d0vwv")
 region = Rect2(240, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="176"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxpco"]
+atlas = ExtResource("10_d0vwv")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jifx"]
@@ -1054,16 +1066,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("330")
+"texture": SubResource("AtlasTexture_5jfn2")
 }, {
 "duration": 1.0,
-"texture": SubResource("331")
+"texture": SubResource("AtlasTexture_nqn2t")
 }, {
 "duration": 1.0,
-"texture": SubResource("332")
+"texture": SubResource("AtlasTexture_t4bhh")
 }, {
 "duration": 1.0,
-"texture": SubResource("331")
+"texture": SubResource("AtlasTexture_nqn2t")
 }],
 "loop": 1,
 "name": &"Meh",
@@ -1102,27 +1114,27 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("170")
+"texture": SubResource("AtlasTexture_2w44h")
 }, {
 "duration": 1.0,
-"texture": SubResource("171")
+"texture": SubResource("AtlasTexture_2gasc")
 }, {
 "duration": 1.0,
-"texture": SubResource("172")
+"texture": SubResource("AtlasTexture_4bvx3")
 }, {
 "duration": 1.0,
-"texture": SubResource("173")
+"texture": SubResource("AtlasTexture_xk3wa")
 }, {
 "duration": 1.0,
-"texture": SubResource("174")
+"texture": SubResource("AtlasTexture_6ahfk")
 }, {
 "duration": 1.0,
-"texture": SubResource("175")
+"texture": SubResource("AtlasTexture_82dwo")
 }, {
 "duration": 1.0,
-"texture": SubResource("176")
+"texture": SubResource("AtlasTexture_mxpco")
 }],
-"loop": 0,
+"loop": 2,
 "name": &"SCIntro",
 "speed": 13.0
 }, {

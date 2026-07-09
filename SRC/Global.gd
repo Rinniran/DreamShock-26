@@ -40,7 +40,7 @@ var killcount = 0
 var ms = 0
 var tereq = 8
 
-var time = 30
+var time = 60
 
 var checkpoint = 0
 var timedeathoff = false

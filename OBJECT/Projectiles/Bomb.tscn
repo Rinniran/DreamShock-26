@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dmgnaup40kbf0"]
+
+[ext_resource type="Script" uid="uid://c5f83opu3mqmn" path="res://OBJECT/Projectiles/bomb.gd" id="1_bhdvx"]
+[ext_resource type="Texture2D" uid="uid://daqbnw2quhx0l" path="res://Sprites/Projectiles/PotionGrenade.png" id="2_3cfmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1qcl"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjp7u"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbdqc"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v64a0"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otfrq"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run8s"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3aev8"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txwti"]
+atlas = ExtResource("2_3cfmp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rffo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1qcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjp7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbdqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v64a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otfrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_run8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3aev8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txwti")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rffo"]
+
+[node name="Bomb" type="CharacterBody2D" unique_id=1735341121]
+script = ExtResource("1_bhdvx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713730401]
+sprite_frames = SubResource("SpriteFrames_7rffo")
+autoplay = "default"
+frame_progress = 0.20614514
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439458967]
+shape = SubResource("RectangleShape2D_7rffo")

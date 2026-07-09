@@ -21,7 +21,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if M_Player != null:
-		M_Player.volume_db = MusicVolume
+		if Global.activegame:
+			M_Player.volume_db = MusicVolume
 		if Global.invincibility:
 			if M_Player.stream != Invincible_Music:
 				M_Player.stream = Invincible_Music

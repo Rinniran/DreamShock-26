@@ -5,8 +5,8 @@
 [sub_resource type="GDScript" id="2"]
 script/source = "extends Area2D
 
-@export var speed = 350
-@export var steer_force = 200.0
+@export var speed = 2000
+@export var steer_force = 40.0
 
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
@@ -35,15 +35,15 @@ func _physics_process(delta):
 
 func die():
 	var explosion = preload(\"res://OBJECT/Hazards/MissileExp.tscn\").instantiate()
-	explosion.global_position = global_position
+	explosion.position = global_position
 	get_parent().add_child(explosion)
 	queue_free()
 func _on_Lifetime_timeout():
-	queue_free()
+	die()
 
 
 func _on_Missile_area_entered(area):
-	if area.is_in_group(\"Pl_Attack\"):
+	if area.is_in_group(\"Pl_Attack\") || area.is_in_group(\"Player\"):
 		
 		die()
 	
@@ -54,7 +54,7 @@ size = Vector2(7, 30)
 
 [node name="Missile" type="Area2D" unique_id=774573684 groups=["En_Attack", "Enemy"]]
 script = SubResource("2")
-speed = 50
+speed = 250
 
 [node name="Bll" type="Sprite2D" parent="." unique_id=2084819553]
 rotation = 1.5708

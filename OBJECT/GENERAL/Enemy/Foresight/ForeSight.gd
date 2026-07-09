@@ -39,13 +39,14 @@ var gravity = 500
 
 var Up = Vector2.UP
 
-var hp = 35
+var hp = 60
 
 var floormax = deg_to_rad(64.0)
 
 var hits = 0
 
 var dashtimer = 0
+var shotcooldown = 0
 
 @export  var flip = false
 
@@ -55,18 +56,20 @@ func _ready():
 	states = "IDLE"
 	$Health.visible = false
 	$Health/ProgressBar.min_value = 0
-	$Health/ProgressBar.max_value = 35
+	$Health/ProgressBar.max_value = 60
 	pass
 
 
 
 func _physics_process(delta):
+	if !is_on_floor():
+		velocity.y += 16
 	if hp <= 0 and $ForeSight/AnimationPlayer.current_animation != "Die":
 		states = "DIE"
 		Global.kills += 1
 		$Health.visible = false
 
-	
+	position.x = clamp(position.x,Global.camera.position.x - 150, Global.camera.position.x + 150)
 	rng.randomize()
 	
 	$Health/ProgressBar.value = hp
@@ -114,63 +117,87 @@ func _physics_process(delta):
 	
 	match (states):
 		"IDLE":
-			$ForeSight/AnimationPlayer.play("idle")
+			$ForeSight/AnimationPlayer.play("idle", 0.5)
 			velocity.x = 0
 			
 		"WALK":
-			$ForeSight/AnimationPlayer.play("Walk")
+			$ForeSight/AnimationPlayer.play("Walk", 0.5)
 			velocity.x = 150 * dir
 			
 		"SLIDE":
 			hits = 0
-			$ForeSight/AnimationPlayer.play("slide")
+			$ForeSight/AnimationPlayer.play("slide", 0.5)
 			velocity.x = 400 * dir
 			
 		"SHOOT":
-			$ForeSight/AnimationPlayer.play("Shoot")
+			$ForeSight/AnimationPlayer.play("Shoot", 0.5)
 			velocity.x = 0
 		
 		"STOMP":
-			$ForeSight/AnimationPlayer.play("Stomp")
+			$ForeSight/AnimationPlayer.play("Stomp", 0.5)
 			velocity.x = 0
 		
 		"DIE":
-			$ForeSight/AnimationPlayer.play("Die")
+			$ForeSight/AnimationPlayer.play("Die", 0.5)
 			
 			velocity.x = 0
 	
 	move_and_slide()
-	
+	if shotcooldown > 0:
+		shotcooldown -= 1
 	
 	if hp <= 0:
 		states = "DIE"
 		Global.bossactive = false
 	
 
+func stompbombs():
+	if shotcooldown == 0:
+		var BulletA = preload("uid://dmgnaup40kbf0").instantiate()
+		var BulletB = preload("uid://dmgnaup40kbf0").instantiate()
+		var BulletC = preload("uid://dmgnaup40kbf0").instantiate()
+		
+		BulletA.speed = 25 * dir
+		BulletB.speed = 75 * dir
+		BulletC.speed = 125 * dir
+		
+		
+		
+		BulletA.global_position = $ForeSight/LegBack/Legback2/Footback/BombSpawn.global_position
+		BulletB.global_position  = $ForeSight/LegBack/Legback2/Footback/BombSpawn.global_position
+		BulletC.global_position  = $ForeSight/LegBack/Legback2/Footback/BombSpawn.global_position
+		
+		get_parent().add_child(BulletA)
+		
+		get_parent().add_child(BulletB)
+		
+		get_parent().add_child(BulletC)
+		shotcooldown = 20
 
 
 func shoot():
-	
-	$ForeSight/Spawn.play()
-	var BulletA = preload("uid://dkxw3vj0s2u85").instantiate()
-	var BulletB = preload("uid://dkxw3vj0s2u85").instantiate()
-	var BulletC = preload("uid://dkxw3vj0s2u85").instantiate()
-	
-	BulletA.start(Transform2D(Vector2(dir, 0), Vector2(0, 1), Vector2(0, 0)))
-	BulletB.start(Transform2D(Vector2(dir, 0), Vector2(0, 1), Vector2(0, 0)))
-	BulletC.start(Transform2D(Vector2(dir, 0), Vector2(0, 1), Vector2(0, 0)))
-	
-	
-	BulletA.global_position = $ForeSight/Head/Shoulderfront/ArmFront/ArmpieceFront/Position2D.global_position
-	BulletB.global_position = $ForeSight/Head/Shoulderfront/ArmFront/ArmpieceFront/Position2D.global_position
-	BulletC.global_position = $ForeSight/Head/Shoulderfront/ArmFront/ArmpieceFront/Position2D.global_position
-	
-	
-	get_parent().add_child(BulletA)
-	
-	get_parent().add_child(BulletB)
-	
-	get_parent().add_child(BulletC)
+	if shotcooldown == 0:
+		$ForeSight/Spawn.play()
+		var BulletA = preload("uid://dkxw3vj0s2u85").instantiate()
+		var BulletB = preload("uid://dkxw3vj0s2u85").instantiate()
+		var BulletC = preload("uid://dkxw3vj0s2u85").instantiate()
+		
+		BulletA.start(Transform2D(Vector2(dir, 0), Vector2(0, 1), Vector2(0, 0)))
+		BulletB.start(Transform2D(Vector2(dir, 0), Vector2(0, 1), Vector2(0, 0)))
+		BulletC.start(Transform2D(Vector2(dir, 0), Vector2(0, 1), Vector2(0, 0)))
+		
+		
+		
+		BulletA.global_position = $ForeSight/Head/Shoulderfront/ArmFront/ArmpieceFront/Position2D.global_position + Vector2(0, 15)
+		BulletB.global_position  = $ForeSight/Head/Shoulderfront/ArmFront/ArmpieceFront/Position2D.global_position
+		BulletC.global_position  = $ForeSight/Head/Shoulderfront/ArmFront/ArmpieceFront/Position2D.global_position + Vector2(0, -15)
+		
+		get_parent().add_child(BulletA)
+		
+		get_parent().add_child(BulletB)
+		
+		get_parent().add_child(BulletC)
+		shotcooldown = 20
 	
 
 func decision(delta):
@@ -225,6 +252,7 @@ func _on_Hurtbox_area_entered(area):
 			Global.chain += 1
 			
 			hp -= area.damage 
+			hits += 1
 			
 			#var damage = preload("res://Subrooms/DAMAGE ENEMY.tscn")
 			#var damobj = damage.instance()
@@ -266,5 +294,5 @@ func _on_Conditionplayer_animation_finished(anim_name):
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	detected = true
+	#detected = true
 	Global.bossactive = true

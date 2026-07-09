@@ -1,7 +1,7 @@
 extends BaseState
 
 func _enter(data = {}):
-	root.extanim.play("phase1")
+	root.extanim.play("phase1", 1)
 	
 func _step():
 	super()

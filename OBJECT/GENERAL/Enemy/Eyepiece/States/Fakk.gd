@@ -24,7 +24,7 @@ func _step():
 	timer -= 1
 	if timer <= 0:
 		if is_instance_valid(Global.player1):
-			var pj = preload("uid://c44c8yipwlhap").instantiate()
+			var pj = preload("uid://dvlc3j4pe4pbl").instantiate()
 			pj.position.y = root.position.y
 			pj.direction = root.position.direction_to(Global.player1.global_position)
 			pj.own = root
