@@ -35,15 +35,16 @@ func _step():
 			parent.change_state("Fall")
 	if root.sprite.frame >= 3:
 		
-		if Input.is_action_just_pressed("PAD1_C"):
-			parent.change_state("Dash")
+		
 		if Input.is_action_just_pressed("PAD1_A"):
 			root.sprite.stop()
 			root.sprite.frame = 0
 			root.sprite.play("attackg_a")
-		if Input.is_action_just_pressed("PAD1_B") && root.is_on_floor():
+		
+	if Input.is_action_just_pressed("PAD1_C"):
+			parent.change_state("Dash")
+	if Input.is_action_just_pressed("PAD1_B") && root.is_on_floor():
 			parent.change_state("Jump")
-	
 	if root.sprite.frame == 3:
 		if didbox == false:
 			var hitbox = preload("uid://rckhhjosmy48").instantiate()

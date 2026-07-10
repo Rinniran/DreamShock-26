@@ -70,12 +70,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rffo"]
 
 [node name="Bomb" type="CharacterBody2D" unique_id=1735341121]
+collision_layer = 0
 script = ExtResource("1_bhdvx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713730401]
 sprite_frames = SubResource("SpriteFrames_7rffo")
 autoplay = "default"
-frame_progress = 0.20614514
+frame_progress = 0.4653127
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439458967]
 shape = SubResource("RectangleShape2D_7rffo")

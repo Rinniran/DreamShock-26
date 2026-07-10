@@ -61,6 +61,8 @@ var bossactive = false
 
 @onready var musicP = AudioStreamPlayer.new()
 
+signal counted
+
 func _ready() -> void:
 	add_child(musicP)
 
@@ -76,6 +78,8 @@ func _physics_process(delta: float) -> void:
 		if currweapon == null:
 			currweapon = player1.wea.NONE
 	
+	if p1health > maxhp:
+		p1health = maxhp
 	
 	
 	if chain > 0:
@@ -85,10 +89,14 @@ func _physics_process(delta: float) -> void:
 			chain = 0
 	
 	if time > 0 && hitstop == false && activegame == true:
-		ms += 1
+		if player1.velocity.x == 0:
+			ms += 0.5
+		else:
+			ms += 1
 	if ms >= 60 && !timedeathoff:
 		time -= 1
 		ms = 0
+		counted.emit()
 	if kills >= tereq:
 		var te = preload("res://OBJECT/GENERAL/time_ext.tscn").instantiate()
 		get_parent().add_child(te)

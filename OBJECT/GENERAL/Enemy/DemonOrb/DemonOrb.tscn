@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cw85tfj2obtbr"]
 
 [ext_resource type="Script" uid="uid://c7gc3jmky4iuo" path="res://OBJECT/GENERAL/Enemy/GroundEnemy.gd" id="1_uk5q7"]
+[ext_resource type="PackedScene" uid="uid://da43umrjgj55" path="res://OBJECT/GENERAL/Collectibles/hpLarge.tscn" id="2_op0iu"]
 [ext_resource type="PackedScene" uid="uid://dkn4o7j5wcre2" path="res://OBJECT/GENERAL/BloodHusk.tscn" id="2_v88x5"]
 [ext_resource type="Texture2D" uid="uid://bjtikxwj56edn" path="res://Sprites/ENEMY/DemonCrystal.png" id="3_ylihn"]
 [ext_resource type="PackedScene" uid="uid://dxol0ejhrr8pk" path="res://OBJECT/GENERAL/Explosionset2.tscn" id="4_lx732"]
@@ -481,6 +482,7 @@ unlocks_screen = true
 gravity_enabled = false
 extanim = NodePath("AnimationPlayer")
 has_damage_state = false
+dropped_item = ExtResource("2_op0iu")
 deathsound = NodePath("../bighit")
 hurtsound = NodePath("Hurt")
 impact_flash = NodePath("CanvasLayer")

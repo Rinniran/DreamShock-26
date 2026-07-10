@@ -1,5 +1,6 @@
 @tool
 extends Area2D
+class_name Capsule
 
 enum itemselect{
 	INVINCIBLE,
@@ -15,6 +16,9 @@ enum itemselect{
 @onready var sp2 = preload("res://SPRITE/CAPSULE/Odachicap.png")
 @onready var sp3 = preload("res://SPRITE/CAPSULE/Shotguncap.png")
 
+var wait = 10
+
+
 func _physics_process(delta: float) -> void:
 	match(item):
 		0:
@@ -25,10 +29,13 @@ func _physics_process(delta: float) -> void:
 			spr.texture = sp2
 		3:
 			spr.texture = sp3
+	
+	if wait > 0:
+		wait -= 1
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Player"):
+	if area.is_in_group("Player") && wait == 0:
 		$CollisionShape2D.queue_free()
 		match(item):
 			0:
@@ -36,7 +43,11 @@ func _on_area_entered(area: Area2D) -> void:
 			1:
 				pass
 			2:
-				pass
+				if Global.currweapon != Global.player1.wea.ODACHI:
+					Global.currweapon = Global.player1.wea.ODACHI
+					Global.ammo =  10
+				else:
+					Global.ammo += 10
 			3:
 				
 				

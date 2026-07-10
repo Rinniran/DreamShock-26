@@ -23,9 +23,30 @@ extends CharacterBody2D
 @onready var gdr:RayCast2D = $Gapdetectright
 @onready var col:CollisionShape2D = $Hurtbox/CollisionShape2D
 
+@onready var iid = preload("res://OBJECT/GENERAL/Itemidentifier.tscn").instantiate()
+var seconds = 0
+var dead = false
+
+
+
 func _ready() -> void:
+	Global.counted.connect(countup)
 	state.initialize()
-	
+	if dropped_item != null:
+		var state = dropped_item.instantiate()
+		if state is Capsule:
+			if state.item == state.itemselect.ODACHI:
+				iid.item = 0
+			if state.item == state.itemselect.SHOTGUN:
+				iid.item = 1
+			if state.item == state.itemselect.DSLASH:
+				iid.item = 2
+			if state.item == state.itemselect.INVINCIBLE:
+				iid.item = 4
+		if state is Hp:
+			iid.item = 3
+		sprite.add_child(iid)
+		state.queue_free()
 
 func _physics_process(delta: float) -> void:
 	if gravity_enabled:
@@ -46,6 +67,7 @@ func _physics_process(delta: float) -> void:
 			state.advance()
 		velocity.x = 0
 		velocity.y = 0
+		
 		anim.pause()
 	if !$VisibleOnScreenNotifier2D.is_on_screen():
 		set_physics_process(false)
@@ -65,7 +87,7 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Pl_Attack"):
+	if area.is_in_group("Pl_Attack") && dead == false:
 		hp -= area.damage
 		if hurtsound != null:
 			hurtsound.stop()
@@ -77,6 +99,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			if unlocks_screen:
 				Global.camera.locked = false
 			state.change_state("Die")
+			dead = true
 		else:
 			if area.is_in_group("Heavy"):
 				if has_damage_state == true:
@@ -86,3 +109,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 					#Global.hitstopframes = hurtstop
 					#Global.hitstop = true
 					state.change_state("Damage")
+
+func countup():
+	if is_physics_processing():
+		seconds += 1

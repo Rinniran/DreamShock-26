@@ -439,6 +439,7 @@ floor_snap_length = 11.1
 script = ExtResource("1_hihvi")
 hp = 0.1
 speed = 60
+has_damage_state = false
 
 [node name="BloodHusk" parent="." unique_id=1707340589 instance=ExtResource("2_erlgb")]
 z_index = 1

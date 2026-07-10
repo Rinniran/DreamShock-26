@@ -39,7 +39,7 @@ var gravity = 500
 
 var Up = Vector2.UP
 
-var hp = 60
+var hp = 80
 
 var floormax = deg_to_rad(64.0)
 
@@ -47,16 +47,18 @@ var hits = 0
 
 var dashtimer = 0
 var shotcooldown = 0
+var killed = false
 
 @export  var flip = false
 
 @export var bossmus = preload("uid://dnwdgnj0j2wap")
+@onready var niceone = preload("res://OBJECT/Bonus/niceone.tscn").instantiate()
 
 func _ready():
 	states = "IDLE"
 	$Health.visible = false
 	$Health/ProgressBar.min_value = 0
-	$Health/ProgressBar.max_value = 60
+	$Health/ProgressBar.max_value = 80
 	pass
 
 
@@ -64,10 +66,14 @@ func _ready():
 func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += 16
-	if hp <= 0 and $ForeSight/AnimationPlayer.current_animation != "Die":
+	if hp <= 0 and killed == false:
 		states = "DIE"
+		if Global.time >= 60:
+			niceone.text = "beat foresight with 60 seconds to spare!"
+			get_parent().add_child(niceone)
 		Global.kills += 1
 		$Health.visible = false
+		killed = true
 
 	position.x = clamp(position.x,Global.camera.position.x - 150, Global.camera.position.x + 150)
 	rng.randomize()
@@ -158,8 +164,8 @@ func stompbombs():
 		var BulletC = preload("uid://dmgnaup40kbf0").instantiate()
 		
 		BulletA.speed = 25 * dir
-		BulletB.speed = 75 * dir
-		BulletC.speed = 125 * dir
+		BulletB.speed = BulletA.speed + 50 * dir
+		BulletC.speed = BulletB.speed + 50 * dir
 		
 		
 		
@@ -173,6 +179,22 @@ func stompbombs():
 		
 		get_parent().add_child(BulletC)
 		shotcooldown = 20
+
+func slidebomb():
+	if shotcooldown == 0:
+		var BulletA = preload("uid://dmgnaup40kbf0").instantiate()
+		
+		
+		BulletA.speed = 0
+		
+		
+		
+		BulletA.global_position = $ForeSight/LegBack/Legback2/Footback/BombSpawn.global_position
+		
+		
+		get_parent().add_child(BulletA)
+		
+		shotcooldown = 1
 
 
 func shoot():
@@ -202,7 +224,7 @@ func shoot():
 
 func decision(delta):
 	
-	if hits >= 20:
+	if hits >= 20 || (states == "WALK" && Global.player1.global_position.x > global_position.x - 5 && Global.player1.global_position.x < global_position.x + 5):
 		dashtimer = 20
 		states = "SLIDE"
 		

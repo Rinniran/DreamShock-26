@@ -10,8 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="5_wxs8g"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="6_g8c0t"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="7_m3e0v"]
+[ext_resource type="PackedScene" uid="uid://t2cp88qpnmea" path="res://OBJECT/GENERAL/DroppedCapsules/Odachi.tscn" id="8_b3tpi"]
+[ext_resource type="PackedScene" uid="uid://t38erfgvpuyk" path="res://OBJECT/GENERAL/Collectibles/hp.tscn" id="8_g2skh"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="8_xxs3b"]
 [ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="9_tkb76"]
+[ext_resource type="PackedScene" uid="uid://dkbwnl2p7ojqd" path="res://OBJECT/GENERAL/Collectibles/hpmed.tscn" id="10_wjrwo"]
 [ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="12_mabfb"]
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="13_qmpaw"]
 [ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="14_14kmh"]
@@ -56,6 +59,7 @@ position = Vector2(2490, 373)
 
 [node name="StickhuskSword4" parent="Enemies" unique_id=1739881871 instance=ExtResource("4_bkajp")]
 position = Vector2(2770, 375)
+dropped_item = ExtResource("8_b3tpi")
 
 [node name="StickhuskSword5" parent="Enemies" unique_id=1515165335 instance=ExtResource("4_bkajp")]
 position = Vector2(3355, 271)
@@ -68,6 +72,7 @@ position = Vector2(4766, 291)
 
 [node name="StickhuskSword8" parent="Enemies" unique_id=2021657155 instance=ExtResource("4_bkajp")]
 position = Vector2(5457, 405)
+dropped_item = ExtResource("8_b3tpi")
 
 [node name="StickhuskSword9" parent="Enemies" unique_id=1141033075 instance=ExtResource("4_bkajp")]
 position = Vector2(6297, 328)
@@ -77,6 +82,7 @@ position = Vector2(7810, 570)
 
 [node name="StickhuskSword11" parent="Enemies" unique_id=475829950 instance=ExtResource("4_bkajp")]
 position = Vector2(8109, 568)
+dropped_item = ExtResource("8_g2skh")
 
 [node name="StickhuskGun" parent="Enemies" unique_id=2043539058 instance=ExtResource("5_wxs8g")]
 position = Vector2(978, 236)
@@ -90,6 +96,7 @@ position = Vector2(4286, 182)
 
 [node name="StickhuskGun4" parent="Enemies" unique_id=1989420041 instance=ExtResource("5_wxs8g")]
 position = Vector2(5099, 402)
+dropped_item = ExtResource("10_wjrwo")
 
 [node name="StickhuskGun5" parent="Enemies" unique_id=448400748 instance=ExtResource("5_wxs8g")]
 position = Vector2(6107, 324)

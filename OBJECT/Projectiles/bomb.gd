@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var jumpspeed = 400
-var gravity = 200
+var gravity = 8
 var speed = 5
 var timer = 10
 

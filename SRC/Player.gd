@@ -174,6 +174,15 @@ func _physics_process(delta: float) -> void:
 	if Global.currweapon == wea.SHOTGUN && !sgr.visible:
 		sgr.snd.play()
 		sgr.visible = true
+	if Global.currweapon == wea.ODACHI:
+		sgr.visible = false
+		if Input.is_action_just_pressed("PAD1_X"):
+			var od = preload("uid://bt4h8nlj2gg6u").instantiate()
+			if sprite.flip_h == true:
+				od.scale.y = -1
+				od.scale.x = -1
+			
+			add_child(od) 
 
 func damageHandle(damage):
 	var parriedhigh = false
@@ -205,7 +214,13 @@ func damageHandle(damage):
 		parrycool = 0
 		paractfr = 0
 		parrying = false
-		Global.time += 1
+		var parryobj = preload("uid://ddlo8tdk0vpj0").instantiate()
+		parryobj.global_position = global_position
+		get_parent().add_child(parryobj)
+		var parryspark = preload("uid://o3cqd4kts4be").instantiate()
+		parryspark.global_position = global_position
+		get_parent().add_child(parryspark)
+		Global.time += 5
 		Global.chaintime = Global.chaintimereset
 		
 	else: 

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://bt4h8nlj2gg6u"]
+
+[ext_resource type="Texture2D" uid="uid://bj2yx03awucr1" path="res://Sprites/Players/Rian/VectorSummon/Odachi.png" id="1_8emy2"]
+[ext_resource type="Script" uid="uid://cpbv0p1ykygg3" path="res://OBJECT/SUBWEAPON/odachihb.gd" id="2_fjtn1"]
+[ext_resource type="AudioStream" uid="uid://dxb6ll45psfi2" path="res://AUDIO/SE/Burstloop.wav" id="3_fjtn1"]
+
+[sub_resource type="Animation" id="Animation_8emy2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Odachi:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fjtn1"]
+resource_name = "SwingDown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.8379054]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Odachi:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sgvsw"]
+resource_name = "SwingUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.8379054, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Odachi:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.27, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1e-05, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5o8vt"]
+_data = {
+&"RESET": SubResource("Animation_8emy2"),
+&"SwingDown": SubResource("Animation_fjtn1"),
+&"SwingUp": SubResource("Animation_sgvsw")
+}
+
+[node name="Odachi" type="Node2D" unique_id=321006453]
+
+[node name="Odachi" type="Sprite2D" parent="." unique_id=1199625873]
+texture = ExtResource("1_8emy2")
+offset = Vector2(-27.615, -55.895)
+
+[node name="Area2D" type="Area2D" parent="Odachi" unique_id=1098533488 groups=["Pl_Attack", "Player"]]
+position = Vector2(-28, -55)
+collision_layer = 323
+collision_mask = 323
+script = ExtResource("2_fjtn1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Odachi/Area2D" unique_id=849944095]
+polygon = PackedVector2Array(18, 2, 24, 10, 33, 7, 13, -28, -18, -54, -33, -54, -29, -44, -3, -22)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Odachi/Area2D" unique_id=1644432680]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_5o8vt")
+
+[node name="SND" type="AudioStreamPlayer" parent="." unique_id=279725997]
+stream = ExtResource("3_fjtn1")
+volume_db = -8.0
+autoplay = true

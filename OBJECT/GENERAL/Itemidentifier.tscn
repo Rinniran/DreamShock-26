@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b6vwmjde47wpp"]
+
+[ext_resource type="Texture2D" uid="uid://dtmm4xfulyilj" path="res://Sprites/UI/Itemind1.png" id="1_06oas"]
+
+[sub_resource type="GDScript" id="GDScript_06oas"]
+resource_name = "Flash"
+script/source = "extends Sprite2D
+
+enum it{
+	ODACHI,
+	SHOTGUN,
+	DSLASH,
+	HP,
+	INVINCIBLE
+}
+var item = it.ODACHI
+
+@onready var a = preload(\"res://Sprites/UI/Itemind1.png\")
+@onready var b = preload(\"res://Sprites/UI/Itemind2.png\")
+@onready var c = preload(\"res://Sprites/UI/Itemind3.png\")
+@onready var d = preload(\"res://Sprites/UI/Itemind4.png\")
+@onready var e = preload(\"res://Sprites/UI/Itemind5.png\")
+
+func _process(delta: float) -> void:
+	visible = !visible
+	
+	match (item):
+		0:
+			texture = a
+		1:
+			texture = b
+		2:
+			texture = c
+		3:
+			texture = d
+		4:
+			texture = e
+"
+
+[node name="Itemidentifier" type="Sprite2D" unique_id=1858360114]
+position = Vector2(1, -33)
+texture = ExtResource("1_06oas")
+script = SubResource("GDScript_06oas")

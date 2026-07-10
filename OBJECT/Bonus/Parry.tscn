@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://ddlo8tdk0vpj0"]
+
+[ext_resource type="Texture2D" uid="uid://7ji0hbt4mxxf" path="res://Sprites/UI/Parry.png" id="1_5p00x"]
+[ext_resource type="AudioStream" uid="uid://257jorgxa0n1" path="res://AUDIO/SE/JDodge.wav" id="2_tnach"]
+
+[sub_resource type="Animation" id="Animation_5p00x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tnach"]
+resource_name = "default"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.1, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -48)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mm7g7"]
+_data = {
+&"RESET": SubResource("Animation_5p00x"),
+&"default": SubResource("Animation_tnach")
+}
+
+[node name="POBJ" type="Node2D" unique_id=1888933123]
+
+[node name="Parry" type="Sprite2D" parent="." unique_id=70291755]
+scale = Vector2(1, 1e-05)
+texture = ExtResource("1_5p00x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Parry" unique_id=882637202]
+stream = ExtResource("2_tnach")
+volume_db = -9.63
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Parry" unique_id=1976019682]
+libraries/ = SubResource("AnimationLibrary_mm7g7")
+autoplay = &"default"

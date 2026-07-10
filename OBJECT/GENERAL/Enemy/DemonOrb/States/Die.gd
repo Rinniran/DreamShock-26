@@ -1,6 +1,12 @@
 extends BaseState
 
+
 func _enter(data = {}):
+	var niceone = preload("res://OBJECT/Bonus/niceone.tscn").instantiate()
+	print_debug(str("Beaten in ") + str(root.seconds) + str(" seconds."))
+	if root.seconds <= 5:
+		niceone.text = "massacre the demon orb within 5 seconds!"
+		get_parent().get_parent().add_child(niceone)
 	Global.kills += 1
 	root.anim_can_resume_after_hitstop = false
 	root.col.queue_free()
@@ -12,6 +18,7 @@ func _enter(data = {}):
 	var obj = preload("uid://o3cqd4kts4be").instantiate()
 	obj.global_position = root.sprite.global_position 
 	get_parent().add_child(obj)
+	root.dead = true
 
 func create_streak():
 	var obj = preload("res://OBJECT/GENERAL/Enemy/ExplosionStreak.tscn").instantiate()

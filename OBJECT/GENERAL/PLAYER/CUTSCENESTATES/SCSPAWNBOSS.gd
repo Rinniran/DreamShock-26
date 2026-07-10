@@ -3,6 +3,7 @@ extends BaseState
 
 @onready var boss = preload("res://OBJECT/GENERAL/Enemy/Foresight/ForeSight.tscn").instantiate()
 
+var bossisspawned = false
 
 func _enter(data = {}):
 	super._enter(data)
@@ -11,9 +12,20 @@ func _enter(data = {}):
 
 func _step():
 	super._step()
-	
+	if Input.is_action_just_pressed("PAD1_START"):
+		$R04.stop()
+		root.subs.visible = false
+		root.cam.offset.x = 0
+		boss.detected = true
+		boss.position = Vector2(3792.0, 60.0)
+		if !bossisspawned: 
+			get_parent().add_child(boss)
+		Global.activegame = true
+		root.player.state.change_state("Idle")
+		root.active = false
 	match (parent.state_time):
 		5:
+			bossisspawned = true
 			var tw = create_tween()
 			tw.tween_property(root.cam,"offset:x", 0, 0.8)
 			boss.position = Vector2(3792.0, -81.0)

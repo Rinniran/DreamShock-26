@@ -20,6 +20,8 @@ var gravity: int = 25
 @onready var sprite:AnimatedSprite2D = $Sprite2D
 @onready var col:CollisionShape2D = $Hurtbox/CollisionShape2D
 
+var dead = false
+
 func _ready() -> void:
 	state.initialize()
 	set_physics_process(false)
@@ -63,7 +65,7 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Pl_Attack"):
+	if area.is_in_group("Pl_Attack") && !dead:
 		hp -= area.damage
 		if hurtsound != null:
 			hurtsound.stop()
@@ -75,6 +77,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			if unlocks_screen:
 				Global.camera.locked = false
 			state.change_state("Die")
+			dead = true
 		else:
 			if area.is_in_group("Heavy"):
 				if has_damage_state == true:

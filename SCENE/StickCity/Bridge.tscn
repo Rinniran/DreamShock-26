@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bloqulxreh6cq" path="res://OBJECT/GENERAL/Enemy/Chaser/Chaser.tscn" id="9_5m250"]
 [ext_resource type="Texture2D" uid="uid://5h87q8sr0gdy" path="res://Sprites/STAGE/STICKCITY/TP3/3.png" id="9_uwjo4"]
 [ext_resource type="Texture2D" uid="uid://crlt7gj2qsei7" path="res://Sprites/STAGE/STICKCITY/TP3/4.png" id="10_0dutn"]
+[ext_resource type="PackedScene" uid="uid://t38erfgvpuyk" path="res://OBJECT/GENERAL/Collectibles/hp.tscn" id="10_e3bjq"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="10_igpy2"]
 [ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="11_w0m1m"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="11_ywd5o"]
@@ -20,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="14_ywd5o"]
 [ext_resource type="PackedScene" uid="uid://b8x8oigqkfsbf" path="res://OBJECT/GENERAL/Camstopper.tscn" id="15_3r6hl"]
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="15_7pwgt"]
+[ext_resource type="PackedScene" uid="uid://t2cp88qpnmea" path="res://OBJECT/GENERAL/DroppedCapsules/Odachi.tscn" id="16_2wglc"]
+[ext_resource type="PackedScene" uid="uid://dkbwnl2p7ojqd" path="res://OBJECT/GENERAL/Collectibles/hpmed.tscn" id="16_hik4u"]
 [ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="16_rrv3v"]
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="17_3r6hl"]
 [ext_resource type="Script" uid="uid://05mlfoeswk76" path="res://SRC/Player.gd" id="24_uolnx"]
@@ -465,9 +468,9 @@ resource_name = "SCSTART"
 script/source = "@tool
 extends BaseState
 
+@onready var boss = preload(\"res://OBJECT/GENERAL/Enemy/Foresight/ForeSight.tscn\").instantiate()
 
-
-
+var tw 
 func _enter(data = {}):
 	super._enter(data)
 	
@@ -475,6 +478,21 @@ func _enter(data = {}):
 
 func _step():
 	super._step()
+	if Input.is_action_just_pressed(\"PAD1_START\") && parent.state_time > 5:
+		$R01.stop()
+		$R02.stop()
+		$R03.stop()
+		
+		tw.stop()
+		root.cam.offset.x = 0
+		boss.detected = true
+		boss.position = Vector2(3792.0, 60.0)
+		get_parent().add_child(boss)
+		Global.activegame = true
+		root.player.state.change_state(\"Idle\")
+		root.mon.queue_free()
+		root.subs.visible = false
+		root.active = false
 	
 	match (parent.state_time):
 		5:
@@ -482,7 +500,7 @@ func _step():
 			Global.musicP.volume_db = -12
 			root.player.state.change_state(\"CSIdle1\")
 		30:
-			var tw = create_tween()
+			tw = create_tween()
 			tw.set_trans(Tween.TRANS_QUAD)
 			tw.set_ease(Tween.EASE_IN_OUT)
 			tw.tween_property(root.cam,\"offset:x\", 125, 1.0)
@@ -668,6 +686,7 @@ position = Vector2(855, 134)
 
 [node name="Eyepiece5" parent="Enemies" unique_id=1399573519 instance=ExtResource("7_w5213")]
 position = Vector2(906, 153)
+dropped_item = ExtResource("10_e3bjq")
 
 [node name="Eyepiece6" parent="Enemies" unique_id=988192119 instance=ExtResource("7_w5213")]
 position = Vector2(970, 132)
@@ -696,9 +715,11 @@ dropped_item = ExtResource("11_w0m1m")
 
 [node name="StickhuskSword" parent="Enemies" unique_id=1245503630 instance=ExtResource("11_ywd5o")]
 position = Vector2(1994, 126)
+dropped_item = ExtResource("16_2wglc")
 
 [node name="StickhuskSword2" parent="Enemies" unique_id=178580432 instance=ExtResource("11_ywd5o")]
 position = Vector2(1870, 136)
+dropped_item = ExtResource("16_hik4u")
 
 [node name="Hellstar" parent="Enemies" unique_id=1363026494 instance=ExtResource("12_7pwgt")]
 modulate = Color(18.892157, 0, 1.1297288, 1)
@@ -1069,7 +1090,7 @@ position = Vector2(3895, 400)
 position = Vector2(0, 17)
 sprite_frames = SubResource("SpriteFrames_7rffo")
 autoplay = "default"
-frame_progress = 0.9838584
+frame_progress = 0.13609868
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MasterCutsceneNode/MotiveMonitor" unique_id=1167643136]
 libraries/ = SubResource("AnimationLibrary_wfgnl")

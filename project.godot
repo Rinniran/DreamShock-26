@@ -13,6 +13,7 @@ config_version=5
 config/name="DreamShock"
 run/main_scene="uid://cjdidtrm5d4dy"
 config/features=PackedStringArray("4.7", "Mobile")
+run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
 boot_splash/image="uid://h2g7jw6aslrs"
@@ -139,7 +140,6 @@ PAD1_SELECT={
 
 [physics]
 
-common/physics_ticks_per_second=59
 3d/physics_engine="Jolt Physics"
 
 [rendering]

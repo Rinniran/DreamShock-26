@@ -26,10 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="23_nryoh"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="24_2wyfc"]
 [ext_resource type="Texture2D" uid="uid://bycinyn4a70oi" path="res://Sprites/TILE/OutsideChunksA.png" id="24_nvtpt"]
+[ext_resource type="PackedScene" uid="uid://t2cp88qpnmea" path="res://OBJECT/GENERAL/DroppedCapsules/Odachi.tscn" id="25_jgrpv"]
+[ext_resource type="PackedScene" uid="uid://da43umrjgj55" path="res://OBJECT/GENERAL/Collectibles/hpLarge.tscn" id="25_lolfe"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="25_nryoh"]
 [ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="26_2wyfc"]
 [ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="26_jaa3x"]
 [ext_resource type="Texture2D" uid="uid://4lpp0l8s7sms" path="res://Sprites/STAGE/STICKCITY/Buildings1.png" id="27_3yxvb"]
+[ext_resource type="PackedScene" uid="uid://t38erfgvpuyk" path="res://OBJECT/GENERAL/Collectibles/hp.tscn" id="29_jgrpv"]
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="30_4g6p8"]
 [ext_resource type="PackedScene" uid="uid://vmbn3u2qwdgl" path="res://SCENE/StickCity/Plaza.tscn" id="31_a31gp"]
 [ext_resource type="PackedScene" uid="uid://do44vagptmp5f" path="res://OBJECT/GENERAL/Capsule.tscn" id="33_p7bt1"]
@@ -828,6 +831,7 @@ texture = ExtResource("17_smwp7")
 
 [node name="StickhuskSword" parent="Enemies" unique_id=1817796248 instance=ExtResource("22_nvtpt")]
 position = Vector2(688, 78)
+dropped_item = ExtResource("25_jgrpv")
 
 [node name="StickhuskSword2" parent="Enemies" unique_id=763641175 instance=ExtResource("22_nvtpt")]
 position = Vector2(605, 78)
@@ -843,6 +847,7 @@ position = Vector2(1172, 358)
 
 [node name="StickhuskSword12" parent="Enemies" unique_id=321039610 instance=ExtResource("22_nvtpt")]
 position = Vector2(1744, -343)
+dropped_item = ExtResource("25_lolfe")
 
 [node name="StickhuskSword16" parent="Enemies" unique_id=1824072773 instance=ExtResource("22_nvtpt")]
 position = Vector2(2665, -273)
@@ -870,6 +875,7 @@ position = Vector2(5732, 174)
 
 [node name="StickhuskSword24" parent="Enemies" unique_id=1689759042 instance=ExtResource("22_nvtpt")]
 position = Vector2(5921, 174)
+dropped_item = ExtResource("25_jgrpv")
 
 [node name="StickhuskSword13" parent="Enemies" unique_id=55715205 instance=ExtResource("22_nvtpt")]
 position = Vector2(2198, -410)
@@ -879,6 +885,7 @@ position = Vector2(2325, -410)
 
 [node name="StickhuskSword15" parent="Enemies" unique_id=1517670583 instance=ExtResource("22_nvtpt")]
 position = Vector2(2969, -467)
+dropped_item = ExtResource("25_jgrpv")
 
 [node name="StickhuskSword6" parent="Enemies" unique_id=1717361031 instance=ExtResource("22_nvtpt")]
 position = Vector2(1572, 303)
@@ -1010,18 +1017,21 @@ position = Vector2(2338, 240)
 
 [node name="Gliob26" parent="Enemies" unique_id=936438070 instance=ExtResource("24_2wyfc")]
 position = Vector2(4666, -576)
+dropped_item = ExtResource("29_jgrpv")
 
 [node name="Gliob27" parent="Enemies" unique_id=1411056345 instance=ExtResource("24_2wyfc")]
 position = Vector2(4645, -550)
 
 [node name="Gliob28" parent="Enemies" unique_id=1108461878 instance=ExtResource("24_2wyfc")]
 position = Vector2(4621, -596)
+dropped_item = ExtResource("29_jgrpv")
 
 [node name="Gliob29" parent="Enemies" unique_id=849477173 instance=ExtResource("24_2wyfc")]
 position = Vector2(4597, -603)
 
 [node name="Gliob30" parent="Enemies" unique_id=551310180 instance=ExtResource("24_2wyfc")]
 position = Vector2(4571, -626)
+dropped_item = ExtResource("29_jgrpv")
 
 [node name="Gliob31" parent="Enemies" unique_id=1044266435 instance=ExtResource("24_2wyfc")]
 position = Vector2(4531, -624)
@@ -1746,6 +1756,7 @@ position = Vector2(6154, 177)
 z_index = -22
 position = Vector2(5767, -37)
 texture = ExtResource("27_3yxvb")
+metadata/_edit_lock_ = true
 
 [node name="Buildings5" type="Sprite2D" parent="." unique_id=562713110]
 z_index = -22

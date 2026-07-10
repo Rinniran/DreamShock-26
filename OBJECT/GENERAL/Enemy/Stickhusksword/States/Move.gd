@@ -14,6 +14,7 @@ func _enter(data = {}):
 	Global.score += 100 * (Global.chain)
 	root.anim.play("Die")
 	root.drop_item()
+	root.dead = true
 func _step():
 	super()
 	root.velocity.x = 0
