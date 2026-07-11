@@ -109,8 +109,9 @@ func _step():
 		root.hurbcol.disabled = false
 		root.vecair = true
 		parent.change_state("Jump")
-	if parent.state_time >= 25:
+	if parent.state_time >= 40:
 		root.hurbcol.disabled = false
+		root.dashcoy = 15
 		if root.is_on_floor():
 			parent.change_state("Idle")
 		else:

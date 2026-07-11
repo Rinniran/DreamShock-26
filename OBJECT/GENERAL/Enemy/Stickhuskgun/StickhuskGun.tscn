@@ -445,7 +445,7 @@ radius = 5.0
 size = Vector2(20, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47olj"]
-size = Vector2(91, 37)
+size = Vector2(45, 21)
 
 [node name="StickhuskGun" type="CharacterBody2D" unique_id=1817796248 node_paths=PackedStringArray("deathsound", "hurtsound")]
 z_index = 1
@@ -496,7 +496,7 @@ debug_color = Color(0.9893982, 0, 0.2963458, 0.41960785)
 [node name="AttackBox" type="Area2D" parent="." unique_id=1116590430 groups=["En_Attack"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" unique_id=1008420140]
-position = Vector2(0.5, -2.5)
+position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_47olj")
 disabled = true
 

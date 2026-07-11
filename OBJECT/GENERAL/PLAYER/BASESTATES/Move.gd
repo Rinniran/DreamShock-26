@@ -39,7 +39,10 @@ func _step():
 		#elif Input.is_action_just_pressed("PAD1_DOWN"):
 			#parent.change_state("Attackdown_g")
 		#else:
-		parent.change_state("Attack1")
+		if root.dashcoy > 0:
+			parent.change_state("DashAttack")
+		else:
+			parent.change_state("Attack1")
 	
 	if Input.is_action_just_pressed("PAD1_C"):
 		parent.change_state("Dash")

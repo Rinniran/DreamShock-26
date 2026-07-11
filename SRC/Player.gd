@@ -67,6 +67,8 @@ var isKilled = false
 @onready var damit = $CHit
 @onready var aah = $DeathVoice
 
+var dashcoy = 0
+
 func _ready() -> void:
 	Global.player1 = self
 	state.initialize()
@@ -183,6 +185,9 @@ func _physics_process(delta: float) -> void:
 				od.scale.x = -1
 			
 			add_child(od) 
+	
+	if dashcoy > 0:
+		dashcoy -= 1
 
 func damageHandle(damage):
 	var parriedhigh = false

@@ -225,7 +225,7 @@ autoplay = "default"
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_8cqdh")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1373298118 groups=["TouchHurt"]]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1373298118 groups=["En_Attack", "Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1666256103]
 position = Vector2(-2, 19)

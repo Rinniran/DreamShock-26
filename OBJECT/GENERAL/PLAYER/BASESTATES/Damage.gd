@@ -21,6 +21,7 @@ func _step():
 	super._step()
 	
 	if root.is_on_floor() && parent.state_time >= 10:
+		root.iframes = 30
 		parent.change_state("Idle")
 	
 	

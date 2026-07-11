@@ -37,9 +37,20 @@ func _step():
 		
 		
 		if Input.is_action_just_pressed("PAD1_A"):
+			didpj = false
 			root.sprite.stop()
 			root.sprite.frame = 0
 			root.sprite.play("attackg_a")
+			if didpj == false:
+				var pj = preload("uid://bywa25c8iq3jf").instantiate()
+				pj.position = root.position
+				pj.own = root
+				if root.sprite.flip_h == false:
+					pj.direction.x = 1
+				else:
+					pj.direction.x = -1
+				get_parent().add_child(pj)
+				didpj = true
 		
 	if Input.is_action_just_pressed("PAD1_C"):
 			parent.change_state("Dash")

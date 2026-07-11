@@ -45,7 +45,10 @@ func _step():
 			if root.DAttacked == false:
 				parent.change_state("DashAttack")
 		else:
-			parent.change_state("Attack1")
+			if root.dashcoy > 0:
+				parent.change_state("DashAttack")
+			else:
+				parent.change_state("Attack1")
 	
 	if Input.is_action_just_pressed("PAD1_C") && root.dashes > 0:
 		parent.change_state("Dash")
