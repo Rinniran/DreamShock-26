@@ -53,7 +53,7 @@ var invincibility = false
 var chain = 0
 var chaintimereset = 99
 var chaintime = chaintimereset
-var combovoice = null
+var combovoice
 var currweapon = null
 
 var continuepath = ""
@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 			chain = 0
 	
 	if time > 0 && hitstop == false && activegame == true:
-		if player1.velocity.x == 0:
+		if player1 != null && player1.velocity.x == 0:
 			ms += 0.5
 		else:
 			ms += 1
@@ -120,10 +120,10 @@ func addcombo():
 	Global.chain += 1
 	match(chain):
 		100:
-			combovoice[0].play()
+			Global.combovoice[0].play()
 		200:
-			combovoice[1].play()
+			Global.combovoice[1].play()
 		300:
-			combovoice[2].play()
+			Global.combovoice[2].play()
 		400:
-			combovoice[3].play()
+			Global.combovoice[3].play()

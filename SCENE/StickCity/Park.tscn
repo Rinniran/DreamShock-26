@@ -24,7 +24,7 @@
 
 [node name="Park" type="Node2D" unique_id=333858184]
 script = ExtResource("1_g8c0t")
-MusicVolume = -12.0
+MusicVolume = -9.0
 Stage_Music = ExtResource("2_tkb76")
 LowTime_Music = ExtResource("3_wjrwo")
 stagepath = "res://SCENE/StickCity/Streets.tscn"

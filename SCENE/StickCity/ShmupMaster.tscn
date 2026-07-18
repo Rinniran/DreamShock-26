@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dfgheqw7xhvsw"]
+
+[ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_qk00x"]
+[ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="2_i81oy"]
+[ext_resource type="AudioStream" uid="uid://81w6ee8rpsci" path="res://AUDIO/BGM/Shmup.ogg" id="2_ma3et"]
+[ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="3_ma3et"]
+[ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="4_23onu"]
+[ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="5_csdwj"]
+[ext_resource type="PackedScene" uid="uid://b0xvsdaqcwbgi" path="res://OBJECT/GENERAL/PLAYER/RianShmup.tscn" id="6_qt5j4"]
+[ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="7_ma3et"]
+[ext_resource type="Script" uid="uid://bslh7wu1bbul5" path="res://SCENE/StickCity/SHMUPSTATE/section_a.gd" id="8_23onu"]
+
+[node name="ShmupMaster" type="Node2D" unique_id=1761083248 node_paths=PackedStringArray("state")]
+script = ExtResource("1_qk00x")
+MusicVolume = -10.0
+Stage_Music = ExtResource("2_ma3et")
+state = NodePath("MasterStateMachine")
+
+[node name="100combo" type="AudioStreamPlayer" parent="." unique_id=175099099]
+stream = ExtResource("2_i81oy")
+volume_db = -8.667
+
+[node name="200combo" type="AudioStreamPlayer" parent="." unique_id=625037149]
+stream = ExtResource("3_ma3et")
+volume_db = -8.667
+
+[node name="300combo" type="AudioStreamPlayer" parent="." unique_id=45563780]
+stream = ExtResource("4_23onu")
+volume_db = -8.667
+
+[node name="400combo" type="AudioStreamPlayer" parent="." unique_id=40847913]
+stream = ExtResource("5_csdwj")
+volume_db = -8.667
+
+[node name="MasterStateMachine" type="Node" parent="." unique_id=1578414193]
+script = ExtResource("7_ma3et")
+root_node_path = NodePath("..")
+
+[node name="Section A" type="Node" parent="MasterStateMachine" unique_id=1000310794]
+script = ExtResource("8_23onu")
+
+[node name="RianShmup" parent="." unique_id=578941716 instance=ExtResource("6_qt5j4")]
+position = Vector2(57, 123)

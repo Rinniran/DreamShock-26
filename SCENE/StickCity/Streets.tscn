@@ -133,6 +133,7 @@ adjustment_saturation = 1.07
 [node name="Streets" type="Node2D" unique_id=327141923]
 modulate = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("1_tt0hx")
+MusicVolume = -9.0
 Stage_Music = ExtResource("26_2wyfc")
 LowTime_Music = ExtResource("3_e8sht")
 stagepath = "res://SCENE/StickCity/Streets.tscn"

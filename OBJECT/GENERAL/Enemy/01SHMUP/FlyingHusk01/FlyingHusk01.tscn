@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b00611m0yt6we"]
+
+[ext_resource type="Script" uid="uid://bdcyeswww0wen" path="res://OBJECT/GENERAL/Enemy/01SHMUP/ShmupEnemy.gd" id="1_ofi3k"]
+[ext_resource type="Texture2D" uid="uid://bypv106xgannl" path="res://SPRITE/ENEMY/ShmupHusk1.png" id="2_u3xgd"]
+[ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="3_3hduh"]
+[ext_resource type="AudioStream" uid="uid://ude4r6buj73h" path="res://AUDIO/SE/hit.wav" id="4_264ka"]
+[ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="5_264ka"]
+[ext_resource type="Script" uid="uid://codscna3u71mq" path="res://OBJECT/GENERAL/Enemy/01SHMUP/FlyingHusk01/STATE/pattern_a.gd" id="6_illxe"]
+[ext_resource type="Script" uid="uid://dymtn5wmg5m8q" path="res://OBJECT/GENERAL/Enemy/01SHMUP/FlyingHusk01/STATE/pattern_b.gd" id="7_lmdf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25lc4"]
+size = Vector2(20, 34)
+
+[node name="FlyingHusk01" type="CharacterBody2D" unique_id=852416724 node_paths=PackedStringArray("deathsound", "hurtsound")]
+script = ExtResource("1_ofi3k")
+deathsound = NodePath("Die")
+hurtsound = NodePath("Damage")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1666900763]
+texture = ExtResource("2_u3xgd")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1588036143 groups=["En_Attack", "Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=577068845]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=588765976]
+rect = Rect2(-82, -23, 106, 47)
+
+[node name="Die" type="AudioStreamPlayer" parent="." unique_id=752995720]
+stream = ExtResource("3_3hduh")
+volume_db = -5.646
+
+[node name="Damage" type="AudioStreamPlayer" parent="." unique_id=1346163247]
+stream = ExtResource("4_264ka")
+volume_db = -16.113
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1150215991]
+position = Vector2(-19, 10)
+
+[node name="StateMachine" type="Node" parent="." unique_id=348916495]
+script = ExtResource("5_264ka")
+root_node_path = NodePath("..")
+
+[node name="PatternA" type="Node" parent="StateMachine" unique_id=681952513]
+script = ExtResource("6_illxe")
+
+[node name="PatternB" type="Node" parent="StateMachine" unique_id=49766954]
+script = ExtResource("7_lmdf8")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

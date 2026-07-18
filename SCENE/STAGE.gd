@@ -5,6 +5,7 @@ var M_Player:AudioStreamPlayer = Global.musicP
 @export var Stage_Music:AudioStream
 @export var LowTime_Music:AudioStream
 @export var stagepath = ""
+@export var state:StateMachine
 @onready var Invincible_Music = preload("res://AUDIO/BGM/INVINCIBLE.ogg")
 @onready var bossmus = preload("uid://dnwdgnj0j2wap")
 
@@ -12,14 +13,20 @@ var M_Player:AudioStreamPlayer = Global.musicP
 
 
 func _ready() -> void:
-		Global.combovoice = combovoice
-		Global.activegame = true
-		if M_Player != null && M_Player.stream != null && !M_Player.playing:
-			M_Player.play()
-		Global.continuepath = stagepath
+	if state != null:
+		state.initialize()
+	Global.combovoice = combovoice
+	Global.activegame = true
+	if M_Player != null && M_Player.stream != null && !M_Player.playing:
+		M_Player.play()
+	Global.continuepath = stagepath
 
 
 func _process(delta: float) -> void:
+	
+	if state != null:
+		state.advance()
+	
 	if M_Player != null:
 		if Global.activegame:
 			M_Player.volume_db = MusicVolume

@@ -33,6 +33,7 @@
 
 [node name="Plaza" type="Node2D" unique_id=2107951573]
 script = ExtResource("1_jg7cs")
+MusicVolume = -9.0
 Stage_Music = ExtResource("2_y21vy")
 LowTime_Music = ExtResource("3_axpav")
 stagepath = "res://SCENE/StickCity/Streets.tscn"

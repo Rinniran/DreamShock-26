@@ -3,6 +3,7 @@ extends Sprite2D
 var shotcool = 0
 
 
+
 func _physics_process(delta: float) -> void:
 	
 	
@@ -17,6 +18,6 @@ func _physics_process(delta: float) -> void:
 func shoot():
 	var pj1 = preload("res://OBJECT/Projectiles/Player/PR_Floof.tscn").instantiate()
 	pj1.direction.x = 1
-	pj1.position = position
+	pj1.position = global_position
 	
-	get_parent().add_child(pj1)
+	get_parent().get_parent().add_child(pj1)

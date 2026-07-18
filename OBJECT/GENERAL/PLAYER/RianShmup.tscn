@@ -8,8 +8,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gb2x4"]
 size = Vector2(3, 3)
 
-[node name="RianShmup" type="CharacterBody2D" unique_id=578941716]
+[node name="RianShmup" type="CharacterBody2D" unique_id=578941716 node_paths=PackedStringArray("lv2floofA", "lv2floofB", "lv3floofA", "lv3floofB")]
 script = ExtResource("1_kqnfr")
+lv2floofA = NodePath("Floof3")
+lv2floofB = NodePath("Floof2")
+lv3floofA = NodePath("Floof4")
+lv3floofB = NodePath("Floof")
 
 [node name="SPR" type="Sprite2D" parent="." unique_id=1746287850]
 texture = ExtResource("2_gq0ay")

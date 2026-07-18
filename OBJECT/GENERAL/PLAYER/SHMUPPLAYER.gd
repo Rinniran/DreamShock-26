@@ -1,15 +1,45 @@
 extends CharacterBody2D
 class_name ShmupPlayer
 
+enum wea
+{
+	NONE
+}
+
 @export var speed:int = 8000
 @export var level:int = 0
+@export var lv2floofA:Node
+@export var lv2floofB:Node
+@export var lv3floofA:Node
+@export var lv3floofB:Node
 
 
 var shotcool = 0
 @onready var sprite = $SPR
 @onready var shtsnd = $AudioStreamPlayer
 
+func _ready() -> void:
+	Global.player1 = self
+
 func _physics_process(delta: float) -> void:
+	
+	match(level):
+		0:
+			lv2floofA.visible = false
+			lv2floofB.visible = false
+			lv3floofA.visible = false
+			lv3floofB.visible = false
+		1:
+			lv2floofA.visible = true
+			lv2floofB.visible = true
+			lv3floofA.visible = false
+			lv3floofB.visible = false
+		2:
+			lv2floofA.visible = true
+			lv2floofB.visible = true
+			lv3floofA.visible = true
+			lv3floofB.visible = true
+	
 	if  Input.is_action_pressed("PAD1_LEFT"):
 		velocity.x = -speed * delta
 	elif  Input.is_action_pressed("PAD1_RIGHT"):
@@ -30,9 +60,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("PAD1_B"):
 		if shotcool <= 0:
 			shoot()
-			shotcool = 5
+			shotcool = 6
 	
 	move_and_slide()
+	
+	if level > 2:
+		level = 2
 
 func shoot():
 	shtsnd.stop()
