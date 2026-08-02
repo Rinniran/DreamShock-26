@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cwxmg6a0ax4b0"]
+
+[ext_resource type="Script" uid="uid://bmbjnos57p6ai" path="res://OBJECT/Projectiles/Player/PLPJ.gd" id="1_25hw6"]
+[ext_resource type="Texture2D" uid="uid://eb570pxesvl" path="res://Sprites/Projectiles/Tankbullet.png" id="2_25hw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56jfq"]
+atlas = ExtResource("2_25hw6")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iugyh"]
+atlas = ExtResource("2_25hw6")
+region = Rect2(24, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb2l1"]
+atlas = ExtResource("2_25hw6")
+region = Rect2(48, 0, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iugyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56jfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iugyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb2l1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epu8s"]
+size = Vector2(51, 34)
+
+[node name="PrRiSubA" type="Area2D" unique_id=1911026051 groups=["Pl_Attack"]]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_25hw6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]
+sprite_frames = SubResource("SpriteFrames_iugyh")
+autoplay = "default"
+frame_progress = 0.0798123
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925499707]
+position = Vector2(-1.5, 5)
+shape = SubResource("RectangleShape2D_epu8s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

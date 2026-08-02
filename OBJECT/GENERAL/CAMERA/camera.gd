@@ -16,15 +16,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if locked == false:
 		
-		if target.position.x > position.x:
-			position.x += speed * delta
-			if position.x > target.position.x:
-				position.x = target.position.x
-		
-		if target.position.x < position.x:
-			position.x -= speed * delta
-			if position.x < target.position.x:
-				position.x = target.position.x
+		position.x = target.position.x
 		
 		if (target.position.y + 8) < position.y:
 			position.y -= speed * delta

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cau7xlp1s65lx" path="res://SPRITE/STAGE/STICKCITY/StreetsBG_Layer1.png" id="1_attul"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_tt0hx"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_3h4rv"]
+[ext_resource type="AudioStream" uid="uid://cnkw2adh2m2tu" path="res://AUDIO/BGM/Urban Chaos.ogg" id="2_lo57f"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_3h4rv"]
-[ext_resource type="AudioStream" uid="uid://bodxt8yc6thqs" path="res://AUDIO/BGM/SC_Streets_LT.ogg" id="3_e8sht"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="4_clmtf"]
 [ext_resource type="Texture2D" uid="uid://odo5k2ohnoqp" path="res://SPRITE/VFX/Garagelight.png" id="5_ncqv5"]
 [ext_resource type="Texture2D" uid="uid://cbu5vrt6u1p8d" path="res://SPRITE/STAGE/STICKCITY/Sc_Broke.png" id="6_8p28j"]
@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://t2cp88qpnmea" path="res://OBJECT/GENERAL/DroppedCapsules/Odachi.tscn" id="25_jgrpv"]
 [ext_resource type="PackedScene" uid="uid://da43umrjgj55" path="res://OBJECT/GENERAL/Collectibles/hpLarge.tscn" id="25_lolfe"]
 [ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="25_nryoh"]
-[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="26_2wyfc"]
 [ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="26_jaa3x"]
 [ext_resource type="Texture2D" uid="uid://4lpp0l8s7sms" path="res://Sprites/STAGE/STICKCITY/Buildings1.png" id="27_3yxvb"]
 [ext_resource type="PackedScene" uid="uid://t38erfgvpuyk" path="res://OBJECT/GENERAL/Collectibles/hp.tscn" id="29_jgrpv"]
@@ -40,6 +39,8 @@
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="34_jaa3x"]
 [ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="35_us16h"]
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="36_lolfe"]
+[ext_resource type="PackedScene" uid="uid://btacx65w3b0f5" path="res://OBJECT/Mounts/TANK/Tank.tscn" id="41_lo57f"]
+[ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="42_be5ev"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_clmtf"]
 polygon = PackedVector2Array(3761, -414, 768, 44, 37, 62, -144, 36, 231, -23, 236, -47, 557, -130, 563, -160, 1102, -313, 2858.234, -372.5334, 2933, -411)
@@ -133,9 +134,8 @@ adjustment_saturation = 1.07
 [node name="Streets" type="Node2D" unique_id=327141923]
 modulate = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("1_tt0hx")
-MusicVolume = -9.0
-Stage_Music = ExtResource("26_2wyfc")
-LowTime_Music = ExtResource("3_e8sht")
+MusicVolume = -4.0
+Stage_Music = ExtResource("2_lo57f")
 stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="Node" type="Node" parent="." unique_id=1149708822]
@@ -146,9 +146,11 @@ z_index = -37
 scroll_scale = Vector2(1, 0)
 scroll_offset = Vector2(-1, 5)
 repeat_size = Vector2(320, 0)
+repeat_times = 38
 
 [node name="StreetsBgLayer1" type="Sprite2D" parent="Node/Parallax2D" unique_id=1547110697]
 light_mask = 0
+z_index = -60
 position = Vector2(160, 115)
 texture = ExtResource("1_attul")
 
@@ -156,9 +158,9 @@ texture = ExtResource("1_attul")
 position = Vector2(562, -109)
 rotation = 0.27750736
 color = Color(1, 0.58000004, 0.937, 1)
-energy = 4.46
+energy = 4.71
 shadow_enabled = true
-shadow_color = Color(0.063, 0.15388338, 0.35, 0.011764706)
+shadow_color = Color(0.37211323, 0.18244568, 0.89369845, 0.08627451)
 max_distance = 2200.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1586653141]
@@ -1805,3 +1807,66 @@ volume_db = -8.667
 [node name="400combo" type="AudioStreamPlayer" parent="." unique_id=211717496]
 stream = ExtResource("36_lolfe")
 volume_db = -8.667
+
+[node name="Tank" parent="." unique_id=377092623 instance=ExtResource("41_lo57f")]
+position = Vector2(847, 406)
+
+[node name="TrickRing" parent="." unique_id=56273673 instance=ExtResource("42_be5ev")]
+position = Vector2(807, -185)
+
+[node name="TrickRing2" parent="." unique_id=1399116066 instance=ExtResource("42_be5ev")]
+position = Vector2(785, -185)
+
+[node name="TrickRing3" parent="." unique_id=589226223 instance=ExtResource("42_be5ev")]
+position = Vector2(763, -185)
+
+[node name="TrickRing4" parent="." unique_id=539258584 instance=ExtResource("42_be5ev")]
+position = Vector2(741, -186)
+
+[node name="TrickRing5" parent="." unique_id=429864919 instance=ExtResource("42_be5ev")]
+position = Vector2(2206, -490)
+
+[node name="TrickRing6" parent="." unique_id=312976891 instance=ExtResource("42_be5ev")]
+position = Vector2(2227, -490)
+
+[node name="TrickRing7" parent="." unique_id=818373697 instance=ExtResource("42_be5ev")]
+position = Vector2(2243, -490)
+
+[node name="TrickRing8" parent="." unique_id=849602156 instance=ExtResource("42_be5ev")]
+position = Vector2(2261, -490)
+
+[node name="TrickRing9" parent="." unique_id=724998431 instance=ExtResource("42_be5ev")]
+position = Vector2(2284, -491)
+
+[node name="TrickRing10" parent="." unique_id=1940310119 instance=ExtResource("42_be5ev")]
+position = Vector2(3489, -404)
+
+[node name="TrickRing11" parent="." unique_id=517330938 instance=ExtResource("42_be5ev")]
+position = Vector2(3509, -404)
+
+[node name="TrickRing12" parent="." unique_id=687028481 instance=ExtResource("42_be5ev")]
+position = Vector2(3531, -404)
+
+[node name="TrickRing13" parent="." unique_id=1322813372 instance=ExtResource("42_be5ev")]
+position = Vector2(3981, -459)
+
+[node name="TrickRing14" parent="." unique_id=981126022 instance=ExtResource("42_be5ev")]
+position = Vector2(4003, -459)
+
+[node name="TrickRing15" parent="." unique_id=1586797735 instance=ExtResource("42_be5ev")]
+position = Vector2(4029, -458)
+
+[node name="TrickRing16" parent="." unique_id=1650538187 instance=ExtResource("42_be5ev")]
+position = Vector2(5420, 61)
+
+[node name="TrickRing17" parent="." unique_id=342106326 instance=ExtResource("42_be5ev")]
+position = Vector2(5447, 53)
+
+[node name="TrickRing18" parent="." unique_id=671875610 instance=ExtResource("42_be5ev")]
+position = Vector2(5471, 46)
+
+[node name="TrickRing19" parent="." unique_id=1907546401 instance=ExtResource("42_be5ev")]
+position = Vector2(5492, 54)
+
+[node name="TrickRing20" parent="." unique_id=194329322 instance=ExtResource("42_be5ev")]
+position = Vector2(5515, 63)

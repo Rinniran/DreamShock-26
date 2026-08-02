@@ -4,7 +4,7 @@ func _enter(data = {}):
 	root.anim_can_resume_after_hitstop = false
 	root.anim.play("Damage")
 	Global.addcombo()
-	Global.score += 100 * (Global.chain)
+	Global.score += 25 * (Global.chain)
 func _step():
 	super()
 	root.velocity.x = 0

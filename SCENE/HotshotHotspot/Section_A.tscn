@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cepmwy2cb7icg"]
 
-[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="2_uglmr"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Gimmick/FONT/Score.fnt" id="2_uglmr"]
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="3_mopju"]
 [ext_resource type="AudioStream" uid="uid://6a0ldel10cc8" path="res://AUDIO/BGM/STG03_B.mp3" id="6_gi1do"]
 [ext_resource type="PackedScene" uid="uid://m6vkfobvirxu" path="res://OBJECT/GENERAL/CAMERA/Cammodeswitch.tscn" id="7_e4262"]

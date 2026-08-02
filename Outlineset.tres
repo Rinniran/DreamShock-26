@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dkohptso71w5u"]
+
+[ext_resource type="Shader" uid="uid://dndnrucwnjc5w" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/Outline.gdshader" id="1_2h7yq"]
+
+[resource]
+shader = ExtResource("1_2h7yq")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/outline_samples = 4
+shader_parameter/shade_color = Color(1, 1, 1, 0)

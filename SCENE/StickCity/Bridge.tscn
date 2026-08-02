@@ -56,6 +56,7 @@
 [ext_resource type="AudioStream" uid="uid://dc8kvb2o1e8fj" path="res://AUDIO/VOICE/CUTSCENE/FORESIGHT/JP/R_04.wav" id="51_ehcbh"]
 [ext_resource type="AudioStream" uid="uid://dgfidf5sfj6l3" path="res://AUDIO/SE/clang-strong.wav" id="51_utht8"]
 [ext_resource type="Texture2D" uid="uid://cg78gy3a117n2" path="res://Sprites/Cutscene/MOTIVEMONITOR.png" id="53_ehcbh"]
+[ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="57_2wglc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpvi5"]
 texture = ExtResource("1_r2v4r")
@@ -415,7 +416,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if active:
 		state.advance()
 "
@@ -473,7 +474,7 @@ extends BaseState
 var tw 
 func _enter(data = {}):
 	super._enter(data)
-	
+	tw = create_tween()
 
 
 func _step():
@@ -506,7 +507,7 @@ func _step():
 			tw.tween_property(root.cam,\"offset:x\", 125, 1.0)
 			root.subs.visible = true
 			root.subs.text = \"Balls. The bridge is out. \\nI might have to just fly across.\"
-			$R01.play()
+			#$R01.play()
 		320:
 			var tw = create_tween()
 			tw.set_trans(Tween.TRANS_QUAD)
@@ -515,12 +516,12 @@ func _step():
 			root.subs.text = \"Ah Ah Aaahh. Hold it right there, will you?\"
 		460:
 			root.subs.text = \"And you are...?\"
-			$R02.play()
+			#$R02.play()
 		540:
 			root.subs.text = \"Oohh, just a scientist who could really use \\nsome bounty money for her funding, you see!\"
 		800:
 			root.subs.text = \"Hard pass. Anyways, the bridge...\"
-			$R03.play()
+			#$R03.play()
 		1200:
 			root.subs.text = \"Low IQ move on my part to even begin to \\nsuspect you'd make this easy for me.\"
 			Global.bossactive = true
@@ -623,7 +624,7 @@ layer = -195
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1900430481]
 material = SubResource("ShaderMaterial_7rffo")
-offset_right = 320.0
+offset_right = 427.0
 offset_bottom = 238.0
 
 [node name="Hud" parent="CanvasLayer" unique_id=832355996 instance=ExtResource("6_6lafa")]
@@ -858,7 +859,7 @@ position = Vector2(1582, -32)
 position = Vector2(1613, -1)
 
 [node name="Camstopper" parent="Pieces" unique_id=690083097 node_paths=PackedStringArray("activate_cutscene") instance=ExtResource("15_3r6hl")]
-position = Vector2(1821, -153)
+position = Vector2(1730, -146)
 activate_cutscene = NodePath("../../MasterCutsceneNode")
 
 [node name="100combo" type="AudioStreamPlayer" parent="." unique_id=886958332]
@@ -882,7 +883,7 @@ script = SubResource("GDScript_7rffo")
 
 [node name="Player" type="CharacterBody2D" parent="MasterCutsceneNode" unique_id=1112045618 node_paths=PackedStringArray("CAMERA", "Dsound", "dc") groups=["Player"]]
 position = Vector2(161, 160)
-collision_layer = 0
+collision_layer = 32768
 collision_mask = 3
 floor_constant_speed = true
 floor_snap_length = 12.0
@@ -1007,12 +1008,12 @@ volume_db = -7.404
 
 [node name="White" type="ColorRect" parent="MasterCutsceneNode/Player/CanvasLayer" unique_id=295804320]
 visible = false
-offset_right = 320.0
+offset_right = 429.0
 offset_bottom = 240.0
 
 [node name="Black" type="ColorRect" parent="MasterCutsceneNode/Player/CanvasLayer" unique_id=221513557]
 visible = false
-offset_right = 320.0
+offset_right = 430.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 1)
 
@@ -1051,7 +1052,7 @@ visible = false
 z_index = 42
 offset_left = 1.0
 offset_top = 195.0
-offset_right = 320.0
+offset_right = 426.0
 offset_bottom = 236.0
 theme_override_fonts/font = ExtResource("46_guc6x")
 theme_override_font_sizes/font_size = 8
@@ -1095,6 +1096,45 @@ frame_progress = 0.13609868
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MasterCutsceneNode/MotiveMonitor" unique_id=1167643136]
 libraries/ = SubResource("AnimationLibrary_wfgnl")
 autoplay = &"Default"
+
+[node name="TrickRing" parent="MasterCutsceneNode" unique_id=56273673 instance=ExtResource("57_2wglc")]
+position = Vector2(247, 114)
+
+[node name="TrickRing2" parent="MasterCutsceneNode" unique_id=794035197 instance=ExtResource("57_2wglc")]
+position = Vector2(274, 113)
+
+[node name="TrickRing3" parent="MasterCutsceneNode" unique_id=1088712740 instance=ExtResource("57_2wglc")]
+position = Vector2(301, 114)
+
+[node name="TrickRing4" parent="MasterCutsceneNode" unique_id=158134729 instance=ExtResource("57_2wglc")]
+position = Vector2(1349, 85)
+
+[node name="TrickRing5" parent="MasterCutsceneNode" unique_id=625253530 instance=ExtResource("57_2wglc")]
+position = Vector2(1377, 84)
+
+[node name="TrickRing6" parent="MasterCutsceneNode" unique_id=1029396996 instance=ExtResource("57_2wglc")]
+position = Vector2(1404, 84)
+
+[node name="TrickRing7" parent="MasterCutsceneNode" unique_id=1747660660 instance=ExtResource("57_2wglc")]
+position = Vector2(1854, 88)
+
+[node name="TrickRing8" parent="MasterCutsceneNode" unique_id=2109338975 instance=ExtResource("57_2wglc")]
+position = Vector2(1889, 54)
+
+[node name="TrickRing9" parent="MasterCutsceneNode" unique_id=768409851 instance=ExtResource("57_2wglc")]
+position = Vector2(1922, 89)
+
+[node name="TrickRing10" parent="MasterCutsceneNode" unique_id=1759352621 instance=ExtResource("57_2wglc")]
+position = Vector2(1962, 51)
+
+[node name="TrickRing11" parent="MasterCutsceneNode" unique_id=1236346151 instance=ExtResource("57_2wglc")]
+position = Vector2(1995, 95)
+
+[node name="TrickRing12" parent="MasterCutsceneNode" unique_id=1533401157 instance=ExtResource("57_2wglc")]
+position = Vector2(2023, 51)
+
+[node name="TrickRing13" parent="MasterCutsceneNode" unique_id=1550860706 instance=ExtResource("57_2wglc")]
+position = Vector2(2061, 96)
 
 [connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Idle" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Attack1" method="_on_sprite_animation_finished"]

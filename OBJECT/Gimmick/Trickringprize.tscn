@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c7qr0y8t0qmg7"]
+
+[ext_resource type="Script" uid="uid://blylkyundklei" path="res://OBJECT/Gimmick/trickring_prize.gd" id="1_y4yhl"]
+[ext_resource type="AudioStream" uid="uid://bv3580asgwqcb" path="res://AUDIO/SE/secret.wav" id="2_rtgps"]
+[ext_resource type="AudioStream" uid="uid://bofqochnm0hwd" path="res://AUDIO/SE/air attack.wav" id="3_kunle"]
+
+[node name="TrickringPrize" type="Node2D" unique_id=1729785585]
+script = ExtResource("1_y4yhl")
+
+[node name="PrizeSpawn" type="Marker2D" parent="." unique_id=1421318849]
+
+[node name="Win" type="AudioStreamPlayer" parent="." unique_id=836626824]
+stream = ExtResource("2_rtgps")
+volume_db = -5.449
+
+[node name="Fail" type="AudioStreamPlayer" parent="." unique_id=1492427196]
+stream = ExtResource("3_kunle")
+volume_db = -10.438
+
+[connection signal="finished" from="Win" to="." method="_on_win_finished"]
+[connection signal="finished" from="Fail" to="." method="_on_fail_finished"]

@@ -10,10 +10,10 @@ class_name ShmupEnemy
 @export var ScenarioState:StateMachine
 @export var swoop = false
 
-var hp = 10
+@export var hp = 10
 var dead = false
-var xspeed = -50
-var yspeed = 0
+@export var xspeed = -50
+@export var yspeed = 0
 var acc = -5
 var pattern = 0
 var stateadvanced = false
@@ -90,7 +90,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			hurtsound.play()
 		
 		Global.addcombo()
-		Global.score += 100 * (Global.chain)
+		Global.score += 30 * (Global.chain)
 		if hp <= 0:
 			if unlocks_screen:
 				Global.camera.locked = false

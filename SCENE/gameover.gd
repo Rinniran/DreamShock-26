@@ -19,13 +19,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	match(opt):
 		0:
-			cursor.position = Vector2(19, 197)
+			cursor.position = Vector2(30, 197)
 			if Input.is_action_just_pressed("PAD1_RIGHT"):
 				opt = 1
 			if Input.is_action_just_pressed("PAD1_B"):
 				get_tree().change_scene_to_file(scenetoreturn)
 		1:
-			cursor.position = Vector2(194, 197)
+			cursor.position = Vector2(254, 197)
 			if Input.is_action_just_pressed("PAD1_LEFT"):
 				opt = 0
 			if Input.is_action_just_pressed("PAD1_B"):

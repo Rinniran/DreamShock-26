@@ -2,7 +2,8 @@
 extends BaseState
 
 func _enter(data = {}):
-	root.deathsound.play()
+	SoundEngine.playsound(5,root.deathsound.stream, -12)
+	
 	Global.hitstopframes = 10
 	Global.hitstop = true
 	var obj = preload("uid://o3cqd4kts4be").instantiate()
@@ -11,7 +12,7 @@ func _enter(data = {}):
 	root.anim_can_resume_after_hitstop = true
 	Global.kills += 1
 	Global.addcombo()
-	Global.score += 100 * (Global.chain)
+	Global.score += 30 * (Global.chain)
 	root.anim.play("Die")
 	root.drop_item()
 	

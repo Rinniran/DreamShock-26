@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://ba3y6ooj31d0i"]
+
+[ext_resource type="Script" uid="uid://bl7i2xipipq4m" path="res://OBJECT/Gimmick/trick_ring.gd" id="1_t0for"]
+[ext_resource type="Texture2D" uid="uid://b0ga4ckhrgfjg" path="res://Sprites/Gimmick/RingBack.png" id="2_l4y24"]
+[ext_resource type="Texture2D" uid="uid://dnjhik0g2vc4w" path="res://Sprites/Gimmick/RingFront.png" id="3_6hf83"]
+[ext_resource type="Texture2D" uid="uid://lllrb6n57h3m" path="res://Sprites/Gimmick/RianRingBonus.png" id="4_bhyw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ullwc"]
+size = Vector2(8, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljcte"]
+atlas = ExtResource("4_bhyw0")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gg1q"]
+atlas = ExtResource("4_bhyw0")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_681pm"]
+atlas = ExtResource("4_bhyw0")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvtqp"]
+atlas = ExtResource("4_bhyw0")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbyjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljcte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gg1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_681pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvtqp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_7jp0l"]
+resource_name = "Clear"
+length = 1.7824
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RingSpr:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.73333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1pvgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RingSpr:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8o8gl"]
+_data = {
+&"Clear": SubResource("Animation_7jp0l"),
+&"RESET": SubResource("Animation_1pvgk")
+}
+
+[node name="TrickRing" type="Area2D" unique_id=56273673]
+collision_layer = 0
+collision_mask = 32768
+script = ExtResource("1_t0for")
+
+[node name="RingSpr" type="Sprite2D" parent="." unique_id=1670366522]
+texture = ExtResource("2_l4y24")
+
+[node name="sp2" type="Sprite2D" parent="RingSpr" unique_id=571964583]
+texture = ExtResource("3_6hf83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=277570226]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ullwc")
+
+[node name="Score" type="AnimatedSprite2D" parent="." unique_id=1270925183]
+scale = Vector2(1e-05, 1e-05)
+sprite_frames = SubResource("SpriteFrames_tbyjf")
+autoplay = "default"
+frame_progress = 0.175452
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=690280982]
+root_node = NodePath("../Score")
+libraries/ = SubResource("AnimationLibrary_8o8gl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

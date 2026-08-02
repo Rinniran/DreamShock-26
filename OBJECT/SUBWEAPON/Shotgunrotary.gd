@@ -66,7 +66,7 @@ func _process(_delta):
 		
 	
 	
-	if Input.is_action_just_pressed("PAD1_X") && visible == true:
+	if Input.is_action_just_pressed("PAD1_X") && Global.player1.state.state_name != "MountTank" && Global.player1.state.state_name != "LeaveTank" && visible == true:
 		get_parent().add_child(shoti)
 	
 	global_position = Global.player1.global_position

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b00611m0yt6we"]
 
 [ext_resource type="Script" uid="uid://bdcyeswww0wen" path="res://OBJECT/GENERAL/Enemy/01SHMUP/ShmupEnemy.gd" id="1_ofi3k"]
+[ext_resource type="Material" uid="uid://dkohptso71w5u" path="res://Outlineset.tres" id="2_lvssr"]
 [ext_resource type="Texture2D" uid="uid://bypv106xgannl" path="res://SPRITE/ENEMY/ShmupHusk1.png" id="2_u3xgd"]
 [ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="3_3hduh"]
 [ext_resource type="AudioStream" uid="uid://ude4r6buj73h" path="res://AUDIO/SE/hit.wav" id="4_264ka"]
@@ -17,6 +18,7 @@ deathsound = NodePath("Die")
 hurtsound = NodePath("Damage")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1666900763]
+material = ExtResource("2_lvssr")
 texture = ExtResource("2_u3xgd")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1588036143 groups=["En_Attack", "Enemy"]]

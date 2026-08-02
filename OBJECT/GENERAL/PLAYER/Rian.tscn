@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://heb8j8txrrst" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Damage.gd" id="9_wmlp5"]
 [ext_resource type="Script" uid="uid://dyk1feymdllav" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Die.gd" id="12_mj6w2"]
 [ext_resource type="PackedScene" uid="uid://2admungtnrbx" path="res://OBJECT/GENERAL/BloodPlayer.tscn" id="12_scp6f"]
+[ext_resource type="Script" uid="uid://bcyibpmyml4bb" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/mounttank.gd" id="13_deu4t"]
+[ext_resource type="Script" uid="uid://cajxphpp8ldly" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/leavetank.gd" id="14_0irri"]
 [ext_resource type="PackedScene" uid="uid://uyjc1ju1mqfc" path="res://OBJECT/GENERAL/InvincibleParticle.tscn" id="14_e1otq"]
 [ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="16_lbokb"]
 [ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="17_lbokb"]
@@ -65,7 +67,7 @@ _data = {
 size = Vector2(18, 11)
 
 [node name="Player" type="CharacterBody2D" unique_id=1112045618 node_paths=PackedStringArray("Dsound", "dc") groups=["Player"]]
-collision_layer = 0
+collision_layer = 32768
 collision_mask = 3
 floor_constant_speed = true
 floor_snap_length = 12.0
@@ -76,7 +78,7 @@ dc = NodePath("DConfirm")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=504892373]
 z_index = 3
 sprite_frames = ExtResource("9_nufnn")
-animation = &"outoftime"
+animation = &"BJump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934587294]
@@ -86,6 +88,7 @@ shape = SubResource("CapsuleShape2D_m8pqb")
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=1451857656 groups=["Player"]]
 position = Vector2(0, 5)
+collision_mask = 32769
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=813100389]
 position = Vector2(-0.5, 2)
@@ -122,6 +125,12 @@ script = ExtResource("7_24pf5")
 
 [node name="Die" type="Node" parent="StateMachine" unique_id=5364237]
 script = ExtResource("12_mj6w2")
+
+[node name="MountTank" type="Node" parent="StateMachine" unique_id=463386424]
+script = ExtResource("13_deu4t")
+
+[node name="LeaveTank" type="Node" parent="StateMachine" unique_id=1017338455]
+script = ExtResource("14_0irri")
 
 [node name="Watersplash" type="Sprite2D" parent="." unique_id=1714057460]
 visible = false
@@ -180,12 +189,12 @@ volume_db = -7.404
 
 [node name="White" type="ColorRect" parent="CanvasLayer" unique_id=295804320]
 visible = false
-offset_right = 320.0
+offset_right = 428.0
 offset_bottom = 240.0
 
 [node name="Black" type="ColorRect" parent="CanvasLayer" unique_id=221513557]
 visible = false
-offset_right = 320.0
+offset_right = 431.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 1)
 
@@ -212,3 +221,4 @@ visible = false
 
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Idle" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Attack1" method="_on_sprite_animation_finished"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

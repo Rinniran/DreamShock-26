@@ -248,7 +248,8 @@ next_scene = ExtResource("2_1c8io")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=1561528403]
 material = SubResource("ShaderMaterial_ao8rv")
-position = Vector2(-7, 0)
+position = Vector2(-27.000002, 0)
+scale = Vector2(1.4437499, 1)
 texture = ExtResource("1_aus35")
 centered = false
 
@@ -260,18 +261,19 @@ autoplay = true
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1463384410]
 material = SubResource("ShaderMaterial_h3t02")
 offset_top = 131.0
-offset_right = 321.0
+offset_right = 428.0
 offset_bottom = 241.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=443196536]
 material = SubResource("ShaderMaterial_6j83g")
 offset_top = 131.0
-offset_right = 321.0
+offset_right = 427.0
 offset_bottom = 241.0
 
 [node name="Credit" type="Label" parent="." unique_id=1336968398]
+offset_left = 55.0
 offset_top = 217.0
-offset_right = 320.0
+offset_right = 375.0
 offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -284,8 +286,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="pressstart" type="Label" parent="." unique_id=913999655]
+visible = false
+offset_left = 59.0
 offset_top = 161.0
-offset_right = 320.0
+offset_right = 379.0
 offset_bottom = 184.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

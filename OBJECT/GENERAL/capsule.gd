@@ -45,15 +45,15 @@ func _on_area_entered(area: Area2D) -> void:
 			2:
 				if Global.currweapon != Global.player1.wea.ODACHI:
 					Global.currweapon = Global.player1.wea.ODACHI
-					Global.ammo =  10
+					Global.ammo =  8
 				else:
-					Global.ammo += 10
+					Global.ammo += 8
 			3:
 				
 				
 				if Global.currweapon != Global.player1.wea.SHOTGUN:
 					Global.currweapon = Global.player1.wea.SHOTGUN
-					Global.ammo =  4
+					Global.ammo =  8
 				else:
-					Global.ammo += 4
+					Global.ammo += 8
 		queue_free()

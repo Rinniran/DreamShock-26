@@ -28,15 +28,15 @@ func _physics_process(delta: float) -> void:
 		chain.visible = true
 	else:
 		chain.visible = false
-	if Global.p1health > 8:
+	if Global.p1health == 5:
 		hpico.texture = hp5
-	elif Global.p1health > 6:
+	elif Global.p1health == 4:
 		hpico.texture = hp4
-	elif Global.p1health > 4:
+	elif Global.p1health == 3:
 		hpico.texture = hp3
-	elif Global.p1health > 2:
+	elif Global.p1health == 2:
 		hpico.texture = hp2
-	elif Global.p1health > 0:
+	elif Global.p1health == 1:
 		hpico.texture = hp1
 	else:
 		hpico.texture = hp0

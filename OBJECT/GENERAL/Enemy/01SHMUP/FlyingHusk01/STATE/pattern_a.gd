@@ -14,17 +14,7 @@ func _step():
 			pj.direction = root.position.direction_to(Global.player1.global_position)
 			pj.position = root.spawnmarker.global_position
 			root.get_parent().add_child(pj)
-		70:
-			var pj = bullet.instantiate()
-			pj.direction = root.position.direction_to(Global.player1.global_position)
-			pj.position = root.spawnmarker.global_position
-			root.get_parent().add_child(pj)
 		80:
-			var pj = bullet.instantiate()
-			pj.direction = root.position.direction_to(Global.player1.global_position)
-			root.get_parent().add_child(pj)
-			
-		100:
 			root.swoop = true
 	
 	

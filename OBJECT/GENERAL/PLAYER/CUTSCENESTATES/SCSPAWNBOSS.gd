@@ -13,7 +13,7 @@ func _enter(data = {}):
 func _step():
 	super._step()
 	if Input.is_action_just_pressed("PAD1_START"):
-		$R04.stop()
+		#$R04.stop()
 		root.subs.visible = false
 		root.cam.offset.x = 0
 		boss.detected = true
@@ -51,7 +51,7 @@ func _step():
 			root.cam.offset.y = 0
 		142:
 			root.subs.visible = true
-			$R04.play()
+			#$R04.play()
 			root.subs.text = "...You're on my shit list now, toots."
 		
 		260:

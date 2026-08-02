@@ -63,7 +63,7 @@ _data = {
 script = SubResource("GDScript_xrs26")
 
 [node name="TimeExtension" type="Sprite2D" parent="." unique_id=583479381]
-position = Vector2(162, 110)
+position = Vector2(219, 66)
 texture = ExtResource("1_tfsvi")
 
 [node name="snd" type="AudioStreamPlayer" parent="." unique_id=1506221568]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7gc3jmky4iuo" path="res://OBJECT/GENERAL/Enemy/GroundEnemy.gd" id="1_hihvi"]
 [ext_resource type="PackedScene" uid="uid://dkn4o7j5wcre2" path="res://OBJECT/GENERAL/BloodHusk.tscn" id="2_erlgb"]
 [ext_resource type="Texture2D" uid="uid://db2n54scdi1lb" path="res://Sprites/ENEMY/Gliob/Stupid.png" id="3_5aquf"]
+[ext_resource type="Material" uid="uid://dkohptso71w5u" path="res://Outlineset.tres" id="3_erlgb"]
 [ext_resource type="PackedScene" uid="uid://dxol0ejhrr8pk" path="res://OBJECT/GENERAL/Explosionset2.tscn" id="4_udlhy"]
 [ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="5_7qrcf"]
 [ext_resource type="Script" uid="uid://bx3pfelcvtir" path="res://OBJECT/GENERAL/Enemy/Gliob/States/Move.gd" id="6_jww5m"]
@@ -446,6 +447,7 @@ z_index = 1
 emitting = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=337071412]
+material = ExtResource("3_erlgb")
 position = Vector2(1, 8)
 texture = ExtResource("3_5aquf")
 flip_h = true

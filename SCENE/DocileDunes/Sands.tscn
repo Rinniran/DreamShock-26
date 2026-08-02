@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="20_wrp25"]
 [ext_resource type="PackedScene" uid="uid://bpxrccvoplhd" path="res://SCENE/VaporwaveVenue/MainHall.tscn" id="21_a2hpv"]
 [ext_resource type="PackedScene" uid="uid://bloqulxreh6cq" path="res://OBJECT/GENERAL/Enemy/Chaser/Chaser.tscn" id="22_a2hpv"]
+[ext_resource type="PackedScene" uid="uid://btacx65w3b0f5" path="res://OBJECT/Mounts/TANK/Tank.tscn" id="23_040bw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6oe81"]
 texture = ExtResource("4_axmqo")
@@ -619,3 +620,6 @@ volume_db = -8.667
 [node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("20_wrp25")]
 position = Vector2(8561, 48)
 stage = ExtResource("21_a2hpv")
+
+[node name="Tank" parent="." unique_id=377092623 instance=ExtResource("23_040bw")]
+position = Vector2(207, 406)

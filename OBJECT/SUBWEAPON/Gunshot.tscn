@@ -33,23 +33,20 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="RectangleShape2D" id="5"]
-size = Vector2(254.528, 25)
-
-[node name="Shot" type="Area2D" unique_id=1107209084 groups=["Heavy", "Pl_Attack"]]
+[node name="Shot" type="Area2D" unique_id=1107209084 groups=["Heavy", "Pl_Attack", "Player"]]
 collision_layer = 259
 collision_mask = 259
 script = ExtResource("2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1936736155]
+position = Vector2(-1.42502, -129.70001)
+rotation = -1.5707964
+polygon = PackedVector2Array(-127.7, 1.4250144, -126.7, 12.4250145, 129.3, 121.42502, 129.3, -110.57498, -126.7, -13.5749855)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=137208900]
 position = Vector2(0.125309, -23.9376)
 rotation = -1.57602
 sprite_frames = SubResource("1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610384382]
-position = Vector2(-1.42502, -129.7)
-rotation = -1.5707964
-shape = SubResource("5")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=270567279]
 position = Vector2(12, -4)

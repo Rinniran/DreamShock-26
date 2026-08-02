@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnkw2adh2m2tu"
+path="res://.godot/imported/Urban Chaos.ogg-27d036e55917afb7451502d5668c45cf.oggvorbisstr"
+
+[deps]
+
+source_file="res://AUDIO/BGM/Urban Chaos.ogg"
+dest_files=["res://.godot/imported/Urban Chaos.ogg-27d036e55917afb7451502d5668c45cf.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

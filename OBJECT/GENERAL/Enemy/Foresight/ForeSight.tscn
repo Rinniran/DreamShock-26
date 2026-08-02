@@ -4351,7 +4351,7 @@ wait_time = 0.133
 
 [node name="Spawn" type="AudioStreamPlayer" parent="ForeSight" unique_id=1696024337]
 stream = ExtResource("11")
-volume_db = -0.572
+volume_db = -9.37
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1907231577]
 position = Vector2(-7, 78)
@@ -4362,8 +4362,9 @@ layer = 20
 visible = false
 
 [node name="ProgressBar" type="TextureProgressBar" parent="Health" unique_id=2011574308]
+offset_left = 44.0
 offset_top = 192.0
-offset_right = 385.0
+offset_right = 429.0
 offset_bottom = 263.0
 max_value = 35.0
 texture_under = ExtResource("12_c60fp")

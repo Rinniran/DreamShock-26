@@ -34,26 +34,27 @@ cursor = NodePath("MenuCursor")
 
 [node name="Gameover" type="Sprite2D" parent="." unique_id=183839545]
 material = SubResource("ShaderMaterial_ooa7i")
+position = Vector2(59, 0)
 texture = ExtResource("2_i36ql")
 centered = false
 
 [node name="Contlabel" type="Label" parent="." unique_id=1349752362]
-offset_left = 35.0
+offset_left = 59.0
 offset_top = 189.0
-offset_right = 163.0
+offset_right = 187.0
 offset_bottom = 212.0
 theme_override_fonts/font = ExtResource("3_i36ql")
 text = "continue"
 
 [node name="QuitLabel" type="Label" parent="." unique_id=296821395]
-offset_left = 183.0
+offset_left = 255.0
 offset_top = 190.0
-offset_right = 311.0
+offset_right = 383.0
 offset_bottom = 213.0
 theme_override_fonts/font = ExtResource("3_i36ql")
 text = "quit"
 horizontal_alignment = 1
 
 [node name="MenuCursor" type="Sprite2D" parent="." unique_id=1583868317]
-position = Vector2(194, 197)
+position = Vector2(30, 197)
 texture = ExtResource("4_mspmj")

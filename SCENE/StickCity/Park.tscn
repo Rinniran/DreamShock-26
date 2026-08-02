@@ -3,9 +3,8 @@
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_5ojoh"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_g8c0t"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_5g15u"]
-[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="2_tkb76"]
+[ext_resource type="AudioStream" uid="uid://cnkw2adh2m2tu" path="res://AUDIO/BGM/Urban Chaos.ogg" id="2_b3tpi"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_l8sfm"]
-[ext_resource type="AudioStream" uid="uid://bodxt8yc6thqs" path="res://AUDIO/BGM/SC_Streets_LT.ogg" id="3_wjrwo"]
 [ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="4_bkajp"]
 [ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="5_wxs8g"]
 [ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="6_g8c0t"]
@@ -21,12 +20,12 @@
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="15_tkb76"]
 [ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="16_14kmh"]
 [ext_resource type="PackedScene" uid="uid://4iip2au6hbyw" path="res://SCENE/StickCity/Bridge.tscn" id="17_14kmh"]
+[ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="22_rpaax"]
 
 [node name="Park" type="Node2D" unique_id=333858184]
 script = ExtResource("1_g8c0t")
-MusicVolume = -9.0
-Stage_Music = ExtResource("2_tkb76")
-LowTime_Music = ExtResource("3_wjrwo")
+MusicVolume = -4.0
+Stage_Music = ExtResource("2_b3tpi")
 stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1800692040]
@@ -437,3 +436,87 @@ volume_db = -8.667
 [node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("16_14kmh")]
 position = Vector2(8528, 320)
 stage = ExtResource("17_14kmh")
+
+[node name="TrickRing" parent="." unique_id=56273673 instance=ExtResource("22_rpaax")]
+position = Vector2(3277, 197)
+
+[node name="TrickRing2" parent="." unique_id=1150072406 instance=ExtResource("22_rpaax")]
+position = Vector2(3309, 185)
+
+[node name="TrickRing3" parent="." unique_id=2124210298 instance=ExtResource("22_rpaax")]
+position = Vector2(3335, 172)
+
+[node name="TrickRing4" parent="." unique_id=1727617130 instance=ExtResource("22_rpaax")]
+position = Vector2(3366, 180)
+
+[node name="TrickRing5" parent="." unique_id=1788741007 instance=ExtResource("22_rpaax")]
+position = Vector2(3400, 193)
+
+[node name="TrickRing6" parent="." unique_id=766779345 instance=ExtResource("22_rpaax")]
+position = Vector2(5202, 314)
+
+[node name="TrickRing7" parent="." unique_id=436814486 instance=ExtResource("22_rpaax")]
+position = Vector2(5230, 303)
+
+[node name="TrickRing8" parent="." unique_id=1297098061 instance=ExtResource("22_rpaax")]
+position = Vector2(5258, 283)
+
+[node name="TrickRing9" parent="." unique_id=16516056 instance=ExtResource("22_rpaax")]
+position = Vector2(5290, 272)
+
+[node name="TrickRing10" parent="." unique_id=546746552 instance=ExtResource("22_rpaax")]
+position = Vector2(5414, 331)
+
+[node name="TrickRing11" parent="." unique_id=29051837 instance=ExtResource("22_rpaax")]
+position = Vector2(5446, 331)
+
+[node name="TrickRing12" parent="." unique_id=874686120 instance=ExtResource("22_rpaax")]
+position = Vector2(5472, 331)
+
+[node name="TrickRing13" parent="." unique_id=1251964763 instance=ExtResource("22_rpaax")]
+position = Vector2(5499, 329)
+
+[node name="TrickRing14" parent="." unique_id=1886644255 instance=ExtResource("22_rpaax")]
+position = Vector2(5927, 307)
+
+[node name="TrickRing15" parent="." unique_id=486418035 instance=ExtResource("22_rpaax")]
+position = Vector2(5951, 291)
+
+[node name="TrickRing16" parent="." unique_id=2114854361 instance=ExtResource("22_rpaax")]
+position = Vector2(5974, 278)
+
+[node name="TrickRing17" parent="." unique_id=1450183925 instance=ExtResource("22_rpaax")]
+position = Vector2(5996, 294)
+
+[node name="TrickRing18" parent="." unique_id=1776431544 instance=ExtResource("22_rpaax")]
+position = Vector2(6019, 309)
+
+[node name="TrickRing19" parent="." unique_id=1870024155 instance=ExtResource("22_rpaax")]
+position = Vector2(6042, 292)
+
+[node name="TrickRing20" parent="." unique_id=402180397 instance=ExtResource("22_rpaax")]
+position = Vector2(6064, 270)
+
+[node name="TrickRing21" parent="." unique_id=138437583 instance=ExtResource("22_rpaax")]
+position = Vector2(6087, 255)
+
+[node name="TrickRing22" parent="." unique_id=2019597415 instance=ExtResource("22_rpaax")]
+position = Vector2(6110, 256)
+
+[node name="TrickRing23" parent="." unique_id=1042516497 instance=ExtResource("22_rpaax")]
+position = Vector2(6133, 273)
+
+[node name="TrickRing24" parent="." unique_id=1423953070 instance=ExtResource("22_rpaax")]
+position = Vector2(6155, 286)
+
+[node name="TrickRing25" parent="." unique_id=1565174264 instance=ExtResource("22_rpaax")]
+position = Vector2(7263, 357)
+
+[node name="TrickRing26" parent="." unique_id=291600059 instance=ExtResource("22_rpaax")]
+position = Vector2(7283, 346)
+
+[node name="TrickRing27" parent="." unique_id=897011265 instance=ExtResource("22_rpaax")]
+position = Vector2(7305, 340)
+
+[node name="TrickRing28" parent="." unique_id=794251624 instance=ExtResource("22_rpaax")]
+position = Vector2(7326, 334)

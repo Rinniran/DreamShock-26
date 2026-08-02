@@ -75,7 +75,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if (Global.p1health <= 0 || dcdet.is_colliding() || Global.time <= 0) && isKilled == false:
+	if (Global.p1health <= 0 || dcdet.is_colliding() && state.state_name != "MountTank" && state.state_name != "LeaveTank" || Global.time <= 0) && isKilled == false:
 		state.change_state("Die")
 		isKilled = true
 	
@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 		inpart.emitting = false
 	
 	for hazards in hurb.get_overlapping_areas():
-		if state.state_name != "Damage" && state.state_name != "Die" && state.state_name != "DashAttack":
+		if state.state_name != "Damage" && state.state_name != "Die" && state.state_name != "DashAttack" && state.state_name != "MountTank" && state.state_name != "LeaveTank":
 			if hazards.is_in_group("Enemy") || hazards.is_in_group("En_Attack"):
 				if !Global.invincibility:
 					damageHandle(1)
@@ -178,7 +178,7 @@ func _physics_process(delta: float) -> void:
 		sgr.visible = true
 	if Global.currweapon == wea.ODACHI:
 		sgr.visible = false
-		if Input.is_action_just_pressed("PAD1_X"):
+		if Input.is_action_just_pressed("PAD1_X") && state.state_name != "MountTank" && state.state_name != "LeaveTank":
 			var od = preload("uid://bt4h8nlj2gg6u").instantiate()
 			if sprite.flip_h == true:
 				od.scale.y = -1
@@ -255,3 +255,8 @@ func vectorair(ms):
 			velocity.x += 2 * 8
 	elif velocity.x > 0:
 		velocity.x += 5 
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Tankenter"):
+		state.change_state("MountTank")

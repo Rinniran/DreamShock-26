@@ -3,8 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_dtwwn"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_jg7cs"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_18pqr"]
-[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="2_y21vy"]
-[ext_resource type="AudioStream" uid="uid://bodxt8yc6thqs" path="res://AUDIO/BGM/SC_Streets_LT.ogg" id="3_axpav"]
+[ext_resource type="AudioStream" uid="uid://cnkw2adh2m2tu" path="res://AUDIO/BGM/Urban Chaos.ogg" id="2_stqdf"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_udeur"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="4_b3hcm"]
 [ext_resource type="Texture2D" uid="uid://b12sm4wadhw51" path="res://SPRITE/STAGE/STICKCITY/BuildingA.png" id="5_b3hcm"]
@@ -30,12 +29,14 @@
 [ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="24_ywq1t"]
 [ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="25_t25rv"]
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="26_owhp5"]
+[ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="31_0rfdf"]
+[ext_resource type="PackedScene" uid="uid://c7qr0y8t0qmg7" path="res://OBJECT/Gimmick/Trickringprize.tscn" id="32_sh8cp"]
+[ext_resource type="PackedScene" uid="uid://btacx65w3b0f5" path="res://OBJECT/Mounts/TANK/Tank.tscn" id="33_fvafp"]
 
 [node name="Plaza" type="Node2D" unique_id=2107951573]
 script = ExtResource("1_jg7cs")
-MusicVolume = -9.0
-Stage_Music = ExtResource("2_y21vy")
-LowTime_Music = ExtResource("3_axpav")
+MusicVolume = -4.0
+Stage_Music = ExtResource("2_stqdf")
 stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1156793548]
@@ -686,3 +687,54 @@ volume_db = -8.667
 [node name="400combo" type="AudioStreamPlayer" parent="." unique_id=1363151742]
 stream = ExtResource("26_owhp5")
 volume_db = -8.667
+
+[node name="TrickRing" parent="." unique_id=56273673 instance=ExtResource("31_0rfdf")]
+position = Vector2(3233, 739)
+
+[node name="TrickRing2" parent="." unique_id=144696430 instance=ExtResource("31_0rfdf")]
+position = Vector2(3263, 723)
+
+[node name="TrickRing3" parent="." unique_id=1925557688 instance=ExtResource("31_0rfdf")]
+position = Vector2(3292, 710)
+
+[node name="TrickRing4" parent="." unique_id=986149522 instance=ExtResource("31_0rfdf")]
+position = Vector2(3325, 694)
+
+[node name="TrickRing5" parent="." unique_id=359752170 instance=ExtResource("31_0rfdf")]
+position = Vector2(3358, 686)
+
+[node name="TrickRing6" parent="." unique_id=1773162224 instance=ExtResource("31_0rfdf")]
+position = Vector2(4182, 563)
+
+[node name="TrickRing7" parent="." unique_id=456069774 instance=ExtResource("31_0rfdf")]
+position = Vector2(4211, 563)
+
+[node name="TrickRing8" parent="." unique_id=1045544217 instance=ExtResource("31_0rfdf")]
+position = Vector2(4151, 564)
+
+[node name="TrickRing9" parent="." unique_id=1125101609 instance=ExtResource("31_0rfdf")]
+position = Vector2(5245, 418)
+
+[node name="TrickringPrize" parent="." unique_id=1729785585 instance=ExtResource("32_sh8cp")]
+position = Vector2(5261, 187)
+prize = ExtResource("33_fvafp")
+
+[node name="TrickRing10" parent="TrickringPrize" unique_id=1640081186 node_paths=PackedStringArray("prizegetter") instance=ExtResource("31_0rfdf")]
+position = Vector2(12, 218)
+prizegetter = NodePath("..")
+
+[node name="TrickRing11" parent="TrickringPrize" unique_id=2065532785 node_paths=PackedStringArray("prizegetter") instance=ExtResource("31_0rfdf")]
+position = Vector2(37, 209)
+prizegetter = NodePath("..")
+
+[node name="TrickRing12" parent="TrickringPrize" unique_id=633105346 node_paths=PackedStringArray("prizegetter") instance=ExtResource("31_0rfdf")]
+position = Vector2(9, 97)
+prizegetter = NodePath("..")
+
+[node name="TrickRing13" parent="TrickringPrize" unique_id=41379866 node_paths=PackedStringArray("prizegetter") instance=ExtResource("31_0rfdf")]
+position = Vector2(-17, 86)
+prizegetter = NodePath("..")
+
+[node name="TrickRing14" parent="TrickringPrize" unique_id=325400562 node_paths=PackedStringArray("prizegetter") instance=ExtResource("31_0rfdf")]
+position = Vector2(-43, 74)
+prizegetter = NodePath("..")

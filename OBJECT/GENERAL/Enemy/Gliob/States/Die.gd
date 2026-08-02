@@ -5,7 +5,7 @@ func _enter(data = {}):
 	Global.kills += 1
 	Global.addcombo()
 	
-	Global.score += 100 * (Global.chain)
+	Global.score += 20 * (Global.chain)
 	var ex = preload("res://OBJECT/GENERAL/ExplosionA.tscn").instantiate()
 	ex.position = root.position
 	root.get_parent().add_child(ex)

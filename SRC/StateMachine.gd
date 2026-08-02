@@ -120,8 +120,8 @@ func advance():
 		#return
 	if active_state != null and !is_changing_state:
 		active_state._step()
-		state_time += 1 #+ int(Global.fps_30)
-		sub_state_time += 1 #+ int(Global.fps_30)
+		state_time += 1
+		sub_state_time += 1
 	custom_timers.advance_timers()
 
 

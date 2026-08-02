@@ -4,7 +4,7 @@ func _enter(data = {}):
 	root.anim.play("Damage")
 	
 	Global.addcombo()
-	Global.score += 100 * (Global.chain)
+	Global.score += 10 * (Global.chain)
 func _step():
 	super()
 	root.velocity.x = 0

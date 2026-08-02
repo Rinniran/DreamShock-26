@@ -13,7 +13,6 @@ config_version=5
 config/name="DreamShock"
 run/main_scene="uid://cjdidtrm5d4dy"
 config/features=PackedStringArray("4.7", "Mobile")
-run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
 boot_splash/image="uid://h2g7jw6aslrs"
@@ -30,14 +29,16 @@ GeneralFunctions="*res://SRC/GeneralFunctions.gd"
 Remap="*uid://dhnb27y55kcav"
 Global="*res://SRC/Global.gd"
 psx_post_process="*uid://u3y0jxl0vtmg"
+SoundEngine="*uid://dfl7ws7lt1m58"
 
 [display]
 
-window/size/viewport_width=320
+window/size/viewport_width=427
 window/size/viewport_height=240
-window/size/window_width_override=960
+window/size/window_width_override=1281
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+display_server/driver.windows="windows"
 
 [editor]
 
@@ -60,6 +61,7 @@ Pl_Attack=""
 Enemy=""
 En_Attack=""
 Heavy="Determines whether the attack induces a flinch."
+Tankenter=""
 
 [input]
 
@@ -146,7 +148,10 @@ PAD1_SELECT={
 
 [physics]
 
+2d/run_on_separate_thread=true
+common/physics_jitter_fix=2.0
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

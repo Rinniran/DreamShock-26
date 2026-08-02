@@ -21,11 +21,14 @@ func _ready() -> void:
 		M_Player.play()
 	Global.continuepath = stagepath
 
+func _physics_process(delta: float) -> void:
+	if state != null:
+		state.advance()
+
 
 func _process(delta: float) -> void:
 	
-	if state != null:
-		state.advance()
+	
 	
 	if M_Player != null:
 		if Global.activegame:

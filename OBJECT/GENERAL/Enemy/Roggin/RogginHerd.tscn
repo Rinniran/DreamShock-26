@@ -5,7 +5,6 @@
 
 [node name="RogginHerd" type="Node2D" unique_id=1497742308]
 script = ExtResource("2")
-rotation_speed = 1.0
 
 [node name="Roggin" parent="." unique_id=1512120743 instance=ExtResource("1")]
 position = Vector2(-1, 57)

@@ -94,7 +94,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			hurtsound.play()
 		
 		Global.addcombo()
-		Global.score += 100 * (Global.chain)
+		Global.score += 25 * (Global.chain)
 		if hp <= 0:
 			if unlocks_screen:
 				Global.camera.locked = false

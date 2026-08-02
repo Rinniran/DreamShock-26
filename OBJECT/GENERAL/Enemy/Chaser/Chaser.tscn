@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="8_jubkt"]
 [ext_resource type="AudioStream" uid="uid://8tnq6ok8uy62" path="res://AUDIO/SE/explosion.wav" id="9_tqops"]
 [ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="10_jubkt"]
+[ext_resource type="Material" uid="uid://dkohptso71w5u" path="res://Outlineset.tres" id="11_75kxv"]
 [ext_resource type="Script" uid="uid://do5yo4argu6i2" path="res://OBJECT/GENERAL/Enemy/Chaser/States/Move.gd" id="11_tqops"]
 [ext_resource type="Texture2D" uid="uid://cv5b2hpgdguvd" path="res://Sprites/ENEMY/Chaser/mainspr.png" id="12"]
 [ext_resource type="Script" uid="uid://8grc5o8dp3ds" path="res://OBJECT/GENERAL/Enemy/Gliob/States/Die.gd" id="12_75kxv"]
@@ -171,6 +172,7 @@ script = ExtResource("11_tqops")
 script = ExtResource("12_75kxv")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1971334942]
+material = ExtResource("11_75kxv")
 position = Vector2(-2.97301, -4.43238)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("1")

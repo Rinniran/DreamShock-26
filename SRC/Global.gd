@@ -8,8 +8,19 @@ enum weapon
 	WATER,
 	PLASMA
 }
-
-var maxhp: int = 10
+enum goal
+{
+	GTTG,
+	MOTHERCRYSTAL,
+	GOODS,
+	SHMUP,
+	SHOOTOUT,
+	AUTOSCROLL,
+	ESCORT,
+	GENERATOR,
+	DOOM
+}
+var maxhp: int = 5
 
 var p1lives: int = 2
 var p1health: int = maxhp
@@ -51,20 +62,24 @@ var invincibile_time = 0
 var invincibility = false
 
 var chain = 0
-var chaintimereset = 99
+var chaintimereset = 120
 var chaintime = chaintimereset
-var combovoice
+var combovoice = [null, null, null, null]
 var currweapon = null
 
 var continuepath = ""
 var bossactive = false
 
 @onready var musicP = AudioStreamPlayer.new()
+@onready var ringplayer = AudioStreamPlayer.new()
+@onready var ringstream = preload("res://AUDIO/SE/Trickring.wav")
 
 signal counted
 
 func _ready() -> void:
+	ringplayer.stream = ringstream
 	add_child(musicP)
+	add_child(ringplayer)
 
 func _physics_process(delta: float) -> void:
 	#if get_tree().get_node_count() > 100:
@@ -73,6 +88,7 @@ func _physics_process(delta: float) -> void:
 	#else:
 		#Engine.time_scale = 0.918
 		#ProjectSettings.set_setting("physics_ticks_per_second", 59.18)
+	
 	
 	if is_instance_valid(player1):
 		if currweapon == null:
@@ -83,7 +99,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if chain > 0:
-		if chaintime > 0 && hitstop == false :
+		if chaintime > 0 && hitstop == false && activegame == true:
 			chaintime -= 1
 		if chaintime == 0:
 			chain = 0
@@ -114,6 +130,15 @@ func _physics_process(delta: float) -> void:
 		hitstop = false
 	#print_debug(player1.sprite.is_playing())
 	pass
+	
+	
+	
+	
+	
+	if is_instance_valid(player1) && player1.is_on_floor():
+		ringplayer.pitch_scale = 0.85
+		if ringplayer.playing:
+			ringplayer.stop()
 
 func addcombo():
 	Global.chaintime = Global.chaintimereset

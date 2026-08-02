@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7gc3jmky4iuo" path="res://OBJECT/GENERAL/Enemy/GroundEnemy.gd" id="1_700as"]
 [ext_resource type="PackedScene" uid="uid://dkn4o7j5wcre2" path="res://OBJECT/GENERAL/BloodHusk.tscn" id="2_xvh08"]
 [ext_resource type="Texture2D" uid="uid://dykrue5ob0umj" path="res://Sprites/ENEMY/HuskGunner/Gunner1.png" id="3_55e18"]
+[ext_resource type="Shader" uid="uid://dndnrucwnjc5w" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/Outline.gdshader" id="3_sdy8g"]
 [ext_resource type="PackedScene" uid="uid://dxol0ejhrr8pk" path="res://OBJECT/GENERAL/Explosionset2.tscn" id="4_aolb4"]
 [ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="5_yf7jj"]
 [ext_resource type="Script" uid="uid://f1m381emi2dp" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/States/Die.gd" id="6_3b1k4"]
@@ -15,6 +16,14 @@
 [ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="12_fca4t"]
 [ext_resource type="AudioStream" uid="uid://c1euvg8k2c5n" path="res://AUDIO/SE/Deathhit.wav" id="13_edys2"]
 [ext_resource type="AudioStream" uid="uid://8tnq6ok8uy62" path="res://AUDIO/SE/explosion.wav" id="14_qpcb8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_foxfk"]
+shader = ExtResource("3_sdy8g")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/outline_samples = 4
+shader_parameter/shade_color = Color(1, 1, 1, 0)
 
 [sub_resource type="Animation" id="Animation_e3nyc"]
 resource_name = "Attack"
@@ -465,6 +474,7 @@ z_index = 1
 emitting = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=337071412]
+material = SubResource("ShaderMaterial_foxfk")
 position = Vector2(0, -7)
 texture = ExtResource("3_55e18")
 flip_h = true

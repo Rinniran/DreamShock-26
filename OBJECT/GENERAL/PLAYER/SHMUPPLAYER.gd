@@ -23,6 +23,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	if Global.chain > 1000:
+		level = 2
+	elif Global.chain > 500:
+		level = 1
+	else:
+		level = 0
+	
 	match(level):
 		0:
 			lv2floofA.visible = false

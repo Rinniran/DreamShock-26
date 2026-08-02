@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bvfoq6efmuoj5" path="res://Sprites/ENEMY/Roggin/Idle.png" id="1"]
 [ext_resource type="Script" uid="uid://c7gc3jmky4iuo" path="res://OBJECT/GENERAL/Enemy/GroundEnemy.gd" id="1_owyyf"]
+[ext_resource type="Material" uid="uid://dkohptso71w5u" path="res://Outlineset.tres" id="2_4f6ee"]
 [ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="4"]
 [ext_resource type="Script" uid="uid://qdqutiufhftb" path="res://OBJECT/GENERAL/Enemy/Roggin/States/Idle.gd" id="5"]
 [ext_resource type="Script" uid="uid://cxdy8igshqj5g" path="res://OBJECT/GENERAL/Enemy/Roggin/States/Die.gd" id="6"]
@@ -217,6 +218,7 @@ position = Vector2(-2.5, 20.5)
 shape = SubResource("8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1754716723]
+material = ExtResource("2_4f6ee")
 position = Vector2(0, 8)
 sprite_frames = SubResource("11")
 autoplay = "default"

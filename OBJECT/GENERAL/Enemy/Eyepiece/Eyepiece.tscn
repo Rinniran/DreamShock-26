@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7gc3jmky4iuo" path="res://OBJECT/GENERAL/Enemy/GroundEnemy.gd" id="1_1t31u"]
 [ext_resource type="Texture2D" uid="uid://c8c15digllj5w" path="res://Sprites/ENEMY/Camshooter/EyePiece.png" id="2"]
+[ext_resource type="Material" uid="uid://dkohptso71w5u" path="res://Outlineset.tres" id="2_2lkrg"]
 [ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="4"]
 [ext_resource type="Script" uid="uid://cxfq08tuytp31" path="res://OBJECT/GENERAL/Enemy/Eyepiece/States/Idle.gd" id="5"]
 [ext_resource type="Script" uid="uid://dd12jo4v0373e" path="res://OBJECT/GENERAL/Enemy/Eyepiece/States/Die.gd" id="6"]
@@ -232,6 +233,7 @@ position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_1g3he")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=815485653]
+material = ExtResource("2_2lkrg")
 texture = ExtResource("2")
 hframes = 5
 
