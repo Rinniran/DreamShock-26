@@ -21,7 +21,7 @@ enum pardir
 	LOW
 }
 
-const SPEED: float = 7000.0
+const SPEED: float = 8000.0
 const DASHSPEED: float = 5000.0
 const JUMP_VELOCITY: float = -400.0
 const GRAVITY: float = 1100.0
@@ -63,6 +63,8 @@ var isKilled = false
 @onready var black = $CanvasLayer/Black
 @onready var dcdet = $DownCrushDetect2
 @onready var sgr = $Attachments/ShotgunRotary
+@onready var wdr = $WalldetectRight
+@onready var wdl = $WalldetectLeft
 
 @onready var damit = $CHit
 @onready var aah = $DeathVoice
@@ -114,14 +116,7 @@ func _physics_process(delta: float) -> void:
 		iframes -= 1
 	else:
 		hurbcol.disabled = false
-	if sprite.animation == "Fjump":
-		if Global.hitstop == false:
-			if sprite.flip_h == true:
-				sprite.rotation_degrees -= 8
-			elif sprite.flip_h == false:
-				sprite.rotation_degrees += 8
-	else:
-		sprite.rotation_degrees = 0
+	
 	if parrying == true:
 		paractfr += 1
 		if Input.is_action_pressed("PAD1_LEFT") || Input.is_action_pressed("PAD1_RIGHT"):
@@ -240,9 +235,10 @@ func vectorair(ms):
 		velocity.x = ms
 	elif velocity.x < -ms:
 		velocity.x = -ms
-	if state.state_name != "Damage" && state.state_name != "Die" && state.state_name != "DashAttack" && state.state_name != "Dash" && state.state_name != "Attack1":
-		if sprite.animation != "Fjump":
-			sprite.play("Fjump")
+	if state.state_name != "Damage" && state.state_name != "Die" && state.state_name != "DashAttack" && state.state_name != "Dash" && state.state_name != "Attack1" && state.state_name != "Slide":
+		if sprite.animation != "Vecair" && sprite.animation != "Vecairloop":
+			sprite.play("Vecair")
+			
 	if Input.is_action_pressed("PAD1_LEFT"):
 		if velocity.x > 0:
 			velocity.x -= 2 * 8

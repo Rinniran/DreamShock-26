@@ -4,12 +4,13 @@ extends BaseState
 var moverandomizer = RandomNumberGenerator.new()
 var movechoice
 var aftimagetimer = 2
-var MSPEED = 350
+var MSPEED = 380
 
 
 func _enter(data = {}):
 	super._enter(data)
 	root.hurbcol.disabled = true
+	SoundEngine.playsoundstring(1, "uid://2oydeahhg0hs", -8)
 	if not root.is_on_floor():
 		root.dashes -= 1
 	root.DAttacked = true
@@ -96,6 +97,11 @@ func _step():
 			parent.change_state("Idle")
 		else:
 			parent.change_state("Fall")
+	
+	
+	if !root.is_on_floor():
+		if ((root.wdl.is_colliding() && Input.is_action_pressed("PAD1_LEFT")) || (root.wdr.is_colliding() && Input.is_action_pressed("PAD1_RIGHT"))) && Input.is_action_just_pressed("PAD1_B"):
+			parent.change_state("Walljump")
 	
 
 

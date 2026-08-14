@@ -1,7 +1,7 @@
 extends BaseState
 
 func _enter(data = {}):
-	root.col.disabled = true
+	root.col.set_deferred("disabled", true)
 	Global.kills += 1
 	Global.addcombo()
 	

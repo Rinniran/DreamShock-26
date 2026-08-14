@@ -4,7 +4,8 @@ extends BaseState
 var moverandomizer = RandomNumberGenerator.new()
 var movechoice
 var aftimagetimer = 2
-var MSPEED = 350
+var MSPEED = 380
+
 
 
 func _enter(data = {}):
@@ -12,6 +13,7 @@ func _enter(data = {}):
 	root.anim_can_resume_after_hitstop = true
 	if not root.is_on_floor():
 		root.dashes -= 1
+	SoundEngine.playsoundstring(0,"res://AUDIO/SE/DashFin.ogg",-2)
 	root.sprite.play("dash")
 	root.GRAV_ENABLED = false
 	root.CAN_MOVE = false
@@ -29,17 +31,19 @@ func _step():
 	
 	root.hurbcol.disabled = true
 	
+	
+	
 	if Kleft and Kup :
 		rspr.flip_h = true
 		root.velocity.x = -MSPEED
 		root.velocity.y = -MSPEED
 		rspr.play("ADUpDiag")
-	elif Kleft and Kdown and !root.is_on_floor():
+	elif Kleft and Kdown:
 		rspr.flip_h = true
 		root.velocity.x = -MSPEED
 		root.velocity.y = MSPEED
 		if root.is_on_floor():
-			rspr.play("dash")
+			parent.change_state("Slide")
 		else:
 			rspr.play("ADDownDiag")
 	elif Kleft:
@@ -58,11 +62,11 @@ func _step():
 		root.velocity.x = MSPEED
 		root.velocity.y = -MSPEED
 		
-	elif Kright and Kdown and !root.is_on_floor():
+	elif Kright and Kdown:
 		rspr.flip_h = false
 		root.velocity.x = MSPEED
 		if root.is_on_floor():
-			rspr.play("dash")
+			parent.change_state("Slide")
 		else:
 			rspr.play("ADDownDiag")
 		root.velocity.y = MSPEED
@@ -101,21 +105,29 @@ func _step():
 		aftimagetimer = 2
 	if Input.is_action_just_pressed("PAD1_A"):
 		root.hurbcol.disabled = false
+		
 		parent.change_state("DashAttack")
+		
 	if Input.is_action_just_released("PAD1_C"):
 		root.hurbcol.disabled = false
+		
 		parent.change_state("Idle")
 	if (Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0) && root.is_on_floor():
 		root.hurbcol.disabled = false
 		root.vecair = true
+		
 		parent.change_state("Jump")
-	if parent.state_time >= 40:
+	if parent.state_time >= 45:
 		root.hurbcol.disabled = false
 		root.dashcoy = 15
 		if root.is_on_floor():
 			parent.change_state("Idle")
 		else:
 			parent.change_state("Fall")
+	
+	if !root.is_on_floor():
+		if ((root.wdl.is_colliding() && Input.is_action_pressed("PAD1_LEFT")) || (root.wdr.is_colliding() && Input.is_action_pressed("PAD1_RIGHT"))) && Input.is_action_just_pressed("PAD1_B"):
+			parent.change_state("Walljump")
 	
 
 

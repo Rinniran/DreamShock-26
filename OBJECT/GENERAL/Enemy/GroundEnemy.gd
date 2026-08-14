@@ -80,7 +80,7 @@ func drop_item():
 	if dropped_item != null:
 		var item = dropped_item.instantiate()
 		item.global_position = global_position
-		get_parent().add_child(item)
+		get_parent().call_deferred("add_child", item)
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	set_physics_process(true)
@@ -90,25 +90,25 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Pl_Attack") && dead == false:
 		hp -= area.damage
 		if hurtsound != null:
-			hurtsound.stop()
-			hurtsound.play()
+			hurtsound.call_deferred("stop")
+			hurtsound.call_deferred("play")
 		
 		Global.addcombo()
 		Global.score += 25 * (Global.chain)
 		if hp <= 0:
 			if unlocks_screen:
 				Global.camera.locked = false
-			state.change_state("Die")
+			state.call_deferred("change_state","Die")
 			dead = true
 		else:
 			if area.is_in_group("Heavy"):
 				if has_damage_state == true:
 					if can_flinch:
-						anim.stop()
-						anim.play()
+						anim.call_deferred("stop")
+						anim.call_deferred("play")
 					#Global.hitstopframes = hurtstop
 					#Global.hitstop = true
-					state.change_state("Damage")
+					state.call_deferred("change_state","Damage") 
 
 func countup():
 	if is_physics_processing():

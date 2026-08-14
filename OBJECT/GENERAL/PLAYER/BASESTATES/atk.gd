@@ -9,6 +9,7 @@ func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
+	
 	if root.vecair == true:
 		root.vecair = true
 	root.anim_can_resume_after_hitstop = false

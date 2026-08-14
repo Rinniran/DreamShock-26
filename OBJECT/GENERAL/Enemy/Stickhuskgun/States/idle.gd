@@ -18,10 +18,10 @@ func _step():
 		pj.own = root
 		if root.sprite.flip_h == false:
 			pj.direction.x = -1
-			pj.position.x = root.position.x - 48
+			pj.position.x = root.position.x - 32
 		else:
 			pj.direction.x = 1
-			pj.position.x = root.position.x + 48
+			pj.position.x = root.position.x + 32
 		snd.play()
 		get_parent().add_child(pj)
 	

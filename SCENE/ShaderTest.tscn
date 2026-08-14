@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bildveli7w5dp"]
+
+[sub_resource type="Shader" id="Shader_epd7q"]
+code = "shader_type canvas_item;
+uniform vec2 resolution = vec2(427,240);
+
+void fragment()
+{
+	
+	
+	if(abs(UV.x - UV.y) < 0.009 || abs(UV.x + UV.y - 1.0) < 0.009)
+	{
+		COLOR = vec4(UV.x, 0.0, 1.0, 1.0);
+	}
+	else
+	{
+		COLOR = vec4(0.0);
+	}
+   
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25lc4"]
+shader = SubResource("Shader_epd7q")
+shader_parameter/resolution = Vector2(427, 240)
+
+[node name="ShaderTest" type="Node2D" unique_id=375994153]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=800631346]
+material = SubResource("ShaderMaterial_25lc4")
+offset_right = 427.0
+offset_bottom = 240.0

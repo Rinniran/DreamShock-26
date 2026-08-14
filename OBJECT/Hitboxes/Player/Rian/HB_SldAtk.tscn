@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://1x5ggirbr1hy"]
+
+[ext_resource type="Script" uid="uid://baeb5x4cdtocx" path="res://OBJECT/Hitboxes/Player/PLHB.gd" id="1_r5n8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xur1"]
+size = Vector2(124, 25)
+
+[node name="HbDshAtk" type="Area2D" unique_id=92751368 groups=["Heavy", "Pl_Attack"]]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_r5n8j")
+damage = 2
+lifetime = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1258750877]
+position = Vector2(45, 0.5)
+shape = SubResource("RectangleShape2D_1xur1")

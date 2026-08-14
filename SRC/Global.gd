@@ -70,6 +70,10 @@ var currweapon = null
 var continuepath = ""
 var bossactive = false
 
+var BGM = true
+
+
+
 @onready var musicP = AudioStreamPlayer.new()
 @onready var ringplayer = AudioStreamPlayer.new()
 @onready var ringstream = preload("res://AUDIO/SE/Trickring.wav")
@@ -82,6 +86,7 @@ func _ready() -> void:
 	add_child(ringplayer)
 
 func _physics_process(delta: float) -> void:
+	var winmode = DisplayServer.window_get_mode()
 	#if get_tree().get_node_count() > 100:
 		#Engine.time_scale = .6
 		#ProjectSettings.set_setting("physics_ticks_per_second", 48)
@@ -89,6 +94,13 @@ func _physics_process(delta: float) -> void:
 		#Engine.time_scale = 0.918
 		#ProjectSettings.set_setting("physics_ticks_per_second", 59.18)
 	
+	if Input.is_action_just_pressed("Fullscreen"):
+		if winmode == DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		elif winmode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 	if is_instance_valid(player1):
 		if currweapon == null:

@@ -52,8 +52,9 @@ func _step():
 	
 	if Input.is_action_just_pressed("PAD1_C") && root.dashes > 0:
 		parent.change_state("Dash")
-	
-	
+
+	if ((root.wdl.is_colliding() && Input.is_action_pressed("PAD1_LEFT")) || (root.wdr.is_colliding() && Input.is_action_pressed("PAD1_RIGHT"))) && Input.is_action_just_pressed("PAD1_B"):
+		parent.change_state("Walljump")
 	
 
 

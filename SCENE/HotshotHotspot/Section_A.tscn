@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://cepmwy2cb7icg"]
 
-[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Gimmick/FONT/Score.fnt" id="2_uglmr"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="2_uglmr"]
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="3_mopju"]
-[ext_resource type="AudioStream" uid="uid://6a0ldel10cc8" path="res://AUDIO/BGM/STG03_B.mp3" id="6_gi1do"]
+[ext_resource type="AudioStream" uid="uid://bnqipvsejdtw0" path="res://AUDIO/BGM/SC_Park.ogg" id="6_gi1do"]
 [ext_resource type="PackedScene" uid="uid://m6vkfobvirxu" path="res://OBJECT/GENERAL/CAMERA/Cammodeswitch.tscn" id="7_e4262"]
 [ext_resource type="Script" uid="uid://di7muc7ikgj7g" path="res://OBJECT/GENERAL/CAMERA/cammodeswitch.gd" id="8_gi1do"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="10_11t57"]
@@ -52,14 +52,12 @@ target = NodePath("../Player")
 speed = 400
 
 [node name="Hud" parent="Camera" unique_id=304665899 instance=ExtResource("12_u3lfl")]
-offset_left = -160.0
-offset_top = -112.0
-offset_right = -160.0
-offset_bottom = -112.0
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1316330835]
 stream = ExtResource("6_gi1do")
+volume_db = -14.051
+autoplay = true
 
 [node name="Cammodeswitch" parent="." unique_id=1852398627 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
 position = Vector2(1959, 160)

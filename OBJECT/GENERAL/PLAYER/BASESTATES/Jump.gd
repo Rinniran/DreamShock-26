@@ -6,7 +6,10 @@ func _enter(data = {}):
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
 	root.anim_can_resume_after_hitstop = false
+	
 	root.sprite.play("jump")
+	if root.is_on_floor():
+		SoundEngine.playsoundstring(0, "uid://df0u16rdk18q3", -8)
 	if !root.is_3d:
 		root.velocity.y = root.JUMP_VELOCITY
 	else:
@@ -51,8 +54,9 @@ func _step():
 	if Input.is_action_just_pressed("PAD1_C") && root.dashes > 0:
 		parent.change_state("Dash")
 	
-	
-	
+	if ((root.wdl.is_colliding() && Input.is_action_pressed("PAD1_LEFT")) || (root.wdr.is_colliding() && Input.is_action_pressed("PAD1_RIGHT"))) && Input.is_action_just_pressed("PAD1_B"):
+		if !root.is_on_floor():
+			parent.change_state("Walljump")
 
 
 

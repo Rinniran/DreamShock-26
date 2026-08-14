@@ -34,8 +34,10 @@
 [ext_resource type="Script" uid="uid://tmjsiij2liqo" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Dash.gd" id="30_qdkji"]
 [ext_resource type="Script" uid="uid://b8hggaop6e3xn" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/DashAttack.gd" id="31_ehcbh"]
 [ext_resource type="Script" uid="uid://cbcml1oblom77" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Jump.gd" id="32_ylx76"]
+[ext_resource type="Script" uid="uid://chwr71slwmarf" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Slide.gd" id="33_1n10s"]
 [ext_resource type="Script" uid="uid://heb8j8txrrst" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Damage.gd" id="33_e3bjq"]
 [ext_resource type="Script" uid="uid://cedofh331p4nq" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Fall.gd" id="34_hik4u"]
+[ext_resource type="Script" uid="uid://be4b2fx8jwwa1" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/WallJump.gd" id="34_wfgnl"]
 [ext_resource type="Script" uid="uid://dyk1feymdllav" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Die.gd" id="35_2wglc"]
 [ext_resource type="Script" uid="uid://cwmokx7shnbky" path="res://OBJECT/GENERAL/PLAYER/CUTSCENESTATES/ForesightIdle2.gd" id="35_qdkji"]
 [ext_resource type="Script" uid="uid://cg4b6fcj7h6ay" path="res://OBJECT/GENERAL/PLAYER/CUTSCENESTATES/ForesightJumpBack.gd" id="36_utht8"]
@@ -930,8 +932,14 @@ script = ExtResource("30_qdkji")
 [node name="DashAttack" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=246734474 groups=["Player"]]
 script = ExtResource("31_ehcbh")
 
+[node name="Slide" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=27740084 groups=["Player"]]
+script = ExtResource("33_1n10s")
+
 [node name="Jump" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1967489877]
 script = ExtResource("32_ylx76")
+
+[node name="Walljump" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=1772108570]
+script = ExtResource("34_wfgnl")
 
 [node name="Damage" type="Node" parent="MasterCutsceneNode/Player/StateMachine" unique_id=319629811]
 script = ExtResource("33_e3bjq")
@@ -1036,6 +1044,14 @@ target_position = Vector2(0, -13)
 [node name="Attachments" type="Node" parent="MasterCutsceneNode/Player" unique_id=2126489336]
 
 [node name="ShotgunRotary" parent="MasterCutsceneNode/Player/Attachments" unique_id=1375401057 instance=ExtResource("44_ujf1d")]
+
+[node name="WalldetectRight" type="RayCast2D" parent="MasterCutsceneNode/Player" unique_id=359435926]
+position = Vector2(0, 8)
+target_position = Vector2(14, 0)
+
+[node name="WalldetectLeft" type="RayCast2D" parent="MasterCutsceneNode/Player" unique_id=512363717]
+position = Vector2(0, 8)
+target_position = Vector2(-16, 0)
 
 [node name="Camera" parent="MasterCutsceneNode" unique_id=258370969 node_paths=PackedStringArray("target") instance=ExtResource("4_cngef")]
 position = Vector2(161, 119)

@@ -8,10 +8,12 @@
 [ext_resource type="Script" uid="uid://cbcml1oblom77" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Jump.gd" id="6_8jknk"]
 [ext_resource type="Script" uid="uid://tmjsiij2liqo" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Dash.gd" id="6_hnyge"]
 [ext_resource type="Script" uid="uid://cedofh331p4nq" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Fall.gd" id="7_24pf5"]
+[ext_resource type="Script" uid="uid://chwr71slwmarf" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Slide.gd" id="8_hiso6"]
 [ext_resource type="Script" uid="uid://b8hggaop6e3xn" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/DashAttack.gd" id="8_imsq6"]
 [ext_resource type="Texture2D" uid="uid://cnrwh8ygiqla0" path="res://Sprites/VFX/InWater.png" id="9_a3fy1"]
 [ext_resource type="SpriteFrames" uid="uid://mmxrrknshg8v" path="res://Sprites/Players/Rian/RianFrames.tres" id="9_nufnn"]
 [ext_resource type="Script" uid="uid://heb8j8txrrst" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Damage.gd" id="9_wmlp5"]
+[ext_resource type="Script" uid="uid://be4b2fx8jwwa1" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/WallJump.gd" id="10_wmt1k"]
 [ext_resource type="Script" uid="uid://dyk1feymdllav" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/Die.gd" id="12_mj6w2"]
 [ext_resource type="PackedScene" uid="uid://2admungtnrbx" path="res://OBJECT/GENERAL/BloodPlayer.tscn" id="12_scp6f"]
 [ext_resource type="Script" uid="uid://bcyibpmyml4bb" path="res://OBJECT/GENERAL/PLAYER/BASESTATES/mounttank.gd" id="13_deu4t"]
@@ -78,8 +80,9 @@ dc = NodePath("DConfirm")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=504892373]
 z_index = 3
 sprite_frames = ExtResource("9_nufnn")
-animation = &"BJump"
+animation = &"idle"
 autoplay = "idle"
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934587294]
 visible = false
@@ -111,11 +114,17 @@ script = ExtResource("5_6ri42")
 [node name="Dash" type="Node" parent="StateMachine" unique_id=2119392054 groups=["Player"]]
 script = ExtResource("6_hnyge")
 
+[node name="Slide" type="Node" parent="StateMachine" unique_id=1947920751 groups=["Player"]]
+script = ExtResource("8_hiso6")
+
 [node name="DashAttack" type="Node" parent="StateMachine" unique_id=246734474 groups=["Player"]]
 script = ExtResource("8_imsq6")
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=1967489877]
 script = ExtResource("6_8jknk")
+
+[node name="Walljump" type="Node" parent="StateMachine" unique_id=817170205]
+script = ExtResource("10_wmt1k")
 
 [node name="Damage" type="Node" parent="StateMachine" unique_id=319629811]
 script = ExtResource("9_wmlp5")
@@ -218,6 +227,14 @@ target_position = Vector2(0, -13)
 
 [node name="ShotgunRotary" parent="Attachments" unique_id=1375401057 instance=ExtResource("20_ukscj")]
 visible = false
+
+[node name="WalldetectRight" type="RayCast2D" parent="." unique_id=443984124]
+position = Vector2(0, 8)
+target_position = Vector2(14, 0)
+
+[node name="WalldetectLeft" type="RayCast2D" parent="." unique_id=777291624]
+position = Vector2(0, 8)
+target_position = Vector2(-16, 0)
 
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Idle" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Attack1" method="_on_sprite_animation_finished"]

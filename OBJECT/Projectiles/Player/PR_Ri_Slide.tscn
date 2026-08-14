@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dj8wcp0wqxt1g"]
+
+[ext_resource type="Script" uid="uid://bmbjnos57p6ai" path="res://OBJECT/Projectiles/Player/PLPJ.gd" id="1_vglua"]
+[ext_resource type="Texture2D" uid="uid://b21q287kgnw2a" path="res://Sprites/Projectiles/SlideAttack.png" id="2_vglua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok61a"]
+atlas = ExtResource("2_vglua")
+region = Rect2(0, 0, 100, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viw5s"]
+atlas = ExtResource("2_vglua")
+region = Rect2(100, 0, 100, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8vfl"]
+atlas = ExtResource("2_vglua")
+region = Rect2(200, 0, 100, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opmep"]
+atlas = ExtResource("2_vglua")
+region = Rect2(300, 0, 100, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi1hp"]
+atlas = ExtResource("2_vglua")
+region = Rect2(400, 0, 100, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buv72"]
+atlas = ExtResource("2_vglua")
+region = Rect2(500, 0, 100, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv0cx"]
+atlas = ExtResource("2_vglua")
+region = Rect2(600, 0, 100, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eprey"]
+atlas = ExtResource("2_vglua")
+region = Rect2(700, 0, 100, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_viw5s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok61a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viw5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8vfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opmep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi1hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buv72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv0cx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eprey")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epu8s"]
+size = Vector2(98, 41)
+
+[node name="PrRiSlide" type="Area2D" unique_id=1911026051 groups=["Heavy", "Pl_Attack"]]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_vglua")
+damage = 2
+lifetime = 15
+speed = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=744587044]
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_viw5s")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925499707]
+position = Vector2(-2, 8.5)
+shape = SubResource("RectangleShape2D_epu8s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

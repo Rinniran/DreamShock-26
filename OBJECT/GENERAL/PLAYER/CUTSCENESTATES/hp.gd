@@ -8,8 +8,9 @@ var wait = 5
 var startwait = false
 
 func _process(delta: float) -> void:
-	if is_instance_valid($sp) && $sp.animation != "collect":
-		$sp.rotation_degrees += 1
+	if has_node("sp"):
+		if $sp.animation != "collect":
+			$sp.rotation_degrees += 1
 	if !col.playing && collected == true:
 		queue_free()
 	
@@ -22,7 +23,7 @@ func _process(delta: float) -> void:
 	
 
 func _on_area_entered(area: Area2D) -> void:
-	if is_instance_valid($sp) && $sp.animation != "collect" && area.is_in_group("Player"):
+	if has_node("sp") && $sp.animation != "collect" && area.is_in_group("Player"):
 		
 		Global.p1health += hp
 		$sp.play("collect")

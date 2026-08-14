@@ -13,12 +13,14 @@ var M_Player:AudioStreamPlayer = Global.musicP
 
 
 func _ready() -> void:
+	
 	if state != null:
 		state.initialize()
 	Global.combovoice = combovoice
 	Global.activegame = true
-	if M_Player != null && M_Player.stream != null && !M_Player.playing:
-		M_Player.play()
+	if Global.BGM == true:
+		if M_Player != null && M_Player.stream != null && !M_Player.playing:
+			M_Player.play()
 	Global.continuepath = stagepath
 
 func _physics_process(delta: float) -> void:
@@ -29,33 +31,35 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	
 	
-	
-	if M_Player != null:
-		if Global.activegame:
-			M_Player.volume_db = MusicVolume
-		if Global.invincibility:
-			if M_Player.stream != Invincible_Music:
-				M_Player.stream = Invincible_Music
-				M_Player.play()
-		elif Global.bossactive:
-			if M_Player.stream != bossmus:
-				M_Player.stream = bossmus
-				M_Player.play()
-		elif LowTime_Music != null:
-			
-			if Global.time > 15 && M_Player.stream != bossmus:
-				if M_Player.stream != Stage_Music:
-					M_Player.stream = Stage_Music
+	if Global.BGM == true:
+		if M_Player != null:
+			if Global.activegame:
+				if !Global.invincibility:
+					M_Player.volume_db = MusicVolume
+			if Global.invincibility:
+				if M_Player.stream != Invincible_Music:
+					M_Player.volume_db = -16
+					M_Player.stream = Invincible_Music
 					M_Player.play()
-					
-			else:
+			elif Global.bossactive:
+				if M_Player.stream != bossmus:
+					M_Player.stream = bossmus
+					M_Player.play()
+			elif LowTime_Music != null:
 				
-				if M_Player.stream != LowTime_Music:
-					M_Player.stream = LowTime_Music
-					M_Player.play()
+				if Global.time > 15 && M_Player.stream != bossmus:
+					if M_Player.stream != Stage_Music:
+						M_Player.stream = Stage_Music
+						M_Player.play()
+						
+				else:
+					
+					if M_Player.stream != LowTime_Music:
+						M_Player.stream = LowTime_Music
+						M_Player.play()
+			else:
+				if M_Player.stream != Stage_Music:
+						M_Player.stream = Stage_Music
+						M_Player.play()
 		else:
-			if M_Player.stream != Stage_Music:
-					M_Player.stream = Stage_Music
-					M_Player.play()
-	else:
-		M_Player = Global.musicP
+			M_Player = Global.musicP
