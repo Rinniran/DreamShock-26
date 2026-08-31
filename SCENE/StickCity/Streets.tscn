@@ -41,6 +41,11 @@
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="36_lolfe"]
 [ext_resource type="PackedScene" uid="uid://btacx65w3b0f5" path="res://OBJECT/Mounts/TANK/Tank.tscn" id="41_lo57f"]
 [ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="42_be5ev"]
+[ext_resource type="Script" uid="uid://0x6q67w2f7j" path="res://OBJECT/GENERAL/NPC/npc.gd" id="42_pqqwk"]
+[ext_resource type="Texture2D" uid="uid://6l3peq16eclb" path="res://SPRITE/NPC/FloofIdle.png" id="43_dm7b6"]
+[ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="44_2jy3f"]
+[ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="45_8ganq"]
+[ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="46_vnbtr"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_clmtf"]
 polygon = PackedVector2Array(3761, -414, 768, 44, 37, 62, -144, 36, 231, -23, 236, -47, 557, -130, 563, -160, 1102, -313, 2858.234, -372.5334, 2933, -411)
@@ -130,6 +135,81 @@ adjustment_enabled = true
 adjustment_brightness = 1.02
 adjustment_contrast = 1.135
 adjustment_saturation = 1.07
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ms3"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17pdf"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6455w"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umitl"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs7gs"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3dq"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kc3"]
+atlas = ExtResource("43_dm7b6")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25lc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j105x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ms3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17pdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6455w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umitl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs7gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kc3")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_2jy3f")
+}],
+"loop": 1,
+"name": &"Talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25lc4"]
+size = Vector2(84, 80)
 
 [node name="Streets" type="Node2D" unique_id=327141923]
 modulate = Color(0.25, 0.25, 0.25, 1)
@@ -1870,3 +1950,136 @@ position = Vector2(5492, 54)
 
 [node name="TrickRing20" parent="." unique_id=194329322 instance=ExtResource("42_be5ev")]
 position = Vector2(5515, 63)
+
+[node name="NPC" type="Node" parent="." unique_id=560335310]
+
+[node name="Floof" type="Area2D" parent="NPC" unique_id=773781641 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(227, 167)
+script = ExtResource("42_pqqwk")
+hud = NodePath("../../Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof" unique_id=221423873]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof" unique_id=412616137]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof" unique_id=1484656573]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("45_8ganq")
+
+[node name="Speechbox" parent="NPC/Floof" unique_id=1087419819 instance=ExtResource("46_vnbtr")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["press the shift key
+or r1 button to
+dash, nyuu! ", "if you dash in the air, 
+you can curve it and
+aim it anywhere you
+like, nyuu!"])
+
+[node name="Floof2" type="Area2D" parent="NPC" unique_id=408724973 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(858, -233)
+script = ExtResource("42_pqqwk")
+hud = NodePath("../../Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof2" unique_id=61745047]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof2" unique_id=2131005199]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof2" unique_id=481187762]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("45_8ganq")
+
+[node name="Speechbox" parent="NPC/Floof2" unique_id=2047848658 instance=ExtResource("46_vnbtr")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["touch trick rings to
+collect them, nyuu!", "try and get the whole
+row without touching
+the ground, nyuu!
+if you succeed, you
+might find something
+fun, nyuuuuu!"])
+
+[node name="Floof3" type="Area2D" parent="NPC" unique_id=1426319959 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(3730, -283)
+script = ExtResource("42_pqqwk")
+hud = NodePath("../../Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof3" unique_id=2112523349]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof3" unique_id=641921618]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof3" unique_id=508591817]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("45_8ganq")
+
+[node name="Speechbox" parent="NPC/Floof3" unique_id=1632456485 instance=ExtResource("46_vnbtr")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["ooo, invincibility,
+nyuu!", "you can find neat
+nicknacks like weapons
+and powerups in these
+pretty crystals, nyuu!"])
+
+[node name="Floof4" type="Area2D" parent="NPC" unique_id=1703115333 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(650, 50)
+script = ExtResource("42_pqqwk")
+hud = NodePath("../../Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof4" unique_id=299123546]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof4" unique_id=479622330]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof4" unique_id=344217473]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("45_8ganq")
+
+[node name="Speechbox" parent="NPC/Floof4" unique_id=1662788315 instance=ExtResource("46_vnbtr")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["some enemies give
+you cool weapons
+and healing items, 
+nyuu!", "to use weapons,
+press the space bar
+or l1 button, nyuu!", "you can see the
+weapon you've
+collected and the
+ammo you have for 
+it under your 
+character's health,
+nyuu!"])
+
+[connection signal="area_entered" from="NPC/Floof" to="NPC/Floof" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof" to="NPC/Floof" method="_on_area_exited"]
+[connection signal="area_entered" from="NPC/Floof2" to="NPC/Floof2" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof2" to="NPC/Floof2" method="_on_area_exited"]
+[connection signal="area_entered" from="NPC/Floof3" to="NPC/Floof3" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof3" to="NPC/Floof3" method="_on_area_exited"]
+[connection signal="area_entered" from="NPC/Floof4" to="NPC/Floof4" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof4" to="NPC/Floof4" method="_on_area_exited"]

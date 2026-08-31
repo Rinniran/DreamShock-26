@@ -13,8 +13,17 @@ func _step():
 	
 	if parent.state_time == 15:
 		var pj = preload("res://OBJECT/Projectiles/Enemy/Pellet.tscn").instantiate()
+		match(Global.difficulty):
+			1:
+				pj.speed = pj.speed - 10
+			2:
+				pj.speed -= 5
+			4:
+				pj.speed += 5
+			5:
+				pj.speed += 10
 		pj.position.y = root.position.y
-		pj.direction.y = randf_range(-0.4,0.4)
+		pj.direction = root.position.direction_to(Global.player1.global_position)
 		pj.own = root
 		if root.sprite.flip_h == false:
 			pj.direction.x = -1

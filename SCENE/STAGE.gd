@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 					M_Player.volume_db = MusicVolume
 			if Global.invincibility:
 				if M_Player.stream != Invincible_Music:
-					M_Player.volume_db = -16
+					M_Player.volume_db = -9
 					M_Player.stream = Invincible_Music
 					M_Player.play()
 			elif Global.bossactive:

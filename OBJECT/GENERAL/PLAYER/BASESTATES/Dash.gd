@@ -46,8 +46,7 @@ func _step():
 			parent.change_state("Slide")
 		else:
 			rspr.play("ADDownDiag")
-	elif Kleft:
-		rspr.flip_h = true
+	elif Kleft || (root.is_on_floor() && rspr.flip_h == true):
 		rspr.flip_h = true
 		if root.is_on_floor():
 			rspr.play("dash")
@@ -71,7 +70,7 @@ func _step():
 			rspr.play("ADDownDiag")
 		root.velocity.y = MSPEED
 		
-	elif Kright:
+	elif Kright || (root.is_on_floor() && rspr.flip_h == false):
 		rspr.flip_h = false
 		root.velocity.x = MSPEED
 		root.velocity.y = 0

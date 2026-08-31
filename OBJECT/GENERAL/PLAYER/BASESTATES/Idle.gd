@@ -17,7 +17,7 @@ func _step():
 	super._step()
 	if root.velocity.x > 0.0 || root.velocity.x < 0.0:
 		parent.change_state("Move")
-	if !Global.hitstop && root.sprite.animation != "Idle":
+	if !Global.hitstop && root.sprite.animation != "Idle" && root.sprite.animation != "WaitA" && root.sprite.animation != "WaitB":
 		root.sprite.play("idle")
 	
 	if !root.is_3d:
@@ -33,6 +33,9 @@ func _step():
 	
 	if parent.state_time == 200:
 		root.sprite.play("WaitA")
+	
+	if Input.is_action_just_pressed("PAD1_C"):
+		parent.change_state("Dash")
 	
 	if Input.is_action_just_pressed("PAD1_A"):
 		# if root.position.distance_to(Enemy.position) < 5:

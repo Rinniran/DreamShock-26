@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="1_d5e5l"]
 [ext_resource type="Texture2D" uid="uid://buhhi4srurccv" path="res://Sprites/BG/Nightmarelake.png" id="2_6pfuq"]
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="2_7agfa"]
-[ext_resource type="Texture2D" uid="uid://dye4teu77th2d" path="res://Sprites/STAGE/STICKCITY/Water.png" id="2_fcfhg"]
 [ext_resource type="Texture2D" uid="uid://5otp8m5bg8xn" path="res://Sprites/STAGE/STICKCITY/Snow.png" id="2_wavk6"]
 [ext_resource type="Texture2D" uid="uid://b2ofrhb8oeh00" path="res://Sprites/STAGE/STICKCITY/Snow3.png" id="3_b11bm"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_wavk6"]
+[ext_resource type="TileSet" uid="uid://be0nco20ltxg7" path="res://waterwalk.tres" id="4_1d10w"]
 [ext_resource type="Texture2D" uid="uid://bdaas54l1j7qs" path="res://Sprites/STAGE/STICKCITY/Snow2.png" id="4_5xarx"]
 [ext_resource type="Texture2D" uid="uid://du5jwc5540i5g" path="res://Sprites/STAGE/STICKCITY/TRAIN.png" id="5_kkw8l"]
 [ext_resource type="Texture2D" uid="uid://c4grfk377ygyw" path="res://Sprites/STAGE/STICKCITY/CAR.png" id="6_qpo4r"]
@@ -119,25 +119,10 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ryt6j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wia1"]
-texture = ExtResource("2_fcfhg")
-texture_region_size = Vector2i(96, 96)
-0:0/animation_columns = 4
-0:0/animation_speed = 10.0
-0:0/animation_frame_0/duration = 0.5
-0:0/animation_frame_1/duration = 0.5
-0:0/animation_frame_2/duration = 0.5
-0:0/animation_frame_3/duration = 0.5
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_1xd4t"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_2wia1")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7agfa"]
 texture = ExtResource("2_wavk6")
@@ -380,7 +365,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o588k")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 6.0
 }]
@@ -465,7 +450,7 @@ tile_set = ExtResource("2_7agfa")
 [node name="Water" type="TileMapLayer" parent="." unique_id=1728886254]
 position = Vector2(2, 39)
 tile_map_data = PackedByteArray("AABGAAQAAAAAAAAAAABeAAQAAAAAAAAAAABbAAQAAAAAAAAAAABYAAQAAAAAAAAAAABVAAQAAAAAAAAAAABSAAQAAAAAAAAAAABPAAQAAAAAAAAAAABMAAQAAAAAAAAAAABDAAQAAAAAAAAAAABJAAQAAAAAAAAAAABDAAMAAAAAAAAAAABGAAMAAAAAAAAAAABJAAMAAAAAAAAAAABMAAMAAAAAAAAAAABPAAMAAAAAAAAAAABSAAMAAAAAAAAAAABVAAMAAAAAAAAAAABYAAMAAAAAAAAAAABbAAMAAAAAAAAAAABeAAMAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_1xd4t")
+tile_set = ExtResource("4_1d10w")
 
 [node name="Snow" type="TileMapLayer" parent="." unique_id=2063291220]
 position = Vector2(0, -56)
@@ -493,10 +478,6 @@ target = NodePath("../Player")
 speed = 400
 
 [node name="Hud" parent="Camera" unique_id=304665899 instance=ExtResource("10_3kbuv")]
-offset_left = -160.0
-offset_top = -112.0
-offset_right = -160.0
-offset_bottom = -112.0
 
 [node name="Sc01" type="AnimatedSprite2D" parent="." unique_id=1405574920]
 z_index = -7

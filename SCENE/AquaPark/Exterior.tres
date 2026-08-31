@@ -1,0 +1,42 @@
+[gd_resource type="TileSet" format=3 uid="uid://evyyoy2ivoin"]
+
+[ext_resource type="Texture2D" uid="uid://xqah31dp8yx7" path="res://SPRITE/STAGE/AQUAPARK/MainTiles.png" id="1_7xgva"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25uu8"]
+texture = ExtResource("1_7xgva")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -21.54498, -28.565933, -12.767395, -22.448223, -8.245609, -15.798538, -2.9258614, -9.9468155, 6.9156723, -4.36108, 14.895294, -2.233181, 23.938866, -1.1692314, 32, -0.6372566, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0.074970245, 32, 0.074970245, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0.9146576, -24.736828, 1.4906425, -10.639496, 8.140327, 1.7105026, 18.589859, 9.841534, 25.16352, 32, 32, -32, 32)
+4:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -24.172726, -32, -24.082298)
+5:3/0 = 0
+6:3/0 = 0
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:6/0 = 0
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_25uu8")

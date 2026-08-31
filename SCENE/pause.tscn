@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dmbajcdw7dde4"]
+
+[ext_resource type="Script" uid="uid://dl0nviagj18pq" path="res://SCENE/pause.gd" id="1_bhctr"]
+[ext_resource type="Texture2D" uid="uid://bfqc35awi02wf" path="res://SPRITE/UI/pause.png" id="1_vqjxj"]
+[ext_resource type="Texture2D" uid="uid://myy3o0nsfuwm" path="res://SPRITE/UI/pausecursor.png" id="2_bhctr"]
+[ext_resource type="FontFile" uid="uid://drhw2csgehm8s" path="res://SPRITE/FONT/Abnerverse 2.1.ttf" id="3_ldx4m"]
+
+[node name="Pause" type="Control" unique_id=1519265087 node_paths=PackedStringArray("cursor")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bhctr")
+cursor = NodePath("CanvasLayer/Pausecursor")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=66751617]
+
+[node name="Pause" type="Sprite2D" parent="CanvasLayer" unique_id=723388264]
+position = Vector2(212, 113)
+texture = ExtResource("1_vqjxj")
+
+[node name="Pausecursor" type="Sprite2D" parent="CanvasLayer" unique_id=715797239]
+position = Vector2(212, 131)
+texture = ExtResource("2_bhctr")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=225351513]
+offset_left = 189.0
+offset_top = 94.0
+offset_right = 234.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("3_ldx4m")
+theme_override_font_sizes/font_size = 8
+text = "continue"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=33353193]
+offset_left = 189.0
+offset_top = 110.0
+offset_right = 234.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("3_ldx4m")
+theme_override_font_sizes/font_size = 8
+text = "restart"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=2067644535]
+offset_left = 189.0
+offset_top = 126.0
+offset_right = 234.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("3_ldx4m")
+theme_override_font_sizes/font_size = 8
+text = "exit"
+horizontal_alignment = 1

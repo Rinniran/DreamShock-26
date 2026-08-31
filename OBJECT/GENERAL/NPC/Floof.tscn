@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://v2tkoaw8vae0"]
+
+[ext_resource type="Texture2D" uid="uid://6l3peq16eclb" path="res://SPRITE/NPC/FloofIdle.png" id="1_28gkt"]
+[ext_resource type="Script" uid="uid://0x6q67w2f7j" path="res://OBJECT/GENERAL/NPC/npc.gd" id="1_xiuue"]
+[ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="2_po2ss"]
+[ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="3_j105x"]
+[ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="3_xiuue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ms3"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17pdf"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6455w"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umitl"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs7gs"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3dq"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kc3"]
+atlas = ExtResource("1_28gkt")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25lc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j105x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ms3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17pdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6455w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umitl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs7gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kc3")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j105x")
+}],
+"loop": 1,
+"name": &"Talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25lc4"]
+size = Vector2(84, 80)
+
+[node name="Floof" type="Area2D" unique_id=773781641]
+process_mode = 3
+script = ExtResource("1_xiuue")
+
+[node name="SP" type="AnimatedSprite2D" parent="." unique_id=221423873]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=412616137]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="." unique_id=1484656573]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("2_po2ss")
+
+[node name="Speechbox" parent="." unique_id=1087419819 instance=ExtResource("3_xiuue")]
+visible = false
+position = Vector2(57, -58)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

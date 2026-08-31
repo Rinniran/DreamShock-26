@@ -1,0 +1,18 @@
+[gd_resource type="TileSet" format=3 uid="uid://be0nco20ltxg7"]
+
+[ext_resource type="Texture2D" uid="uid://dye4teu77th2d" path="res://Sprites/STAGE/STICKCITY/Water.png" id="1_0bqvp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wia1"]
+texture = ExtResource("1_0bqvp")
+texture_region_size = Vector2i(96, 96)
+0:0/animation_columns = 4
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 0.5
+0:0/animation_frame_1/duration = 0.5
+0:0/animation_frame_2/duration = 0.5
+0:0/animation_frame_3/duration = 0.5
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_2wia1")

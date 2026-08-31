@@ -595,7 +595,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rffo"]
-size = Vector2(25, 25)
+size = Vector2(32, 25)
 
 [node name="exp" type="AnimatedSprite2D" unique_id=430624865]
 sprite_frames = SubResource("81")

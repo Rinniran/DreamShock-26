@@ -59,6 +59,11 @@
 [ext_resource type="AudioStream" uid="uid://dgfidf5sfj6l3" path="res://AUDIO/SE/clang-strong.wav" id="51_utht8"]
 [ext_resource type="Texture2D" uid="uid://cg78gy3a117n2" path="res://Sprites/Cutscene/MOTIVEMONITOR.png" id="53_ehcbh"]
 [ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="57_2wglc"]
+[ext_resource type="Script" uid="uid://0x6q67w2f7j" path="res://OBJECT/GENERAL/NPC/npc.gd" id="60_mfcfu"]
+[ext_resource type="Texture2D" uid="uid://6l3peq16eclb" path="res://SPRITE/NPC/FloofIdle.png" id="61_swrfm"]
+[ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="62_ujf1d"]
+[ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="63_guc6x"]
+[ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="64_xn40m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpvi5"]
 texture = ExtResource("1_r2v4r")
@@ -609,6 +614,81 @@ _data = {
 &"RESET": SubResource("Animation_2wglc")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ms3"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17pdf"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6455w"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umitl"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs7gs"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3dq"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kc3"]
+atlas = ExtResource("61_swrfm")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25lc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j105x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ms3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17pdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6455w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umitl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs7gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kc3")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("62_ujf1d")
+}],
+"loop": 1,
+"name": &"Talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25lc4"]
+size = Vector2(84, 80)
+
 [node name="Bridge" type="Node2D" unique_id=1560156984]
 script = ExtResource("1_086eg")
 MusicVolume = -4.6
@@ -1152,6 +1232,51 @@ position = Vector2(2023, 51)
 [node name="TrickRing13" parent="MasterCutsceneNode" unique_id=1550860706 instance=ExtResource("57_2wglc")]
 position = Vector2(2061, 96)
 
+[node name="NPC" type="Node" parent="." unique_id=815070184]
+
+[node name="Floof" type="Area2D" parent="NPC" unique_id=773781641 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(2128, 144)
+script = ExtResource("60_mfcfu")
+hud = NodePath("../../CanvasLayer/Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof" unique_id=221423873]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof" unique_id=412616137]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof" unique_id=1484656573]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("63_guc6x")
+
+[node name="Speechbox" parent="NPC/Floof" unique_id=1087419819 instance=ExtResource("64_xn40m")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["woah, watch out for
+hell blades, nyuu!", "you can dodge them
+by dashing and dash
+attacking, or you can 
+parry them!", "to parry an attack 
+or hazard, tap a
+direction a few 
+frames before getting
+hurt, nyuu!", "parry direction is 
+dependent on where
+on your character 
+you're hit, nyuu!", "if it's above, tap up!
+if it's below, tap 
+down!
+if you're taking it
+on the chest,
+tap left or right,
+nyuu!"])
+
 [connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Idle" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Attack1" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/CSIdle2" method="_on_sprite_animation_finished"]
+[connection signal="area_entered" from="NPC/Floof" to="NPC/Floof" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof" to="NPC/Floof" method="_on_area_exited"]

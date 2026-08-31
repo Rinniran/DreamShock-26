@@ -11,14 +11,10 @@ enum weapon
 enum goal
 {
 	GTTG,
-	MOTHERCRYSTAL,
-	GOODS,
+	MOTHERCRYSTAL, #now takes generator's role
 	SHMUP,
 	SHOOTOUT,
-	AUTOSCROLL,
-	ESCORT,
-	GENERATOR,
-	DOOM
+	AUTOSCROLL
 }
 var maxhp: int = 5
 
@@ -46,6 +42,8 @@ var pieces: int = 0
 
 var camera: Node = null
 
+var difficulty = 3
+
 var kills = 0
 var killcount = 0
 var ms = 0
@@ -71,6 +69,7 @@ var continuepath = ""
 var bossactive = false
 
 var BGM = true
+var hud = null
 
 
 
@@ -81,6 +80,17 @@ var BGM = true
 signal counted
 
 func _ready() -> void:
+	match(difficulty):
+		1:
+			time = 200
+		2:
+			time = 120
+		3:
+			time = 60
+		4:
+			time = 48
+		5:
+			time = 32
 	ringplayer.stream = ringstream
 	add_child(musicP)
 	add_child(ringplayer)
@@ -109,6 +119,12 @@ func _physics_process(delta: float) -> void:
 	if p1health > maxhp:
 		p1health = maxhp
 	
+	
+	if activegame == true:
+		if Input.is_action_just_pressed("PAD1_START"):
+			var p = preload("uid://dmbajcdw7dde4").instantiate()
+			hud.visible = false
+			player1.get_parent().add_child(p)
 	
 	if chain > 0:
 		if chaintime > 0 && hitstop == false && activegame == true:

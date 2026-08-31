@@ -15,6 +15,7 @@ extends CanvasLayer
 @onready var chain = $Chain
 
 func _ready() -> void:
+	Global.hud = self
 	hpbar.max_value = Global.maxhp
 
 func _physics_process(delta: float) -> void:

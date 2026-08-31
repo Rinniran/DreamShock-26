@@ -31,7 +31,87 @@
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="26_owhp5"]
 [ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="31_0rfdf"]
 [ext_resource type="PackedScene" uid="uid://c7qr0y8t0qmg7" path="res://OBJECT/Gimmick/Trickringprize.tscn" id="32_sh8cp"]
+[ext_resource type="Script" uid="uid://0x6q67w2f7j" path="res://OBJECT/GENERAL/NPC/npc.gd" id="33_feiw1"]
 [ext_resource type="PackedScene" uid="uid://btacx65w3b0f5" path="res://OBJECT/Mounts/TANK/Tank.tscn" id="33_fvafp"]
+[ext_resource type="Texture2D" uid="uid://6l3peq16eclb" path="res://SPRITE/NPC/FloofIdle.png" id="34_2kw54"]
+[ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="35_yytp7"]
+[ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="36_j5onk"]
+[ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="37_0gywr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ms3"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17pdf"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6455w"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umitl"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs7gs"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3dq"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kc3"]
+atlas = ExtResource("34_2kw54")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25lc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j105x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ms3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17pdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6455w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umitl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs7gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kc3")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_yytp7")
+}],
+"loop": 1,
+"name": &"Talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25lc4"]
+size = Vector2(84, 80)
 
 [node name="Plaza" type="Node2D" unique_id=2107951573]
 script = ExtResource("1_jg7cs")
@@ -738,3 +818,111 @@ prizegetter = NodePath("..")
 [node name="TrickRing14" parent="TrickringPrize" unique_id=325400562 node_paths=PackedStringArray("prizegetter") instance=ExtResource("31_0rfdf")]
 position = Vector2(-43, 74)
 prizegetter = NodePath("..")
+
+[node name="NPC" type="Node" parent="." unique_id=1077223079]
+
+[node name="Floof" type="Area2D" parent="NPC" unique_id=773781641 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(324, 141)
+script = ExtResource("33_feiw1")
+hud = NodePath("../../Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof" unique_id=221423873]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof" unique_id=412616137]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof" unique_id=1484656573]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("36_j5onk")
+
+[node name="Speechbox" parent="NPC/Floof" unique_id=1087419819 instance=ExtResource("37_0gywr")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["did you know your
+dash attack is 
+invincible, nyuu?", "it's your safest ability 
+and it's great to use if
+you're unsure of what's
+up ahead, nyuu!"])
+
+[node name="Floof2" type="Area2D" parent="NPC" unique_id=922597531 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(2025, 219)
+script = ExtResource("33_feiw1")
+hud = NodePath("../../Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof2" unique_id=1760474575]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof2" unique_id=757132545]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof2" unique_id=534507537]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("36_j5onk")
+
+[node name="Speechbox" parent="NPC/Floof2" unique_id=1897571344 instance=ExtResource("37_0gywr")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["pieces, pieces, pieces!
+i love them, nyuu!", "they increase your chain,
+nyuu!", "why would you want
+that, nyuu ask?", "for every 100 chain,
+you get more time when
+you get a time extension,
+nyuu!", "chaining also increases
+the nightmare energy
+you gain when 
+collecting and fighting
+meanies, nyuu!", "nightmare energy is 
+important too, nyuu!
+
+the more you have, 
+the higher your rank
+will be at the end of
+the stage, nyuu!"])
+
+[node name="Floof3" type="Area2D" parent="NPC" unique_id=1173373077 node_paths=PackedStringArray("hud")]
+process_mode = 3
+position = Vector2(5159, 394)
+script = ExtResource("33_feiw1")
+hud = NodePath("../../Hud")
+
+[node name="SP" type="AnimatedSprite2D" parent="NPC/Floof3" unique_id=1245709666]
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Floof3" unique_id=766809003]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="NPC/Floof3" unique_id=505133659]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("36_j5onk")
+
+[node name="Speechbox" parent="NPC/Floof3" unique_id=284046134 instance=ExtResource("37_0gywr")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["tanks are super
+powerful, nyuu!", "hop in one, then
+aim with the d-pad
+and shoot with the
+attack button, nyuu!", "you can also speed
+up with the dash 
+button, nyuu!"])
+
+[connection signal="area_entered" from="NPC/Floof" to="NPC/Floof" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof" to="NPC/Floof" method="_on_area_exited"]
+[connection signal="area_entered" from="NPC/Floof2" to="NPC/Floof2" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof2" to="NPC/Floof2" method="_on_area_exited"]
+[connection signal="area_entered" from="NPC/Floof3" to="NPC/Floof3" method="_on_area_entered"]
+[connection signal="area_exited" from="NPC/Floof3" to="NPC/Floof3" method="_on_area_exited"]

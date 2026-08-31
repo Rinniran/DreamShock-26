@@ -1,0 +1,32 @@
+[gd_resource type="TileSet" format=3 uid="uid://d10wcebf5g5l5"]
+
+[ext_resource type="Texture2D" uid="uid://bdv5u5ka4m3n1" path="res://Sprites/TILE/PH64.png" id="1_kq8uc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53n7n"]
+texture = ExtResource("1_kq8uc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -21.170153, -29.78773, -11.110577, -23.481726, -4.5042887, -16.274864, 2.1020012, -8.467434, 7.412178, -5.357193, 13.212579, -1.8611431, 21.096207, -0.79585266, 32, 0.91464996, 32, 32, -32, 32)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 1.4848251, -25.657547, 0.9146576, -12.543686, -0.79585266, -2.2806702, -6.497528, 5.7016754, -16.760544, 14.254196, -26.4534, 32, -32, 32, 32, -32, 32)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0.91464996, 32, 0.91464996, 32, 32, -32, 32)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0.5411434, -22.236542, 2.054985, -13.663007, 7.1474323, -7.507147, 11.952007, -3.1530027, 16.30615, 0.6005707, 22.011583, 5.7016754, 26.572197, 17.116293, 32, 32, 32, -32, 32)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(22.80671, 2.0549927, 32, 1.4848251, 32, 32, -32, 32, -19.984028, 32, -11.263725, 29.90413, -2.9067688, 25.180635, 3.088438, 17.187023, 10.35536, 10.465124)
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_53n7n")

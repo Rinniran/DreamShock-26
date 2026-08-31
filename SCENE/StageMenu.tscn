@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dfwbc5fpnvne8"]
+
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="1_3d2qf"]
+[ext_resource type="Script" uid="uid://bbn0chqvlonxc" path="res://SCENE/stage_menu.gd" id="1_8016n"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="2_8016n"]
+[ext_resource type="Texture2D" uid="uid://doo055qjeo4xr" path="res://Sprites/MenuCursor.png" id="3_siw6e"]
+
+[node name="StageMenu" type="Node2D" unique_id=500013835 node_paths=PackedStringArray("cursor")]
+script = ExtResource("1_8016n")
+cursor = NodePath("MenuCursor")
+
+[node name="Label" type="Label" parent="." unique_id=917458850]
+offset_right = 427.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_3d2qf")
+text = "stage select"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=417272555]
+offset_left = 53.0
+offset_top = 39.0
+offset_right = 151.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("2_8016n")
+theme_override_font_sizes/font_size = 8
+text = "stick city"
+
+[node name="Label3" type="Label" parent="." unique_id=493158133]
+offset_left = 53.0
+offset_top = 63.0
+offset_right = 151.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("2_8016n")
+theme_override_font_sizes/font_size = 8
+text = "docile dunes + vaporwave venue"
+
+[node name="Label4" type="Label" parent="." unique_id=1717535768]
+offset_left = 53.0
+offset_top = 87.0
+offset_right = 151.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("2_8016n")
+theme_override_font_sizes/font_size = 8
+text = "aqua park"
+
+[node name="MenuCursor" type="Sprite2D" parent="." unique_id=1921532502]
+position = Vector2(29, 91)
+texture = ExtResource("3_siw6e")

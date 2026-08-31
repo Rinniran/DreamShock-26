@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://scgd78ixrqiy"]
+
+[ext_resource type="Texture2D" uid="uid://i42cc7em5nj5" path="res://SPRITE/NPC/Speechbox.png" id="1_ichta"]
+[ext_resource type="Script" uid="uid://d0ae1jsn2d71y" path="res://OBJECT/GENERAL/NPC/text.gd" id="2_hbrpl"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="2_ichta"]
+
+[node name="Speechbox" type="Sprite2D" unique_id=1087419819]
+z_index = 203
+position = Vector2(188, 110)
+texture = ExtResource("1_ichta")
+script = ExtResource("2_hbrpl")
+texts = Array[String](["now that we're both
+in a test room, i 
+would just like 
+to say...
+
+congratulations!", "you are now the 
+second biggest piece 
+of shit i've ever seen
+on this planet earth!"])
+
+[node name="Label" type="Label" parent="." unique_id=2047513642]
+process_mode = 3
+offset_left = -95.0
+offset_top = -42.0
+offset_right = 95.0
+offset_bottom = 22.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.57254905)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 2
+theme_override_constants/paragraph_spacing = -1
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_ichta")
+theme_override_font_sizes/font_size = 8
+text = "now that we're both\\n 
+in a test room, i\\n 
+would just like\\n 
+to say...\\n\\n
+congratulations!"
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0

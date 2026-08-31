@@ -564,7 +564,7 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="DemonOrb/CanvasLayer" unique_id=1739595135]
 z_as_relative = false
-offset_right = 320.0
+offset_right = 430.0
 offset_bottom = 238.0
 
 [node name="Hurt" type="AudioStreamPlayer" parent="DemonOrb" unique_id=1671206265]

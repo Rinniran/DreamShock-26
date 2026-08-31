@@ -1,0 +1,24 @@
+extends BaseState
+
+func _enter(data = {}):
+	root.col.set_deferred("disabled", true)
+	Global.kills += 1
+	Global.addcombo()
+	
+	Global.score += 20 * (Global.chain)
+	var ex = preload("res://OBJECT/GENERAL/ExplosionA.tscn").instantiate()
+	ex.position = root.position
+	root.get_parent().add_child(ex)
+	root.drop_item()
+	root.queue_free()
+	
+	
+func _step():
+	super()
+	
+	
+
+
+
+func _exit(next_state):
+	super(next_state)

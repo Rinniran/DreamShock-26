@@ -23,6 +23,15 @@ var gravity: int = 25
 var dead = false
 
 func _ready() -> void:
+	match(Global.difficulty):
+			1:
+				speed -= 20
+			2:
+				speed -= 10
+			4:
+				speed += 10
+			5:
+				speed += 20
 	state.initialize()
 	set_physics_process(false)
 	
