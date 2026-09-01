@@ -3,14 +3,10 @@
 [ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="2_uglmr"]
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="3_mopju"]
 [ext_resource type="AudioStream" uid="uid://bnqipvsejdtw0" path="res://AUDIO/BGM/SC_Park.ogg" id="6_gi1do"]
-[ext_resource type="PackedScene" uid="uid://m6vkfobvirxu" path="res://OBJECT/GENERAL/CAMERA/Cammodeswitch.tscn" id="7_e4262"]
 [ext_resource type="Script" uid="uid://di7muc7ikgj7g" path="res://OBJECT/GENERAL/CAMERA/cammodeswitch.gd" id="8_gi1do"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="10_11t57"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="11_n12e1"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="12_u3lfl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r87be"]
-size = Vector2(205, 34)
 
 [node name="SectionA" type="Node2D" unique_id=104430494]
 
@@ -59,92 +55,9 @@ stream = ExtResource("6_gi1do")
 volume_db = -14.051
 autoplay = true
 
-[node name="Cammodeswitch" parent="." unique_id=1852398627 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(1959, 160)
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch2" parent="." unique_id=1687885354 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(1956, -164)
-cammodes = 5
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch3" parent="." unique_id=1179049337 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(2262, 141)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch4" parent="." unique_id=1656113177 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(2391, 32)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch5" parent="." unique_id=1467568582 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(2549, 17)
-cammodes = 5
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch6" parent="." unique_id=1304206148 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(2842, 35)
-cammodes = 4
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch7" parent="." unique_id=1658234581 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(2909, -2)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch8" parent="." unique_id=486879001 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(3026, 1)
-cammodes = 5
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch9" parent="." unique_id=10239063 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(3196, 28)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch15" parent="." unique_id=714183560 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(3583, -85)
-cammodes = 4
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch16" parent="." unique_id=1640891030 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(4134, -58)
-cammodes = 5
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch10" parent="." unique_id=361583084 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(4568, 6)
-cammodes = 4
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch11" parent="." unique_id=1144215853 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(4957, -42)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch12" parent="." unique_id=1721177795 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(5540, 7)
-cammodes = 5
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch13" parent="." unique_id=980454731 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(5693, 136)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch14" parent="." unique_id=396424925 node_paths=PackedStringArray("cam") instance=ExtResource("7_e4262")]
-position = Vector2(6452, 155)
-cammodes = 5
-cam = NodePath("../Camera")
-
 [node name="Cammodeswitch17" type="Area2D" parent="." unique_id=1946618972 node_paths=PackedStringArray("cam")]
 position = Vector2(6474, 292)
 script = ExtResource("8_gi1do")
 cam = NodePath("../Camera")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cammodeswitch17" unique_id=1655316216]
-position = Vector2(92.5, 7)
-shape = SubResource("RectangleShape2D_r87be")
 
 [connection signal="body_entered" from="Cammodeswitch17" to="Cammodeswitch17" method="_on_body_entered"]

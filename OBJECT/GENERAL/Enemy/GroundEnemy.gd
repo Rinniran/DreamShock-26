@@ -1,4 +1,14 @@
 extends CharacterBody2D
+
+@export_category("Difficulties")
+@export var infant = true
+@export var human = true
+@export var stick = true
+@export var adversary = true
+@export var dreamshock = true
+
+
+@export_category("SYSTEM")
 @export var hitstopnull = false
 @export var hurtstop = 2
 @export var can_flinch = false
@@ -31,15 +41,26 @@ var dead = false
 
 func _ready() -> void:
 	
+	if Global.difficulty == 1 && !infant:
+		queue_free()
+	if Global.difficulty == 2 && !human:
+		queue_free()
+	if Global.difficulty == 3 && !stick:
+		queue_free()
+	if Global.difficulty == 4 && !infant:
+		queue_free()
+	if Global.difficulty == 5 && !dreamshock:
+		queue_free()
+	
 	match(Global.difficulty):
 			1:
-				speed -= 20
+				speed -= 50
 			2:
-				speed -= 10
+				speed -= 25
 			4:
-				speed += 10
+				speed += 25
 			5:
-				speed += 20
+				speed += 50
 	
 	Global.counted.connect(countup)
 	state.initialize()

@@ -47,9 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="45_8ganq"]
 [ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="46_vnbtr"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_clmtf"]
-polygon = PackedVector2Array(3761, -414, 768, 44, 37, 62, -144, 36, 231, -23, 236, -47, 557, -130, 563, -160, 1102, -313, 2858.234, -372.5334, 2933, -411)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js17h"]
 texture = ExtResource("14_k3ec5")
 texture_region_size = Vector2i(64, 64)
@@ -101,40 +98,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nryoh")
-
-[sub_resource type="Environment" id="Environment_4g6p8"]
-background_mode = 3
-reflected_light_source = 2
-ssr_enabled = true
-ssao_enabled = true
-ssao_radius = 2.62
-ssao_intensity = 3.42
-ssil_enabled = true
-ssil_radius = 4.75
-ssil_intensity = 4.49
-ssil_sharpness = 0.61
-ssil_normal_rejection = 0.63
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.92
-glow_strength = 0.99
-glow_mix = 0.0
-glow_bloom = 0.17
-glow_blend_mode = 4
-glow_hdr_threshold = 1.86
-glow_hdr_scale = 2.12
-glow_hdr_luminance_cap = 40.67
-glow_map_strength = 0.76
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.2034
-volumetric_fog_emission_energy = 171.39
-volumetric_fog_length = 260.99
-adjustment_enabled = true
-adjustment_brightness = 1.02
-adjustment_contrast = 1.135
-adjustment_saturation = 1.07
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
 atlas = ExtResource("43_dm7b6")
@@ -212,7 +175,6 @@ animations = [{
 size = Vector2(84, 80)
 
 [node name="Streets" type="Node2D" unique_id=327141923]
-modulate = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("1_tt0hx")
 MusicVolume = -4.0
 Stage_Music = ExtResource("2_lo57f")
@@ -221,7 +183,6 @@ stagepath = "res://SCENE/StickCity/Streets.tscn"
 [node name="Node" type="Node" parent="." unique_id=1149708822]
 
 [node name="Parallax2D" type="Parallax2D" parent="Node" unique_id=41417506]
-modulate = Color(0.17020144, 0.17020144, 0.17020144, 1)
 z_index = -37
 scroll_scale = Vector2(1, 0)
 scroll_offset = Vector2(-1, 5)
@@ -233,19 +194,6 @@ light_mask = 0
 z_index = -60
 position = Vector2(160, 115)
 texture = ExtResource("1_attul")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1622876784]
-position = Vector2(562, -109)
-rotation = 0.27750736
-color = Color(1, 0.58000004, 0.937, 1)
-energy = 4.71
-shadow_enabled = true
-shadow_color = Color(0.37211323, 0.18244568, 0.89369845, 0.08627451)
-max_distance = 2200.0
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1586653141]
-position = Vector2(1040, 221)
-occluder = SubResource("OccluderPolygon2D_clmtf")
 
 [node name="Player" parent="." unique_id=1112045618 node_paths=PackedStringArray("CAMERA") instance=ExtResource("2_3h4rv")]
 position = Vector2(105, 163)
@@ -266,126 +214,144 @@ z_index = -5
 z_as_relative = false
 position = Vector2(1004, 374)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D2" type="PointLight2D" parent="Lights" unique_id=383546753]
 z_as_relative = false
 position = Vector2(1199, 374)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D3" type="PointLight2D" parent="Lights" unique_id=1765850149]
 z_as_relative = false
 position = Vector2(1404, 298)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D4" type="PointLight2D" parent="Lights" unique_id=401810440]
 z_as_relative = false
 position = Vector2(1580, 298)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D5" type="PointLight2D" parent="Lights" unique_id=1484083051]
 z_index = -2
 position = Vector2(1794, 348)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D6" type="PointLight2D" parent="Lights" unique_id=1024869154]
 z_as_relative = false
 position = Vector2(1870, 115)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D7" type="PointLight2D" parent="Lights" unique_id=395503303]
 z_as_relative = false
 position = Vector2(2225, 246)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D8" type="PointLight2D" parent="Lights" unique_id=448417187]
 z_as_relative = false
 position = Vector2(2344, 244)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D9" type="PointLight2D" parent="Lights" unique_id=28492611]
 z_as_relative = false
 position = Vector2(2463, 242)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D10" type="PointLight2D" parent="Lights" unique_id=296539837]
 z_as_relative = false
 position = Vector2(2692, 263)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D11" type="PointLight2D" parent="Lights" unique_id=220570783]
 z_as_relative = false
 position = Vector2(3016, 408)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D12" type="PointLight2D" parent="Lights" unique_id=1153773798]
 z_as_relative = false
 position = Vector2(3395, 408)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D13" type="PointLight2D" parent="Lights" unique_id=79161903]
 z_as_relative = false
 position = Vector2(3490, 406)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D14" type="PointLight2D" parent="Lights" unique_id=1316812452]
 z_as_relative = false
 position = Vector2(3588, 404)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D15" type="PointLight2D" parent="Lights" unique_id=1375730083]
 z_as_relative = false
 position = Vector2(3790, 137)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D16" type="PointLight2D" parent="Lights" unique_id=2058962149]
 z_as_relative = false
 position = Vector2(3902, 135)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D17" type="PointLight2D" parent="Lights" unique_id=1328684816]
 z_as_relative = false
 position = Vector2(4178, 118)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="PointLight2D18" type="PointLight2D" parent="Lights" unique_id=191417241]
 z_as_relative = false
 position = Vector2(4464, 118)
 color = Color(1, 0.8333334, 0, 1)
-energy = 12.25
+energy = 4.69
+blend_mode = 2
 texture = ExtResource("5_ncqv5")
 
 [node name="SpriteDecor" type="Node2D" parent="." unique_id=1895250454]
@@ -1128,711 +1094,534 @@ layer_0/tile_data = PackedInt32Array(196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 1
 [node name="Pieces" type="Node" parent="." unique_id=280905814]
 
 [node name="Piece" parent="Pieces" unique_id=375776827 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(127, 167)
 
 [node name="Piece2" parent="Pieces" unique_id=1330437173 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(156, 167)
 
 [node name="Piece3" parent="Pieces" unique_id=745997832 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(188, 167)
 
 [node name="Piece4" parent="Pieces" unique_id=449978883 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(276, 167)
 
 [node name="Piece5" parent="Pieces" unique_id=2039280455 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(308, 167)
 
 [node name="Piece6" parent="Pieces" unique_id=1265648530 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(340, 167)
 
 [node name="Piece7" parent="Pieces" unique_id=1434438430 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1058, 56)
 
 [node name="Piece166" parent="Pieces" unique_id=596484646 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1018, 55)
 
 [node name="Piece167" parent="Pieces" unique_id=1986946336 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1417, -373)
 
 [node name="Piece168" parent="Pieces" unique_id=869573400 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1445, -402)
 
 [node name="Piece169" parent="Pieces" unique_id=1168322749 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1468, -430)
 
 [node name="Piece170" parent="Pieces" unique_id=214366670 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4874, -293)
 
 [node name="Piece171" parent="Pieces" unique_id=807906522 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4884, -250)
 
 [node name="Piece172" parent="Pieces" unique_id=2040771514 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4892, -211)
 
 [node name="Piece173" parent="Pieces" unique_id=130999808 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4898, -165)
 
 [node name="Piece174" parent="Pieces" unique_id=866784368 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4905, -116)
 
 [node name="Piece8" parent="Pieces" unique_id=466702441 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1096, 56)
 
 [node name="Piece9" parent="Pieces" unique_id=976421093 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1138, 47)
 
 [node name="Piece10" parent="Pieces" unique_id=113371223 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1180, 33)
 
 [node name="Piece11" parent="Pieces" unique_id=1550642291 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1570, 45)
 
 [node name="Piece12" parent="Pieces" unique_id=1103133629 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1538, 45)
 
 [node name="Piece13" parent="Pieces" unique_id=780143105 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1506, 45)
 
 [node name="Piece14" parent="Pieces" unique_id=385255502 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1474, 45)
 
 [node name="Piece15" parent="Pieces" unique_id=841775433 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1442, 45)
 
 [node name="Piece16" parent="Pieces" unique_id=215649767 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1410, 45)
 
 [node name="Piece17" parent="Pieces" unique_id=1971894534 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1516, -40)
 
 [node name="Piece18" parent="Pieces" unique_id=1488115820 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1492, -64)
 
 [node name="Piece19" parent="Pieces" unique_id=1312784704 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1468, -40)
 
 [node name="Piece20" parent="Pieces" unique_id=844558722 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1444, -64)
 
 [node name="Piece21" parent="Pieces" unique_id=2006435746 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1420, -40)
 
 [node name="Piece22" parent="Pieces" unique_id=993499094 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1370, -122)
 
 [node name="Piece23" parent="Pieces" unique_id=2146445361 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1338, -122)
 
 [node name="Piece24" parent="Pieces" unique_id=1682416296 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1306, -122)
 
 [node name="Piece25" parent="Pieces" unique_id=2098587038 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1274, -122)
 
 [node name="Piece26" parent="Pieces" unique_id=307956441 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1210, -138)
 
 [node name="Piece27" parent="Pieces" unique_id=901494894 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1178, -154)
 
 [node name="Piece28" parent="Pieces" unique_id=482569250 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1138, -169)
 
 [node name="Piece29" parent="Pieces" unique_id=1865440490 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1098, -185)
 
 [node name="Piece30" parent="Pieces" unique_id=440035127 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1238, -333)
 
 [node name="Piece31" parent="Pieces" unique_id=1783234571 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1210, -356)
 
 [node name="Piece32" parent="Pieces" unique_id=613286747 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1182, -333)
 
 [node name="Piece33" parent="Pieces" unique_id=1452724471 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1154, -355)
 
 [node name="Piece34" parent="Pieces" unique_id=435378957 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1124, -334)
 
 [node name="Piece35" parent="Pieces" unique_id=641171715 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1878, -405)
 
 [node name="Piece36" parent="Pieces" unique_id=1076595585 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1910, -405)
 
 [node name="Piece37" parent="Pieces" unique_id=1954775545 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1942, -405)
 
 [node name="Piece38" parent="Pieces" unique_id=430871964 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1974, -405)
 
 [node name="Piece39" parent="Pieces" unique_id=933501890 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2014, -405)
 
 [node name="Piece40" parent="Pieces" unique_id=337847122 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1994, -438)
 
 [node name="Piece41" parent="Pieces" unique_id=823826249 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1957, -438)
 
 [node name="Piece42" parent="Pieces" unique_id=83733617 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1925, -438)
 
 [node name="Piece43" parent="Pieces" unique_id=68816356 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1893, -438)
 
 [node name="Piece44" parent="Pieces" unique_id=1558714990 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2498, -388)
 
 [node name="Piece45" parent="Pieces" unique_id=1050892535 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2531, -406)
 
 [node name="Piece46" parent="Pieces" unique_id=897614087 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2565, -432)
 
 [node name="Piece47" parent="Pieces" unique_id=1883261894 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2601, -445)
 
 [node name="Piece48" parent="Pieces" unique_id=1765178131 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2640, -459)
 
 [node name="Piece49" parent="Pieces" unique_id=2130411090 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2757, -469)
 
 [node name="Piece50" parent="Pieces" unique_id=2044967078 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2781, -493)
 
 [node name="Piece51" parent="Pieces" unique_id=774603154 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2805, -469)
 
 [node name="Piece52" parent="Pieces" unique_id=252271222 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2829, -493)
 
 [node name="Piece53" parent="Pieces" unique_id=1269084965 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2853, -469)
 
 [node name="Piece54" parent="Pieces" unique_id=1211827207 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2877, -493)
 
 [node name="Piece175" parent="Pieces" unique_id=803195186 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(793, 70)
 
 [node name="Piece176" parent="Pieces" unique_id=1801796288 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(841, 70)
 
 [node name="Piece177" parent="Pieces" unique_id=1654644433 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(889, 70)
 
 [node name="Piece55" parent="Pieces" unique_id=2092663320 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2901, -469)
 
 [node name="Piece56" parent="Pieces" unique_id=1294675140 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3155, -341)
 
 [node name="Piece57" parent="Pieces" unique_id=452473025 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3187, -341)
 
 [node name="Piece58" parent="Pieces" unique_id=914448645 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3219, -341)
 
 [node name="Piece59" parent="Pieces" unique_id=719846364 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3251, -341)
 
 [node name="Piece60" parent="Pieces" unique_id=903314491 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3419, -210)
 
 [node name="Piece61" parent="Pieces" unique_id=1212351622 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3443, -234)
 
 [node name="Piece62" parent="Pieces" unique_id=1588116458 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3467, -210)
 
 [node name="Piece63" parent="Pieces" unique_id=848835873 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3491, -234)
 
 [node name="Piece64" parent="Pieces" unique_id=1623954745 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3515, -210)
 
 [node name="Piece65" parent="Pieces" unique_id=943470248 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3539, -234)
 
 [node name="Piece66" parent="Pieces" unique_id=846705471 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3563, -210)
 
 [node name="Piece67" parent="Pieces" unique_id=1029838587 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3587, -234)
 
 [node name="Piece68" parent="Pieces" unique_id=1561704144 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3611, -210)
 
 [node name="Piece69" parent="Pieces" unique_id=1905830007 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3643, -210)
 
 [node name="Piece70" parent="Pieces" unique_id=2072043122 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3667, -234)
 
 [node name="Piece71" parent="Pieces" unique_id=1911200889 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3691, -210)
 
 [node name="Piece72" parent="Pieces" unique_id=1283555825 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3715, -234)
 
 [node name="Piece73" parent="Pieces" unique_id=2057435203 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3739, -210)
 
 [node name="Piece74" parent="Pieces" unique_id=1075927295 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3763, -234)
 
 [node name="Piece75" parent="Pieces" unique_id=270430377 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3787, -210)
 
 [node name="Piece76" parent="Pieces" unique_id=712837881 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3660, -398)
 
 [node name="Piece77" parent="Pieces" unique_id=933064234 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3687, -425)
 
 [node name="Piece78" parent="Pieces" unique_id=501558850 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3728, -438)
 
 [node name="Piece79" parent="Pieces" unique_id=1782747932 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3776, -438)
 
 [node name="Piece80" parent="Pieces" unique_id=237380360 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4131, -462)
 
 [node name="Piece81" parent="Pieces" unique_id=2072982549 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4131, -495)
 
 [node name="Piece82" parent="Pieces" unique_id=1987044102 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4131, -528)
 
 [node name="Piece83" parent="Pieces" unique_id=221265426 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4223, -602)
 
 [node name="Piece84" parent="Pieces" unique_id=258253359 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4247, -602)
 
 [node name="Piece85" parent="Pieces" unique_id=1519294436 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4271, -602)
 
 [node name="Piece86" parent="Pieces" unique_id=550999391 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4338, -532)
 
 [node name="Piece87" parent="Pieces" unique_id=109039528 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4362, -532)
 
 [node name="Piece88" parent="Pieces" unique_id=781600340 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4386, -532)
 
 [node name="Piece89" parent="Pieces" unique_id=1663855252 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4410, -532)
 
 [node name="Piece90" parent="Pieces" unique_id=1139814740 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4434, -532)
 
 [node name="Piece91" parent="Pieces" unique_id=540378102 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4638, -504)
 
 [node name="Piece92" parent="Pieces" unique_id=2059434628 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4662, -480)
 
 [node name="Piece93" parent="Pieces" unique_id=2138671215 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4686, -456)
 
 [node name="Piece94" parent="Pieces" unique_id=416542591 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4710, -432)
 
 [node name="Piece95" parent="Pieces" unique_id=396174630 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4734, -408)
 
 [node name="Piece96" parent="Pieces" unique_id=1201230852 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1251, 347)
 
 [node name="Piece97" parent="Pieces" unique_id=2093743014 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1251, 316)
 
 [node name="Piece98" parent="Pieces" unique_id=1393132363 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1251, 288)
 
 [node name="Piece99" parent="Pieces" unique_id=1118438516 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1657, 287)
 
 [node name="Piece100" parent="Pieces" unique_id=254223085 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1677, 305)
 
 [node name="Piece101" parent="Pieces" unique_id=1500822133 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1696, 326)
 
 [node name="Piece102" parent="Pieces" unique_id=955991781 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1899, 337)
 
 [node name="Piece103" parent="Pieces" unique_id=673286037 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1927, 363)
 
 [node name="Piece104" parent="Pieces" unique_id=2010864913 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1953, 337)
 
 [node name="Piece105" parent="Pieces" unique_id=1550932526 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(1981, 362)
 
 [node name="Piece106" parent="Pieces" unique_id=1555626394 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2010, 337)
 
 [node name="Piece107" parent="Pieces" unique_id=1384945724 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2179, 241)
 
 [node name="Piece108" parent="Pieces" unique_id=1047245954 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2203, 272)
 
 [node name="Piece109" parent="Pieces" unique_id=1075727621 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2232, 242)
 
 [node name="Piece110" parent="Pieces" unique_id=937231670 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2261, 268)
 
 [node name="Piece111" parent="Pieces" unique_id=1944133226 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2287, 240)
 
 [node name="Piece112" parent="Pieces" unique_id=1996766724 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2530, 246)
 
 [node name="Piece113" parent="Pieces" unique_id=1927709968 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2556, 270)
 
 [node name="Piece114" parent="Pieces" unique_id=1356131908 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2580, 300)
 
 [node name="Piece115" parent="Pieces" unique_id=2117368891 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2604, 328)
 
 [node name="Piece116" parent="Pieces" unique_id=2020021211 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2963, 426)
 
 [node name="Piece117" parent="Pieces" unique_id=1851273221 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(2992, 426)
 
 [node name="Piece118" parent="Pieces" unique_id=971271526 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3021, 426)
 
 [node name="Piece119" parent="Pieces" unique_id=1555731839 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3052, 427)
 
 [node name="Piece120" parent="Pieces" unique_id=1662432142 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3441, 282)
 
 [node name="Piece121" parent="Pieces" unique_id=1934417885 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3465, 306)
 
 [node name="Piece122" parent="Pieces" unique_id=1627999045 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3489, 282)
 
 [node name="Piece123" parent="Pieces" unique_id=527589990 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3513, 306)
 
 [node name="Piece124" parent="Pieces" unique_id=407314113 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3537, 282)
 
 [node name="Piece125" parent="Pieces" unique_id=1634731230 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3561, 306)
 
 [node name="Piece126" parent="Pieces" unique_id=1582404604 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3417, 306)
 
 [node name="Piece127" parent="Pieces" unique_id=1061288102 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3684, 276)
 
 [node name="Piece128" parent="Pieces" unique_id=818295944 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3683, 245)
 
 [node name="Piece129" parent="Pieces" unique_id=94956448 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3682, 209)
 
 [node name="Piece130" parent="Pieces" unique_id=1440915654 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3777, 169)
 
 [node name="Piece131" parent="Pieces" unique_id=1306926177 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3801, 145)
 
 [node name="Piece132" parent="Pieces" unique_id=1212615905 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3825, 169)
 
 [node name="Piece133" parent="Pieces" unique_id=1741333462 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3849, 145)
 
 [node name="Piece134" parent="Pieces" unique_id=984632804 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(3873, 169)
 
 [node name="Piece135" parent="Pieces" unique_id=171669369 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4106, 115)
 
 [node name="Piece136" parent="Pieces" unique_id=878934194 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4130, 115)
 
 [node name="Piece137" parent="Pieces" unique_id=605479865 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4154, 115)
 
 [node name="Piece138" parent="Pieces" unique_id=947651595 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4178, 115)
 
 [node name="Piece139" parent="Pieces" unique_id=672694880 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4202, 115)
 
 [node name="Piece140" parent="Pieces" unique_id=911351199 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4773, 12)
 
 [node name="Piece141" parent="Pieces" unique_id=1990000818 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4773, 44)
 
 [node name="Piece142" parent="Pieces" unique_id=109842617 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4773, 76)
 
 [node name="Piece143" parent="Pieces" unique_id=162622462 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4797, 28)
 
 [node name="Piece144" parent="Pieces" unique_id=2123551082 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4797, 60)
 
 [node name="Piece145" parent="Pieces" unique_id=331406885 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(4797, 92)
 
 [node name="Piece146" parent="Pieces" unique_id=495882181 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5028, -1)
 
 [node name="Piece147" parent="Pieces" unique_id=18460639 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5060, -1)
 
 [node name="Piece148" parent="Pieces" unique_id=49035252 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5092, -1)
 
 [node name="Piece149" parent="Pieces" unique_id=257238695 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5124, -1)
 
 [node name="Piece150" parent="Pieces" unique_id=94676403 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5156, -1)
 
 [node name="Piece151" parent="Pieces" unique_id=824406875 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5658, 113)
 
 [node name="Piece152" parent="Pieces" unique_id=1855800621 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5682, 113)
 
 [node name="Piece153" parent="Pieces" unique_id=1312927472 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5706, 113)
 
 [node name="Piece154" parent="Pieces" unique_id=957876957 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5730, 113)
 
 [node name="Piece155" parent="Pieces" unique_id=1735208683 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5794, 177)
 
 [node name="Piece156" parent="Pieces" unique_id=633578747 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5826, 177)
 
 [node name="Piece157" parent="Pieces" unique_id=2082841654 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5858, 177)
 
 [node name="Piece158" parent="Pieces" unique_id=18720542 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(5890, 177)
 
 [node name="Piece159" parent="Pieces" unique_id=354735450 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6010, 177)
 
 [node name="Piece160" parent="Pieces" unique_id=1711552165 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6034, 153)
 
 [node name="Piece161" parent="Pieces" unique_id=1506769457 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6058, 177)
 
 [node name="Piece162" parent="Pieces" unique_id=51636649 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6082, 153)
 
 [node name="Piece163" parent="Pieces" unique_id=966877115 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6106, 177)
 
 [node name="Piece164" parent="Pieces" unique_id=523607860 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6130, 153)
 
 [node name="Piece165" parent="Pieces" unique_id=2069078684 instance=ExtResource("25_nryoh")]
-modulate = Color(0.23, 0.23, 0.23, 1)
 position = Vector2(6154, 177)
 
 [node name="Buildings1" type="Sprite2D" parent="." unique_id=1256588949]
@@ -1865,9 +1654,6 @@ texture = ExtResource("27_3yxvb")
 [node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("30_4g6p8")]
 position = Vector2(6422, -115)
 stage = ExtResource("31_a31gp")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2118099498]
-environment = SubResource("Environment_4g6p8")
 
 [node name="Capsule" parent="." unique_id=228143807 instance=ExtResource("33_p7bt1")]
 position = Vector2(3788, -298)

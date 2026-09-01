@@ -14,12 +14,15 @@ func _physics_process(delta: float) -> void:
 		Global.camera.target = self
 		spr.play("Talk")
 		ip.visible = false
-		hud.visible = false
+		if hud != null:
+			hud.visible = false
 	else:
 		spr.play("Idle")
 		if get_tree().paused == false:
+			
 			Global.camera.target = Global.player1
-			hud.visible = true
+			if hud != null:
+				hud.visible = true
 
 
 func _on_area_entered(area: Area2D) -> void:

@@ -592,6 +592,8 @@ position = Vector2(4115, 1261)
 
 [node name="StickhuskGun7" parent="Enemies" unique_id=703988167 instance=ExtResource("12_axypt")]
 position = Vector2(5196, 1133)
+infant = false
+human = false
 dropped_item = ExtResource("16_acqoy")
 
 [node name="StickhuskGun8" parent="Enemies" unique_id=793778614 instance=ExtResource("12_axypt")]
@@ -609,6 +611,7 @@ position = Vector2(7546, 750)
 
 [node name="StickhuskGun12" parent="Enemies" unique_id=912269040 instance=ExtResource("12_axypt")]
 position = Vector2(7747, 751)
+infant = false
 
 [node name="StickhuskGun13" parent="Enemies" unique_id=1257257475 instance=ExtResource("12_axypt")]
 position = Vector2(7990, 750)
@@ -619,21 +622,28 @@ position = Vector2(9331, 943)
 
 [node name="Cenem" parent="Enemies" unique_id=1357584292 instance=ExtResource("13_u2jov")]
 position = Vector2(709, 924)
+infant = false
+human = false
 
 [node name="Cenem2" parent="Enemies" unique_id=841783265 instance=ExtResource("13_u2jov")]
 position = Vector2(898, 926)
+infant = false
+human = false
 
 [node name="Cenem3" parent="Enemies" unique_id=1093546245 instance=ExtResource("13_u2jov")]
 position = Vector2(2575, 1198)
 
 [node name="Cenem4" parent="Enemies" unique_id=1544594444 instance=ExtResource("13_u2jov")]
 position = Vector2(2692, 1213)
+infant = false
 
 [node name="Cenem5" parent="Enemies" unique_id=1915325992 instance=ExtResource("13_u2jov")]
 position = Vector2(2477, 1226)
+infant = false
 
 [node name="Cenem6" parent="Enemies" unique_id=1965929488 instance=ExtResource("13_u2jov")]
 position = Vector2(3819, 1198)
+infant = false
 
 [node name="Cenem7" parent="Enemies" unique_id=811377942 instance=ExtResource("13_u2jov")]
 position = Vector2(4019, 1196)
@@ -641,27 +651,39 @@ dropped_item = ExtResource("15_ramei")
 
 [node name="Cenem8" parent="Enemies" unique_id=1258833746 instance=ExtResource("13_u2jov")]
 position = Vector2(4243, 1191)
+infant = false
 
 [node name="Cenem9" parent="Enemies" unique_id=438592941 instance=ExtResource("13_u2jov")]
 position = Vector2(5339, 1067)
+infant = false
 
 [node name="Cenem10" parent="Enemies" unique_id=863115970 instance=ExtResource("13_u2jov")]
 position = Vector2(5957, 426)
+infant = false
+human = false
 
 [node name="Cenem11" parent="Enemies" unique_id=295116050 instance=ExtResource("13_u2jov")]
 position = Vector2(6041, 468)
+infant = false
+human = false
 
 [node name="Cenem12" parent="Enemies" unique_id=1068838500 instance=ExtResource("13_u2jov")]
 position = Vector2(6098, 535)
+infant = false
+human = false
 
 [node name="Cenem13" parent="Enemies" unique_id=973099821 instance=ExtResource("13_u2jov")]
 position = Vector2(6393, 428)
+infant = false
+human = false
 
 [node name="Cenem14" parent="Enemies" unique_id=156007522 instance=ExtResource("13_u2jov")]
 position = Vector2(6466, 475)
 
 [node name="Cenem15" parent="Enemies" unique_id=1513880233 instance=ExtResource("13_u2jov")]
 position = Vector2(6502, 537)
+infant = false
+human = false
 dropped_item = ExtResource("15_ramei")
 
 [node name="Cenem16" parent="Enemies" unique_id=549072420 instance=ExtResource("13_u2jov")]
@@ -669,28 +691,39 @@ position = Vector2(7003, 666)
 
 [node name="Cenem17" parent="Enemies" unique_id=1188511748 instance=ExtResource("13_u2jov")]
 position = Vector2(6916, 611)
+infant = false
 
 [node name="Cenem18" parent="Enemies" unique_id=1762325569 instance=ExtResource("13_u2jov")]
 position = Vector2(7138, 698)
+infant = false
 
 [node name="Cenem19" parent="Enemies" unique_id=237173570 instance=ExtResource("13_u2jov")]
 position = Vector2(7201, 727)
 
 [node name="Cenem20" parent="Enemies" unique_id=747563420 instance=ExtResource("13_u2jov")]
 position = Vector2(8299, 799)
+infant = false
+human = false
 
 [node name="Cenem21" parent="Enemies" unique_id=937917267 instance=ExtResource("13_u2jov")]
 position = Vector2(8353, 795)
+infant = false
+human = false
 
 [node name="Cenem22" parent="Enemies" unique_id=296970147 instance=ExtResource("13_u2jov")]
 position = Vector2(9110, 853)
+infant = false
+human = false
 
 [node name="Cenem23" parent="Enemies" unique_id=1797880390 instance=ExtResource("13_u2jov")]
 position = Vector2(9155, 898)
+infant = false
+human = false
 dropped_item = ExtResource("16_acqoy")
 
 [node name="StickhuskSword" parent="Enemies" unique_id=714208136 instance=ExtResource("14_22ba4")]
 position = Vector2(1182, 879)
+infant = false
 
 [node name="StickhuskSword2" parent="Enemies" unique_id=1015800126 instance=ExtResource("14_22ba4")]
 position = Vector2(1573, 1073)
@@ -715,6 +748,7 @@ dropped_item = ExtResource("15_ramei")
 
 [node name="StickhuskSword8" parent="Enemies" unique_id=711101407 instance=ExtResource("14_22ba4")]
 position = Vector2(7859, 752)
+infant = false
 dropped_item = ExtResource("18_ym8t3")
 
 [node name="StickhuskSword9" parent="Enemies" unique_id=471293518 instance=ExtResource("14_22ba4")]
@@ -729,6 +763,8 @@ position = Vector2(13810, 662)
 
 [node name="StickhuskSword11" parent="Enemies" unique_id=1495029728 instance=ExtResource("14_22ba4")]
 position = Vector2(11255, 940)
+infant = false
+human = false
 dropped_item = ExtResource("18_ym8t3")
 
 [node name="StickhuskSword12" parent="Enemies" unique_id=97704243 instance=ExtResource("14_22ba4")]
@@ -736,6 +772,8 @@ position = Vector2(11302, 943)
 
 [node name="StickhuskSword13" parent="Enemies" unique_id=127514717 instance=ExtResource("14_22ba4")]
 position = Vector2(11361, 942)
+infant = false
+human = false
 
 [node name="StickhuskSword14" parent="Enemies" unique_id=1378546882 instance=ExtResource("14_22ba4")]
 position = Vector2(11752, 804)
@@ -749,9 +787,12 @@ position = Vector2(13837, 806)
 
 [node name="StickhuskSword17" parent="Enemies" unique_id=1513318552 instance=ExtResource("14_22ba4")]
 position = Vector2(13883, 806)
+infant = false
+human = false
 
 [node name="StickhuskSword18" parent="Enemies" unique_id=1354681793 instance=ExtResource("14_22ba4")]
 position = Vector2(14542, 775)
+infant = false
 dropped_item = ExtResource("18_ym8t3")
 
 [node name="StickhuskSword19" parent="Enemies" unique_id=2125512569 instance=ExtResource("14_22ba4")]
@@ -769,13 +810,17 @@ position = Vector2(16639, 666)
 
 [node name="StickhuskSword23" parent="Enemies" unique_id=615363236 instance=ExtResource("14_22ba4")]
 position = Vector2(16685, 669)
+infant = false
+human = false
 dropped_item = ExtResource("18_ym8t3")
 
 [node name="StickhuskSword24" parent="Enemies" unique_id=1074635258 instance=ExtResource("14_22ba4")]
 position = Vector2(16734, 669)
+infant = false
 
 [node name="StickhuskSword25" parent="Enemies" unique_id=1298697578 instance=ExtResource("14_22ba4")]
 position = Vector2(17082, 288)
+infant = false
 
 [node name="StickhuskSword26" parent="Enemies" unique_id=814975073 instance=ExtResource("14_22ba4")]
 position = Vector2(17562, 298)
@@ -788,69 +833,133 @@ position = Vector2(9329, 790)
 
 [node name="Bouncer" parent="Enemies" unique_id=594389280 instance=ExtResource("20_iu1rh")]
 position = Vector2(3084, 1211)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer2" parent="Enemies" unique_id=1393602011 instance=ExtResource("20_iu1rh")]
 position = Vector2(5080, 1055)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer3" parent="Enemies" unique_id=1564722555 instance=ExtResource("20_iu1rh")]
 position = Vector2(6235, 497)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer4" parent="Enemies" unique_id=1778310763 instance=ExtResource("20_iu1rh")]
 position = Vector2(9689, 765)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer5" parent="Enemies" unique_id=617500112 instance=ExtResource("20_iu1rh")]
 position = Vector2(9758, 807)
+infant = false
+human = false
 
 [node name="Bouncer6" parent="Enemies" unique_id=291086313 instance=ExtResource("20_iu1rh")]
 position = Vector2(9836, 764)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer7" parent="Enemies" unique_id=1607469907 instance=ExtResource("20_iu1rh")]
 position = Vector2(10701, 769)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer8" parent="Enemies" unique_id=1479394623 instance=ExtResource("20_iu1rh")]
 position = Vector2(10800, 818)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer9" parent="Enemies" unique_id=1661770465 instance=ExtResource("20_iu1rh")]
 position = Vector2(10891, 799)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer10" parent="Enemies" unique_id=875350655 instance=ExtResource("20_iu1rh")]
 position = Vector2(12688, 638)
+infant = false
+human = false
 
 [node name="Bouncer11" parent="Enemies" unique_id=864283560 instance=ExtResource("20_iu1rh")]
 position = Vector2(12859, 686)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer12" parent="Enemies" unique_id=107661564 instance=ExtResource("20_iu1rh")]
 position = Vector2(13066, 643)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer13" parent="Enemies" unique_id=422334274 instance=ExtResource("20_iu1rh")]
 position = Vector2(14189, 693)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer14" parent="Enemies" unique_id=1696443675 instance=ExtResource("20_iu1rh")]
 position = Vector2(14298, 727)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer15" parent="Enemies" unique_id=435131445 instance=ExtResource("20_iu1rh")]
 position = Vector2(14392, 737)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer16" parent="Enemies" unique_id=703591367 instance=ExtResource("20_iu1rh")]
 position = Vector2(15012, 592)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer17" parent="Enemies" unique_id=1688983256 instance=ExtResource("20_iu1rh")]
 position = Vector2(16052, 448)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer18" parent="Enemies" unique_id=1829695953 instance=ExtResource("20_iu1rh")]
 position = Vector2(16409, 575)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer19" parent="Enemies" unique_id=205804090 instance=ExtResource("20_iu1rh")]
 position = Vector2(16525, 605)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer20" parent="Enemies" unique_id=1392628873 instance=ExtResource("20_iu1rh")]
 position = Vector2(17183, 188)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer21" parent="Enemies" unique_id=1592302051 instance=ExtResource("20_iu1rh")]
 position = Vector2(17410, 226)
+infant = false
+human = false
+stick = false
 
 [node name="Bouncer22" parent="Enemies" unique_id=229898694 instance=ExtResource("20_iu1rh")]
 position = Vector2(17522, 184)
+infant = false
+human = false
+stick = false
 
 [node name="Hud" parent="." unique_id=832355996 instance=ExtResource("16_u2jov")]
 

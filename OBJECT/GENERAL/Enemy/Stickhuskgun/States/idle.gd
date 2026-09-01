@@ -15,9 +15,9 @@ func _step():
 		var pj = preload("res://OBJECT/Projectiles/Enemy/Pellet.tscn").instantiate()
 		match(Global.difficulty):
 			1:
-				pj.speed = pj.speed - 10
+				pj.speed = pj.speed - 1.5
 			2:
-				pj.speed -= 5
+				pj.speed -= 1
 			4:
 				pj.speed += 5
 			5:

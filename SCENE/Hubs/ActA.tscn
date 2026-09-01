@@ -1,0 +1,222 @@
+[gd_scene format=4 uid="uid://b3qkoq360qy6e"]
+
+[ext_resource type="Texture2D" uid="uid://dltby0k8wevoi" path="res://Sprites/STAGE/DreamscapeTiles.png" id="1_vyk5l"]
+[ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_bj5wo"]
+[ext_resource type="Texture2D" uid="uid://c18padlfqof14" path="res://SPRITE/NPC/BlipHub.png" id="3_h57eu"]
+[ext_resource type="Texture2D" uid="uid://bkx46d1e6h2cu" path="res://SPRITE/NPC/NixHub.png" id="4_neuqb"]
+[ext_resource type="Shader" uid="uid://dofvivwnmm5cg" path="res://SCENE/Hubs/ActAparttwo.gdshader" id="6_hh2tp"]
+[ext_resource type="Script" uid="uid://0x6q67w2f7j" path="res://OBJECT/GENERAL/NPC/npc.gd" id="6_nof45"]
+[ext_resource type="Texture2D" uid="uid://6l3peq16eclb" path="res://SPRITE/NPC/FloofIdle.png" id="7_o8stb"]
+[ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="8_jpklt"]
+[ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="9_yekt3"]
+[ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="10_pm76u"]
+[ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="11_o8stb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh2tp"]
+texture = ExtResource("1_vyk5l")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -24.742897, -32, -25.313065)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -25.313065, -32, -32, 32, 32, 23.376877, 32)
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_25lc4"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_hh2tp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bj5wo"]
+shader = ExtResource("6_hh2tp")
+shader_parameter/aurora_color = Color(1, 0.28162444, 0.960237, 1)
+shader_parameter/background_color1 = Color(0, 0.026140101, 0.53325844, 1)
+shader_parameter/background_color2 = Color(1, 0, 0.82700205, 1)
+shader_parameter/aurora_intensity = 4.0910001943225
+shader_parameter/star_brightness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ms3"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17pdf"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6455w"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umitl"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs7gs"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3dq"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kc3"]
+atlas = ExtResource("7_o8stb")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25lc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j105x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ms3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17pdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6455w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umitl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs7gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kc3")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jpklt")
+}],
+"loop": 1,
+"name": &"Talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25lc4"]
+size = Vector2(57, 63)
+
+[node name="ActA" type="Node2D" unique_id=1844876557]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=342304946]
+tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_25lc4")
+
+[node name="Player" parent="." unique_id=1112045618 node_paths=PackedStringArray("CAMERA") instance=ExtResource("2_bj5wo")]
+position = Vector2(51, 167)
+CAMERA = NodePath("../Camera")
+
+[node name="BlipHub" type="Sprite2D" parent="." unique_id=1443926312]
+position = Vector2(194, 169)
+texture = ExtResource("3_h57eu")
+
+[node name="NixHub" type="Sprite2D" parent="." unique_id=1134635146]
+position = Vector2(267, 169)
+texture = ExtResource("4_neuqb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1951584404]
+layer = -388
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=990659185]
+material = SubResource("ShaderMaterial_bj5wo")
+offset_right = 426.0
+offset_bottom = 240.0
+
+[node name="TalkBlip" type="Area2D" parent="." unique_id=773781641]
+process_mode = 3
+position = Vector2(193, 169)
+script = ExtResource("6_nof45")
+
+[node name="SP" type="AnimatedSprite2D" parent="TalkBlip" unique_id=221423873]
+visible = false
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkBlip" unique_id=412616137]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="TalkBlip" unique_id=1484656573]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("9_yekt3")
+
+[node name="Speechbox" parent="TalkBlip" unique_id=1087419819 instance=ExtResource("10_pm76u")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["well i can't believe i'm
+saying this, but...
+looks like we're really
+going to need all the
+help we can get.", "honestly, i'm 
+surprised you're so 
+calm about all this. 
+
+for all we know, we
+don't exist while 
+we're here!", "damn..."])
+
+[node name="TalkNix" type="Area2D" parent="." unique_id=1563754882]
+process_mode = 3
+position = Vector2(266, 167)
+script = ExtResource("6_nof45")
+
+[node name="SP" type="AnimatedSprite2D" parent="TalkNix" unique_id=756477381]
+visible = false
+sprite_frames = SubResource("SpriteFrames_25lc4")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkNix" unique_id=1225317224]
+shape = SubResource("RectangleShape2D_25lc4")
+
+[node name="InteractPrompt" type="Sprite2D" parent="TalkNix" unique_id=636291915]
+visible = false
+position = Vector2(0, -45)
+texture = ExtResource("9_yekt3")
+
+[node name="Speechbox" parent="TalkNix" unique_id=1656144913 instance=ExtResource("10_pm76u")]
+visible = false
+position = Vector2(57, -58)
+texts = Array[String](["while you and blip
+clear out the husks 
+in reality, i might
+be able to stall for
+time in here as well!", "make sure you two
+accumulate as much
+nightmare energy as
+possible, okay?", "i'm counting on you two!"])
+
+[node name="Camera" parent="." unique_id=258370969 instance=ExtResource("11_o8stb")]
+position = Vector2(214, 120)
+limit_left = 0
+limit_top = 0
+limit_right = 427
+limit_bottom = 240
+
+[connection signal="area_entered" from="TalkBlip" to="TalkBlip" method="_on_area_entered"]
+[connection signal="area_exited" from="TalkBlip" to="TalkBlip" method="_on_area_exited"]
+[connection signal="area_entered" from="TalkNix" to="TalkNix" method="_on_area_entered"]
+[connection signal="area_exited" from="TalkNix" to="TalkNix" method="_on_area_exited"]

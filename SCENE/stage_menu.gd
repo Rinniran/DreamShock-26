@@ -1,10 +1,13 @@
 extends Node2D
 
 @export var cursor:Sprite2D
+@onready var dflab = $diff
 var scenetoreturn = Global.continuepath
 var opt = 0
 var countdownframes = 200
 var chosen = false
+
+var diff = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +15,7 @@ func _ready() -> void:
 	Global.score = 0
 	Global.pieces = 0
 	Global.activegame = false
+	Global.difficulty = diff
 	match(Global.difficulty):
 		1:
 			Global.time = 200
@@ -30,6 +34,41 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	Global.difficulty = diff
+	
+	match(diff):
+		1:
+			dflab.text = "infant"
+			Global.time = 200
+			if Input.is_action_just_pressed("PAD1_RIGHT"):
+				diff += 1
+		2:
+			dflab.text = "human"
+			Global.time = 120
+			if Input.is_action_just_pressed("PAD1_LEFT"):
+				diff -= 1
+			if Input.is_action_just_pressed("PAD1_RIGHT"):
+				diff += 1
+		3:
+			Global.time = 60
+			dflab.text = "stick"
+			if Input.is_action_just_pressed("PAD1_LEFT"):
+				diff -= 1
+			if Input.is_action_just_pressed("PAD1_RIGHT"):
+				diff += 1
+		4:
+			Global.time = 30
+			dflab.text = "adversary"
+			if Input.is_action_just_pressed("PAD1_LEFT"):
+				diff -= 1
+			if Input.is_action_just_pressed("PAD1_RIGHT"):
+				diff += 1
+		5:
+			Global.time = 18
+			dflab.text = "dreamshock"
+			if Input.is_action_just_pressed("PAD1_LEFT"):
+				diff -= 1
+	
 	if !chosen:
 		match(opt):
 			0:

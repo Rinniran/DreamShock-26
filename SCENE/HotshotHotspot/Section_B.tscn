@@ -1,22 +1,12 @@
 [gd_scene format=4 uid="uid://sp4aj5u4w5we"]
 
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_4vup6"]
-[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Gimmick/FONT/Score.fnt" id="2_5lawy"]
+[ext_resource type="FontFile" uid="uid://b02dcn02bti16" path="res://Sprites/FONT/Score.fnt" id="2_5lawy"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="3_m21pd"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="4_wyij0"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="5_sri01"]
 [ext_resource type="AudioStream" uid="uid://6a0ldel10cc8" path="res://AUDIO/BGM/STG03_B.mp3" id="6_m21pd"]
-[ext_resource type="PackedScene" uid="uid://m6vkfobvirxu" path="res://OBJECT/GENERAL/CAMERA/Cammodeswitch.tscn" id="7_5lawy"]
 [ext_resource type="Script" uid="uid://di7muc7ikgj7g" path="res://OBJECT/GENERAL/CAMERA/cammodeswitch.gd" id="8_m21pd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyij0"]
-size = Vector2(303, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m21pd"]
-size = Vector2(27, 299)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sri01"]
-size = Vector2(196.5, 28)
 
 [node name="SectionA" type="Node2D" unique_id=104430494]
 
@@ -56,42 +46,13 @@ CAMERA = NodePath("../Camera")
 position = Vector2(161, 2089)
 target = NodePath("../Player")
 speed = 400
-camdirection = 4
 
 [node name="Hud" parent="Camera" unique_id=304665899 instance=ExtResource("5_sri01")]
-offset_left = -160.0
-offset_top = -112.0
-offset_right = -160.0
-offset_bottom = -112.0
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1316330835]
 stream = ExtResource("6_m21pd")
 autoplay = true
-
-[node name="Cammodeswitch" parent="." unique_id=1852398627 node_paths=PackedStringArray("cam") instance=ExtResource("7_5lawy")]
-position = Vector2(598, 1786)
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch2" parent="." unique_id=1719161039 node_paths=PackedStringArray("cam") instance=ExtResource("7_5lawy")]
-position = Vector2(571, 1527)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch3" parent="." unique_id=731737614 node_paths=PackedStringArray("cam") instance=ExtResource("7_5lawy")]
-position = Vector2(1025, 1585)
-cammodes = 4
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch4" parent="." unique_id=1135762650 node_paths=PackedStringArray("cam") instance=ExtResource("7_5lawy")]
-position = Vector2(1211, 1536)
-cammodes = 0
-cam = NodePath("../Camera")
-
-[node name="Cammodeswitch5" parent="." unique_id=715462917 node_paths=PackedStringArray("cam") instance=ExtResource("7_5lawy")]
-position = Vector2(1999, 1508)
-cammodes = 5
-cam = NodePath("../Camera")
 
 [node name="Cammodeswitch6" type="Area2D" parent="." unique_id=1455274605 node_paths=PackedStringArray("cam")]
 position = Vector2(2652, 1843)
@@ -99,18 +60,10 @@ script = ExtResource("8_m21pd")
 cammodes = 0
 cam = NodePath("../Camera")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cammodeswitch6" unique_id=1655316216]
-position = Vector2(141.5, 10.5)
-shape = SubResource("RectangleShape2D_wyij0")
-
 [node name="Cammodeswitch7" type="Area2D" parent="." unique_id=1709594424 node_paths=PackedStringArray("cam")]
 position = Vector2(3505, 988)
 script = ExtResource("8_m21pd")
 cam = NodePath("../Camera")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cammodeswitch7" unique_id=1610315312]
-position = Vector2(239.5, 736.5)
-shape = SubResource("RectangleShape2D_m21pd")
 
 [node name="Cammodeswitch8" type="Area2D" parent="." unique_id=878811329 node_paths=PackedStringArray("cam")]
 position = Vector2(3666, 860)
@@ -118,19 +71,11 @@ script = ExtResource("8_m21pd")
 cammodes = 4
 cam = NodePath("../Camera")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cammodeswitch8" unique_id=1571173906]
-position = Vector2(166, 708)
-shape = SubResource("RectangleShape2D_m21pd")
-
 [node name="Cammodeswitch9" type="Area2D" parent="." unique_id=826848970 node_paths=PackedStringArray("cam")]
 position = Vector2(4142, 794)
 script = ExtResource("8_m21pd")
 cammodes = 3
 cam = NodePath("../Camera")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cammodeswitch9" unique_id=1199976806]
-position = Vector2(239.5, 736.5)
-shape = SubResource("RectangleShape2D_m21pd")
 
 [node name="Cammodeswitch11" type="Area2D" parent="." unique_id=540019680 node_paths=PackedStringArray("cam")]
 position = Vector2(4227, 1206)
@@ -138,19 +83,11 @@ script = ExtResource("8_m21pd")
 cammodes = 0
 cam = NodePath("../Camera")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cammodeswitch11" unique_id=1541741829]
-position = Vector2(239.5, 736.5)
-shape = SubResource("RectangleShape2D_m21pd")
-
 [node name="Cammodeswitch10" type="Area2D" parent="." unique_id=1251308576 node_paths=PackedStringArray("cam")]
 position = Vector2(4142, 794)
 script = ExtResource("8_m21pd")
 cammodes = 5
 cam = NodePath("../Camera")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cammodeswitch10" unique_id=1143304259]
-position = Vector2(232.75, 780)
-shape = SubResource("RectangleShape2D_sri01")
 
 [connection signal="body_entered" from="Cammodeswitch6" to="Cammodeswitch6" method="_on_body_entered"]
 [connection signal="body_entered" from="Cammodeswitch7" to="Cammodeswitch7" method="_on_body_entered"]

@@ -21,9 +21,9 @@ func _ready() -> void:
 		3:
 			Global.time = 60
 		4:
-			Global.time = 48
+			Global.time = 30
 		5:
-			Global.time = 32
+			Global.time = 18
 	
 	Global.ammo = 0
 	pass # Replace with function body.
