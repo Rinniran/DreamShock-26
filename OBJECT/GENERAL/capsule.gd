@@ -39,7 +39,7 @@ func _on_area_entered(area: Area2D) -> void:
 		$CollisionShape2D.queue_free()
 		match(item):
 			0:
-				Global.invincibile_time = 60 * 16
+				Global.invincibile_time = 60 * 24
 			1:
 				pass
 			2:

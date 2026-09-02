@@ -110,7 +110,7 @@ size = Vector2(84, 80)
 
 [node name="OutsidePark" type="Node2D" unique_id=1463188941]
 script = ExtResource("1_1iqdc")
-MusicVolume = -9.0
+MusicVolume = -1.5
 Stage_Music = ExtResource("2_wq2af")
 stagepath = "uid://d26lsylndn3gy"
 
