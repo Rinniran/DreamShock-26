@@ -8,12 +8,14 @@ var MSPEED = 600
 
 var pj = preload("uid://dj8wcp0wqxt1g")
 
+@onready var snd = preload("uid://d0e4667crp6yb")
+
 func _enter(data = {}):
 	super._enter(data)
 	root.anim_can_resume_after_hitstop = true
 	if not root.is_on_floor():
 		root.dashes -= 1
-	SoundEngine.playsoundstring(0,"res://AUDIO/SE/DashFin.ogg",-2)
+	SoundEngine.playsound(0,snd,-2)
 	root.sprite.play("waveburst")
 	root.GRAV_ENABLED = true
 	root.CAN_MOVE = false

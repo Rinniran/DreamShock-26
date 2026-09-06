@@ -6,6 +6,9 @@ var opt = 0
 var countdownframes = 200
 var chosen = false
 
+@onready var select = preload("uid://b73vhoh2tttje")
+@onready var choose = preload("uid://bjqaodu4q2hqj")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = true
@@ -38,29 +41,29 @@ func _process(delta: float) -> void:
 				
 				cursor.position = Vector2(212, 98)
 				if Input.is_action_just_pressed("PAD1_DOWN"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 1
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0, choose, -10)
 					chosen = true
 			1:
 				cursor.position = Vector2(212, 114)
 				if Input.is_action_just_pressed("PAD1_UP"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 0
 				if Input.is_action_just_pressed("PAD1_DOWN"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 2
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0, choose, -10)
 					chosen = true
 			2:
 				cursor.position = Vector2(212, 131)
 				if Input.is_action_just_pressed("PAD1_UP"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 1
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0, choose, -10)
 					chosen = true
 	
 	if chosen:

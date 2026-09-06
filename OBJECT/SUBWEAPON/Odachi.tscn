@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bt4h8nlj2gg6u"]
 
 [ext_resource type="Texture2D" uid="uid://bj2yx03awucr1" path="res://Sprites/Players/Rian/VectorSummon/Odachi.png" id="1_8emy2"]
+[ext_resource type="Script" uid="uid://ds5208lik4v87" path="res://OBJECT/SUBWEAPON/odachiemergency.gd" id="1_sgvsw"]
 [ext_resource type="Script" uid="uid://cpbv0p1ykygg3" path="res://OBJECT/SUBWEAPON/odachihb.gd" id="2_fjtn1"]
 [ext_resource type="AudioStream" uid="uid://dxb6ll45psfi2" path="res://AUDIO/SE/Burstloop.wav" id="3_fjtn1"]
 
@@ -121,6 +122,7 @@ _data = {
 }
 
 [node name="Odachi" type="Node2D" unique_id=321006453]
+script = ExtResource("1_sgvsw")
 
 [node name="Odachi" type="Sprite2D" parent="." unique_id=1199625873]
 texture = ExtResource("1_8emy2")

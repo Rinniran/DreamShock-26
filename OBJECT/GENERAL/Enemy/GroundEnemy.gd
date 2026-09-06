@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 
 @export_category("SYSTEM")
+@export var animenabled = true
 @export var hitstopnull = false
 @export var hurtstop = 2
 @export var can_flinch = false
@@ -89,8 +90,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 		state.advance()
-		if !anim.is_playing() && anim_can_resume_after_hitstop:
-			anim.play()
+		if animenabled:
+			if !anim.is_playing() && anim_can_resume_after_hitstop:
+				if anim.current_animation != null:
+					anim.play()
 		if extanim != null:
 			if !extanim.is_playing() && (!anim.animation_finished || anim_can_resume_after_hitstop):
 				extanim.play()

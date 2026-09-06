@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ga4ckhrgfjg" path="res://Sprites/Gimmick/RingBack.png" id="2_l4y24"]
 [ext_resource type="Texture2D" uid="uid://dnjhik0g2vc4w" path="res://Sprites/Gimmick/RingFront.png" id="3_6hf83"]
 [ext_resource type="Texture2D" uid="uid://lllrb6n57h3m" path="res://Sprites/Gimmick/RianRingBonus.png" id="4_bhyw0"]
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="5_rombk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ullwc"]
 size = Vector2(8, 47)
@@ -163,6 +164,17 @@ scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_tbyjf")
 autoplay = "default"
 frame_progress = 0.175452
+
+[node name="Label" type="Label" parent="Score" unique_id=1126113729]
+offset_left = -19.0
+offset_top = 21.0
+offset_right = 21.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("5_rombk")
+theme_override_font_sizes/font_size = 8
+text = "x5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Anim" type="AnimationPlayer" parent="." unique_id=690280982]
 root_node = NodePath("../Score")

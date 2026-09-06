@@ -42,6 +42,9 @@ var iframes = 0
 var vecair = false
 var DAttacked = false
 var isKilled = false
+var aftimagetimer = 2
+
+var rings = 0
 
 
 @export var hitstopnull = false
@@ -100,6 +103,7 @@ func _physics_process(delta: float) -> void:
 		conparries = 0
 	if is_on_floor():
 		dashes = 2
+		rings = 0
 	if IN_CUTSCENE == false:
 		state.advance()
 	#print_debug(velocity.x)
@@ -115,6 +119,7 @@ func _physics_process(delta: float) -> void:
 		hurbcol.disabled = true
 		iframes -= 1
 	else:
+		
 		hurbcol.disabled = false
 	
 	if parrying == true:
@@ -160,7 +165,8 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor() && GRAV_ENABLED:
 			velocity.y += GRAVITY * delta
 		state.advance()
-		move_and_slide()
+		if state.state_name != "Die":
+			move_and_slide()
 		if !sprite.is_playing() && (!sprite.animation_finished || anim_can_resume_after_hitstop):
 			sprite.play()
 	else:
@@ -251,6 +257,21 @@ func vectorair(ms):
 			velocity.x += 2 * 8
 	elif velocity.x > 0:
 		velocity.x += 5 
+	
+	
+	var aft = preload("res://OBJECT/GENERAL/Afterimage.tscn").instantiate()
+	aft.z_index = sprite.z_index - 1 
+	aft.texture = sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame)
+	aft.flip_h = sprite.flip_h
+	aft.global_position = sprite.global_position
+		
+	get_parent().add_child(aft)
+	if aftimagetimer > 0:
+		aftimagetimer -= 1
+	else:
+		aftimagetimer = 2
+	hurbcol.disabled = true
+	
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

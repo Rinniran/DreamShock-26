@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://w5oym6wij2nt"]
+
+[ext_resource type="Script" uid="uid://c7gc3jmky4iuo" path="res://OBJECT/GENERAL/Enemy/GroundEnemy.gd" id="1_lvsnm"]
+[ext_resource type="PackedScene" uid="uid://dkn4o7j5wcre2" path="res://OBJECT/GENERAL/BloodHusk.tscn" id="2_5q78x"]
+[ext_resource type="Material" uid="uid://dkohptso71w5u" path="res://Outlineset.tres" id="3_rc8jr"]
+[ext_resource type="Texture2D" uid="uid://b53ftfrgt5jn3" path="res://SPRITE/ENEMY/Shielder.png" id="4_rc8jr"]
+[ext_resource type="PackedScene" uid="uid://dxol0ejhrr8pk" path="res://OBJECT/GENERAL/Explosionset2.tscn" id="5_8sk2r"]
+[ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="6_oeuxs"]
+[ext_resource type="Script" uid="uid://ba80mfulqqvpx" path="res://OBJECT/GENERAL/Enemy/Shielder/States/Move.gd" id="7_7f8cb"]
+[ext_resource type="Script" uid="uid://bna7hwdbim71s" path="res://OBJECT/GENERAL/Enemy/Shielder/States/Die.gd" id="8_2en0t"]
+[ext_resource type="PackedScene" uid="uid://bnwvme2apmrnt" path="res://OBJECT/GENERAL/Explosionset1.tscn" id="9_1du08"]
+[ext_resource type="Script" uid="uid://b268jsfw17ktv" path="res://OBJECT/GENERAL/Enemy/Shielder/shield.gd" id="10_le4rl"]
+[ext_resource type="Texture2D" uid="uid://ccdtykpyv3qer" path="res://SPRITE/ENEMY/Shield.png" id="11_8sk2r"]
+[ext_resource type="AudioStream" uid="uid://dcataqecpeyaq" path="res://AUDIO/SE/OrganicHurt.wav" id="12_le4rl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeuxs"]
+atlas = ExtResource("4_rc8jr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f8cb"]
+atlas = ExtResource("4_rc8jr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2en0t"]
+atlas = ExtResource("4_rc8jr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1du08"]
+atlas = ExtResource("4_rc8jr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25lc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeuxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f8cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2en0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1du08")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kklak"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_arnfj"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0txl"]
+size = Vector2(11, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47olj"]
+size = Vector2(91, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfssn"]
+atlas = ExtResource("11_8sk2r")
+region = Rect2(0, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8gny"]
+atlas = ExtResource("11_8sk2r")
+region = Rect2(24, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey8du"]
+atlas = ExtResource("11_8sk2r")
+region = Rect2(48, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t8gn"]
+atlas = ExtResource("11_8sk2r")
+region = Rect2(72, 0, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epd7q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfssn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8gny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey8du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t8gn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epd7q"]
+size = Vector2(29, 48)
+
+[node name="Shielder" type="CharacterBody2D" unique_id=1817796248 node_paths=PackedStringArray("hurtsound")]
+z_index = 1
+collision_layer = 0
+collision_mask = 3
+floor_constant_speed = true
+floor_max_angle = 1.0960667
+floor_snap_length = 11.1
+script = ExtResource("1_lvsnm")
+animenabled = false
+speed = 60
+gravity = 0
+gravity_enabled = false
+has_damage_state = false
+hurtsound = NodePath("hurt")
+
+[node name="BloodHusk" parent="." unique_id=1707340589 instance=ExtResource("2_5q78x")]
+z_index = 1
+emitting = false
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=159718587]
+material = ExtResource("3_rc8jr")
+position = Vector2(1, 8)
+sprite_frames = SubResource("SpriteFrames_25lc4")
+autoplay = "default"
+frame_progress = 0.9619331
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=637600276]
+libraries/ = SubResource("AnimationLibrary_kklak")
+
+[node name="Explosionset2" parent="." unique_id=230167561 instance=ExtResource("5_8sk2r")]
+z_index = 1
+emitting = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1153597242]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_arnfj")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=188263074 groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=95335848]
+position = Vector2(10.5, 9.5)
+shape = SubResource("RectangleShape2D_h0txl")
+debug_color = Color(0.9893982, 0, 0.2963458, 0.41960785)
+
+[node name="AttackBox" type="Area2D" parent="." unique_id=1116590430 groups=["En_Attack"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" unique_id=1008420140]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_47olj")
+disabled = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=1666613301]
+script = ExtResource("6_oeuxs")
+root_node_path = NodePath("..")
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=710246192]
+script = ExtResource("7_7f8cb")
+
+[node name="Die" type="Node" parent="StateMachine" unique_id=103780803]
+script = ExtResource("8_2en0t")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=198143598]
+rect = Rect2(-24, -7, 41, 33)
+
+[node name="Gapdetectleft" type="RayCast2D" parent="." unique_id=2014269729]
+position = Vector2(-11, 6)
+target_position = Vector2(0, 23)
+
+[node name="Gapdetectright" type="RayCast2D" parent="." unique_id=579960719]
+position = Vector2(11, 6)
+target_position = Vector2(0, 23)
+
+[node name="Explosionset1" parent="." unique_id=1748899483 instance=ExtResource("9_1du08")]
+position = Vector2(0, -2)
+emitting = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1581420468 groups=["Enemy"]]
+position = Vector2(-10, 9)
+collision_layer = 3
+collision_mask = 256
+script = ExtResource("10_le4rl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=215560996]
+sprite_frames = SubResource("SpriteFrames_epd7q")
+autoplay = "default"
+frame_progress = 0.7503526
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1085980442]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_epd7q")
+
+[node name="hurt" type="AudioStreamPlayer" parent="." unique_id=2032524755]
+stream = ExtResource("12_le4rl")
+volume_db = -10.666
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

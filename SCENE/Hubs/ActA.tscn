@@ -6,9 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bkx46d1e6h2cu" path="res://SPRITE/NPC/NixHub.png" id="4_neuqb"]
 [ext_resource type="Shader" uid="uid://dofvivwnmm5cg" path="res://SCENE/Hubs/ActAparttwo.gdshader" id="6_hh2tp"]
 [ext_resource type="Script" uid="uid://0x6q67w2f7j" path="res://OBJECT/GENERAL/NPC/npc.gd" id="6_nof45"]
+[ext_resource type="Shader" uid="uid://ca3gm7vmc2srd" path="res://SCENE/Hubs/spinny.gdshader" id="6_pm76u"]
+[ext_resource type="Shader" uid="uid://c1ykn03codxon" path="res://SCENE/Hubs/StagePortal.gdshader" id="7_6do3y"]
 [ext_resource type="Texture2D" uid="uid://6l3peq16eclb" path="res://SPRITE/NPC/FloofIdle.png" id="7_o8stb"]
 [ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="8_jpklt"]
+[ext_resource type="Texture2D" uid="uid://b38gejl4nx36m" path="res://SPRITE/HUB/STAGEICON/S_City.png" id="8_ll38n"]
+[ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="9_6do3y"]
 [ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="9_yekt3"]
+[ext_resource type="FontFile" uid="uid://drhw2csgehm8s" path="res://SPRITE/FONT/Abnerverse 2.1.ttf" id="10_ll38n"]
 [ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="10_pm76u"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="11_o8stb"]
 
@@ -42,6 +47,141 @@ shader_parameter/background_color1 = Color(0, 0.026140101, 0.53325844, 1)
 shader_parameter/background_color2 = Color(1, 0, 0.82700205, 1)
 shader_parameter/aurora_intensity = 4.0910001943225
 shader_parameter/star_brightness = 1.0
+
+[sub_resource type="Gradient" id="Gradient_qmw43"]
+colors = PackedColorArray(0.8200574, 0, 1, 1, 0.08190346, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_epd7q"]
+gradient = SubResource("Gradient_qmw43")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25lc4"]
+shader = ExtResource("6_pm76u")
+shader_parameter/iChannel0 = SubResource("GradientTexture2D_epd7q")
+shader_parameter/iTime = 1.025
+shader_parameter/scale_modifier = 0.63
+
+[sub_resource type="Gradient" id="Gradient_vnx1w"]
+colors = PackedColorArray(0, 0.060906895, 0.97770286, 1, 0.6043711, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dm7b6"]
+gradient = SubResource("Gradient_vnx1w")
+fill_to = Vector2(0.9747741, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqqwk"]
+shader = ExtResource("7_6do3y")
+shader_parameter/ScaleMult = Vector2(0.865, 0.84)
+shader_parameter/AuraProgres = 1.0
+shader_parameter/TextureLaodMult = 4.65999989583968
+shader_parameter/Tilling = 59.99999865888
+shader_parameter/MovementDirSpeed = Vector2(-0.6, 1)
+shader_parameter/MovementDirSpeed2 = Vector2(1.795, -1.93)
+shader_parameter/color_gradiant = SubResource("GradientTexture2D_dm7b6")
+shader_parameter/Noise_Seed = Vector2(1.835, 1.52)
+
+[sub_resource type="Shader" id="Shader_gtlkj"]
+code = "shader_type canvas_item;
+
+uniform float intensity : hint_range(0.0, 1.0) = 0.5;
+uniform float glitch_frequency : hint_range(0.1, 10.0) = 2.0;
+uniform float glitch_duration : hint_range(0.01, 0.5) = 0.1;
+
+uniform float red_displacement : hint_range(0.0, 0.1) = 0.02;
+uniform float green_displacement : hint_range(0.0, 0.1) = 0.02;
+uniform float blue_displacement : hint_range(0.0, 0.1) = 0.02;
+
+uniform float scanline_intensity : hint_range(0.0, 1.0) = 0.3;
+uniform float noise_intensity : hint_range(0.0, 1.0) = 0.2;
+uniform float slice_intensity : hint_range(0.0, 1.0) = 0.4;
+uniform float ghost_intensity : hint_range(0.0, 0.5) = 0.1;
+uniform float negative_intensity : hint_range(0.0, 1.0) = 0.0;
+
+float random(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+}
+
+float noise(vec2 st) {
+    vec2 i = floor(st);
+    vec2 f = fract(st);
+    
+    float a = random(i);
+    float b = random(i + vec2(1.0, 0.0));
+    float c = random(i + vec2(0.0, 1.0));
+    float d = random(i + vec2(1.0, 1.0));
+    
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    
+    return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+}
+
+void fragment() {
+    vec2 uv = UV;
+    vec4 base_color = texture(TEXTURE, uv);
+    vec4 final_color = base_color;
+    
+    float glitch_time = TIME * glitch_frequency;
+    float glitch_noise = noise(vec2(glitch_time, 0.0));
+    float glitch_active = step(1.0 - intensity, glitch_noise);
+    
+    if (glitch_active > 0.5) {
+        float slice_y = random(vec2(glitch_time * 10.0, 0.0));
+        if (abs(uv.y - slice_y) < 0.02 * slice_intensity) {
+            float slice_offset = (random(vec2(glitch_time * 15.0, 0.0)) - 0.5) * 0.1 * slice_intensity;
+            uv.x += slice_offset;
+        }
+        
+        float vertical_shift = random(vec2(glitch_time * 8.0, 0.0)) * 0.05 * intensity;
+        uv.y += vertical_shift;
+        
+        float wave = sin(uv.y * 100.0 + glitch_time * 5.0) * 0.01 * intensity;
+        uv.x += wave;
+        
+        final_color = texture(TEXTURE, uv);
+    }
+    
+    float shift_amount = red_displacement * glitch_active;
+    vec4 red_channel = texture(TEXTURE, uv + vec2(shift_amount, 0.0));
+    vec4 green_channel = texture(TEXTURE, uv + vec2(-green_displacement * glitch_active, 0.0));
+    vec4 blue_channel = texture(TEXTURE, uv + vec2(blue_displacement * glitch_active, 0.0));
+    
+    final_color.r = mix(final_color.r, red_channel.r, glitch_active);
+    final_color.g = mix(final_color.g, green_channel.g, glitch_active);
+    final_color.b = mix(final_color.b, blue_channel.b, glitch_active);
+    
+    float scanline = sin(uv.y * 300.0 + glitch_time * 2.0) * 0.5 + 0.5;
+    final_color.rgb *= 1.0 - scanline * scanline_intensity * intensity;
+    
+    float static_noise = random(uv + glitch_time) * noise_intensity * glitch_active;
+    final_color.rgb += static_noise;
+    
+    if (ghost_intensity > 0.0) {
+        vec4 ghost_color = texture(TEXTURE, uv + vec2(0.01, 0.01)) * ghost_intensity;
+        final_color.rgb = mix(final_color.rgb, ghost_color.rgb, ghost_intensity * 0.5);
+    }
+    
+    if (negative_intensity > 0.0) {
+        vec4 negative_color = vec4(1.0 - final_color.rgb, final_color.a);
+        final_color.rgb = mix(final_color.rgb, negative_color.rgb, negative_intensity * glitch_active);
+    }
+    
+    float glow = glitch_active * 0.2 * intensity;
+    final_color.rgb += glow;
+    
+    COLOR = final_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epd7q"]
+shader = SubResource("Shader_gtlkj")
+shader_parameter/intensity = 0.2370000112575
+shader_parameter/glitch_frequency = 3.50900016341762
+shader_parameter/glitch_duration = 0.04300000134398
+shader_parameter/red_displacement = 0.04400000209
+shader_parameter/green_displacement = 0.06000000285
+shader_parameter/blue_displacement = 0.07600000361
+shader_parameter/scanline_intensity = 0.7830000371925
+shader_parameter/noise_intensity = 0.6890000327275
+shader_parameter/slice_intensity = 0.4
+shader_parameter/ghost_intensity = 0.3250000154375
+shader_parameter/negative_intensity = 0.28800001368
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
 atlas = ExtResource("7_o8stb")
@@ -144,6 +284,41 @@ material = SubResource("ShaderMaterial_bj5wo")
 offset_right = 426.0
 offset_bottom = 240.0
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1864528556]
+material = SubResource("ShaderMaterial_25lc4")
+offset_left = -15.0
+offset_top = -45.0
+offset_right = 433.0
+offset_bottom = 237.0
+
+[node name="SCity" type="Sprite2D" parent="CanvasLayer" unique_id=430355542]
+material = SubResource("ShaderMaterial_pqqwk")
+position = Vector2(203, 93)
+texture = ExtResource("8_ll38n")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1368375699]
+material = SubResource("ShaderMaterial_epd7q")
+offset_top = -18.0
+offset_right = 426.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 0.9038552, 0.05286634, 1)
+theme_override_fonts/font = ExtResource("9_6do3y")
+theme_override_font_sizes/font_size = 20
+text = "stick city"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1523220619]
+offset_left = 106.0
+offset_top = 5.0
+offset_right = 160.0
+offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("10_ll38n")
+theme_override_font_sizes/font_size = 8
+text = "next up..."
+
 [node name="TalkBlip" type="Area2D" parent="." unique_id=773781641]
 process_mode = 3
 position = Vector2(193, 169)
@@ -176,7 +351,7 @@ calm about all this.
 
 for all we know, we
 don't exist while 
-we're here!", "damn..."])
+we're here!"])
 
 [node name="TalkNix" type="Area2D" parent="." unique_id=1563754882]
 process_mode = 3

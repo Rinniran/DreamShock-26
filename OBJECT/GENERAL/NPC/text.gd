@@ -9,6 +9,7 @@ var time = 0
 var current_text = 0
 
 @onready var lbl = $Label
+@onready var ping = preload("uid://d0uuludl0qtb1")
 
 func _ready() -> void:
 	current_text = 0
@@ -23,7 +24,7 @@ func _physics_process(delta: float) -> void:
 			if time > 0:
 				time -= 1
 			else:
-				SoundEngine.playsoundstring(0,"uid://d0uuludl0qtb1",-12)
+				SoundEngine.playsound(0,ping,-12)
 				lbl.visible_characters += 1
 				time = framecooldown
 		else:

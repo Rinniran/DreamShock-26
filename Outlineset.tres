@@ -5,7 +5,7 @@
 [resource]
 shader = ExtResource("1_2h7yq")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
+shader_parameter/outline_size = 1.0000000149012
 shader_parameter/alpha_threshold = 0.0
 shader_parameter/outline_samples = 4
-shader_parameter/shade_color = Color(1, 1, 1, 0)
+shader_parameter/shade_color = Color(1, 0.110000014, 0.110000014, 0)

@@ -5,7 +5,7 @@ extends Area2D
 
 
 
-var shot = preload("res://OBJECT/SUBWEAPON/Gunshot.tscn")
+@onready var shot = preload("res://OBJECT/SUBWEAPON/Gunshot.tscn")
 @onready var snd = $AudioStreamPlayer
 
 var shtdir = 0

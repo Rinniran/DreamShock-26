@@ -110,7 +110,7 @@ func change_state(new_state, data := {}):
 		if !data.has(key):
 			data[key] = default_data[key]
 	
-	active_state._enter(data)
+	active_state.call_deferred("_enter",data)
 	is_changing_state = false
 	emit_signal("state_changed", active_state)
 

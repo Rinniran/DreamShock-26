@@ -9,6 +9,9 @@ var chosen = false
 
 var diff = 3
 
+@onready var select = preload("uid://b73vhoh2tttje")
+@onready var choose = preload("uid://bjqaodu4q2hqj")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.p1health = 10
@@ -75,31 +78,31 @@ func _process(delta: float) -> void:
 				scenetoreturn = "uid://b8bifb5oo7aap"
 				cursor.position = Vector2(29, 43)
 				if Input.is_action_just_pressed("PAD1_DOWN"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 1
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0,choose, -10)
 					chosen = true
 			1:
 				scenetoreturn = "uid://dq6o0n7ir7bos"
 				cursor.position = Vector2(29, 67)
 				if Input.is_action_just_pressed("PAD1_UP"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 0
 				if Input.is_action_just_pressed("PAD1_DOWN"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 2
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0,choose, -10)
 					chosen = true
 			2:
 				scenetoreturn = "uid://d26lsylndn3gy"
 				cursor.position = Vector2(29, 91)
 				if Input.is_action_just_pressed("PAD1_UP"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0,select, -10)
 					opt = 1
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0,choose, -10)
 					chosen = true
 	
 	if chosen:

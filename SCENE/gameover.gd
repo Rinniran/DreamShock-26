@@ -6,6 +6,8 @@ var opt = 0
 var countdownframes = 200
 var chosen = false
 
+@onready var select = preload("uid://b73vhoh2tttje")
+@onready var choose = preload("uid://bjqaodu4q2hqj")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.bossactive = false
@@ -36,18 +38,18 @@ func _process(delta: float) -> void:
 			0:
 				cursor.position = Vector2(30, 197)
 				if Input.is_action_just_pressed("PAD1_RIGHT"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0, select, -10)
 					opt = 1
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0, choose, -10)
 					chosen = true
 			1:
 				cursor.position = Vector2(254, 197)
 				if Input.is_action_just_pressed("PAD1_LEFT"):
-					SoundEngine.playsoundstring(0,"uid://b73vhoh2tttje", -10)
+					SoundEngine.playsound(0, select, -10)
 					opt = 0
 				if Input.is_action_just_pressed("PAD1_B"):
-					SoundEngine.playsoundstring(0,"uid://bjqaodu4q2hqj", -10)
+					SoundEngine.playsound(0, choose, -10)
 					chosen = true
 	
 	if chosen:

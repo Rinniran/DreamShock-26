@@ -5,12 +5,13 @@ var moverandomizer = RandomNumberGenerator.new()
 var movechoice
 var aftimagetimer = 2
 var MSPEED = 380
+@onready var snd = preload("uid://2oydeahhg0hs")
 
 
 func _enter(data = {}):
 	super._enter(data)
 	root.hurbcol.disabled = true
-	SoundEngine.playsoundstring(1, "uid://2oydeahhg0hs", -8)
+	SoundEngine.playsound(1, snd, -8)
 	if not root.is_on_floor():
 		root.dashes -= 1
 	root.DAttacked = true
@@ -91,7 +92,7 @@ func _step():
 	if (Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0) && root.is_on_floor():
 		root.hurbcol.disabled = false
 		parent.change_state("Jump")
-	if parent.state_time >= 25:
+	if parent.state_time >= 28:
 		root.hurbcol.disabled = false
 		if root.is_on_floor():
 			parent.change_state("Idle")

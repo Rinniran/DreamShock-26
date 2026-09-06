@@ -1,6 +1,8 @@
 @tool
 extends BaseState
 
+@onready var snd = preload("uid://df0u16rdk18q3")
+
 func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
@@ -9,7 +11,7 @@ func _enter(data = {}):
 	
 	root.sprite.play("jump")
 	if root.is_on_floor():
-		SoundEngine.playsoundstring(0, "uid://df0u16rdk18q3", -8)
+		SoundEngine.playsound(0, snd, -8)
 	if !root.is_3d:
 		root.velocity.y = root.JUMP_VELOCITY
 	else:

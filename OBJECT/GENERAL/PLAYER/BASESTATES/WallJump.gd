@@ -2,7 +2,7 @@
 extends BaseState
 
 var MSPEED = 300
-
+@onready var snd = preload("uid://df0u16rdk18q3")
 
 func _enter(data = {}):
 	super._enter(data)
@@ -13,7 +13,7 @@ func _enter(data = {}):
 	root.vecair = false
 	root.velocity.y = 0
 	root.velocity.y = -500
-	SoundEngine.playsoundstring(0, "uid://df0u16rdk18q3", -8)
+	SoundEngine.playsound(0, snd, -8)
 	
 
 
@@ -31,14 +31,14 @@ func _step():
 		parent.change_state("Idle")
 	
 	if root.wdr.is_colliding() && Input.is_action_just_pressed("PAD1_B"):
-		SoundEngine.playsoundstring(0, "uid://df0u16rdk18q3", -8)
+		SoundEngine.playsound(0, snd, -8)
 		root.velocity.y = 0
 		root.velocity.y = -500
 		root.velocity.x = -MSPEED
 		root.sprite.flip_h = false
 	
 	if root.wdl.is_colliding() && Input.is_action_just_pressed("PAD1_B"):
-		SoundEngine.playsoundstring(0, "uid://df0u16rdk18q3", -8)
+		SoundEngine.playsound(0, snd, -8)
 		root.velocity.y = 0
 		root.velocity.y = -500
 		root.velocity.x = -MSPEED

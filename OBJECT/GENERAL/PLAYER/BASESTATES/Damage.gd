@@ -22,7 +22,11 @@ func _step():
 	
 	if root.is_on_floor() && parent.state_time >= 10:
 		root.iframes = 30
-		parent.change_state("Idle")
+		if Input.is_action_pressed("PAD1_C"):
+			parent.change_state("Dash")
+		else:
+			parent.change_state("Idle")
+	
 	
 	
 

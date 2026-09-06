@@ -6,14 +6,24 @@ var movechoice
 var aftimagetimer = 2
 var MSPEED = 380
 
+@onready var snd = preload("uid://d0e4667crp6yb")
+
 
 
 func _enter(data = {}):
 	super._enter(data)
+	var Kleft = Input.is_action_pressed("PAD1_LEFT")
+	var Kright = Input.is_action_pressed("PAD1_RIGHT")
+	var rspr = root.sprite
+	parent.state_time = 0
 	root.anim_can_resume_after_hitstop = true
+	if Kleft:
+		rspr.flip_h = true
+	if Kright:
+		rspr.flip_h = false
 	if not root.is_on_floor():
 		root.dashes -= 1
-	SoundEngine.playsoundstring(0,"res://AUDIO/SE/DashFin.ogg",-2)
+	SoundEngine.playsound(0,snd,-2)
 	root.sprite.play("dash")
 	root.GRAV_ENABLED = false
 	root.CAN_MOVE = false
@@ -107,16 +117,14 @@ func _step():
 		
 		parent.change_state("DashAttack")
 		
-	if Input.is_action_just_released("PAD1_C"):
-		root.hurbcol.disabled = false
-		
+	if !Input.is_action_pressed("PAD1_C") && parent.state_time > 10:
 		parent.change_state("Idle")
 	if (Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0) && root.is_on_floor():
 		root.hurbcol.disabled = false
 		root.vecair = true
 		
 		parent.change_state("Jump")
-	if parent.state_time >= 45:
+	if parent.state_time >= 48:
 		root.hurbcol.disabled = false
 		root.dashcoy = 15
 		if root.is_on_floor():

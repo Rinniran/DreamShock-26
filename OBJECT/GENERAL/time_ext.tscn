@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://30mygoq6istp"]
 
 [ext_resource type="Texture2D" uid="uid://4bjkmsyxnql1" path="res://SPRITE/UI/TimeExtension.png" id="1_tfsvi"]
-[ext_resource type="AudioStream" uid="uid://bnqg7iwpbdrhf" path="res://AUDIO/SE/TimeExtension.mp3" id="2_gy0ek"]
+[ext_resource type="AudioStream" uid="uid://257jorgxa0n1" path="res://AUDIO/SE/JDodge.wav" id="2_j34jp"]
 
 [sub_resource type="GDScript" id="GDScript_xrs26"]
 script/source = "extends CanvasLayer
@@ -67,7 +67,8 @@ position = Vector2(219, 66)
 texture = ExtResource("1_tfsvi")
 
 [node name="snd" type="AudioStreamPlayer" parent="." unique_id=1506221568]
-stream = ExtResource("2_gy0ek")
+stream = ExtResource("2_j34jp")
+volume_db = -12.819
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1312176214]

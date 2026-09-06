@@ -3,8 +3,6 @@ extends BaseState
 
 func _enter(data = {}):
 	SoundEngine.playsound(5,root.deathsound.stream, -12)
-	Global.hitstopframes = 10
-	Global.hitstop = true
 	var obj = preload("uid://o3cqd4kts4be").instantiate()
 	obj.global_position = root.sprite.global_position 
 	get_parent().add_child(obj)

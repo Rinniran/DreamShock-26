@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://pi0kfc1yjk5c" path="res://Sprites/Players/Rian/Rian_Backjump.png" id="6_d0vwv"]
 [ext_resource type="Texture2D" uid="uid://dvv02kvpurt26" path="res://Sprites/Players/Rian/Rian_Forwardjump.png" id="7_4xp72"]
 [ext_resource type="Texture2D" uid="uid://b34fq4u8jxaq8" path="res://Sprites/Players/Rian/Rian_Fling.png" id="8_4dn1s"]
+[ext_resource type="Texture2D" uid="uid://r62e5odriuml" path="res://Sprites/Players/Rian/Rian_Fly.png" id="9_4dn1s"]
 [ext_resource type="Texture2D" uid="uid://b8ibcx260lvah" path="res://Sprites/Players/Rian/Rian_Stance.png" id="9_jxoo1"]
 [ext_resource type="Texture2D" uid="uid://b18524ca51usw" path="res://Sprites/Players/Rian/Rian_CutsceneIdle1.png" id="9_sc3xi"]
 [ext_resource type="Texture2D" uid="uid://cvuw52agcr2iq" path="res://Sprites/Players/Rian/Rian_StickCity_Intro.png" id="10_d0vwv"]
@@ -255,16 +256,20 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("8_4dn1s")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="353"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7df1l"]
+atlas = ExtResource("9_4dn1s")
 region = Rect2(0, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="354"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfw3s"]
+atlas = ExtResource("9_4dn1s")
 region = Rect2(200, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="355"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjdv3"]
+atlas = ExtResource("9_4dn1s")
 region = Rect2(400, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="356"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lnmn"]
+atlas = ExtResource("9_4dn1s")
 region = Rect2(600, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="357"]
@@ -1122,16 +1127,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("353")
+"texture": SubResource("AtlasTexture_7df1l")
 }, {
 "duration": 1.0,
-"texture": SubResource("354")
+"texture": SubResource("AtlasTexture_gfw3s")
 }, {
 "duration": 1.0,
-"texture": SubResource("355")
+"texture": SubResource("AtlasTexture_rjdv3")
 }, {
 "duration": 1.0,
-"texture": SubResource("356")
+"texture": SubResource("AtlasTexture_0lnmn")
 }],
 "loop": 1,
 "name": &"Fly",
