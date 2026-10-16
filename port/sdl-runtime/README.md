@@ -4,7 +4,8 @@ This is the first C++ runtime foundation for porting DreamShock out of Godot. It
 
 ## Current scope
 
-- C++20 and CMake project
+- Native Visual Studio solution and C++ project (`.sln` / `.vcxproj`)
+- C++20 and CMake builds
 - SDL2 window, renderer, event loop, and fixed 60 Hz update step
 - 427 × 240 logical render resolution (matching the current Godot project settings)
 - Keyboard and SDL GameController input abstraction
@@ -14,16 +15,35 @@ This is the first C++ runtime foundation for porting DreamShock out of Godot. It
 
 This is infrastructure, not a playable port yet. It does not load Godot scenes, import Godot resources, or implement the original player controller.
 
-## Dependencies
+## Recommended Windows workflow: Visual Studio 2022
 
-Install a C++20 compiler, CMake 3.21+, SDL2 development files, and SDL2_mixer development files. The CMake configuration expects packages exporting `SDL2::SDL2` and `SDL2_mixer::SDL2_mixer` targets (for example, packages installed through vcpkg).
+### Requirements
+
+- Visual Studio 2022 with the **Desktop development with C++** workload
+- A Windows 10/11 SDK and the MSVC v143 toolset
+- [vcpkg](https://github.com/microsoft/vcpkg), with the `VCPKG_ROOT` environment variable pointing to its checkout
+
+### Open and build
+
+1. Open `port/sdl-runtime/DreamShockSDL.sln` in Visual Studio.
+2. Select **x64** as the solution platform and choose **Debug** or **Release**.
+3. The project uses the adjacent `vcpkg.json` manifest to request SDL2 and SDL2_mixer. On the first build, allow vcpkg to install the dependencies.
+4. Build with **Build → Build Solution** (or press **Ctrl+Shift+B**).
+5. Start with **Debug → Start Without Debugging** (or **Ctrl+F5**).
+
+The project copies the vcpkg runtime DLLs beside the built executable. Output is placed under `port/sdl-runtime/bin/x64/Debug/` or `port/sdl-runtime/bin/x64/Release/`.
+
+If manifest dependency installation does not start, confirm that Visual Studio's vcpkg integration is enabled and that `VCPKG_ROOT` points to a valid vcpkg installation. The manifest declares `sdl2` and `sdl2-mixer` for the `x64-windows` triplet.
+
+## Alternative: CMake build
+
+Install a C++20 compiler, CMake 3.21+, SDL2, and SDL2_mixer. The CMake configuration expects packages exporting `SDL2::SDL2` and `SDL2_mixer::SDL2_mixer` targets.
 
 ### Windows with vcpkg
 
-From a Developer PowerShell with vcpkg available:
+From a Developer PowerShell:
 
 ```powershell
-vcpkg install sdl2 sdl2-mixer
 cmake -S port/sdl-runtime -B build/sdl-runtime -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
 cmake --build build/sdl-runtime --config Release
 .uildsdl-runtimeindreamshock_sdl.exe
@@ -31,7 +51,7 @@ cmake --build build/sdl-runtime --config Release
 
 Depending on your generator and vcpkg triplet, the executable may be placed under a configuration subdirectory such as `bin/Release`.
 
-### Linux (package names vary by distribution)
+### Linux
 
 Install SDL2, SDL2_mixer, CMake, and a C++ compiler using your distribution's package manager, then configure and build:
 
@@ -41,7 +61,7 @@ cmake --build build/sdl-runtime --parallel
 ./build/sdl-runtime/bin/dreamshock_sdl
 ```
 
-If your distribution provides SDL packages without CMake config files, install the development packages that expose CMake package targets or adapt the CMake dependency discovery to use pkg-config.
+If your distribution provides SDL packages without CMake config files, install the development packages that expose CMake package targets or adapt CMake dependency discovery to use pkg-config.
 
 ## Smoke test
 
