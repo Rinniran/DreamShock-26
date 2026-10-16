@@ -69,8 +69,7 @@
       <AdditionalDependencies>SDL2.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>if exist "$(VcpkgInstalledDir)debug\bin\*.dll" xcopy "$(VcpkgInstalledDir)debug\bin\*.dll" "$(OutDir)" /Y /D &gt;nul
-if exist "$(VcpkgInstalledDir)bin\*.dll" xcopy "$(VcpkgInstalledDir)bin\*.dll" "$(OutDir)" /Y /D &gt;nul</Command>
+      <Command>if exist "$(VcpkgInstalledDir)debug\bin\*.dll" xcopy "$(VcpkgInstalledDir)debug\bin\*.dll" "$(OutDir)" /Y /D &gt;nul</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
