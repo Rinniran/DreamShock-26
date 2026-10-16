@@ -44,6 +44,7 @@ public:
 
     bool initialize(std::string& error);
     void processEvent(const SDL_Event& event);
+    void shutdown();
     [[nodiscard]] InputState state() const noexcept;
 
 private:
