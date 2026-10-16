@@ -36,10 +36,16 @@ std::filesystem::path AssetLocator::resolve(const std::filesystem::path& relativ
 }
 
 InputSystem::~InputSystem() {
+    shutdown();
+}
+
+void InputSystem::shutdown() {
     if (controller_ != nullptr) {
         SDL_GameControllerClose(controller_);
         controller_ = nullptr;
     }
+    controllerInstance_ = -1;
+    knownControllers_.clear();
 }
 
 bool InputSystem::initialize(std::string& error) {
@@ -347,6 +353,7 @@ void Runtime::render() {
 void Runtime::shutdown() {
     running_ = false;
     audio_.shutdown();
+    input_.shutdown();
     if (renderer_ != nullptr) {
         SDL_DestroyRenderer(renderer_);
         renderer_ = nullptr;
