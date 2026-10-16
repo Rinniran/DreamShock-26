@@ -1,0 +1,9 @@
+{
+  "name": "dreamshock-sdl-runtime",
+  "version-string": "0.1.0",
+  "description": "SDL runtime foundation for the DreamShock C++ port",
+  "dependencies": [
+    "sdl2",
+    "sdl2-mixer"
+  ]
+}
