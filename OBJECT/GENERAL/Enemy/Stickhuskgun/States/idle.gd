@@ -11,7 +11,12 @@ func _enter(data = {}):
 func _step():
 	super()
 	
-	if parent.state_time == 15:
+	if parent.state_time == 15 || parent.state_time == 17 || parent.state_time == 18 || parent.state_time == 20:
+
+		var max_deviation = deg_to_rad(25.0)
+		var diroffset = randf_range(-max_deviation, max_deviation)
+		var basedirection = root.position.direction_to(Global.player1.global_position)
+		var addoffset = diroffset
 		var pj = preload("res://OBJECT/Projectiles/Enemy/Pellet.tscn").instantiate()
 		match(Global.difficulty):
 			1:
@@ -23,7 +28,7 @@ func _step():
 			5:
 				pj.speed += 10
 		pj.position.y = root.position.y
-		pj.direction = root.position.direction_to(Global.player1.global_position)
+		pj.direction = basedirection.rotated(diroffset)
 		pj.own = root
 		if root.sprite.flip_h == false:
 			pj.direction.x = -1

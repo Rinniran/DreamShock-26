@@ -11,6 +11,8 @@ var current_text = 0
 @onready var lbl = $Label
 @onready var ping = preload("uid://d0uuludl0qtb1")
 
+signal dialogue_closed
+
 func _ready() -> void:
 	current_text = 0
 	lbl.text = texts[current_text]
@@ -38,5 +40,6 @@ func _physics_process(delta: float) -> void:
 					lbl.text = texts[current_text]
 					get_tree().paused = false
 					visible = false
+					dialogue_closed.emit()
 					
 		

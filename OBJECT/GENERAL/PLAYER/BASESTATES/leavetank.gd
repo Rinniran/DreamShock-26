@@ -12,10 +12,12 @@ func _enter(data = {}):
 	root.visible = true
 	
 	root.position.y -= 48
-	root.velocity.y = 0
 	root.velocity.x = 0
 	root.velocity.y = root.JUMP_VELOCITY
 	root.sprite.play("BJump")
+	root.canhurt = false
+	root.vecairanim = false
+	root.crushable = false
 
 
 func _step():

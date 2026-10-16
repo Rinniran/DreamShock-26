@@ -12,6 +12,9 @@ func _enter(data = {}):
 	root.visible = false
 	root.velocity.x = 0
 	root.velocity.y = 0
+	root.canhurt = false
+	root.vecairanim = false
+	root.crushable = false
 
 
 func _step():

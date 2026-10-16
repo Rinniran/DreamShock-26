@@ -21,7 +21,7 @@ enum pardir
 	LOW
 }
 
-const SPEED: float = 8000.0
+@export var SPEED: float = 8000.0
 const DASHSPEED: float = 5000.0
 const JUMP_VELOCITY: float = -400.0
 const GRAVITY: float = 1100.0
@@ -42,9 +42,16 @@ var iframes = 0
 var vecair = false
 var DAttacked = false
 var isKilled = false
-var aftimagetimer = 2
+var aftimagetimer = 0
 
 var rings = 0
+
+var canhurt = true
+var vecairanim = true
+var crushable = true
+
+var maxparrywindow = 14
+var parrywindow = 14
 
 
 @export var hitstopnull = false
@@ -74,38 +81,43 @@ var rings = 0
 
 var dashcoy = 0
 
+signal take_damage
+signal regain_parrytime
+
 func _ready() -> void:
+	
+	take_damage.connect(damageHandle)
+	regain_parrytime.connect(preg)
 	Global.player1 = self
 	state.initialize()
 
 func _physics_process(delta: float) -> void:
 	
-	if (Global.p1health <= 0 || dcdet.is_colliding() && state.state_name != "MountTank" && state.state_name != "LeaveTank" || Global.time <= 0) && isKilled == false:
-		state.change_state("Die")
-		isKilled = true
 	
-	# Add the gravity.
-	if state.state_name != "Damage" && state.state_name != "Die":
-		blood.emitting = false
 	
-	if Global.invincibility:
-		inpart.emitting = true
-	else:
-		inpart.emitting = false
+	if (dcdet.is_colliding() && crushable):
+		print_debug("CRUSH DEATH!")
+		if isKilled == false:
+			state.change_state("Die")
+			isKilled = true
 	
-	for hazards in hurb.get_overlapping_areas():
-		if state.state_name != "Damage" && state.state_name != "Die" && state.state_name != "DashAttack" && state.state_name != "MountTank" && state.state_name != "LeaveTank":
+	
+	inpart.emitting = Global.invincibility
+	if canhurt && iframes <= 0:
+		for hazards in hurb.get_overlapping_areas():
+			
 			if hazards.is_in_group("Enemy") || hazards.is_in_group("En_Attack"):
 				if !Global.invincibility:
-					damageHandle(1)
+					take_damage.emit(1)
+					break
 	if conparries >= 5:
 		Global.p1health += 1
 		conparries = 0
 	if is_on_floor():
 		dashes = 2
 		rings = 0
-	if IN_CUTSCENE == false:
-		state.advance()
+
+
 	#print_debug(velocity.x)
 	if parrycool > 0: 
 		parrycool -= 1
@@ -117,6 +129,7 @@ func _physics_process(delta: float) -> void:
 	
 	if iframes > 0:
 		hurbcol.disabled = true
+		#print_debug(hurbcol.disabled)
 		iframes -= 1
 	else:
 		
@@ -133,10 +146,11 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("PAD1_UP"):
 			parry_direction = pardir.HIGH
 		if Input.is_action_pressed("PAD1_LEFT") || Input.is_action_pressed("PAD1_RIGHT") || Input.is_action_pressed("PAD1_UP") || Input.is_action_pressed("PAD1_DOWN"):
-			if paractfr >= 10:
+			if paractfr >= parrywindow - 4:
 				parrying = false
-		if paractfr >= 14:
+		if paractfr >= parrywindow:
 			parrying = false
+		
 	else:
 		paractfr = 0
 	
@@ -161,7 +175,7 @@ func _physics_process(delta: float) -> void:
 	if CAMERA != null:
 		position.x = clamp(position.x,CAMERA.position.x - 150, CAMERA.position.x + 150)
 		position.x = clamp(position.x,CAMERA.limit_left + 10, CAMERA.limit_right - 10)
-	if !Global.hitstop:
+	if !Global.hitstop &&  IN_CUTSCENE == false:
 		if not is_on_floor() && GRAV_ENABLED:
 			velocity.y += GRAVITY * delta
 		state.advance()
@@ -209,7 +223,7 @@ func damageHandle(damage):
 				parriedlow = true
 	
 	if (parriedhigh || parriedlow || parriedmid) && parrying:
-		iframes = 40
+		iframes = 20
 		Global.hitstopframes = 12
 		conparries += 1
 		Global.hitstop = true
@@ -219,6 +233,8 @@ func damageHandle(damage):
 			sprite.play("parryair")
 		parrycool = 0
 		paractfr = 0
+		parrywindow -= 2
+		#print_debug(parrywindow)
 		parrying = false
 		var parryobj = preload("uid://ddlo8tdk0vpj0").instantiate()
 		parryobj.global_position = global_position
@@ -233,7 +249,14 @@ func damageHandle(damage):
 		conparries = 0
 		Global.chain = 0
 		Global.p1health -= damage
-		state.change_state("Damage")
+		if Global.p1health <= 0:
+			if isKilled == false:
+				#print_debug("Health gone!")
+				vecair = false
+				state.change_state("Die")
+				isKilled = true
+		else:
+			state.change_state("Damage")
 
 func vectorair(ms):
 	
@@ -241,7 +264,7 @@ func vectorair(ms):
 		velocity.x = ms
 	elif velocity.x < -ms:
 		velocity.x = -ms
-	if state.state_name != "Damage" && state.state_name != "Die" && state.state_name != "DashAttack" && state.state_name != "Dash" && state.state_name != "Attack1" && state.state_name != "Slide":
+	if vecairanim == true:
 		if sprite.animation != "Vecair" && sprite.animation != "Vecairloop":
 			sprite.play("Vecair")
 			
@@ -259,21 +282,37 @@ func vectorair(ms):
 		velocity.x += 5 
 	
 	
-	var aft = preload("res://OBJECT/GENERAL/Afterimage.tscn").instantiate()
-	aft.z_index = sprite.z_index - 1 
-	aft.texture = sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame)
-	aft.flip_h = sprite.flip_h
-	aft.global_position = sprite.global_position
-		
-	get_parent().add_child(aft)
-	if aftimagetimer > 0:
-		aftimagetimer -= 1
+	if !canhurt:
+		hurbcol.disabled = true
+		if aftimagetimer > 0:
+			#print_debug(aftimagetimer)
+			aftimagetimer -= 1
+		else:
+			var aft
+			if character == player.BLIP:
+				aft = preload("res://OBJECT/GENERAL/BlipAfterimage.tscn").instantiate()
+			else:
+				aft = preload("res://OBJECT/GENERAL/Afterimage.tscn").instantiate()
+			#print_debug("afterimage!")
+			
+			
+			aft.z_index = sprite.z_index - 1 
+			aft.texture = sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame)
+			aft.flip_h = sprite.flip_h
+			aft.position = sprite.global_position
+			get_parent().add_child(aft)
+			aftimagetimer = 2
 	else:
-		aftimagetimer = 2
-	hurbcol.disabled = true
+		#print_debug("not invincible...")
+		hurbcol.disabled = false
 	
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Tankenter"):
 		state.change_state("MountTank")
+
+func preg():
+	parrywindow += 2
+	if parrywindow > maxparrywindow:
+		parrywindow = maxparrywindow

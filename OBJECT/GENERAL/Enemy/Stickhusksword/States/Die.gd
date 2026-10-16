@@ -2,13 +2,16 @@ extends BaseState
 
 func _enter(data = {}):
 	super()
+	root.anim.stop()
+	root.anim.play("Idle")
 	root.anim_can_resume_after_hitstop = true
 func _step():
 	super()
+	root.velocity.x = 0
 	if parent.state_time > 25:
 		parent.change_state("Move")
 	
-	if root.global_position.distance_to(Global.player1.global_position) < 10:
+	if root.global_position.distance_to(Global.player1.global_position) < 120 &&parent.state_time > 32:
 		parent.change_state("Attack")
 	
 	

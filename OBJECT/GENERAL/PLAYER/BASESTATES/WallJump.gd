@@ -14,11 +14,14 @@ func _enter(data = {}):
 	root.velocity.y = 0
 	root.velocity.y = -500
 	SoundEngine.playsound(0, snd, -8)
-	
+	root.canhurt = true
+	root.vecairanim = false
+	root.crushable = true
 
 
 func _step():
 	super._step()
+	root.regain_parrytime.emit()
 	var Kup = Input.is_action_pressed("PAD1_UP")
 	var Kdown = Input.is_action_pressed("PAD1_DOWN")
 	var Kleft = Input.is_action_pressed("PAD1_LEFT")

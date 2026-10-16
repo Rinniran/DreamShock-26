@@ -1701,12 +1701,12 @@ func bounceHandle():
 
 func _on_Bouncebox_body_entered(body):
 	if body in get_tree().get_nodes_in_group("Enemy"):
-		print_debug("Bounce!")
+		#print_debug("Bounce!")
 		bounceHandle()
 
 
 func _on_Bouncebox_area_entered(area):
 	if area.is_in_group("Enemy"):
-		print_debug("Bounce!")
+		#print_debug("Bounce!")
 		motion.y = 0
 		bounceHandle()

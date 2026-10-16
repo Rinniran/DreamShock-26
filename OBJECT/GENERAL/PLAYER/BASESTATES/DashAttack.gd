@@ -16,6 +16,7 @@ func _enter(data = {}):
 		root.dashes -= 1
 	root.DAttacked = true
 	root.anim_can_resume_after_hitstop = true
+	root.regain_parrytime.emit()
 	root.sprite.play("attackair")
 	root.GRAV_ENABLED = false
 	root.CAN_MOVE = false
@@ -24,6 +25,9 @@ func _enter(data = {}):
 	pj.position = root.position
 	pj.own = root
 	get_parent().add_child(pj)
+	root.canhurt = false
+	root.vecairanim = false
+	root.crushable = true
 
 
 
@@ -92,7 +96,7 @@ func _step():
 	if (Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0) && root.is_on_floor():
 		root.hurbcol.disabled = false
 		parent.change_state("Jump")
-	if parent.state_time >= 28:
+	if parent.state_time >= 10:
 		root.hurbcol.disabled = false
 		if root.is_on_floor():
 			parent.change_state("Idle")

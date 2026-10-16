@@ -155,6 +155,7 @@ func _physics_process(delta):
 	if hp <= 0:
 		states = "DIE"
 		Global.bossactive = false
+		Global.stage.levelMusicStart.emit()
 	
 
 func stompbombs():

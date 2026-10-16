@@ -17,10 +17,13 @@ func _enter(data = {}):
 		root.dashes -= 1
 	SoundEngine.playsound(0,snd,-2)
 	root.sprite.play("waveburst")
+	root.regain_parrytime.emit()
 	root.GRAV_ENABLED = true
 	root.CAN_MOVE = false
 	root.velocity.y = 0
-	
+	root.canhurt = true
+	root.vecairanim = false
+	root.crushable = true
 
 
 func _step():

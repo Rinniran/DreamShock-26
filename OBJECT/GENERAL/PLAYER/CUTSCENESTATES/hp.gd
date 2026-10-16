@@ -7,7 +7,7 @@ var collected = false
 var wait = 5
 var startwait = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if has_node("sp"):
 		if $sp.animation != "collect":
 			$sp.rotation_degrees += 1

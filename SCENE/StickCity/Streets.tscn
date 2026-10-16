@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://b8bifb5oo7aap"]
 
-[ext_resource type="Texture2D" uid="uid://cau7xlp1s65lx" path="res://SPRITE/STAGE/STICKCITY/StreetsBG_Layer1.png" id="1_attul"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_tt0hx"]
-[ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_3h4rv"]
-[ext_resource type="AudioStream" uid="uid://cnkw2adh2m2tu" path="res://AUDIO/BGM/Urban Chaos.ogg" id="2_lo57f"]
+[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="2_pqqwk"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_3h4rv"]
+[ext_resource type="Texture2D" uid="uid://b3vdo6iha26j1" path="res://Sprites/BG/SCStreets.png" id="3_pqqwk"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="4_clmtf"]
 [ext_resource type="Texture2D" uid="uid://odo5k2ohnoqp" path="res://SPRITE/VFX/Garagelight.png" id="5_ncqv5"]
 [ext_resource type="Texture2D" uid="uid://cbu5vrt6u1p8d" path="res://SPRITE/STAGE/STICKCITY/Sc_Broke.png" id="6_8p28j"]
@@ -45,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://6l3peq16eclb" path="res://SPRITE/NPC/FloofIdle.png" id="43_dm7b6"]
 [ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="44_2jy3f"]
 [ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="45_8ganq"]
+[ext_resource type="PackedScene" uid="uid://b1caqq8bvhddh" path="res://OBJECT/GENERAL/PLAYER/Blip.tscn" id="46_pqqwk"]
 [ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="46_vnbtr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js17h"]
@@ -176,28 +176,24 @@ size = Vector2(84, 80)
 
 [node name="Streets" type="Node2D" unique_id=327141923]
 script = ExtResource("1_tt0hx")
-MusicVolume = -4.0
-Stage_Music = ExtResource("2_lo57f")
+MusicVolume = -7.0
+Stage_Music = ExtResource("2_pqqwk")
 stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="Node" type="Node" parent="." unique_id=1149708822]
 
 [node name="Parallax2D" type="Parallax2D" parent="Node" unique_id=41417506]
 z_index = -37
-scroll_scale = Vector2(1, 0)
-scroll_offset = Vector2(-1, 5)
-repeat_size = Vector2(320, 0)
+scroll_scale = Vector2(0, 0.02)
+scroll_offset = Vector2(-398, -1)
+repeat_size = Vector2(460, 0)
 repeat_times = 38
 
 [node name="StreetsBgLayer1" type="Sprite2D" parent="Node/Parallax2D" unique_id=1547110697]
 light_mask = 0
 z_index = -60
 position = Vector2(160, 115)
-texture = ExtResource("1_attul")
-
-[node name="Player" parent="." unique_id=1112045618 node_paths=PackedStringArray("CAMERA") instance=ExtResource("2_3h4rv")]
-position = Vector2(105, 163)
-CAMERA = NodePath("../Camera")
+texture = ExtResource("3_pqqwk")
 
 [node name="Camera" parent="." unique_id=258370969 node_paths=PackedStringArray("target") instance=ExtResource("3_3h4rv")]
 position = Vector2(159, 114)
@@ -955,7 +951,7 @@ position = Vector2(1065, -67)
 position = Vector2(929, -114)
 
 [node name="StickhuskGun" parent="Enemies" unique_id=1342182544 instance=ExtResource("23_nryoh")]
-position = Vector2(1392, -247)
+position = Vector2(1514, -209)
 dropped_item = ExtResource("26_jaa3x")
 
 [node name="StickhuskGun2" parent="Enemies" unique_id=599464373 instance=ExtResource("23_nryoh")]
@@ -1860,6 +1856,10 @@ ammo you have for
 it under your 
 character's health,
 nyuu!"])
+
+[node name="Player" parent="." unique_id=1112045618 node_paths=PackedStringArray("CAMERA") instance=ExtResource("46_pqqwk")]
+position = Vector2(91, 167)
+CAMERA = NodePath("../Camera")
 
 [connection signal="area_entered" from="NPC/Floof" to="NPC/Floof" method="_on_area_entered"]
 [connection signal="area_exited" from="NPC/Floof" to="NPC/Floof" method="_on_area_exited"]

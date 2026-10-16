@@ -20,6 +20,7 @@ func _step():
 		boss.position = Vector2(3792.0, 60.0)
 		if !bossisspawned: 
 			get_parent().add_child(boss)
+		Global.stage.bossMusicStart.emit()
 		Global.activegame = true
 		root.player.state.change_state("Idle")
 		root.active = false

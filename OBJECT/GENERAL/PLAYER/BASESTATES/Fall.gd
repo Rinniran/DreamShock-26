@@ -9,6 +9,10 @@ func _enter(data = {}):
 	root.anim_can_resume_after_hitstop = false
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
+	if !root.vecair:
+		root.canhurt = true
+	root.vecairanim = true
+	root.crushable = true
 
 
 func _step():

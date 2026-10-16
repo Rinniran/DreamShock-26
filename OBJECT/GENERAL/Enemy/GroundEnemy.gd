@@ -37,7 +37,7 @@ extends CharacterBody2D
 @onready var iid = preload("res://OBJECT/GENERAL/Itemidentifier.tscn").instantiate()
 var seconds = 0
 var dead = false
-
+var item_dropped = false
 
 
 func _ready() -> void:
@@ -135,6 +135,13 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 				Global.camera.locked = false
 			state.call_deferred("change_state","Die")
 			dead = true
+			if item_dropped:
+				return
+			if dropped_item != null && !item_dropped:
+					drop_item()
+					item_dropped = true
+			
+			
 		else:
 			if area.is_in_group("Heavy"):
 				if has_damage_state == true:
@@ -148,3 +155,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 func countup():
 	if is_physics_processing():
 		seconds += 1
+
+
+func _on_attack_box_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

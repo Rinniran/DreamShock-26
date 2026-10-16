@@ -13,7 +13,6 @@ func _enter(data = {}):
 	Global.addcombo()
 	Global.score += 50 * (Global.chain)
 	root.anim.play("Die")
-	root.drop_item()
 	root.dead = true
 	
 func _step():

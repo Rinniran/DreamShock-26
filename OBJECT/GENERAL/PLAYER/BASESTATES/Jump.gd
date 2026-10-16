@@ -8,7 +8,10 @@ func _enter(data = {}):
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
 	root.anim_can_resume_after_hitstop = false
-	
+	if !root.vecair:
+		root.canhurt = true
+	root.vecairanim = true
+	root.crushable = true
 	root.sprite.play("jump")
 	if root.is_on_floor():
 		SoundEngine.playsound(0, snd, -8)

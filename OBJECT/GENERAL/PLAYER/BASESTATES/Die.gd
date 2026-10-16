@@ -14,6 +14,9 @@ func _enter(data = {}):
 	root.Dsound.play()
 	root.damit.play()
 	root.hurbcol.disabled = true
+	root.canhurt = false
+	root.vecairanim = false
+	root.crushable = false
 
 
 func _step():
@@ -37,13 +40,13 @@ func _step():
 			root.sprite.offset = Vector2(1,1)
 		20:
 			root.sprite.offset = Vector2(0,0)
-		120:
+		70:
 			root.white.visible = true
-		122:
+		71:
 			root.black.visible = true
 			root.dc.play()
 			root.aah.play()
-		360:
+		180:
 			get_tree().change_scene_to_file("res://SCENE/GAMEOVER.tscn")
 	
 	

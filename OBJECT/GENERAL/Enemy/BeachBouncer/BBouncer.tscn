@@ -369,7 +369,7 @@ radius = 5.0
 height = 28.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0txl"]
-size = Vector2(41, 41)
+size = Vector2(46, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47olj"]
 size = Vector2(49, 49)
@@ -419,7 +419,7 @@ shape = SubResource("CapsuleShape2D_arnfj")
 [node name="Hurtbox" type="Area2D" parent="." unique_id=188263074 groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=95335848]
-position = Vector2(0.5, 2.5)
+position = Vector2(-2, 26.5)
 shape = SubResource("RectangleShape2D_h0txl")
 debug_color = Color(0.9893982, 0, 0.2963458, 0.41960785)
 

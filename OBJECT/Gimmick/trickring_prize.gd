@@ -17,7 +17,6 @@ func _ready() -> void:
 		if children is TrickRing:
 			if !rings.has(children):
 				rings.append(children)
-			print_debug(rings)
 
 
 func _physics_process(delta: float) -> void:

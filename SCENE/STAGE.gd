@@ -11,16 +11,30 @@ var M_Player:AudioStreamPlayer = Global.musicP
 
 @onready var combovoice = [$"100combo", $"200combo", $"300combo", $"400combo"]
 
+signal levelMusicStart
+signal bossMusicStart
+
 
 func _ready() -> void:
+	Global.stage = self
+	M_Player = Global.musicP
+	M_Player.volume_db = MusicVolume
+	Global.invincibility_started.connect(invincibility_music_start)
+	Global.invincibility_ended.connect(invincibility_music_stop)
+	levelMusicStart.connect(level_music_start)
+	bossMusicStart.connect(boss_music_start)
 	
 	if state != null:
 		state.initialize()
 	Global.combovoice = combovoice
 	Global.activegame = true
 	if Global.BGM == true:
-		if M_Player != null && M_Player.stream != null && !M_Player.playing:
-			M_Player.play()
+		
+		if M_Player != null:
+			
+			if !Global.invincibility:
+				if !M_Player.is_playing()|| M_Player.stream != Stage_Music:
+					levelMusicStart.emit()
 	Global.continuepath = stagepath
 
 func _physics_process(delta: float) -> void:
@@ -28,38 +42,35 @@ func _physics_process(delta: float) -> void:
 		state.advance()
 
 
-func _process(delta: float) -> void:
-	
-	
-	if Global.BGM == true:
-		if M_Player != null:
-			if Global.activegame:
-				if !Global.invincibility:
-					M_Player.volume_db = MusicVolume
-			if Global.invincibility:
-				if M_Player.stream != Invincible_Music:
+
+func invincibility_music_start():
+	M_Player = Global.musicP
+	if M_Player.stream != Invincible_Music:
 					M_Player.volume_db = -9
 					M_Player.stream = Invincible_Music
-					M_Player.play()
-			elif Global.bossactive:
-				if M_Player.stream != bossmus:
-					M_Player.stream = bossmus
-					M_Player.play()
-			elif LowTime_Music != null:
-				
-				if Global.time > 15 && M_Player.stream != bossmus:
-					if M_Player.stream != Stage_Music:
-						M_Player.stream = Stage_Music
+					if Global.BGM:
 						M_Player.play()
-						
-				else:
-					
-					if M_Player.stream != LowTime_Music:
-						M_Player.stream = LowTime_Music
-						M_Player.play()
-			else:
-				if M_Player.stream != Stage_Music:
-						M_Player.stream = Stage_Music
-						M_Player.play()
-		else:
-			M_Player = Global.musicP
+
+func invincibility_music_stop():
+	M_Player = Global.musicP
+	M_Player.volume_db = MusicVolume
+	if Global.bossactive:
+		bossMusicStart.emit()
+	else:
+		levelMusicStart.emit()
+
+func boss_music_start():
+	
+	M_Player = Global.musicP
+	Global.bossactive = true
+	M_Player.stream = bossmus
+	if Global.BGM:
+		M_Player.play()
+
+func level_music_start():
+	M_Player = Global.musicP
+	Global.bossactive = false
+	if M_Player.stream != Stage_Music:
+		M_Player.stream = Stage_Music
+	if Global.BGM :
+		M_Player.play()

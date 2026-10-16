@@ -5,6 +5,7 @@ var moverandomizer = RandomNumberGenerator.new()
 var movechoice
 var aftimagetimer = 2
 var MSPEED = 380
+var invincible = true
 
 @onready var snd = preload("uid://d0e4667crp6yb")
 
@@ -12,6 +13,7 @@ var MSPEED = 380
 
 func _enter(data = {}):
 	super._enter(data)
+	root.regain_parrytime.emit()
 	var Kleft = Input.is_action_pressed("PAD1_LEFT")
 	var Kright = Input.is_action_pressed("PAD1_RIGHT")
 	var rspr = root.sprite
@@ -29,6 +31,19 @@ func _enter(data = {}):
 	root.CAN_MOVE = false
 	root.velocity.y = 0
 	
+	if Global.pieces >= 1:
+		invincible = true
+		Global.pieces -= 1
+	else:
+		invincible = false
+	
+	if invincible:
+		root.canhurt = false
+	else:
+		root.canhurt = true
+	
+	root.vecairanim = false
+	root.crushable = true
 
 
 func _step():
@@ -96,33 +111,40 @@ func _step():
 		rspr.play("ADDown")
 	else:
 		parent.change_state("Idle")
-	
-	if aftimagetimer > 0:
-		aftimagetimer -= 1
-	else:
-		var aft
-		if root.is_3d:
-			aft = preload("res://OBJECT/GENERAL/Afterimage3D.tscn").instantiate()
-		else:
-			aft = preload("res://OBJECT/GENERAL/Afterimage.tscn").instantiate()
-			aft.z_index = root.sprite.z_index - 1 
-		aft.texture = root.sprite.sprite_frames.get_frame_texture(root.sprite.animation, root.sprite.frame)
-		aft.flip_h = root.sprite.flip_h
-		aft.global_position = root.sprite.global_position
+	if invincible:
 		
-		get_parent().add_child(aft)
-		aftimagetimer = 2
+		root.hurbcol.disabled = true
+		if aftimagetimer > 0:
+			aftimagetimer -= 1
+		else:
+			var aft
+			if root.character == root.player.BLIP:
+				aft = preload("res://OBJECT/GENERAL/BlipAfterimage.tscn").instantiate()
+			else:
+				aft = preload("res://OBJECT/GENERAL/Afterimage.tscn").instantiate()
+			aft.z_index = root.sprite.z_index - 1 
+			aft.texture = root.sprite.sprite_frames.get_frame_texture(root.sprite.animation, root.sprite.frame)
+			aft.flip_h = root.sprite.flip_h
+			aft.global_position = root.sprite.global_position
+			
+			get_parent().add_child(aft)
+			
+			aftimagetimer = 2
+	else:
+		root.hurbcol.disabled = false
 	if Input.is_action_just_pressed("PAD1_A"):
 		root.hurbcol.disabled = false
 		
 		parent.change_state("DashAttack")
 		
-	if !Input.is_action_pressed("PAD1_C") && parent.state_time > 10:
+	if !Input.is_action_pressed("PAD1_C") && parent.state_time > 5:
 		parent.change_state("Idle")
 	if (Input.is_action_just_pressed("PAD1_B") || root.velocity.y < 0) && root.is_on_floor():
 		root.hurbcol.disabled = false
 		root.vecair = true
-		
+		if Global.pieces >= 1:
+			root.canhurt = false
+			Global.pieces -= 1
 		parent.change_state("Jump")
 	if parent.state_time >= 48:
 		root.hurbcol.disabled = false

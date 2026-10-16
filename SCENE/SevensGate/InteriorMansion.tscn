@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_dijs8"]
 [ext_resource type="Texture2D" uid="uid://dk57iam8ptwtw" path="res://SPRITE/STAGE/SEVENSGATE/MAINTILES.png" id="1_m7ugu"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_e4hgv"]
+[ext_resource type="AudioStream" uid="uid://d3buhkmefoacj" path="res://AUDIO/BGM/SG01.ogg" id="2_emeyb"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_dijs8"]
 [ext_resource type="PackedScene" uid="uid://w5oym6wij2nt" path="res://OBJECT/GENERAL/Enemy/Shielder/Shielder.tscn" id="5_w8f02"]
 [ext_resource type="PackedScene" uid="uid://4m0fc5dvpkjf" path="res://OBJECT/GENERAL/Enemy/Eyepiece/Eyepiece.tscn" id="6_w8f02"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cqkxesri6sn2l" path="res://OBJECT/GENERAL/DroppedCapsules/Invincibility.tscn" id="14_dg34r"]
 [ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="14_sbuag"]
 [ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="15_lkflt"]
+[ext_resource type="PackedScene" uid="uid://nma81q2pd7c2" path="res://OBJECT/Triggers/T_CamControl.tscn" id="23_dg34r"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_m7ugu"]
 tile_data = PackedInt32Array(0, 393217, 3, 65536, 262145, 3, 1, 458753, 3, 65537, 327681, 3)
@@ -92,6 +94,8 @@ pattern_0 = SubResource("TileMapPattern_m7ugu")
 
 [node name="InteriorMansion" type="Node2D" unique_id=1406186013]
 script = ExtResource("1_dijs8")
+MusicVolume = -3.0
+Stage_Music = ExtResource("2_emeyb")
 stagepath = "uid://bl4ybdxcaeurd"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1919533050]
@@ -1851,3 +1855,18 @@ volume_db = -8.667
 [node name="400combo" type="AudioStreamPlayer" parent="." unique_id=1116252349]
 stream = ExtResource("15_lkflt")
 volume_db = -8.667
+
+[node name="TCamControl" parent="." unique_id=1742638839 node_paths=PackedStringArray("c") instance=ExtResource("23_dg34r")]
+position = Vector2(3351.0002, 367)
+rotation = -1.5695981
+scale = Vector2(1, 35.075386)
+zoom_destination = 0.8
+offset_destination = Vector2(48, 0)
+c = NodePath("../Camera")
+
+[node name="TCamControl2" parent="." unique_id=530485699 node_paths=PackedStringArray("c") instance=ExtResource("23_dg34r")]
+position = Vector2(4524.0005, 63)
+rotation = -1.5695981
+scale = Vector2(1, 23.475092)
+zoom_destination = 1.0
+c = NodePath("../Camera")

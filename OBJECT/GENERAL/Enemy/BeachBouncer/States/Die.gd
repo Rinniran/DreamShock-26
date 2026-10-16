@@ -9,7 +9,6 @@ func _enter(data = {}):
 	var ex = preload("res://OBJECT/GENERAL/ExplosionA.tscn").instantiate()
 	ex.position = root.position
 	root.get_parent().add_child(ex)
-	root.drop_item()
 	root.queue_free()
 	
 	

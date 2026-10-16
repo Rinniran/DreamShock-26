@@ -20,7 +20,6 @@ var  hp = 10
 
 func _ready() -> void:
 	state.initialize()
-	print_debug(gun.rotation)
 
 
 func _physics_process(delta: float) -> void:
@@ -64,7 +63,6 @@ func _physics_process(delta: float) -> void:
 				dir = -1
 				velocity.x = -MSPEED* delta
 				gun.rotation = lerp_angle(gun.rotation, -3.13963682808524, t)
-				print_debug(deg_to_rad(gun.rotation_degrees))
 		elif Input.is_action_pressed("PAD1_RIGHT") && Input.is_action_pressed("PAD1_UP"):
 			gun.rotation = lerp(gun.rotation, -0.90999934816093, t)
 			velocity.x = MSPEED * delta

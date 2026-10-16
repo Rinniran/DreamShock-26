@@ -3,7 +3,6 @@ extends BaseState
 
 func _enter(data = {}):
 	var niceone = preload("res://OBJECT/Bonus/niceone.tscn").instantiate()
-	print_debug(str("Beaten in ") + str(root.seconds) + str(" seconds."))
 	if root.seconds <= 5:
 		niceone.text = "massacre the demon orb within 5 seconds!"
 		get_parent().get_parent().add_child(niceone)

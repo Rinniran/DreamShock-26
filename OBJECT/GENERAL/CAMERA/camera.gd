@@ -14,28 +14,29 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if locked == false:
-		
-		position.x = target.position.x
-		
-		if (target.position.y + 8) < position.y:
-			position.y -= speed * delta
+	if target != null:
+		if locked == false:
+			
+			position.x = target.position.x
+			
+			if (target.position.y + 8) < position.y:
+				position.y -= speed * delta
+				if position.y < target.position.y + 8:
+					position.y = target.position.y +8
+					
+			if (target.position.y - 8) > position.y:
+				position.y += speed * delta
+				if position.y + target.position.y - 8:
+					position.y = target.position.y - 8
+		else:
+			if (target.position.y + 8) < position.y:
+				position.y -= speed * delta
 			if position.y < target.position.y + 8:
 				position.y = target.position.y +8
 				
-		if (target.position.y - 8) > position.y:
-			position.y += speed * delta
+			if (target.position.y - 8) > position.y:
+				position.y += speed * delta
 			if position.y + target.position.y - 8:
 				position.y = target.position.y - 8
-	else:
-		if (target.position.y + 8) < position.y:
-			position.y -= speed * delta
-		if position.y < target.position.y + 8:
-			position.y = target.position.y +8
-			
-		if (target.position.y - 8) > position.y:
-			position.y += speed * delta
-		if position.y + target.position.y - 8:
-			position.y = target.position.y - 8
 
 	pass

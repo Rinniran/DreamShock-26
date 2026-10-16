@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bihtbif1yocj2" path="res://SRC/StateMachine.gd" id="5_toqg6"]
 [ext_resource type="Script" uid="uid://bmpsui1mkyjw5" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/idle.gd" id="6_n1so1"]
 [ext_resource type="Script" uid="uid://dutdog02kgqi2" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/Move.gd" id="7_5q3op"]
+[ext_resource type="Script" uid="uid://oqyv32xeg3gf" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/attack_box.gd" id="7_06a3n"]
 [ext_resource type="Script" uid="uid://b4cohwcf5qglj" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/Damage.gd" id="8_al6q0"]
 [ext_resource type="Script" uid="uid://ceav17rd4dlg3" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/Attack.gd" id="9_tabdg"]
 [ext_resource type="Script" uid="uid://bgw81u0vyohey" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/States/Die.gd" id="10_toqg6"]
@@ -26,6 +27,7 @@ shader_parameter/shade_color = Color(1, 1, 1, 0)
 
 [sub_resource type="Animation" id="Animation_e3nyc"]
 resource_name = "Attack"
+length = 0.7
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,10 +36,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [96, 97, 98, 99, 100, 101, 102, 103, 104]
+"values": [97, 98, 99, 100, 101, 102, 103]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -46,10 +48,22 @@ tracks/1/path = NodePath("../AttackBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false, true]
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AttackBox:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_kklak"]
@@ -103,7 +117,7 @@ tracks/1/path = NodePath("../BloodHusk:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 1.1666666),
+"times": PackedFloat32Array(0, 0.13333334, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -115,7 +129,7 @@ tracks/2/path = NodePath("../Explosionset2:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.1666666, 2.0666666),
+"times": PackedFloat32Array(0, 0.96666664, 1.2333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -177,7 +191,7 @@ tracks/7/path = NodePath("../Explosionset1:emitting")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.70000005, 2.0666668),
+"times": PackedFloat32Array(0, 0.46666667, 0.73333335),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -189,7 +203,7 @@ tracks/8/path = NodePath("../Explosion:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1.1),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -411,6 +425,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../AttackBox:collision_layer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kklak"]
 _data = {
@@ -483,6 +509,7 @@ shape = SubResource("RectangleShape2D_i1cpl")
 debug_color = Color(0.9893982, 0, 0.2963458, 0.41960785)
 
 [node name="AttackBox" type="Area2D" parent="." unique_id=1116590430 groups=["En_Attack"]]
+script = ExtResource("7_06a3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" unique_id=1008420140]
 position = Vector2(0.5, -2.5)
@@ -535,5 +562,6 @@ volume_db = -5.272
 pitch_scale = 2.68
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="AttackBox" to="AttackBox" method="_on_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -18,6 +18,11 @@ enum itemselect{
 
 var wait = 10
 
+var collected = false
+
+
+
+
 
 func _physics_process(delta: float) -> void:
 	match(item):
@@ -35,10 +40,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	if collected:
+		return
+	
 	if area.is_in_group("Player") && wait == 0:
+		collected = true
 		$CollisionShape2D.queue_free()
 		match(item):
 			0:
+				Global.invincibility_started.emit()
 				Global.invincibile_time = 60 * 24
 			1:
 				pass

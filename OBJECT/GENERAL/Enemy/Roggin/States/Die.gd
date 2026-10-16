@@ -11,7 +11,6 @@ func _enter(data = {}):
 	Global.addcombo()
 	Global.score += 25 * (Global.chain)
 	root.anim.play("Die")
-	root.drop_item()
 	pass
 
 

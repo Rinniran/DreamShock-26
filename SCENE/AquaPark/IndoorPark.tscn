@@ -3,8 +3,29 @@
 [ext_resource type="Texture2D" uid="uid://ccwqgbryukri8" path="res://SPRITE/STAGE/AQUAPARK/InteriorTiles.png" id="1_c7fwk"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_yd18n"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_o81fw"]
+[ext_resource type="AudioStream" uid="uid://ddqt6fhyop27i" path="res://AUDIO/BGM/AP_Exterior.ogg" id="2_yd18n"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_yd18n"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="4_qiirq"]
+[ext_resource type="PackedScene" uid="uid://b3chdep41iu0" path="res://OBJECT/GENERAL/Enemy/Stickhusksword/StickhuskSword.tscn" id="7_wn4yq"]
+[ext_resource type="PackedScene" uid="uid://t2cp88qpnmea" path="res://OBJECT/GENERAL/DroppedCapsules/Odachi.tscn" id="8_06ila"]
+[ext_resource type="PackedScene" uid="uid://bxeg32qqeoyk8" path="res://OBJECT/GENERAL/Enemy/Stickhuskgun/StickhuskGun.tscn" id="8_fktl2"]
+[ext_resource type="PackedScene" uid="uid://bloqulxreh6cq" path="res://OBJECT/GENERAL/Enemy/Chaser/Chaser.tscn" id="9_8hnrx"]
+[ext_resource type="PackedScene" uid="uid://d1b1bdcpb8tnt" path="res://OBJECT/GENERAL/DroppedCapsules/Shotgun.tscn" id="10_1ojwo"]
+[ext_resource type="PackedScene" uid="uid://cdeefhc14aqut" path="res://OBJECT/GENERAL/Enemy/Gliob/Gliob.tscn" id="10_e0d3m"]
+[ext_resource type="PackedScene" uid="uid://ch7awm8af0wji" path="res://OBJECT/GENERAL/Enemy/Roggin/RogginHerd.tscn" id="11_kcpda"]
+[ext_resource type="PackedScene" uid="uid://da43umrjgj55" path="res://OBJECT/GENERAL/Collectibles/hpLarge.tscn" id="12_okfd0"]
+[ext_resource type="PackedScene" uid="uid://4m0fc5dvpkjf" path="res://OBJECT/GENERAL/Enemy/Eyepiece/Eyepiece.tscn" id="12_ryyaf"]
+[ext_resource type="PackedScene" uid="uid://ctldfs54ibyo4" path="res://OBJECT/GENERAL/Enemy/BeachBouncer/BBouncer.tscn" id="13_yqvej"]
+[ext_resource type="PackedScene" uid="uid://t38erfgvpuyk" path="res://OBJECT/GENERAL/Collectibles/hp.tscn" id="16_1umsk"]
+[ext_resource type="PackedScene" uid="uid://dblijmf3sxkvu" path="res://OBJECT/GENERAL/Collectibles/Piece.tscn" id="18_g7y4e"]
+[ext_resource type="PackedScene" uid="uid://do44vagptmp5f" path="res://OBJECT/GENERAL/Capsule.tscn" id="19_7tr5b"]
+[ext_resource type="PackedScene" uid="uid://dkbwnl2p7ojqd" path="res://OBJECT/GENERAL/Collectibles/hpmed.tscn" id="20_5v52y"]
+[ext_resource type="PackedScene" uid="uid://ba3y6ooj31d0i" path="res://OBJECT/Gimmick/TrickRing.tscn" id="21_m2uap"]
+[ext_resource type="AudioStream" uid="uid://cy5bgxjty7jkc" path="res://AUDIO/VOICE/100combo.ogg" id="22_g7y4e"]
+[ext_resource type="AudioStream" uid="uid://bgw5mt7mirx74" path="res://AUDIO/VOICE/200combo.ogg" id="23_7tr5b"]
+[ext_resource type="AudioStream" uid="uid://cgdv55i3oe5yf" path="res://AUDIO/VOICE/300combo.ogg" id="24_5v52y"]
+[ext_resource type="AudioStream" uid="uid://c3cb3qs2f4s32" path="res://AUDIO/VOICE/400combo.ogg" id="25_m2uap"]
+[ext_resource type="PackedScene" uid="uid://nma81q2pd7c2" path="res://OBJECT/Triggers/T_CamControl.tscn" id="26_7tr5b"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c7fwk"]
 tile_data = PackedInt32Array(0, 196608, 268435457, 65536, 196608, 268435458, 1, 196608, 1, 65537, 196608, 2)
@@ -74,6 +95,9 @@ pattern_0 = SubResource("TileMapPattern_c7fwk")
 
 [node name="IndoorPark" type="Node2D" unique_id=1143765206]
 script = ExtResource("1_yd18n")
+MusicVolume = -1.0
+Stage_Music = ExtResource("2_yd18n")
+stagepath = "uid://d214ua5g34ojg"
 
 [node name="BGTiles" type="TileMap" parent="." unique_id=181986289]
 modulate = Color(0.50384665, 0.50384665, 0.50384665, 1)
@@ -99,3 +123,2867 @@ limit_bottom = 1721
 target = NodePath("../Player")
 
 [node name="Hud" parent="." unique_id=832355996 instance=ExtResource("4_qiirq")]
+
+[node name="Enemy" type="Node" parent="." unique_id=1554983957]
+
+[node name="StickhuskSword" parent="Enemy" unique_id=1817796248 instance=ExtResource("7_wn4yq")]
+position = Vector2(619, 624)
+
+[node name="StickhuskSword2" parent="Enemy" unique_id=758585183 instance=ExtResource("7_wn4yq")]
+position = Vector2(2324, 495)
+
+[node name="StickhuskSword3" parent="Enemy" unique_id=2131930858 instance=ExtResource("7_wn4yq")]
+position = Vector2(2390, 494)
+
+[node name="StickhuskSword4" parent="Enemy" unique_id=192499512 instance=ExtResource("7_wn4yq")]
+position = Vector2(2454, 494)
+
+[node name="StickhuskSword5" parent="Enemy" unique_id=1499716423 instance=ExtResource("7_wn4yq")]
+position = Vector2(2520, 493)
+
+[node name="StickhuskSword6" parent="Enemy" unique_id=1631436030 instance=ExtResource("7_wn4yq")]
+position = Vector2(4990, 1646)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword7" parent="Enemy" unique_id=867509638 instance=ExtResource("7_wn4yq")]
+position = Vector2(5030, 1646)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword8" parent="Enemy" unique_id=887475886 instance=ExtResource("7_wn4yq")]
+position = Vector2(5078, 1644)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword9" parent="Enemy" unique_id=924977619 instance=ExtResource("7_wn4yq")]
+position = Vector2(5381, 1649)
+
+[node name="StickhuskSword10" parent="Enemy" unique_id=1424671598 instance=ExtResource("7_wn4yq")]
+position = Vector2(5628, 1650)
+
+[node name="StickhuskSword11" parent="Enemy" unique_id=725101638 instance=ExtResource("7_wn4yq")]
+position = Vector2(5805, 1652)
+
+[node name="StickhuskSword12" parent="Enemy" unique_id=265003234 instance=ExtResource("7_wn4yq")]
+position = Vector2(7447, 1200)
+
+[node name="StickhuskSword13" parent="Enemy" unique_id=24475204 instance=ExtResource("7_wn4yq")]
+position = Vector2(7523, 1197)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword14" parent="Enemy" unique_id=2009430741 instance=ExtResource("7_wn4yq")]
+position = Vector2(7598, 1198)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword15" parent="Enemy" unique_id=19005391 instance=ExtResource("7_wn4yq")]
+position = Vector2(7670, 1198)
+
+[node name="StickhuskSword16" parent="Enemy" unique_id=466658765 instance=ExtResource("7_wn4yq")]
+position = Vector2(8131, 1006)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword17" parent="Enemy" unique_id=1350672116 instance=ExtResource("7_wn4yq")]
+position = Vector2(8250, 1010)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword18" parent="Enemy" unique_id=1755040883 instance=ExtResource("7_wn4yq")]
+position = Vector2(8498, 1453)
+
+[node name="StickhuskSword19" parent="Enemy" unique_id=413021010 instance=ExtResource("7_wn4yq")]
+position = Vector2(8623, 1452)
+
+[node name="StickhuskSword20" parent="Enemy" unique_id=892165590 instance=ExtResource("7_wn4yq")]
+position = Vector2(8735, 1452)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword21" parent="Enemy" unique_id=1307168895 instance=ExtResource("7_wn4yq")]
+position = Vector2(8786, 1450)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword22" parent="Enemy" unique_id=132682634 instance=ExtResource("7_wn4yq")]
+position = Vector2(9004, 1456)
+
+[node name="StickhuskSword23" parent="Enemy" unique_id=1340175829 instance=ExtResource("7_wn4yq")]
+position = Vector2(9319, 1291)
+
+[node name="StickhuskSword24" parent="Enemy" unique_id=1650666494 instance=ExtResource("7_wn4yq")]
+position = Vector2(9998, 1199)
+
+[node name="StickhuskSword25" parent="Enemy" unique_id=33721249 instance=ExtResource("7_wn4yq")]
+position = Vector2(10129, 1199)
+
+[node name="StickhuskSword26" parent="Enemy" unique_id=141639195 instance=ExtResource("7_wn4yq")]
+position = Vector2(11152, 1607)
+
+[node name="StickhuskSword27" parent="Enemy" unique_id=1041893274 instance=ExtResource("7_wn4yq")]
+position = Vector2(10286, 1609)
+
+[node name="StickhuskSword28" parent="Enemy" unique_id=1399576404 instance=ExtResource("7_wn4yq")]
+position = Vector2(12630, 1391)
+
+[node name="StickhuskSword29" parent="Enemy" unique_id=1525620997 instance=ExtResource("7_wn4yq")]
+position = Vector2(12808, 1390)
+
+[node name="StickhuskSword30" parent="Enemy" unique_id=1234069426 instance=ExtResource("7_wn4yq")]
+position = Vector2(13403, 1162)
+
+[node name="StickhuskSword31" parent="Enemy" unique_id=1126488072 instance=ExtResource("7_wn4yq")]
+position = Vector2(13460, 1161)
+
+[node name="StickhuskSword32" parent="Enemy" unique_id=1677424829 instance=ExtResource("7_wn4yq")]
+position = Vector2(12432, 683)
+
+[node name="StickhuskSword33" parent="Enemy" unique_id=422371665 instance=ExtResource("7_wn4yq")]
+position = Vector2(12248, 686)
+
+[node name="StickhuskSword34" parent="Enemy" unique_id=672083673 instance=ExtResource("7_wn4yq")]
+position = Vector2(12083, 687)
+
+[node name="StickhuskSword35" parent="Enemy" unique_id=503548611 instance=ExtResource("7_wn4yq")]
+position = Vector2(11643, 559)
+
+[node name="StickhuskSword36" parent="Enemy" unique_id=1770994581 instance=ExtResource("7_wn4yq")]
+position = Vector2(11493, 557)
+
+[node name="StickhuskSword37" parent="Enemy" unique_id=1805017701 instance=ExtResource("7_wn4yq")]
+position = Vector2(12339, 265)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword38" parent="Enemy" unique_id=888066680 instance=ExtResource("7_wn4yq")]
+position = Vector2(13031, 268)
+
+[node name="StickhuskSword39" parent="Enemy" unique_id=917456720 instance=ExtResource("7_wn4yq")]
+position = Vector2(13772, 303)
+
+[node name="StickhuskSword40" parent="Enemy" unique_id=222812927 instance=ExtResource("7_wn4yq")]
+position = Vector2(13988, 301)
+
+[node name="StickhuskSword41" parent="Enemy" unique_id=926268313 instance=ExtResource("7_wn4yq")]
+position = Vector2(14208, 301)
+
+[node name="StickhuskSword42" parent="Enemy" unique_id=705066738 instance=ExtResource("7_wn4yq")]
+position = Vector2(14802, 1131)
+
+[node name="StickhuskSword43" parent="Enemy" unique_id=943853402 instance=ExtResource("7_wn4yq")]
+position = Vector2(14933, 1134)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword44" parent="Enemy" unique_id=3282746 instance=ExtResource("7_wn4yq")]
+position = Vector2(15385, 1008)
+
+[node name="StickhuskSword45" parent="Enemy" unique_id=1505216757 instance=ExtResource("7_wn4yq")]
+position = Vector2(15513, 881)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword46" parent="Enemy" unique_id=1154861111 instance=ExtResource("7_wn4yq")]
+position = Vector2(15820, 1005)
+
+[node name="StickhuskSword47" parent="Enemy" unique_id=944509679 instance=ExtResource("7_wn4yq")]
+position = Vector2(16131, 812)
+
+[node name="StickhuskSword48" parent="Enemy" unique_id=926336170 instance=ExtResource("7_wn4yq")]
+position = Vector2(17082, 907)
+
+[node name="StickhuskSword49" parent="Enemy" unique_id=2098609244 instance=ExtResource("7_wn4yq")]
+position = Vector2(17206, 906)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword50" parent="Enemy" unique_id=281759209 instance=ExtResource("7_wn4yq")]
+position = Vector2(18699, 816)
+
+[node name="StickhuskSword51" parent="Enemy" unique_id=1700700224 instance=ExtResource("7_wn4yq")]
+position = Vector2(19463, 942)
+
+[node name="StickhuskSword52" parent="Enemy" unique_id=781762909 instance=ExtResource("7_wn4yq")]
+position = Vector2(19706, 944)
+
+[node name="StickhuskSword53" parent="Enemy" unique_id=19750363 instance=ExtResource("7_wn4yq")]
+position = Vector2(20006, 944)
+
+[node name="StickhuskSword54" parent="Enemy" unique_id=663525929 instance=ExtResource("7_wn4yq")]
+position = Vector2(19793, 775)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword55" parent="Enemy" unique_id=709992844 instance=ExtResource("7_wn4yq")]
+position = Vector2(19680, 775)
+
+[node name="StickhuskSword56" parent="Enemy" unique_id=260376133 instance=ExtResource("7_wn4yq")]
+position = Vector2(19879, 774)
+
+[node name="StickhuskSword57" parent="Enemy" unique_id=1242391133 instance=ExtResource("7_wn4yq")]
+position = Vector2(20558, 814)
+
+[node name="StickhuskSword58" parent="Enemy" unique_id=758152659 instance=ExtResource("7_wn4yq")]
+position = Vector2(20622, 812)
+dropped_item = ExtResource("8_06ila")
+
+[node name="StickhuskSword59" parent="Enemy" unique_id=1339031023 instance=ExtResource("7_wn4yq")]
+position = Vector2(20690, 812)
+
+[node name="StickhuskGun" parent="Enemy" unique_id=711212649 instance=ExtResource("8_fktl2")]
+position = Vector2(735, 557)
+
+[node name="StickhuskGun2" parent="Enemy" unique_id=1843711894 instance=ExtResource("8_fktl2")]
+position = Vector2(1130, 621)
+
+[node name="StickhuskGun3" parent="Enemy" unique_id=158804839 instance=ExtResource("8_fktl2")]
+position = Vector2(1700, 621)
+
+[node name="StickhuskGun4" parent="Enemy" unique_id=1144443337 instance=ExtResource("8_fktl2")]
+position = Vector2(3058, 366)
+
+[node name="StickhuskGun5" parent="Enemy" unique_id=1699083943 instance=ExtResource("8_fktl2")]
+position = Vector2(3128, 365)
+
+[node name="StickhuskGun6" parent="Enemy" unique_id=223603467 instance=ExtResource("8_fktl2")]
+position = Vector2(3188, 364)
+
+[node name="StickhuskGun7" parent="Enemy" unique_id=353912108 instance=ExtResource("8_fktl2")]
+position = Vector2(3667, 558)
+
+[node name="StickhuskGun8" parent="Enemy" unique_id=1662525506 instance=ExtResource("8_fktl2")]
+position = Vector2(3591, 560)
+
+[node name="StickhuskGun9" parent="Enemy" unique_id=1636845093 instance=ExtResource("8_fktl2")]
+position = Vector2(3539, 558)
+
+[node name="StickhuskGun10" parent="Enemy" unique_id=1524343244 instance=ExtResource("8_fktl2")]
+position = Vector2(6242, 1456)
+
+[node name="StickhuskGun11" parent="Enemy" unique_id=384153975 instance=ExtResource("8_fktl2")]
+position = Vector2(6196, 1455)
+
+[node name="StickhuskGun12" parent="Enemy" unique_id=727692429 instance=ExtResource("8_fktl2")]
+position = Vector2(6150, 1454)
+
+[node name="StickhuskGun13" parent="Enemy" unique_id=514231704 instance=ExtResource("8_fktl2")]
+position = Vector2(6915, 1516)
+
+[node name="StickhuskGun16" parent="Enemy" unique_id=2007620084 instance=ExtResource("8_fktl2")]
+position = Vector2(7525, 1609)
+
+[node name="StickhuskGun17" parent="Enemy" unique_id=813043663 instance=ExtResource("8_fktl2")]
+position = Vector2(7476, 1609)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun18" parent="Enemy" unique_id=1011500066 instance=ExtResource("8_fktl2")]
+position = Vector2(7921, 1570)
+
+[node name="StickhuskGun19" parent="Enemy" unique_id=142395842 instance=ExtResource("8_fktl2")]
+position = Vector2(8014, 1572)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun20" parent="Enemy" unique_id=300128898 instance=ExtResource("8_fktl2")]
+position = Vector2(9418, 1288)
+
+[node name="StickhuskGun21" parent="Enemy" unique_id=759280159 instance=ExtResource("8_fktl2")]
+position = Vector2(9597, 1199)
+
+[node name="StickhuskGun22" parent="Enemy" unique_id=706931283 instance=ExtResource("8_fktl2")]
+position = Vector2(9532, 1198)
+
+[node name="StickhuskGun23" parent="Enemy" unique_id=81469866 instance=ExtResource("8_fktl2")]
+position = Vector2(10593, 1607)
+
+[node name="StickhuskGun24" parent="Enemy" unique_id=932363816 instance=ExtResource("8_fktl2")]
+position = Vector2(10849, 1608)
+
+[node name="StickhuskGun25" parent="Enemy" unique_id=525723428 instance=ExtResource("8_fktl2")]
+position = Vector2(10723, 1353)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun26" parent="Enemy" unique_id=1763789647 instance=ExtResource("8_fktl2")]
+position = Vector2(11375, 1262)
+
+[node name="StickhuskGun27" parent="Enemy" unique_id=1306911915 instance=ExtResource("8_fktl2")]
+position = Vector2(11415, 1262)
+
+[node name="StickhuskGun28" parent="Enemy" unique_id=137851210 instance=ExtResource("8_fktl2")]
+position = Vector2(12233, 1516)
+
+[node name="StickhuskGun29" parent="Enemy" unique_id=592850667 instance=ExtResource("8_fktl2")]
+position = Vector2(12144, 1518)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun30" parent="Enemy" unique_id=498016491 instance=ExtResource("8_fktl2")]
+position = Vector2(12048, 1517)
+
+[node name="StickhuskGun31" parent="Enemy" unique_id=836928726 instance=ExtResource("8_fktl2")]
+position = Vector2(12720, 1390)
+
+[node name="StickhuskGun32" parent="Enemy" unique_id=911058062 instance=ExtResource("8_fktl2")]
+position = Vector2(13255, 1263)
+
+[node name="StickhuskGun33" parent="Enemy" unique_id=1490608701 instance=ExtResource("8_fktl2")]
+position = Vector2(13087, 1031)
+
+[node name="StickhuskGun34" parent="Enemy" unique_id=100691615 instance=ExtResource("8_fktl2")]
+position = Vector2(13024, 1028)
+
+[node name="StickhuskGun35" parent="Enemy" unique_id=1094767110 instance=ExtResource("8_fktl2")]
+position = Vector2(12648, 900)
+
+[node name="StickhuskGun36" parent="Enemy" unique_id=1970870793 instance=ExtResource("8_fktl2")]
+position = Vector2(12713, 899)
+
+[node name="StickhuskGun37" parent="Enemy" unique_id=452040398 instance=ExtResource("8_fktl2")]
+position = Vector2(12311, 685)
+
+[node name="StickhuskGun38" parent="Enemy" unique_id=1901802479 instance=ExtResource("8_fktl2")]
+position = Vector2(12174, 685)
+
+[node name="StickhuskGun39" parent="Enemy" unique_id=896166758 instance=ExtResource("8_fktl2")]
+position = Vector2(11721, 557)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun40" parent="Enemy" unique_id=325031062 instance=ExtResource("8_fktl2")]
+position = Vector2(11562, 556)
+
+[node name="StickhuskGun41" parent="Enemy" unique_id=1008695811 instance=ExtResource("8_fktl2")]
+position = Vector2(12037, 304)
+
+[node name="StickhuskGun42" parent="Enemy" unique_id=1135523033 instance=ExtResource("8_fktl2")]
+position = Vector2(12385, 264)
+
+[node name="StickhuskGun43" parent="Enemy" unique_id=1326994295 instance=ExtResource("8_fktl2")]
+position = Vector2(12434, 262)
+
+[node name="StickhuskGun44" parent="Enemy" unique_id=1713680945 instance=ExtResource("8_fktl2")]
+position = Vector2(12968, 263)
+
+[node name="StickhuskGun45" parent="Enemy" unique_id=1283219211 instance=ExtResource("8_fktl2")]
+position = Vector2(13103, 264)
+
+[node name="StickhuskGun46" parent="Enemy" unique_id=355733516 instance=ExtResource("8_fktl2")]
+position = Vector2(13866, 301)
+
+[node name="StickhuskGun47" parent="Enemy" unique_id=996262656 instance=ExtResource("8_fktl2")]
+position = Vector2(14116, 305)
+
+[node name="StickhuskGun48" parent="Enemy" unique_id=204880594 instance=ExtResource("8_fktl2")]
+position = Vector2(14435, 1133)
+
+[node name="StickhuskGun49" parent="Enemy" unique_id=1630877241 instance=ExtResource("8_fktl2")]
+position = Vector2(15152, 1133)
+
+[node name="StickhuskGun50" parent="Enemy" unique_id=942912501 instance=ExtResource("8_fktl2")]
+position = Vector2(15623, 876)
+
+[node name="StickhuskGun51" parent="Enemy" unique_id=1610359414 instance=ExtResource("8_fktl2")]
+position = Vector2(16300, 811)
+
+[node name="StickhuskGun52" parent="Enemy" unique_id=966790540 instance=ExtResource("8_fktl2")]
+position = Vector2(16404, 810)
+
+[node name="StickhuskGun53" parent="Enemy" unique_id=417310657 instance=ExtResource("8_fktl2")]
+position = Vector2(17803, 966)
+
+[node name="StickhuskGun54" parent="Enemy" unique_id=966772647 instance=ExtResource("8_fktl2")]
+position = Vector2(17738, 966)
+
+[node name="StickhuskGun55" parent="Enemy" unique_id=21832688 instance=ExtResource("8_fktl2")]
+position = Vector2(18264, 836)
+
+[node name="StickhuskGun56" parent="Enemy" unique_id=231010201 instance=ExtResource("8_fktl2")]
+position = Vector2(18192, 835)
+
+[node name="StickhuskGun57" parent="Enemy" unique_id=1566528677 instance=ExtResource("8_fktl2")]
+position = Vector2(18899, 811)
+
+[node name="StickhuskGun58" parent="Enemy" unique_id=1265347633 instance=ExtResource("8_fktl2")]
+position = Vector2(19013, 811)
+
+[node name="StickhuskGun59" parent="Enemy" unique_id=107671424 instance=ExtResource("8_fktl2")]
+position = Vector2(19702, 646)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun60" parent="Enemy" unique_id=1221924660 instance=ExtResource("8_fktl2")]
+position = Vector2(19838, 645)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun61" parent="Enemy" unique_id=1212796324 instance=ExtResource("8_fktl2")]
+position = Vector2(21059, 812)
+
+[node name="StickhuskGun62" parent="Enemy" unique_id=689238079 instance=ExtResource("8_fktl2")]
+position = Vector2(21127, 810)
+
+[node name="StickhuskGun63" parent="Enemy" unique_id=502400723 instance=ExtResource("8_fktl2")]
+position = Vector2(21189, 809)
+
+[node name="StickhuskGun64" parent="Enemy" unique_id=1025344102 instance=ExtResource("8_fktl2")]
+position = Vector2(21854, 367)
+
+[node name="StickhuskGun65" parent="Enemy" unique_id=267200863 instance=ExtResource("8_fktl2")]
+position = Vector2(21913, 366)
+
+[node name="StickhuskGun66" parent="Enemy" unique_id=723441997 instance=ExtResource("8_fktl2")]
+position = Vector2(21968, 366)
+
+[node name="StickhuskGun67" parent="Enemy" unique_id=342741902 instance=ExtResource("8_fktl2")]
+position = Vector2(22023, 364)
+
+[node name="StickhuskGun68" parent="Enemy" unique_id=271870175 instance=ExtResource("8_fktl2")]
+position = Vector2(22363, 366)
+
+[node name="StickhuskGun69" parent="Enemy" unique_id=1997089832 instance=ExtResource("8_fktl2")]
+position = Vector2(22537, 364)
+
+[node name="StickhuskGun14" parent="Enemy" unique_id=1964775350 instance=ExtResource("8_fktl2")]
+position = Vector2(6850, 1516)
+dropped_item = ExtResource("10_1ojwo")
+
+[node name="StickhuskGun15" parent="Enemy" unique_id=2140858743 instance=ExtResource("8_fktl2")]
+position = Vector2(6760, 1516)
+
+[node name="Cenem" parent="Enemy" unique_id=1357584292 instance=ExtResource("9_8hnrx")]
+position = Vector2(563, 560)
+
+[node name="Cenem2" parent="Enemy" unique_id=1698796129 instance=ExtResource("9_8hnrx")]
+position = Vector2(630, 554)
+
+[node name="Cenem3" parent="Enemy" unique_id=2146571506 instance=ExtResource("9_8hnrx")]
+position = Vector2(2890, 288)
+
+[node name="Cenem4" parent="Enemy" unique_id=981151469 instance=ExtResource("9_8hnrx")]
+position = Vector2(2955, 325)
+
+[node name="Cenem5" parent="Enemy" unique_id=1142544617 instance=ExtResource("9_8hnrx")]
+position = Vector2(2996, 360)
+
+[node name="Cenem6" parent="Enemy" unique_id=530379540 instance=ExtResource("9_8hnrx")]
+position = Vector2(3589, 473)
+
+[node name="Cenem7" parent="Enemy" unique_id=922880470 instance=ExtResource("9_8hnrx")]
+position = Vector2(3647, 476)
+
+[node name="Cenem8" parent="Enemy" unique_id=566015248 instance=ExtResource("9_8hnrx")]
+position = Vector2(3893, 736)
+
+[node name="Cenem9" parent="Enemy" unique_id=150824356 instance=ExtResource("9_8hnrx")]
+position = Vector2(3757, 872)
+
+[node name="Cenem10" parent="Enemy" unique_id=194597549 instance=ExtResource("9_8hnrx")]
+position = Vector2(3826, 1008)
+
+[node name="Cenem11" parent="Enemy" unique_id=269715284 instance=ExtResource("9_8hnrx")]
+position = Vector2(3945, 1136)
+
+[node name="Cenem12" parent="Enemy" unique_id=744454594 instance=ExtResource("9_8hnrx")]
+position = Vector2(3771, 1264)
+
+[node name="Cenem13" parent="Enemy" unique_id=1379572459 instance=ExtResource("9_8hnrx")]
+position = Vector2(3925, 1314)
+
+[node name="Cenem14" parent="Enemy" unique_id=1272900829 instance=ExtResource("9_8hnrx")]
+position = Vector2(7718, 1112)
+
+[node name="Cenem15" parent="Enemy" unique_id=443595755 instance=ExtResource("9_8hnrx")]
+position = Vector2(7579, 1105)
+
+[node name="Cenem16" parent="Enemy" unique_id=1721179083 instance=ExtResource("9_8hnrx")]
+position = Vector2(7416, 1121)
+
+[node name="Cenem17" parent="Enemy" unique_id=972019152 instance=ExtResource("9_8hnrx")]
+position = Vector2(8063, 939)
+
+[node name="Cenem18" parent="Enemy" unique_id=1583072020 instance=ExtResource("9_8hnrx")]
+position = Vector2(8184, 903)
+
+[node name="Cenem19" parent="Enemy" unique_id=1964809304 instance=ExtResource("9_8hnrx")]
+position = Vector2(8286, 951)
+
+[node name="Cenem20" parent="Enemy" unique_id=2138477911 instance=ExtResource("9_8hnrx")]
+position = Vector2(8540, 1366)
+
+[node name="Cenem21" parent="Enemy" unique_id=589441218 instance=ExtResource("9_8hnrx")]
+position = Vector2(8691, 1377)
+
+[node name="Cenem22" parent="Enemy" unique_id=1639912166 instance=ExtResource("9_8hnrx")]
+position = Vector2(8863, 1377)
+
+[node name="Cenem23" parent="Enemy" unique_id=903705882 instance=ExtResource("9_8hnrx")]
+position = Vector2(8928, 1375)
+
+[node name="Cenem24" parent="Enemy" unique_id=1264250914 instance=ExtResource("9_8hnrx")]
+position = Vector2(9746, 1108)
+
+[node name="Cenem25" parent="Enemy" unique_id=2068770699 instance=ExtResource("9_8hnrx")]
+position = Vector2(9803, 1154)
+
+[node name="Cenem26" parent="Enemy" unique_id=38433451 instance=ExtResource("9_8hnrx")]
+position = Vector2(10890, 1452)
+dropped_item = ExtResource("12_okfd0")
+
+[node name="Cenem27" parent="Enemy" unique_id=1967756349 instance=ExtResource("9_8hnrx")]
+position = Vector2(11959, 1481)
+
+[node name="Cenem28" parent="Enemy" unique_id=2057362998 instance=ExtResource("9_8hnrx")]
+position = Vector2(12058, 1455)
+
+[node name="Cenem29" parent="Enemy" unique_id=1431917951 instance=ExtResource("9_8hnrx")]
+position = Vector2(12189, 1450)
+
+[node name="Cenem30" parent="Enemy" unique_id=1008535038 instance=ExtResource("9_8hnrx")]
+position = Vector2(12301, 1489)
+
+[node name="Cenem31" parent="Enemy" unique_id=628536003 instance=ExtResource("9_8hnrx")]
+position = Vector2(11960, 224)
+
+[node name="Cenem32" parent="Enemy" unique_id=2138987743 instance=ExtResource("9_8hnrx")]
+position = Vector2(12065, 220)
+
+[node name="Cenem33" parent="Enemy" unique_id=632013244 instance=ExtResource("9_8hnrx")]
+position = Vector2(12170, 214)
+
+[node name="Cenem34" parent="Enemy" unique_id=181434662 instance=ExtResource("9_8hnrx")]
+position = Vector2(12747, 195)
+
+[node name="Cenem35" parent="Enemy" unique_id=1989447097 instance=ExtResource("9_8hnrx")]
+position = Vector2(12840, 219)
+
+[node name="Cenem36" parent="Enemy" unique_id=1874431969 instance=ExtResource("9_8hnrx")]
+position = Vector2(13431, 269)
+
+[node name="Cenem37" parent="Enemy" unique_id=1823232996 instance=ExtResource("9_8hnrx")]
+position = Vector2(13525, 272)
+
+[node name="Cenem38" parent="Enemy" unique_id=471771903 instance=ExtResource("9_8hnrx")]
+position = Vector2(14433, 418)
+
+[node name="Cenem39" parent="Enemy" unique_id=686519591 instance=ExtResource("9_8hnrx")]
+position = Vector2(14321, 496)
+
+[node name="Cenem40" parent="Enemy" unique_id=198597459 instance=ExtResource("9_8hnrx")]
+position = Vector2(14433, 555)
+
+[node name="Cenem41" parent="Enemy" unique_id=1547930952 instance=ExtResource("9_8hnrx")]
+position = Vector2(14370, 682)
+
+[node name="Cenem42" parent="Enemy" unique_id=1890159319 instance=ExtResource("9_8hnrx")]
+position = Vector2(14428, 772)
+
+[node name="Cenem43" parent="Enemy" unique_id=1986047845 instance=ExtResource("9_8hnrx")]
+position = Vector2(14571, 1074)
+
+[node name="Cenem44" parent="Enemy" unique_id=902229946 instance=ExtResource("9_8hnrx")]
+position = Vector2(14676, 1075)
+
+[node name="Cenem45" parent="Enemy" unique_id=200412798 instance=ExtResource("9_8hnrx")]
+position = Vector2(15058, 1098)
+
+[node name="Cenem46" parent="Enemy" unique_id=2078151658 instance=ExtResource("9_8hnrx")]
+position = Vector2(15324, 933)
+
+[node name="Cenem47" parent="Enemy" unique_id=485981655 instance=ExtResource("9_8hnrx")]
+position = Vector2(15383, 934)
+
+[node name="Cenem48" parent="Enemy" unique_id=975469301 instance=ExtResource("9_8hnrx")]
+position = Vector2(16786, 823)
+
+[node name="Cenem49" parent="Enemy" unique_id=1560081228 instance=ExtResource("9_8hnrx")]
+position = Vector2(16841, 853)
+
+[node name="Cenem50" parent="Enemy" unique_id=1543530791 instance=ExtResource("9_8hnrx")]
+position = Vector2(16887, 823)
+
+[node name="Cenem51" parent="Enemy" unique_id=1448415779 instance=ExtResource("9_8hnrx")]
+position = Vector2(16923, 853)
+
+[node name="Cenem52" parent="Enemy" unique_id=653175703 instance=ExtResource("9_8hnrx")]
+position = Vector2(17560, 897)
+
+[node name="Cenem53" parent="Enemy" unique_id=265286827 instance=ExtResource("9_8hnrx")]
+position = Vector2(17620, 924)
+
+[node name="Cenem54" parent="Enemy" unique_id=829583865 instance=ExtResource("9_8hnrx")]
+position = Vector2(17655, 951)
+
+[node name="Cenem55" parent="Enemy" unique_id=1322819657 instance=ExtResource("9_8hnrx")]
+position = Vector2(19314, 799)
+
+[node name="Cenem56" parent="Enemy" unique_id=466561162 instance=ExtResource("9_8hnrx")]
+position = Vector2(19343, 844)
+
+[node name="Cenem57" parent="Enemy" unique_id=1917975749 instance=ExtResource("9_8hnrx")]
+position = Vector2(19361, 893)
+
+[node name="Cenem58" parent="Enemy" unique_id=760143140 instance=ExtResource("9_8hnrx")]
+position = Vector2(19346, 922)
+
+[node name="Cenem59" parent="Enemy" unique_id=1253420071 instance=ExtResource("9_8hnrx")]
+position = Vector2(19315, 954)
+
+[node name="Cenem60" parent="Enemy" unique_id=1701570559 instance=ExtResource("9_8hnrx")]
+position = Vector2(20819, 748)
+
+[node name="Cenem61" parent="Enemy" unique_id=1874699528 instance=ExtResource("9_8hnrx")]
+position = Vector2(20865, 740)
+
+[node name="Cenem62" parent="Enemy" unique_id=2146099896 instance=ExtResource("9_8hnrx")]
+position = Vector2(20915, 749)
+
+[node name="Cenem63" parent="Enemy" unique_id=360511993 instance=ExtResource("9_8hnrx")]
+position = Vector2(20945, 768)
+
+[node name="Cenem64" parent="Enemy" unique_id=365159374 instance=ExtResource("9_8hnrx")]
+position = Vector2(21348, 704)
+
+[node name="Cenem65" parent="Enemy" unique_id=229544531 instance=ExtResource("9_8hnrx")]
+position = Vector2(21387, 736)
+
+[node name="Cenem66" parent="Enemy" unique_id=386539332 instance=ExtResource("9_8hnrx")]
+position = Vector2(21412, 779)
+
+[node name="Cenem67" parent="Enemy" unique_id=2063293925 instance=ExtResource("9_8hnrx")]
+position = Vector2(21951, 268)
+
+[node name="Cenem68" parent="Enemy" unique_id=16836539 instance=ExtResource("9_8hnrx")]
+position = Vector2(22033, 293)
+
+[node name="Cenem69" parent="Enemy" unique_id=40245706 instance=ExtResource("9_8hnrx")]
+position = Vector2(22106, 264)
+
+[node name="Cenem70" parent="Enemy" unique_id=2028783364 instance=ExtResource("9_8hnrx")]
+position = Vector2(22173, 302)
+
+[node name="Gliob" parent="Enemy" unique_id=550613904 instance=ExtResource("10_e0d3m")]
+position = Vector2(986, 583)
+
+[node name="Gliob2" parent="Enemy" unique_id=945339818 instance=ExtResource("10_e0d3m")]
+position = Vector2(1014, 583)
+
+[node name="Gliob3" parent="Enemy" unique_id=1960866712 instance=ExtResource("10_e0d3m")]
+position = Vector2(1042, 608)
+
+[node name="Gliob4" parent="Enemy" unique_id=694857749 instance=ExtResource("10_e0d3m")]
+position = Vector2(1067, 579)
+
+[node name="Gliob5" parent="Enemy" unique_id=1755730685 instance=ExtResource("10_e0d3m")]
+position = Vector2(1092, 605)
+
+[node name="Gliob6" parent="Enemy" unique_id=1580089430 instance=ExtResource("10_e0d3m")]
+position = Vector2(4314, 1578)
+
+[node name="Gliob7" parent="Enemy" unique_id=1626587973 instance=ExtResource("10_e0d3m")]
+position = Vector2(4326, 1565)
+
+[node name="Gliob8" parent="Enemy" unique_id=1260043308 instance=ExtResource("10_e0d3m")]
+position = Vector2(4339, 1558)
+
+[node name="Gliob9" parent="Enemy" unique_id=1013960282 instance=ExtResource("10_e0d3m")]
+position = Vector2(4360, 1567)
+
+[node name="Gliob10" parent="Enemy" unique_id=1726560342 instance=ExtResource("10_e0d3m")]
+position = Vector2(4397, 1572)
+
+[node name="Gliob11" parent="Enemy" unique_id=435070937 instance=ExtResource("10_e0d3m")]
+position = Vector2(4408, 1557)
+
+[node name="Gliob12" parent="Enemy" unique_id=2110480213 instance=ExtResource("10_e0d3m")]
+position = Vector2(4424, 1547)
+
+[node name="Gliob13" parent="Enemy" unique_id=566889202 instance=ExtResource("10_e0d3m")]
+position = Vector2(4447, 1553)
+
+[node name="RogginHerd" parent="Enemy" unique_id=1497742308 instance=ExtResource("11_kcpda")]
+position = Vector2(1276, 582)
+
+[node name="RogginHerd2" parent="Enemy" unique_id=1963108762 instance=ExtResource("11_kcpda")]
+position = Vector2(1481, 557)
+
+[node name="RogginHerd3" parent="Enemy" unique_id=142290127 instance=ExtResource("11_kcpda")]
+position = Vector2(3606, 466)
+
+[node name="Eyepiece" parent="Enemy" unique_id=1149563767 instance=ExtResource("12_ryyaf")]
+position = Vector2(2600, 493)
+
+[node name="Eyepiece2" parent="Enemy" unique_id=1065684431 instance=ExtResource("12_ryyaf")]
+position = Vector2(2482, 488)
+
+[node name="Eyepiece3" parent="Enemy" unique_id=1150326769 instance=ExtResource("12_ryyaf")]
+position = Vector2(2416, 491)
+
+[node name="Eyepiece4" parent="Enemy" unique_id=1695257144 instance=ExtResource("12_ryyaf")]
+position = Vector2(2352, 491)
+
+[node name="Eyepiece5" parent="Enemy" unique_id=1924227700 instance=ExtResource("12_ryyaf")]
+position = Vector2(5480, 1647)
+
+[node name="Eyepiece6" parent="Enemy" unique_id=10155166 instance=ExtResource("12_ryyaf")]
+position = Vector2(5532, 1646)
+
+[node name="Eyepiece7" parent="Enemy" unique_id=971927785 instance=ExtResource("12_ryyaf")]
+position = Vector2(5683, 1649)
+
+[node name="Eyepiece8" parent="Enemy" unique_id=1636085403 instance=ExtResource("12_ryyaf")]
+position = Vector2(5733, 1648)
+
+[node name="Eyepiece9" parent="Enemy" unique_id=232402129 instance=ExtResource("12_ryyaf")]
+position = Vector2(7381, 1609)
+
+[node name="Eyepiece10" parent="Enemy" unique_id=237505755 instance=ExtResource("12_ryyaf")]
+position = Vector2(7346, 1610)
+
+[node name="Eyepiece11" parent="Enemy" unique_id=132874639 instance=ExtResource("12_ryyaf")]
+position = Vector2(7420, 1609)
+
+[node name="Eyepiece12" parent="Enemy" unique_id=231547419 instance=ExtResource("12_ryyaf")]
+position = Vector2(7794, 1582)
+
+[node name="Eyepiece13" parent="Enemy" unique_id=1876207171 instance=ExtResource("12_ryyaf")]
+position = Vector2(7832, 1581)
+
+[node name="Eyepiece14" parent="Enemy" unique_id=545188379 instance=ExtResource("12_ryyaf")]
+position = Vector2(7746, 1582)
+
+[node name="Eyepiece15" parent="Enemy" unique_id=540541924 instance=ExtResource("12_ryyaf")]
+position = Vector2(9366, 1290)
+
+[node name="Eyepiece16" parent="Enemy" unique_id=250701294 instance=ExtResource("12_ryyaf")]
+position = Vector2(10066, 1196)
+
+[node name="Eyepiece17" parent="Enemy" unique_id=395239172 instance=ExtResource("12_ryyaf")]
+position = Vector2(10209, 1197)
+
+[node name="Eyepiece18" parent="Enemy" unique_id=1848930116 instance=ExtResource("12_ryyaf")]
+position = Vector2(13394, 1263)
+
+[node name="Eyepiece19" parent="Enemy" unique_id=1397158043 instance=ExtResource("12_ryyaf")]
+position = Vector2(13430, 1264)
+
+[node name="Eyepiece20" parent="Enemy" unique_id=1900310096 instance=ExtResource("12_ryyaf")]
+position = Vector2(13475, 1262)
+
+[node name="Eyepiece21" parent="Enemy" unique_id=574418867 instance=ExtResource("12_ryyaf")]
+position = Vector2(12665, 302)
+dropped_item = ExtResource("16_1umsk")
+
+[node name="Eyepiece22" parent="Enemy" unique_id=1827240593 instance=ExtResource("12_ryyaf")]
+position = Vector2(12728, 301)
+dropped_item = ExtResource("16_1umsk")
+
+[node name="Eyepiece23" parent="Enemy" unique_id=2091942990 instance=ExtResource("12_ryyaf")]
+position = Vector2(13435, 329)
+
+[node name="Eyepiece24" parent="Enemy" unique_id=1325721778 instance=ExtResource("12_ryyaf")]
+position = Vector2(13517, 329)
+
+[node name="Eyepiece25" parent="Enemy" unique_id=1911234702 instance=ExtResource("12_ryyaf")]
+position = Vector2(14620, 1135)
+
+[node name="Eyepiece26" parent="Enemy" unique_id=1603820290 instance=ExtResource("12_ryyaf")]
+position = Vector2(14715, 1132)
+
+[node name="Eyepiece27" parent="Enemy" unique_id=127265084 instance=ExtResource("12_ryyaf")]
+position = Vector2(16747, 899)
+
+[node name="Eyepiece28" parent="Enemy" unique_id=1902279152 instance=ExtResource("12_ryyaf")]
+position = Vector2(16814, 899)
+
+[node name="Eyepiece29" parent="Enemy" unique_id=258458712 instance=ExtResource("12_ryyaf")]
+position = Vector2(16864, 900)
+
+[node name="Eyepiece30" parent="Enemy" unique_id=1564625689 instance=ExtResource("12_ryyaf")]
+position = Vector2(18121, 841)
+
+[node name="Eyepiece31" parent="Enemy" unique_id=462460347 instance=ExtResource("12_ryyaf")]
+position = Vector2(19572, 780)
+
+[node name="Eyepiece32" parent="Enemy" unique_id=134643629 instance=ExtResource("12_ryyaf")]
+position = Vector2(20026, 777)
+
+[node name="Eyepiece33" parent="Enemy" unique_id=708607639 instance=ExtResource("12_ryyaf")]
+position = Vector2(22112, 365)
+
+[node name="Eyepiece34" parent="Enemy" unique_id=333146036 instance=ExtResource("12_ryyaf")]
+position = Vector2(22219, 367)
+
+[node name="Bouncer" parent="Enemy" unique_id=1070842296 instance=ExtResource("13_yqvej")]
+position = Vector2(4174, 1525)
+
+[node name="Bouncer2" parent="Enemy" unique_id=897381144 instance=ExtResource("13_yqvej")]
+position = Vector2(4249, 1524)
+
+[node name="Bouncer3" parent="Enemy" unique_id=1957980460 instance=ExtResource("13_yqvej")]
+position = Vector2(4614, 1590)
+
+[node name="Bouncer4" parent="Enemy" unique_id=1225084302 instance=ExtResource("13_yqvej")]
+position = Vector2(4698, 1589)
+
+[node name="Bouncer5" parent="Enemy" unique_id=715487562 instance=ExtResource("13_yqvej")]
+position = Vector2(6567, 1463)
+
+[node name="Bouncer6" parent="Enemy" unique_id=1932916014 instance=ExtResource("13_yqvej")]
+position = Vector2(6437, 1424)
+
+[node name="Pickups" type="Node" parent="." unique_id=398326085]
+
+[node name="Piece" parent="Pickups" unique_id=375776827 instance=ExtResource("18_g7y4e")]
+position = Vector2(37, 405)
+
+[node name="Piece2" parent="Pickups" unique_id=1773723455 instance=ExtResource("18_g7y4e")]
+position = Vector2(71, 380)
+
+[node name="Piece3" parent="Pickups" unique_id=148769357 instance=ExtResource("18_g7y4e")]
+position = Vector2(112, 371)
+
+[node name="Piece4" parent="Pickups" unique_id=1484575189 instance=ExtResource("18_g7y4e")]
+position = Vector2(162, 370)
+
+[node name="Piece5" parent="Pickups" unique_id=592300184 instance=ExtResource("18_g7y4e")]
+position = Vector2(212, 395)
+
+[node name="Piece6" parent="Pickups" unique_id=2107137491 instance=ExtResource("18_g7y4e")]
+position = Vector2(313, 534)
+
+[node name="Piece7" parent="Pickups" unique_id=1096910268 instance=ExtResource("18_g7y4e")]
+position = Vector2(355, 578)
+
+[node name="Piece8" parent="Pickups" unique_id=698002256 instance=ExtResource("18_g7y4e")]
+position = Vector2(398, 613)
+
+[node name="Piece9" parent="Pickups" unique_id=409041363 instance=ExtResource("18_g7y4e")]
+position = Vector2(853, 571)
+
+[node name="Piece10" parent="Pickups" unique_id=1247296260 instance=ExtResource("18_g7y4e")]
+position = Vector2(883, 604)
+
+[node name="Piece11" parent="Pickups" unique_id=1524567229 instance=ExtResource("18_g7y4e")]
+position = Vector2(914, 570)
+
+[node name="Piece12" parent="Pickups" unique_id=1504350588 instance=ExtResource("18_g7y4e")]
+position = Vector2(947, 603)
+
+[node name="Piece13" parent="Pickups" unique_id=1947985177 instance=ExtResource("18_g7y4e")]
+position = Vector2(1435, 709)
+
+[node name="Piece14" parent="Pickups" unique_id=1560604816 instance=ExtResource("18_g7y4e")]
+position = Vector2(1473, 709)
+
+[node name="Piece15" parent="Pickups" unique_id=974467066 instance=ExtResource("18_g7y4e")]
+position = Vector2(1511, 710)
+
+[node name="Piece16" parent="Pickups" unique_id=1127042376 instance=ExtResource("18_g7y4e")]
+position = Vector2(1481, 553)
+
+[node name="Piece17" parent="Pickups" unique_id=1768964366 instance=ExtResource("18_g7y4e")]
+position = Vector2(1274, 579)
+
+[node name="Piece18" parent="Pickups" unique_id=1277492175 instance=ExtResource("18_g7y4e")]
+position = Vector2(1873, 620)
+
+[node name="Piece19" parent="Pickups" unique_id=992181035 instance=ExtResource("18_g7y4e")]
+position = Vector2(1905, 590)
+
+[node name="Piece20" parent="Pickups" unique_id=1534005645 instance=ExtResource("18_g7y4e")]
+position = Vector2(1935, 621)
+
+[node name="Piece21" parent="Pickups" unique_id=587824588 instance=ExtResource("18_g7y4e")]
+position = Vector2(1966, 588)
+
+[node name="Piece22" parent="Pickups" unique_id=1742506722 instance=ExtResource("18_g7y4e")]
+position = Vector2(1999, 622)
+
+[node name="Piece23" parent="Pickups" unique_id=18025798 instance=ExtResource("18_g7y4e")]
+position = Vector2(1845, 586)
+
+[node name="Piece24" parent="Pickups" unique_id=494904966 instance=ExtResource("18_g7y4e")]
+position = Vector2(1813, 619)
+
+[node name="Piece25" parent="Pickups" unique_id=1830048963 instance=ExtResource("18_g7y4e")]
+position = Vector2(2148, 441)
+
+[node name="Piece26" parent="Pickups" unique_id=1833999855 instance=ExtResource("18_g7y4e")]
+position = Vector2(2183, 441)
+
+[node name="Piece27" parent="Pickups" unique_id=193387181 instance=ExtResource("18_g7y4e")]
+position = Vector2(2225, 441)
+
+[node name="Piece28" parent="Pickups" unique_id=2120337023 instance=ExtResource("18_g7y4e")]
+position = Vector2(2265, 441)
+
+[node name="Piece29" parent="Pickups" unique_id=411684537 instance=ExtResource("18_g7y4e")]
+position = Vector2(2727, 437)
+
+[node name="Piece30" parent="Pickups" unique_id=1961869369 instance=ExtResource("18_g7y4e")]
+position = Vector2(2727, 399)
+
+[node name="Piece31" parent="Pickups" unique_id=127072898 instance=ExtResource("18_g7y4e")]
+position = Vector2(2727, 361)
+
+[node name="Piece32" parent="Pickups" unique_id=1056774548 instance=ExtResource("18_g7y4e")]
+position = Vector2(2727, 324)
+
+[node name="Piece33" parent="Pickups" unique_id=1136522249 instance=ExtResource("18_g7y4e")]
+position = Vector2(3132, 206)
+
+[node name="Piece34" parent="Pickups" unique_id=607692666 instance=ExtResource("18_g7y4e")]
+position = Vector2(3103, 214)
+
+[node name="Piece35" parent="Pickups" unique_id=1706421629 instance=ExtResource("18_g7y4e")]
+position = Vector2(3083, 237)
+
+[node name="Piece36" parent="Pickups" unique_id=227086022 instance=ExtResource("18_g7y4e")]
+position = Vector2(3081, 269)
+
+[node name="Piece37" parent="Pickups" unique_id=390997101 instance=ExtResource("18_g7y4e")]
+position = Vector2(3097, 297)
+
+[node name="Piece38" parent="Pickups" unique_id=1854632407 instance=ExtResource("18_g7y4e")]
+position = Vector2(3123, 312)
+
+[node name="Piece39" parent="Pickups" unique_id=862235007 instance=ExtResource("18_g7y4e")]
+position = Vector2(3153, 311)
+
+[node name="Piece40" parent="Pickups" unique_id=1732741911 instance=ExtResource("18_g7y4e")]
+position = Vector2(3185, 295)
+
+[node name="Piece41" parent="Pickups" unique_id=874905511 instance=ExtResource("18_g7y4e")]
+position = Vector2(3198, 262)
+
+[node name="Piece42" parent="Pickups" unique_id=2123254141 instance=ExtResource("18_g7y4e")]
+position = Vector2(3190, 231)
+
+[node name="Piece43" parent="Pickups" unique_id=863056036 instance=ExtResource("18_g7y4e")]
+position = Vector2(3161, 211)
+
+[node name="Piece44" parent="Pickups" unique_id=1609442555 instance=ExtResource("18_g7y4e")]
+position = Vector2(3375, 555)
+
+[node name="Piece45" parent="Pickups" unique_id=1965564206 instance=ExtResource("18_g7y4e")]
+position = Vector2(3405, 530)
+
+[node name="Piece46" parent="Pickups" unique_id=837660326 instance=ExtResource("18_g7y4e")]
+position = Vector2(3433, 556)
+
+[node name="Piece47" parent="Pickups" unique_id=335253101 instance=ExtResource("18_g7y4e")]
+position = Vector2(3463, 527)
+
+[node name="Piece48" parent="Pickups" unique_id=1927895794 instance=ExtResource("18_g7y4e")]
+position = Vector2(3758, 673)
+
+[node name="Piece49" parent="Pickups" unique_id=1732394024 instance=ExtResource("18_g7y4e")]
+position = Vector2(3782, 708)
+
+[node name="Piece50" parent="Pickups" unique_id=1839686317 instance=ExtResource("18_g7y4e")]
+position = Vector2(3809, 762)
+
+[node name="Piece51" parent="Pickups" unique_id=1658135979 instance=ExtResource("18_g7y4e")]
+position = Vector2(3844, 815)
+
+[node name="Piece52" parent="Pickups" unique_id=1399344512 instance=ExtResource("18_g7y4e")]
+position = Vector2(3872, 879)
+
+[node name="Piece53" parent="Pickups" unique_id=896743845 instance=ExtResource("18_g7y4e")]
+position = Vector2(3880, 960)
+
+[node name="Piece54" parent="Pickups" unique_id=283105368 instance=ExtResource("18_g7y4e")]
+position = Vector2(3882, 1019)
+
+[node name="Piece55" parent="Pickups" unique_id=534638571 instance=ExtResource("18_g7y4e")]
+position = Vector2(3846, 1079)
+
+[node name="Piece56" parent="Pickups" unique_id=567774247 instance=ExtResource("18_g7y4e")]
+position = Vector2(3846, 1079)
+
+[node name="Piece57" parent="Pickups" unique_id=1936954831 instance=ExtResource("18_g7y4e")]
+position = Vector2(3823, 1134)
+
+[node name="Piece58" parent="Pickups" unique_id=1549048805 instance=ExtResource("18_g7y4e")]
+position = Vector2(3822, 1177)
+
+[node name="Piece59" parent="Pickups" unique_id=1050765655 instance=ExtResource("18_g7y4e")]
+position = Vector2(3829, 1230)
+
+[node name="Piece60" parent="Pickups" unique_id=86257150 instance=ExtResource("18_g7y4e")]
+position = Vector2(3834, 1280)
+
+[node name="Piece61" parent="Pickups" unique_id=1836950698 instance=ExtResource("18_g7y4e")]
+position = Vector2(3736, 1410)
+
+[node name="Piece62" parent="Pickups" unique_id=620714568 instance=ExtResource("18_g7y4e")]
+position = Vector2(3766, 1442)
+
+[node name="Piece63" parent="Pickups" unique_id=1284563455 instance=ExtResource("18_g7y4e")]
+position = Vector2(3796, 1409)
+
+[node name="Piece64" parent="Pickups" unique_id=2074990892 instance=ExtResource("18_g7y4e")]
+position = Vector2(3826, 1441)
+
+[node name="Piece65" parent="Pickups" unique_id=1598489190 instance=ExtResource("18_g7y4e")]
+position = Vector2(4131, 1472)
+
+[node name="Piece66" parent="Pickups" unique_id=1246584107 instance=ExtResource("18_g7y4e")]
+position = Vector2(4173, 1450)
+
+[node name="Piece67" parent="Pickups" unique_id=687618228 instance=ExtResource("18_g7y4e")]
+position = Vector2(4209, 1440)
+
+[node name="Piece68" parent="Pickups" unique_id=195674012 instance=ExtResource("18_g7y4e")]
+position = Vector2(4249, 1448)
+
+[node name="Piece69" parent="Pickups" unique_id=652035983 instance=ExtResource("18_g7y4e")]
+position = Vector2(4278, 1466)
+
+[node name="Piece70" parent="Pickups" unique_id=1529489431 instance=ExtResource("18_g7y4e")]
+position = Vector2(4655, 1623)
+
+[node name="Piece71" parent="Pickups" unique_id=1975499516 instance=ExtResource("18_g7y4e")]
+position = Vector2(4655, 1586)
+
+[node name="Piece72" parent="Pickups" unique_id=212306374 instance=ExtResource("18_g7y4e")]
+position = Vector2(4655, 1547)
+
+[node name="Piece73" parent="Pickups" unique_id=274986729 instance=ExtResource("18_g7y4e")]
+position = Vector2(4655, 1508)
+
+[node name="Piece74" parent="Pickups" unique_id=983058520 instance=ExtResource("18_g7y4e")]
+position = Vector2(4825, 1634)
+
+[node name="Piece75" parent="Pickups" unique_id=1588168734 instance=ExtResource("18_g7y4e")]
+position = Vector2(4858, 1634)
+
+[node name="Piece76" parent="Pickups" unique_id=772387792 instance=ExtResource("18_g7y4e")]
+position = Vector2(4893, 1634)
+
+[node name="Piece77" parent="Pickups" unique_id=65829369 instance=ExtResource("18_g7y4e")]
+position = Vector2(4790, 1633)
+
+[node name="Piece78" parent="Pickups" unique_id=572378729 instance=ExtResource("18_g7y4e")]
+position = Vector2(5309, 1322)
+
+[node name="Piece79" parent="Pickups" unique_id=328717022 instance=ExtResource("18_g7y4e")]
+position = Vector2(5344, 1288)
+
+[node name="Piece80" parent="Pickups" unique_id=585365936 instance=ExtResource("18_g7y4e")]
+position = Vector2(5374, 1320)
+
+[node name="Piece81" parent="Pickups" unique_id=1207481698 instance=ExtResource("18_g7y4e")]
+position = Vector2(5404, 1289)
+
+[node name="Piece82" parent="Pickups" unique_id=2129975046 instance=ExtResource("18_g7y4e")]
+position = Vector2(5438, 1322)
+
+[node name="Piece83" parent="Pickups" unique_id=1203591790 instance=ExtResource("18_g7y4e")]
+position = Vector2(5406, 1321)
+
+[node name="Piece84" parent="Pickups" unique_id=791941822 instance=ExtResource("18_g7y4e")]
+position = Vector2(5343, 1320)
+
+[node name="Piece85" parent="Pickups" unique_id=1469985491 instance=ExtResource("18_g7y4e")]
+position = Vector2(5373, 1288)
+
+[node name="Piece86" parent="Pickups" unique_id=1268799778 instance=ExtResource("18_g7y4e")]
+position = Vector2(5373, 1253)
+
+[node name="Piece87" parent="Pickups" unique_id=982425543 instance=ExtResource("18_g7y4e")]
+position = Vector2(5607, 1321)
+
+[node name="Piece88" parent="Pickups" unique_id=1342311399 instance=ExtResource("18_g7y4e")]
+position = Vector2(5638, 1321)
+
+[node name="Piece89" parent="Pickups" unique_id=1682190582 instance=ExtResource("18_g7y4e")]
+position = Vector2(5670, 1321)
+
+[node name="Piece90" parent="Pickups" unique_id=1596672177 instance=ExtResource("18_g7y4e")]
+position = Vector2(5702, 1321)
+
+[node name="Piece91" parent="Pickups" unique_id=1832248420 instance=ExtResource("18_g7y4e")]
+position = Vector2(5740, 1321)
+
+[node name="Piece92" parent="Pickups" unique_id=1246133683 instance=ExtResource("18_g7y4e")]
+position = Vector2(5691, 1286)
+
+[node name="Piece93" parent="Pickups" unique_id=368604879 instance=ExtResource("18_g7y4e")]
+position = Vector2(5656, 1284)
+
+[node name="Piece94" parent="Pickups" unique_id=702275148 instance=ExtResource("18_g7y4e")]
+position = Vector2(5625, 1285)
+
+[node name="Piece95" parent="Pickups" unique_id=568034381 instance=ExtResource("18_g7y4e")]
+position = Vector2(5658, 1245)
+
+[node name="Piece96" parent="Pickups" unique_id=2122093504 instance=ExtResource("18_g7y4e")]
+position = Vector2(5349, 1568)
+
+[node name="Piece97" parent="Pickups" unique_id=513857019 instance=ExtResource("18_g7y4e")]
+position = Vector2(5389, 1569)
+
+[node name="Piece98" parent="Pickups" unique_id=1741611661 instance=ExtResource("18_g7y4e")]
+position = Vector2(5430, 1569)
+
+[node name="Piece99" parent="Pickups" unique_id=1301992980 instance=ExtResource("18_g7y4e")]
+position = Vector2(5472, 1568)
+
+[node name="Piece100" parent="Pickups" unique_id=495613035 instance=ExtResource("18_g7y4e")]
+position = Vector2(5611, 1567)
+
+[node name="Piece101" parent="Pickups" unique_id=1026808431 instance=ExtResource("18_g7y4e")]
+position = Vector2(5642, 1567)
+
+[node name="Piece102" parent="Pickups" unique_id=1083114848 instance=ExtResource("18_g7y4e")]
+position = Vector2(5680, 1566)
+
+[node name="Piece103" parent="Pickups" unique_id=1489816264 instance=ExtResource("18_g7y4e")]
+position = Vector2(5722, 1565)
+
+[node name="Piece104" parent="Pickups" unique_id=2040068639 instance=ExtResource("18_g7y4e")]
+position = Vector2(5926, 1597)
+
+[node name="Piece105" parent="Pickups" unique_id=1960695073 instance=ExtResource("18_g7y4e")]
+position = Vector2(5961, 1563)
+
+[node name="Piece106" parent="Pickups" unique_id=1220074169 instance=ExtResource("18_g7y4e")]
+position = Vector2(5995, 1528)
+
+[node name="Piece107" parent="Pickups" unique_id=1835492416 instance=ExtResource("18_g7y4e")]
+position = Vector2(6031, 1493)
+
+[node name="Piece108" parent="Pickups" unique_id=804536702 instance=ExtResource("18_g7y4e")]
+position = Vector2(6494, 1515)
+
+[node name="Piece109" parent="Pickups" unique_id=1236512534 instance=ExtResource("18_g7y4e")]
+position = Vector2(6525, 1489)
+
+[node name="Piece110" parent="Pickups" unique_id=1928887870 instance=ExtResource("18_g7y4e")]
+position = Vector2(6560, 1515)
+
+[node name="Piece111" parent="Pickups" unique_id=1249678977 instance=ExtResource("18_g7y4e")]
+position = Vector2(6586, 1488)
+
+[node name="Piece112" parent="Pickups" unique_id=1951162554 instance=ExtResource("18_g7y4e")]
+position = Vector2(6616, 1512)
+
+[node name="Piece113" parent="Pickups" unique_id=1101531650 instance=ExtResource("18_g7y4e")]
+position = Vector2(6801, 1472)
+
+[node name="Piece114" parent="Pickups" unique_id=1452802989 instance=ExtResource("18_g7y4e")]
+position = Vector2(6848, 1470)
+
+[node name="Piece115" parent="Pickups" unique_id=809041680 instance=ExtResource("18_g7y4e")]
+position = Vector2(6898, 1469)
+
+[node name="Piece116" parent="Pickups" unique_id=1871096770 instance=ExtResource("18_g7y4e")]
+position = Vector2(7056, 1539)
+
+[node name="Piece117" parent="Pickups" unique_id=2133983733 instance=ExtResource("18_g7y4e")]
+position = Vector2(7093, 1539)
+
+[node name="Piece118" parent="Pickups" unique_id=854847623 instance=ExtResource("18_g7y4e")]
+position = Vector2(7129, 1539)
+
+[node name="Piece119" parent="Pickups" unique_id=2121795641 instance=ExtResource("18_g7y4e")]
+position = Vector2(7267, 1516)
+
+[node name="Piece120" parent="Pickups" unique_id=1831394067 instance=ExtResource("18_g7y4e")]
+position = Vector2(7268, 1554)
+
+[node name="Piece121" parent="Pickups" unique_id=2136550005 instance=ExtResource("18_g7y4e")]
+position = Vector2(7268, 1594)
+
+[node name="Piece122" parent="Pickups" unique_id=1187836408 instance=ExtResource("18_g7y4e")]
+position = Vector2(7224, 1194)
+
+[node name="Piece123" parent="Pickups" unique_id=1587731808 instance=ExtResource("18_g7y4e")]
+position = Vector2(7260, 1194)
+
+[node name="Piece124" parent="Pickups" unique_id=600853561 instance=ExtResource("18_g7y4e")]
+position = Vector2(7294, 1193)
+
+[node name="Piece125" parent="Pickups" unique_id=870543261 instance=ExtResource("18_g7y4e")]
+position = Vector2(7334, 1195)
+
+[node name="Piece126" parent="Pickups" unique_id=834453062 instance=ExtResource("18_g7y4e")]
+position = Vector2(7614, 1523)
+
+[node name="Piece127" parent="Pickups" unique_id=946970756 instance=ExtResource("18_g7y4e")]
+position = Vector2(7647, 1558)
+
+[node name="Piece128" parent="Pickups" unique_id=1333595216 instance=ExtResource("18_g7y4e")]
+position = Vector2(7579, 1488)
+
+[node name="Piece129" parent="Pickups" unique_id=1691887418 instance=ExtResource("18_g7y4e")]
+position = Vector2(7649, 1489)
+
+[node name="Piece130" parent="Pickups" unique_id=213200996 instance=ExtResource("18_g7y4e")]
+position = Vector2(7578, 1558)
+
+[node name="Piece131" parent="Pickups" unique_id=820267539 instance=ExtResource("18_g7y4e")]
+position = Vector2(7690, 1522)
+
+[node name="Piece132" parent="Pickups" unique_id=1500654435 instance=ExtResource("18_g7y4e")]
+position = Vector2(7538, 1521)
+
+[node name="Piece133" parent="Pickups" unique_id=1302251663 instance=ExtResource("18_g7y4e")]
+position = Vector2(8089, 1425)
+
+[node name="Piece134" parent="Pickups" unique_id=109405620 instance=ExtResource("18_g7y4e")]
+position = Vector2(8089, 1380)
+
+[node name="Piece135" parent="Pickups" unique_id=427661778 instance=ExtResource("18_g7y4e")]
+position = Vector2(8089, 1332)
+
+[node name="Piece136" parent="Pickups" unique_id=1957256030 instance=ExtResource("18_g7y4e")]
+position = Vector2(8129, 1398)
+
+[node name="Piece137" parent="Pickups" unique_id=285502763 instance=ExtResource("18_g7y4e")]
+position = Vector2(8166, 1424)
+
+[node name="Piece138" parent="Pickups" unique_id=679476218 instance=ExtResource("18_g7y4e")]
+position = Vector2(8167, 1362)
+
+[node name="Piece139" parent="Pickups" unique_id=1981433207 instance=ExtResource("18_g7y4e")]
+position = Vector2(8203, 1329)
+
+[node name="Piece140" parent="Pickups" unique_id=1792156471 instance=ExtResource("18_g7y4e")]
+position = Vector2(8204, 1387)
+
+[node name="Piece141" parent="Pickups" unique_id=1490664715 instance=ExtResource("18_g7y4e")]
+position = Vector2(8205, 1440)
+
+[node name="Piece142" parent="Pickups" unique_id=1433298641 instance=ExtResource("18_g7y4e")]
+position = Vector2(8237, 1410)
+
+[node name="Piece143" parent="Pickups" unique_id=237055522 instance=ExtResource("18_g7y4e")]
+position = Vector2(8243, 1352)
+
+[node name="Piece144" parent="Pickups" unique_id=40436275 instance=ExtResource("18_g7y4e")]
+position = Vector2(8283, 1381)
+
+[node name="Piece145" parent="Pickups" unique_id=344430395 instance=ExtResource("18_g7y4e")]
+position = Vector2(8127, 1354)
+
+[node name="Piece146" parent="Pickups" unique_id=1501899447 instance=ExtResource("18_g7y4e")]
+position = Vector2(7819, 1139)
+
+[node name="Piece147" parent="Pickups" unique_id=1218928929 instance=ExtResource("18_g7y4e")]
+position = Vector2(7867, 1091)
+
+[node name="Piece148" parent="Pickups" unique_id=693528890 instance=ExtResource("18_g7y4e")]
+position = Vector2(7908, 1052)
+
+[node name="Piece149" parent="Pickups" unique_id=2006364305 instance=ExtResource("18_g7y4e")]
+position = Vector2(7943, 1016)
+
+[node name="Piece150" parent="Pickups" unique_id=751394884 instance=ExtResource("18_g7y4e")]
+position = Vector2(8394, 1082)
+
+[node name="Piece151" parent="Pickups" unique_id=173113570 instance=ExtResource("18_g7y4e")]
+position = Vector2(8391, 1143)
+
+[node name="Piece152" parent="Pickups" unique_id=1593256220 instance=ExtResource("18_g7y4e")]
+position = Vector2(8378, 1202)
+
+[node name="Piece153" parent="Pickups" unique_id=138691462 instance=ExtResource("18_g7y4e")]
+position = Vector2(8362, 1246)
+
+[node name="Piece154" parent="Pickups" unique_id=1583672871 instance=ExtResource("18_g7y4e")]
+position = Vector2(8342, 1281)
+
+[node name="Piece155" parent="Pickups" unique_id=1313249436 instance=ExtResource("18_g7y4e")]
+position = Vector2(8360, 1010)
+
+[node name="Piece156" parent="Pickups" unique_id=869593954 instance=ExtResource("18_g7y4e")]
+position = Vector2(9219, 1448)
+
+[node name="Piece157" parent="Pickups" unique_id=1632571794 instance=ExtResource("18_g7y4e")]
+position = Vector2(9219, 1410)
+
+[node name="Piece158" parent="Pickups" unique_id=472715350 instance=ExtResource("18_g7y4e")]
+position = Vector2(9219, 1370)
+
+[node name="Piece159" parent="Pickups" unique_id=818986962 instance=ExtResource("18_g7y4e")]
+position = Vector2(9251, 1370)
+
+[node name="Piece160" parent="Pickups" unique_id=1574723822 instance=ExtResource("18_g7y4e")]
+position = Vector2(9283, 1370)
+
+[node name="Piece161" parent="Pickups" unique_id=341578135 instance=ExtResource("18_g7y4e")]
+position = Vector2(9315, 1370)
+
+[node name="Piece162" parent="Pickups" unique_id=1837564821 instance=ExtResource("18_g7y4e")]
+position = Vector2(9347, 1370)
+
+[node name="Piece163" parent="Pickups" unique_id=148276026 instance=ExtResource("18_g7y4e")]
+position = Vector2(9379, 1370)
+
+[node name="Piece164" parent="Pickups" unique_id=2091730057 instance=ExtResource("18_g7y4e")]
+position = Vector2(9411, 1370)
+
+[node name="Piece165" parent="Pickups" unique_id=290386393 instance=ExtResource("18_g7y4e")]
+position = Vector2(9443, 1370)
+
+[node name="Piece166" parent="Pickups" unique_id=586749268 instance=ExtResource("18_g7y4e")]
+position = Vector2(9443, 1410)
+
+[node name="Piece167" parent="Pickups" unique_id=790087251 instance=ExtResource("18_g7y4e")]
+position = Vector2(9411, 1410)
+
+[node name="Piece168" parent="Pickups" unique_id=1893069675 instance=ExtResource("18_g7y4e")]
+position = Vector2(9379, 1410)
+
+[node name="Piece169" parent="Pickups" unique_id=1570522069 instance=ExtResource("18_g7y4e")]
+position = Vector2(9347, 1410)
+
+[node name="Piece170" parent="Pickups" unique_id=1669449118 instance=ExtResource("18_g7y4e")]
+position = Vector2(9315, 1410)
+
+[node name="Piece171" parent="Pickups" unique_id=1367822055 instance=ExtResource("18_g7y4e")]
+position = Vector2(9283, 1410)
+
+[node name="Piece172" parent="Pickups" unique_id=236098907 instance=ExtResource("18_g7y4e")]
+position = Vector2(9251, 1410)
+
+[node name="Piece173" parent="Pickups" unique_id=342087600 instance=ExtResource("18_g7y4e")]
+position = Vector2(9251, 1448)
+
+[node name="Piece174" parent="Pickups" unique_id=58931217 instance=ExtResource("18_g7y4e")]
+position = Vector2(9283, 1448)
+
+[node name="Piece175" parent="Pickups" unique_id=586150095 instance=ExtResource("18_g7y4e")]
+position = Vector2(9315, 1448)
+
+[node name="Piece176" parent="Pickups" unique_id=910921695 instance=ExtResource("18_g7y4e")]
+position = Vector2(9347, 1448)
+
+[node name="Piece177" parent="Pickups" unique_id=1703647071 instance=ExtResource("18_g7y4e")]
+position = Vector2(9379, 1448)
+
+[node name="Piece178" parent="Pickups" unique_id=2076177378 instance=ExtResource("18_g7y4e")]
+position = Vector2(9411, 1448)
+
+[node name="Piece179" parent="Pickups" unique_id=1559949543 instance=ExtResource("18_g7y4e")]
+position = Vector2(9443, 1448)
+
+[node name="Piece180" parent="Pickups" unique_id=355598269 instance=ExtResource("18_g7y4e")]
+position = Vector2(9227, 1279)
+
+[node name="Piece181" parent="Pickups" unique_id=2073366917 instance=ExtResource("18_g7y4e")]
+position = Vector2(9267, 1242)
+
+[node name="Piece182" parent="Pickups" unique_id=1552985824 instance=ExtResource("18_g7y4e")]
+position = Vector2(9299, 1262)
+
+[node name="Piece183" parent="Pickups" unique_id=1113783468 instance=ExtResource("18_g7y4e")]
+position = Vector2(9331, 1232)
+
+[node name="Piece184" parent="Pickups" unique_id=324033183 instance=ExtResource("18_g7y4e")]
+position = Vector2(9358, 1257)
+
+[node name="Piece185" parent="Pickups" unique_id=78128751 instance=ExtResource("18_g7y4e")]
+position = Vector2(9387, 1229)
+
+[node name="Piece186" parent="Pickups" unique_id=2050218021 instance=ExtResource("18_g7y4e")]
+position = Vector2(9420, 1256)
+
+[node name="Piece187" parent="Pickups" unique_id=1747790526 instance=ExtResource("18_g7y4e")]
+position = Vector2(9453, 1281)
+
+[node name="Piece188" parent="Pickups" unique_id=490453765 instance=ExtResource("18_g7y4e")]
+position = Vector2(9723, 1192)
+
+[node name="Piece189" parent="Pickups" unique_id=696075923 instance=ExtResource("18_g7y4e")]
+position = Vector2(9757, 1193)
+
+[node name="Piece190" parent="Pickups" unique_id=1234352858 instance=ExtResource("18_g7y4e")]
+position = Vector2(9789, 1193)
+
+[node name="Piece191" parent="Pickups" unique_id=1109098792 instance=ExtResource("18_g7y4e")]
+position = Vector2(9820, 1192)
+
+[node name="Piece192" parent="Pickups" unique_id=1633318084 instance=ExtResource("18_g7y4e")]
+position = Vector2(9895, 1144)
+
+[node name="Piece193" parent="Pickups" unique_id=184021569 instance=ExtResource("18_g7y4e")]
+position = Vector2(9934, 1144)
+
+[node name="Piece194" parent="Pickups" unique_id=1989129409 instance=ExtResource("18_g7y4e")]
+position = Vector2(9970, 1143)
+
+[node name="Piece195" parent="Pickups" unique_id=368363117 instance=ExtResource("18_g7y4e")]
+position = Vector2(10005, 1145)
+
+[node name="Piece196" parent="Pickups" unique_id=1163675016 instance=ExtResource("18_g7y4e")]
+position = Vector2(10373, 1601)
+
+[node name="Piece197" parent="Pickups" unique_id=1936040681 instance=ExtResource("18_g7y4e")]
+position = Vector2(10405, 1568)
+
+[node name="Piece198" parent="Pickups" unique_id=1647090912 instance=ExtResource("18_g7y4e")]
+position = Vector2(10437, 1597)
+
+[node name="Piece199" parent="Pickups" unique_id=1995854603 instance=ExtResource("18_g7y4e")]
+position = Vector2(10471, 1565)
+
+[node name="Piece200" parent="Pickups" unique_id=1841413254 instance=ExtResource("18_g7y4e")]
+position = Vector2(10501, 1599)
+
+[node name="Piece201" parent="Pickups" unique_id=1027678090 instance=ExtResource("18_g7y4e")]
+position = Vector2(10667, 1571)
+
+[node name="Piece202" parent="Pickups" unique_id=464022386 instance=ExtResource("18_g7y4e")]
+position = Vector2(10710, 1571)
+
+[node name="Piece203" parent="Pickups" unique_id=568781766 instance=ExtResource("18_g7y4e")]
+position = Vector2(10745, 1571)
+
+[node name="Piece204" parent="Pickups" unique_id=1008155616 instance=ExtResource("18_g7y4e")]
+position = Vector2(10780, 1571)
+
+[node name="Piece205" parent="Pickups" unique_id=1979467704 instance=ExtResource("18_g7y4e")]
+position = Vector2(10763, 1606)
+
+[node name="Piece206" parent="Pickups" unique_id=593272623 instance=ExtResource("18_g7y4e")]
+position = Vector2(10724, 1604)
+
+[node name="Piece207" parent="Pickups" unique_id=1847701870 instance=ExtResource("18_g7y4e")]
+position = Vector2(10689, 1604)
+
+[node name="Piece208" parent="Pickups" unique_id=178888916 instance=ExtResource("18_g7y4e")]
+position = Vector2(10582, 1478)
+
+[node name="Piece209" parent="Pickups" unique_id=1547259100 instance=ExtResource("18_g7y4e")]
+position = Vector2(10614, 1479)
+
+[node name="Piece210" parent="Pickups" unique_id=95045725 instance=ExtResource("18_g7y4e")]
+position = Vector2(10652, 1478)
+
+[node name="Piece211" parent="Pickups" unique_id=1778817035 instance=ExtResource("18_g7y4e")]
+position = Vector2(10688, 1479)
+
+[node name="Piece212" parent="Pickups" unique_id=1147459559 instance=ExtResource("18_g7y4e")]
+position = Vector2(10748, 1480)
+
+[node name="Piece213" parent="Pickups" unique_id=1241859774 instance=ExtResource("18_g7y4e")]
+position = Vector2(10787, 1480)
+
+[node name="Piece214" parent="Pickups" unique_id=188745492 instance=ExtResource("18_g7y4e")]
+position = Vector2(10825, 1479)
+
+[node name="Piece215" parent="Pickups" unique_id=2103246492 instance=ExtResource("18_g7y4e")]
+position = Vector2(10869, 1479)
+
+[node name="Piece216" parent="Pickups" unique_id=1970054052 instance=ExtResource("18_g7y4e")]
+position = Vector2(10996, 1606)
+
+[node name="Piece217" parent="Pickups" unique_id=511333961 instance=ExtResource("18_g7y4e")]
+position = Vector2(11031, 1605)
+
+[node name="Piece218" parent="Pickups" unique_id=1123160974 instance=ExtResource("18_g7y4e")]
+position = Vector2(11066, 1603)
+
+[node name="Piece219" parent="Pickups" unique_id=1080574003 instance=ExtResource("18_g7y4e")]
+position = Vector2(11144, 1505)
+
+[node name="Piece220" parent="Pickups" unique_id=239623563 instance=ExtResource("18_g7y4e")]
+position = Vector2(11118, 1476)
+
+[node name="Piece221" parent="Pickups" unique_id=304787751 instance=ExtResource("18_g7y4e")]
+position = Vector2(11098, 1454)
+
+[node name="Piece222" parent="Pickups" unique_id=1780752660 instance=ExtResource("18_g7y4e")]
+position = Vector2(11073, 1429)
+
+[node name="Piece223" parent="Pickups" unique_id=777402984 instance=ExtResource("18_g7y4e")]
+position = Vector2(11234, 1381)
+
+[node name="Piece224" parent="Pickups" unique_id=783370763 instance=ExtResource("18_g7y4e")]
+position = Vector2(11275, 1381)
+
+[node name="Piece225" parent="Pickups" unique_id=1303553858 instance=ExtResource("18_g7y4e")]
+position = Vector2(11275, 1346)
+
+[node name="Piece226" parent="Pickups" unique_id=698542918 instance=ExtResource("18_g7y4e")]
+position = Vector2(11234, 1344)
+
+[node name="Piece227" parent="Pickups" unique_id=797848615 instance=ExtResource("18_g7y4e")]
+position = Vector2(11235, 1306)
+
+[node name="Piece228" parent="Pickups" unique_id=1667198867 instance=ExtResource("18_g7y4e")]
+position = Vector2(11275, 1306)
+
+[node name="Piece229" parent="Pickups" unique_id=1347330436 instance=ExtResource("18_g7y4e")]
+position = Vector2(11493, 1311)
+
+[node name="Piece230" parent="Pickups" unique_id=1684724644 instance=ExtResource("18_g7y4e")]
+position = Vector2(11493, 1349)
+
+[node name="Piece231" parent="Pickups" unique_id=1001350563 instance=ExtResource("18_g7y4e")]
+position = Vector2(11494, 1386)
+
+[node name="Piece232" parent="Pickups" unique_id=1889842803 instance=ExtResource("18_g7y4e")]
+position = Vector2(11533, 1386)
+
+[node name="Piece233" parent="Pickups" unique_id=1597096517 instance=ExtResource("18_g7y4e")]
+position = Vector2(11532, 1349)
+
+[node name="Piece234" parent="Pickups" unique_id=1187641829 instance=ExtResource("18_g7y4e")]
+position = Vector2(11530, 1311)
+
+[node name="Piece235" parent="Pickups" unique_id=1180873187 instance=ExtResource("18_g7y4e")]
+position = Vector2(11717, 1509)
+
+[node name="Piece236" parent="Pickups" unique_id=898878694 instance=ExtResource("18_g7y4e")]
+position = Vector2(11749, 1509)
+
+[node name="Piece237" parent="Pickups" unique_id=383766483 instance=ExtResource("18_g7y4e")]
+position = Vector2(11784, 1508)
+
+[node name="Piece238" parent="Pickups" unique_id=1590019335 instance=ExtResource("18_g7y4e")]
+position = Vector2(11820, 1509)
+
+[node name="Piece239" parent="Pickups" unique_id=431525858 instance=ExtResource("18_g7y4e")]
+position = Vector2(11861, 1510)
+
+[node name="Piece240" parent="Pickups" unique_id=1470748856 instance=ExtResource("18_g7y4e")]
+position = Vector2(11840, 1474)
+
+[node name="Piece241" parent="Pickups" unique_id=1973082309 instance=ExtResource("18_g7y4e")]
+position = Vector2(11804, 1472)
+
+[node name="Piece242" parent="Pickups" unique_id=1729254591 instance=ExtResource("18_g7y4e")]
+position = Vector2(11763, 1473)
+
+[node name="Piece243" parent="Pickups" unique_id=1855585941 instance=ExtResource("18_g7y4e")]
+position = Vector2(11728, 1474)
+
+[node name="Piece244" parent="Pickups" unique_id=1469882613 instance=ExtResource("18_g7y4e")]
+position = Vector2(12357, 1481)
+
+[node name="Piece245" parent="Pickups" unique_id=1469960650 instance=ExtResource("18_g7y4e")]
+position = Vector2(12388, 1449)
+
+[node name="Piece246" parent="Pickups" unique_id=908387027 instance=ExtResource("18_g7y4e")]
+position = Vector2(12422, 1416)
+
+[node name="Piece247" parent="Pickups" unique_id=406452468 instance=ExtResource("18_g7y4e")]
+position = Vector2(12935, 1387)
+
+[node name="Piece248" parent="Pickups" unique_id=206294812 instance=ExtResource("18_g7y4e")]
+position = Vector2(12906, 1386)
+
+[node name="Piece249" parent="Pickups" unique_id=1129773529 instance=ExtResource("18_g7y4e")]
+position = Vector2(12906, 1349)
+
+[node name="Piece250" parent="Pickups" unique_id=159279825 instance=ExtResource("18_g7y4e")]
+position = Vector2(12939, 1351)
+
+[node name="Piece251" parent="Pickups" unique_id=497946494 instance=ExtResource("18_g7y4e")]
+position = Vector2(12939, 1314)
+
+[node name="Piece252" parent="Pickups" unique_id=541613940 instance=ExtResource("18_g7y4e")]
+position = Vector2(12905, 1311)
+
+[node name="Piece253" parent="Pickups" unique_id=1798174702 instance=ExtResource("18_g7y4e")]
+position = Vector2(13098, 1201)
+
+[node name="Piece254" parent="Pickups" unique_id=1057162417 instance=ExtResource("18_g7y4e")]
+position = Vector2(13133, 1201)
+
+[node name="Piece255" parent="Pickups" unique_id=422030903 instance=ExtResource("18_g7y4e")]
+position = Vector2(13169, 1202)
+
+[node name="Piece256" parent="Pickups" unique_id=167259090 instance=ExtResource("18_g7y4e")]
+position = Vector2(13349, 1109)
+
+[node name="Piece257" parent="Pickups" unique_id=1986000987 instance=ExtResource("18_g7y4e")]
+position = Vector2(13325, 1077)
+
+[node name="Piece258" parent="Pickups" unique_id=1049776428 instance=ExtResource("18_g7y4e")]
+position = Vector2(13295, 1049)
+
+[node name="Piece259" parent="Pickups" unique_id=2105809776 instance=ExtResource("18_g7y4e")]
+position = Vector2(13265, 1026)
+
+[node name="Piece260" parent="Pickups" unique_id=1556426213 instance=ExtResource("18_g7y4e")]
+position = Vector2(13009, 987)
+
+[node name="Piece261" parent="Pickups" unique_id=2129262319 instance=ExtResource("18_g7y4e")]
+position = Vector2(12983, 952)
+
+[node name="Piece262" parent="Pickups" unique_id=687683126 instance=ExtResource("18_g7y4e")]
+position = Vector2(12960, 927)
+
+[node name="Piece263" parent="Pickups" unique_id=924741930 instance=ExtResource("18_g7y4e")]
+position = Vector2(12928, 896)
+
+[node name="Piece264" parent="Pickups" unique_id=45309096 instance=ExtResource("18_g7y4e")]
+position = Vector2(12663, 828)
+
+[node name="Piece265" parent="Pickups" unique_id=1920430729 instance=ExtResource("18_g7y4e")]
+position = Vector2(12659, 788)
+
+[node name="Piece266" parent="Pickups" unique_id=687379219 instance=ExtResource("18_g7y4e")]
+position = Vector2(12650, 751)
+
+[node name="Piece267" parent="Pickups" unique_id=884669387 instance=ExtResource("18_g7y4e")]
+position = Vector2(12639, 713)
+
+[node name="Piece268" parent="Pickups" unique_id=1285632669 instance=ExtResource("18_g7y4e")]
+position = Vector2(12450, 617)
+
+[node name="Piece269" parent="Pickups" unique_id=1253730001 instance=ExtResource("18_g7y4e")]
+position = Vector2(12422, 585)
+
+[node name="Piece270" parent="Pickups" unique_id=434518807 instance=ExtResource("18_g7y4e")]
+position = Vector2(12393, 619)
+
+[node name="Piece271" parent="Pickups" unique_id=1817630433 instance=ExtResource("18_g7y4e")]
+position = Vector2(12361, 584)
+
+[node name="Piece272" parent="Pickups" unique_id=2003745813 instance=ExtResource("18_g7y4e")]
+position = Vector2(12332, 617)
+
+[node name="Piece273" parent="Pickups" unique_id=1631434808 instance=ExtResource("18_g7y4e")]
+position = Vector2(12299, 582)
+
+[node name="Piece274" parent="Pickups" unique_id=860004375 instance=ExtResource("18_g7y4e")]
+position = Vector2(12270, 617)
+
+[node name="Piece275" parent="Pickups" unique_id=1921420310 instance=ExtResource("18_g7y4e")]
+position = Vector2(12241, 582)
+
+[node name="Piece276" parent="Pickups" unique_id=1774928363 instance=ExtResource("18_g7y4e")]
+position = Vector2(12209, 615)
+
+[node name="Piece277" parent="Pickups" unique_id=2101044187 instance=ExtResource("18_g7y4e")]
+position = Vector2(11961, 519)
+
+[node name="Piece278" parent="Pickups" unique_id=1832254297 instance=ExtResource("18_g7y4e")]
+position = Vector2(11928, 518)
+
+[node name="Piece279" parent="Pickups" unique_id=1904244499 instance=ExtResource("18_g7y4e")]
+position = Vector2(11893, 518)
+
+[node name="Piece280" parent="Pickups" unique_id=1784185628 instance=ExtResource("18_g7y4e")]
+position = Vector2(11832, 549)
+
+[node name="Piece281" parent="Pickups" unique_id=1994917869 instance=ExtResource("18_g7y4e")]
+position = Vector2(11801, 551)
+
+[node name="Piece282" parent="Pickups" unique_id=1103749861 instance=ExtResource("18_g7y4e")]
+position = Vector2(11768, 549)
+
+[node name="Piece283" parent="Pickups" unique_id=2066242515 instance=ExtResource("18_g7y4e")]
+position = Vector2(11711, 471)
+
+[node name="Piece284" parent="Pickups" unique_id=461997163 instance=ExtResource("18_g7y4e")]
+position = Vector2(11735, 439)
+
+[node name="Piece285" parent="Pickups" unique_id=1661762637 instance=ExtResource("18_g7y4e")]
+position = Vector2(11763, 419)
+
+[node name="Piece286" parent="Pickups" unique_id=127290588 instance=ExtResource("18_g7y4e")]
+position = Vector2(11795, 390)
+
+[node name="Piece287" parent="Pickups" unique_id=1135098005 instance=ExtResource("18_g7y4e")]
+position = Vector2(11690, 512)
+
+[node name="Piece288" parent="Pickups" unique_id=1069208745 instance=ExtResource("18_g7y4e")]
+position = Vector2(11791, 283)
+
+[node name="Piece289" parent="Pickups" unique_id=1599730611 instance=ExtResource("18_g7y4e")]
+position = Vector2(11828, 254)
+
+[node name="Piece290" parent="Pickups" unique_id=1262223253 instance=ExtResource("18_g7y4e")]
+position = Vector2(11863, 242)
+
+[node name="Piece291" parent="Pickups" unique_id=1689265792 instance=ExtResource("18_g7y4e")]
+position = Vector2(11893, 253)
+
+[node name="Piece292" parent="Pickups" unique_id=1869544972 instance=ExtResource("18_g7y4e")]
+position = Vector2(11927, 270)
+
+[node name="Piece293" parent="Pickups" unique_id=413330093 instance=ExtResource("18_g7y4e")]
+position = Vector2(12120, 301)
+
+[node name="Piece294" parent="Pickups" unique_id=54719039 instance=ExtResource("18_g7y4e")]
+position = Vector2(12153, 301)
+
+[node name="Piece295" parent="Pickups" unique_id=215934918 instance=ExtResource("18_g7y4e")]
+position = Vector2(12186, 301)
+
+[node name="Piece296" parent="Pickups" unique_id=1266592555 instance=ExtResource("18_g7y4e")]
+position = Vector2(12513, 200)
+
+[node name="Piece297" parent="Pickups" unique_id=1883228125 instance=ExtResource("18_g7y4e")]
+position = Vector2(12513, 238)
+
+[node name="Piece298" parent="Pickups" unique_id=814332084 instance=ExtResource("18_g7y4e")]
+position = Vector2(12513, 271)
+
+[node name="Piece299" parent="Pickups" unique_id=699274941 instance=ExtResource("18_g7y4e")]
+position = Vector2(12990, 206)
+
+[node name="Piece300" parent="Pickups" unique_id=1532557680 instance=ExtResource("18_g7y4e")]
+position = Vector2(13025, 206)
+
+[node name="Piece301" parent="Pickups" unique_id=783194546 instance=ExtResource("18_g7y4e")]
+position = Vector2(13060, 207)
+
+[node name="Piece302" parent="Pickups" unique_id=1948786657 instance=ExtResource("18_g7y4e")]
+position = Vector2(13098, 207)
+
+[node name="Piece303" parent="Pickups" unique_id=1530008261 instance=ExtResource("18_g7y4e")]
+position = Vector2(13289, 300)
+
+[node name="Piece304" parent="Pickups" unique_id=355533091 instance=ExtResource("18_g7y4e")]
+position = Vector2(13343, 300)
+
+[node name="Piece305" parent="Pickups" unique_id=1582359080 instance=ExtResource("18_g7y4e")]
+position = Vector2(13314, 267)
+
+[node name="Piece306" parent="Pickups" unique_id=1613851244 instance=ExtResource("18_g7y4e")]
+position = Vector2(13615, 299)
+
+[node name="Piece307" parent="Pickups" unique_id=1366581612 instance=ExtResource("18_g7y4e")]
+position = Vector2(13650, 299)
+
+[node name="Piece308" parent="Pickups" unique_id=1860323404 instance=ExtResource("18_g7y4e")]
+position = Vector2(13685, 299)
+
+[node name="Piece309" parent="Pickups" unique_id=1869237644 instance=ExtResource("18_g7y4e")]
+position = Vector2(13871, 255)
+
+[node name="Piece310" parent="Pickups" unique_id=944506639 instance=ExtResource("18_g7y4e")]
+position = Vector2(13904, 255)
+
+[node name="Piece311" parent="Pickups" unique_id=1423209143 instance=ExtResource("18_g7y4e")]
+position = Vector2(13939, 256)
+
+[node name="Piece312" parent="Pickups" unique_id=664116259 instance=ExtResource("18_g7y4e")]
+position = Vector2(13973, 255)
+
+[node name="Piece313" parent="Pickups" unique_id=1323015623 instance=ExtResource("18_g7y4e")]
+position = Vector2(14306, 336)
+
+[node name="Piece314" parent="Pickups" unique_id=1373329514 instance=ExtResource("18_g7y4e")]
+position = Vector2(14327, 380)
+
+[node name="Piece315" parent="Pickups" unique_id=964395736 instance=ExtResource("18_g7y4e")]
+position = Vector2(14350, 427)
+
+[node name="Piece316" parent="Pickups" unique_id=1499607591 instance=ExtResource("18_g7y4e")]
+position = Vector2(14366, 475)
+
+[node name="Piece317" parent="Pickups" unique_id=1097069799 instance=ExtResource("18_g7y4e")]
+position = Vector2(14369, 522)
+
+[node name="Piece318" parent="Pickups" unique_id=1551806121 instance=ExtResource("18_g7y4e")]
+position = Vector2(14345, 562)
+
+[node name="Piece319" parent="Pickups" unique_id=1916642137 instance=ExtResource("18_g7y4e")]
+position = Vector2(14315, 600)
+
+[node name="Piece320" parent="Pickups" unique_id=739113725 instance=ExtResource("18_g7y4e")]
+position = Vector2(14292, 641)
+
+[node name="Piece321" parent="Pickups" unique_id=1719828737 instance=ExtResource("18_g7y4e")]
+position = Vector2(14292, 700)
+
+[node name="Piece322" parent="Pickups" unique_id=279275926 instance=ExtResource("18_g7y4e")]
+position = Vector2(14292, 700)
+
+[node name="Piece323" parent="Pickups" unique_id=1666761641 instance=ExtResource("18_g7y4e")]
+position = Vector2(14321, 755)
+
+[node name="Piece324" parent="Pickups" unique_id=1716978740 instance=ExtResource("18_g7y4e")]
+position = Vector2(14347, 802)
+
+[node name="Piece325" parent="Pickups" unique_id=859909729 instance=ExtResource("18_g7y4e")]
+position = Vector2(14374, 854)
+
+[node name="Piece326" parent="Pickups" unique_id=143951209 instance=ExtResource("18_g7y4e")]
+position = Vector2(14389, 892)
+
+[node name="Piece327" parent="Pickups" unique_id=965878455 instance=ExtResource("18_g7y4e")]
+position = Vector2(14403, 933)
+
+[node name="Piece328" parent="Pickups" unique_id=1707447406 instance=ExtResource("18_g7y4e")]
+position = Vector2(14417, 985)
+
+[node name="Piece329" parent="Pickups" unique_id=511311879 instance=ExtResource("18_g7y4e")]
+position = Vector2(14495, 1126)
+
+[node name="Piece330" parent="Pickups" unique_id=1000453674 instance=ExtResource("18_g7y4e")]
+position = Vector2(14530, 1125)
+
+[node name="Piece331" parent="Pickups" unique_id=1864916546 instance=ExtResource("18_g7y4e")]
+position = Vector2(14565, 1126)
+
+[node name="Piece332" parent="Pickups" unique_id=915999684 instance=ExtResource("18_g7y4e")]
+position = Vector2(14791, 1071)
+
+[node name="Piece333" parent="Pickups" unique_id=1252027949 instance=ExtResource("18_g7y4e")]
+position = Vector2(14835, 1071)
+
+[node name="Piece334" parent="Pickups" unique_id=61867082 instance=ExtResource("18_g7y4e")]
+position = Vector2(14878, 1072)
+
+[node name="Piece335" parent="Pickups" unique_id=982805660 instance=ExtResource("18_g7y4e")]
+position = Vector2(14918, 1070)
+
+[node name="Piece336" parent="Pickups" unique_id=1179406884 instance=ExtResource("18_g7y4e")]
+position = Vector2(15133, 1069)
+
+[node name="Piece337" parent="Pickups" unique_id=646770341 instance=ExtResource("18_g7y4e")]
+position = Vector2(15167, 1034)
+
+[node name="Piece338" parent="Pickups" unique_id=1614768750 instance=ExtResource("18_g7y4e")]
+position = Vector2(15131, 1005)
+
+[node name="Piece339" parent="Pickups" unique_id=1767217702 instance=ExtResource("18_g7y4e")]
+position = Vector2(15166, 976)
+
+[node name="Piece340" parent="Pickups" unique_id=1143030765 instance=ExtResource("18_g7y4e")]
+position = Vector2(15131, 945)
+
+[node name="Piece341" parent="Pickups" unique_id=78820753 instance=ExtResource("18_g7y4e")]
+position = Vector2(15166, 916)
+
+[node name="Piece342" parent="Pickups" unique_id=1055080883 instance=ExtResource("18_g7y4e")]
+position = Vector2(15270, 1003)
+
+[node name="Piece343" parent="Pickups" unique_id=416473759 instance=ExtResource("18_g7y4e")]
+position = Vector2(15299, 1003)
+
+[node name="Piece344" parent="Pickups" unique_id=165437147 instance=ExtResource("18_g7y4e")]
+position = Vector2(15326, 1003)
+
+[node name="Piece345" parent="Pickups" unique_id=684457702 instance=ExtResource("18_g7y4e")]
+position = Vector2(15512, 824)
+
+[node name="Piece346" parent="Pickups" unique_id=2139471142 instance=ExtResource("18_g7y4e")]
+position = Vector2(15566, 826)
+
+[node name="Piece347" parent="Pickups" unique_id=1219063022 instance=ExtResource("18_g7y4e")]
+position = Vector2(15616, 825)
+
+[node name="Piece348" parent="Pickups" unique_id=814291468 instance=ExtResource("18_g7y4e")]
+position = Vector2(15895, 963)
+
+[node name="Piece349" parent="Pickups" unique_id=221814690 instance=ExtResource("18_g7y4e")]
+position = Vector2(15932, 932)
+
+[node name="Piece350" parent="Pickups" unique_id=1943806900 instance=ExtResource("18_g7y4e")]
+position = Vector2(15967, 895)
+
+[node name="Piece351" parent="Pickups" unique_id=237688690 instance=ExtResource("18_g7y4e")]
+position = Vector2(16000, 862)
+
+[node name="Piece352" parent="Pickups" unique_id=892931197 instance=ExtResource("18_g7y4e")]
+position = Vector2(16036, 830)
+
+[node name="Piece353" parent="Pickups" unique_id=1590860120 instance=ExtResource("18_g7y4e")]
+position = Vector2(16214, 769)
+
+[node name="Piece354" parent="Pickups" unique_id=1344774651 instance=ExtResource("18_g7y4e")]
+position = Vector2(16254, 768)
+
+[node name="Piece355" parent="Pickups" unique_id=328870109 instance=ExtResource("18_g7y4e")]
+position = Vector2(16291, 767)
+
+[node name="Piece356" parent="Pickups" unique_id=177927454 instance=ExtResource("18_g7y4e")]
+position = Vector2(16329, 768)
+
+[node name="Piece357" parent="Pickups" unique_id=1296821128 instance=ExtResource("18_g7y4e")]
+position = Vector2(16368, 767)
+
+[node name="Piece358" parent="Pickups" unique_id=598672785 instance=ExtResource("18_g7y4e")]
+position = Vector2(16604, 881)
+
+[node name="Piece359" parent="Pickups" unique_id=430737365 instance=ExtResource("18_g7y4e")]
+position = Vector2(16645, 880)
+
+[node name="Piece360" parent="Pickups" unique_id=723268249 instance=ExtResource("18_g7y4e")]
+position = Vector2(16683, 877)
+
+[node name="Piece361" parent="Pickups" unique_id=1185781021 instance=ExtResource("18_g7y4e")]
+position = Vector2(16993, 879)
+
+[node name="Piece362" parent="Pickups" unique_id=878950266 instance=ExtResource("18_g7y4e")]
+position = Vector2(16992, 840)
+
+[node name="Piece363" parent="Pickups" unique_id=1119036967 instance=ExtResource("18_g7y4e")]
+position = Vector2(16992, 802)
+
+[node name="Piece364" parent="Pickups" unique_id=310386432 instance=ExtResource("18_g7y4e")]
+position = Vector2(17294, 896)
+
+[node name="Piece365" parent="Pickups" unique_id=253342144 instance=ExtResource("18_g7y4e")]
+position = Vector2(17323, 871)
+
+[node name="Piece366" parent="Pickups" unique_id=1935659800 instance=ExtResource("18_g7y4e")]
+position = Vector2(17370, 864)
+
+[node name="Piece367" parent="Pickups" unique_id=1626212219 instance=ExtResource("18_g7y4e")]
+position = Vector2(17428, 888)
+
+[node name="Piece368" parent="Pickups" unique_id=709191157 instance=ExtResource("18_g7y4e")]
+position = Vector2(17460, 916)
+
+[node name="Piece369" parent="Pickups" unique_id=1507693023 instance=ExtResource("18_g7y4e")]
+position = Vector2(17496, 956)
+
+[node name="Piece370" parent="Pickups" unique_id=2071645796 instance=ExtResource("18_g7y4e")]
+position = Vector2(17850, 930)
+
+[node name="Piece371" parent="Pickups" unique_id=665214299 instance=ExtResource("18_g7y4e")]
+position = Vector2(17873, 887)
+
+[node name="Piece372" parent="Pickups" unique_id=149690381 instance=ExtResource("18_g7y4e")]
+position = Vector2(17889, 853)
+
+[node name="Piece373" parent="Pickups" unique_id=1752314566 instance=ExtResource("18_g7y4e")]
+position = Vector2(17923, 829)
+
+[node name="Piece374" parent="Pickups" unique_id=670424601 instance=ExtResource("18_g7y4e")]
+position = Vector2(17953, 817)
+
+[node name="Piece375" parent="Pickups" unique_id=1806827759 instance=ExtResource("18_g7y4e")]
+position = Vector2(17992, 816)
+
+[node name="Piece376" parent="Pickups" unique_id=963611156 instance=ExtResource("18_g7y4e")]
+position = Vector2(18310, 823)
+
+[node name="Piece377" parent="Pickups" unique_id=1669457970 instance=ExtResource("18_g7y4e")]
+position = Vector2(18343, 793)
+
+[node name="Piece378" parent="Pickups" unique_id=1514233205 instance=ExtResource("18_g7y4e")]
+position = Vector2(18388, 770)
+
+[node name="Piece379" parent="Pickups" unique_id=1396132967 instance=ExtResource("18_g7y4e")]
+position = Vector2(18435, 761)
+
+[node name="Piece380" parent="Pickups" unique_id=324399888 instance=ExtResource("18_g7y4e")]
+position = Vector2(18480, 760)
+
+[node name="Piece381" parent="Pickups" unique_id=763559042 instance=ExtResource("18_g7y4e")]
+position = Vector2(18525, 772)
+
+[node name="Piece382" parent="Pickups" unique_id=722462574 instance=ExtResource("18_g7y4e")]
+position = Vector2(18557, 793)
+
+[node name="Piece383" parent="Pickups" unique_id=1511426088 instance=ExtResource("18_g7y4e")]
+position = Vector2(19122, 810)
+
+[node name="Piece384" parent="Pickups" unique_id=1959187683 instance=ExtResource("18_g7y4e")]
+position = Vector2(19143, 837)
+
+[node name="Piece385" parent="Pickups" unique_id=474855521 instance=ExtResource("18_g7y4e")]
+position = Vector2(19156, 858)
+
+[node name="Piece386" parent="Pickups" unique_id=244335489 instance=ExtResource("18_g7y4e")]
+position = Vector2(19157, 877)
+
+[node name="Piece387" parent="Pickups" unique_id=690115870 instance=ExtResource("18_g7y4e")]
+position = Vector2(19148, 896)
+
+[node name="Piece388" parent="Pickups" unique_id=893676490 instance=ExtResource("18_g7y4e")]
+position = Vector2(19135, 916)
+
+[node name="Piece389" parent="Pickups" unique_id=420751050 instance=ExtResource("18_g7y4e")]
+position = Vector2(19135, 916)
+
+[node name="Piece390" parent="Pickups" unique_id=1716020749 instance=ExtResource("18_g7y4e")]
+position = Vector2(19507, 870)
+
+[node name="Piece391" parent="Pickups" unique_id=1305945050 instance=ExtResource("18_g7y4e")]
+position = Vector2(19541, 902)
+
+[node name="Piece392" parent="Pickups" unique_id=490942458 instance=ExtResource("18_g7y4e")]
+position = Vector2(19576, 870)
+
+[node name="Piece393" parent="Pickups" unique_id=1100730458 instance=ExtResource("18_g7y4e")]
+position = Vector2(19610, 896)
+
+[node name="Piece394" parent="Pickups" unique_id=603742629 instance=ExtResource("18_g7y4e")]
+position = Vector2(19647, 870)
+
+[node name="Piece395" parent="Pickups" unique_id=1098253785 instance=ExtResource("18_g7y4e")]
+position = Vector2(19799, 870)
+
+[node name="Piece396" parent="Pickups" unique_id=1672558161 instance=ExtResource("18_g7y4e")]
+position = Vector2(19832, 896)
+
+[node name="Piece397" parent="Pickups" unique_id=1489060195 instance=ExtResource("18_g7y4e")]
+position = Vector2(19864, 868)
+
+[node name="Piece398" parent="Pickups" unique_id=1164258663 instance=ExtResource("18_g7y4e")]
+position = Vector2(19896, 893)
+
+[node name="Piece399" parent="Pickups" unique_id=1085761064 instance=ExtResource("18_g7y4e")]
+position = Vector2(19929, 866)
+
+[node name="Piece400" parent="Pickups" unique_id=1173046077 instance=ExtResource("18_g7y4e")]
+position = Vector2(19963, 892)
+
+[node name="Piece401" parent="Pickups" unique_id=2053490543 instance=ExtResource("18_g7y4e")]
+position = Vector2(19677, 725)
+
+[node name="Piece402" parent="Pickups" unique_id=1119982144 instance=ExtResource("18_g7y4e")]
+position = Vector2(19748, 726)
+
+[node name="Piece403" parent="Pickups" unique_id=1639520921 instance=ExtResource("18_g7y4e")]
+position = Vector2(19832, 725)
+
+[node name="Piece404" parent="Pickups" unique_id=204868145 instance=ExtResource("18_g7y4e")]
+position = Vector2(19907, 726)
+
+[node name="Piece405" parent="Pickups" unique_id=1641902859 instance=ExtResource("18_g7y4e")]
+position = Vector2(19739, 582)
+
+[node name="Piece406" parent="Pickups" unique_id=1917891429 instance=ExtResource("18_g7y4e")]
+position = Vector2(19776, 582)
+
+[node name="Piece407" parent="Pickups" unique_id=1499047230 instance=ExtResource("18_g7y4e")]
+position = Vector2(19817, 582)
+
+[node name="Piece408" parent="Pickups" unique_id=1406192987 instance=ExtResource("18_g7y4e")]
+position = Vector2(19796, 546)
+
+[node name="Piece409" parent="Pickups" unique_id=1239264560 instance=ExtResource("18_g7y4e")]
+position = Vector2(19756, 546)
+
+[node name="Piece410" parent="Pickups" unique_id=156801437 instance=ExtResource("18_g7y4e")]
+position = Vector2(19777, 510)
+
+[node name="Piece411" parent="Pickups" unique_id=1192294396 instance=ExtResource("18_g7y4e")]
+position = Vector2(20260, 804)
+
+[node name="Piece412" parent="Pickups" unique_id=2038614323 instance=ExtResource("18_g7y4e")]
+position = Vector2(20295, 764)
+
+[node name="Piece413" parent="Pickups" unique_id=1600053388 instance=ExtResource("18_g7y4e")]
+position = Vector2(20331, 802)
+
+[node name="Piece414" parent="Pickups" unique_id=1547290377 instance=ExtResource("18_g7y4e")]
+position = Vector2(20366, 765)
+
+[node name="Piece415" parent="Pickups" unique_id=191025017 instance=ExtResource("18_g7y4e")]
+position = Vector2(20403, 801)
+
+[node name="Piece416" parent="Pickups" unique_id=1345100390 instance=ExtResource("18_g7y4e")]
+position = Vector2(20594, 736)
+
+[node name="Piece417" parent="Pickups" unique_id=1390271004 instance=ExtResource("18_g7y4e")]
+position = Vector2(20630, 735)
+
+[node name="Piece418" parent="Pickups" unique_id=1591340663 instance=ExtResource("18_g7y4e")]
+position = Vector2(20665, 735)
+
+[node name="Piece419" parent="Pickups" unique_id=869100392 instance=ExtResource("18_g7y4e")]
+position = Vector2(20814, 803)
+
+[node name="Piece420" parent="Pickups" unique_id=559417600 instance=ExtResource("18_g7y4e")]
+position = Vector2(20848, 802)
+
+[node name="Piece421" parent="Pickups" unique_id=1226543150 instance=ExtResource("18_g7y4e")]
+position = Vector2(20884, 803)
+
+[node name="Piece422" parent="Pickups" unique_id=1720485927 instance=ExtResource("18_g7y4e")]
+position = Vector2(20921, 803)
+
+[node name="Piece423" parent="Pickups" unique_id=1152508013 instance=ExtResource("18_g7y4e")]
+position = Vector2(21080, 745)
+
+[node name="Piece424" parent="Pickups" unique_id=371205795 instance=ExtResource("18_g7y4e")]
+position = Vector2(21131, 745)
+
+[node name="Piece425" parent="Pickups" unique_id=2143732923 instance=ExtResource("18_g7y4e")]
+position = Vector2(21182, 746)
+
+[node name="Piece426" parent="Pickups" unique_id=220757773 instance=ExtResource("18_g7y4e")]
+position = Vector2(21535, 601)
+
+[node name="Piece427" parent="Pickups" unique_id=519339322 instance=ExtResource("18_g7y4e")]
+position = Vector2(21509, 576)
+
+[node name="Piece428" parent="Pickups" unique_id=1271715238 instance=ExtResource("18_g7y4e")]
+position = Vector2(21476, 557)
+
+[node name="Piece429" parent="Pickups" unique_id=1482254275 instance=ExtResource("18_g7y4e")]
+position = Vector2(21434, 544)
+
+[node name="Piece430" parent="Pickups" unique_id=2109540234 instance=ExtResource("18_g7y4e")]
+position = Vector2(21399, 543)
+
+[node name="Piece431" parent="Pickups" unique_id=826367521 instance=ExtResource("18_g7y4e")]
+position = Vector2(21431, 500)
+
+[node name="Piece432" parent="Pickups" unique_id=98350617 instance=ExtResource("18_g7y4e")]
+position = Vector2(21476, 476)
+
+[node name="Piece433" parent="Pickups" unique_id=2133632558 instance=ExtResource("18_g7y4e")]
+position = Vector2(21511, 468)
+
+[node name="Piece434" parent="Pickups" unique_id=160423549 instance=ExtResource("18_g7y4e")]
+position = Vector2(21540, 475)
+
+[node name="Piece435" parent="Pickups" unique_id=1553970565 instance=ExtResource("18_g7y4e")]
+position = Vector2(21503, 430)
+
+[node name="Piece436" parent="Pickups" unique_id=1935614720 instance=ExtResource("18_g7y4e")]
+position = Vector2(21450, 409)
+
+[node name="Piece437" parent="Pickups" unique_id=436470315 instance=ExtResource("18_g7y4e")]
+position = Vector2(21398, 404)
+
+[node name="Piece438" parent="Pickups" unique_id=16771151 instance=ExtResource("18_g7y4e")]
+position = Vector2(21438, 357)
+
+[node name="Piece439" parent="Pickups" unique_id=1245817848 instance=ExtResource("18_g7y4e")]
+position = Vector2(21476, 334)
+
+[node name="Piece440" parent="Pickups" unique_id=1886798158 instance=ExtResource("18_g7y4e")]
+position = Vector2(21514, 325)
+
+[node name="Piece441" parent="Pickups" unique_id=1796021050 instance=ExtResource("18_g7y4e")]
+position = Vector2(21550, 332)
+
+[node name="Piece442" parent="Pickups" unique_id=965622752 instance=ExtResource("18_g7y4e")]
+position = Vector2(21584, 348)
+
+[node name="Piece443" parent="Pickups" unique_id=1378524100 instance=ExtResource("18_g7y4e")]
+position = Vector2(21804, 302)
+
+[node name="Piece444" parent="Pickups" unique_id=91018309 instance=ExtResource("18_g7y4e")]
+position = Vector2(21839, 302)
+
+[node name="Piece445" parent="Pickups" unique_id=2114685185 instance=ExtResource("18_g7y4e")]
+position = Vector2(21872, 302)
+
+[node name="Piece446" parent="Pickups" unique_id=1423415760 instance=ExtResource("18_g7y4e")]
+position = Vector2(21911, 302)
+
+[node name="Piece447" parent="Pickups" unique_id=126354630 instance=ExtResource("18_g7y4e")]
+position = Vector2(22156, 365)
+
+[node name="Piece448" parent="Pickups" unique_id=1081973849 instance=ExtResource("18_g7y4e")]
+position = Vector2(22272, 366)
+
+[node name="Piece449" parent="Pickups" unique_id=697800914 instance=ExtResource("18_g7y4e")]
+position = Vector2(22213, 321)
+
+[node name="Piece450" parent="Pickups" unique_id=465626941 instance=ExtResource("18_g7y4e")]
+position = Vector2(22108, 321)
+
+[node name="Piece451" parent="Pickups" unique_id=1224404505 instance=ExtResource("18_g7y4e")]
+position = Vector2(22063, 368)
+
+[node name="Capsule" parent="Pickups" unique_id=786621984 instance=ExtResource("19_7tr5b")]
+position = Vector2(3975, 171)
+
+[node name="Capsule2" parent="Pickups" unique_id=1013265246 instance=ExtResource("10_1ojwo")]
+position = Vector2(5523, 1321)
+
+[node name="Capsule3" parent="Pickups" unique_id=1558327846 instance=ExtResource("10_1ojwo")]
+position = Vector2(5559, 1321)
+
+[node name="Capsule4" parent="Pickups" unique_id=365138112 instance=ExtResource("10_1ojwo")]
+position = Vector2(5483, 1320)
+
+[node name="Capsule5" parent="Pickups" unique_id=1051089052 instance=ExtResource("10_1ojwo")]
+position = Vector2(5506, 1286)
+
+[node name="Capsule6" parent="Pickups" unique_id=1009221029 instance=ExtResource("10_1ojwo")]
+position = Vector2(5543, 1286)
+
+[node name="Capsule7" parent="Pickups" unique_id=1950909019 instance=ExtResource("10_1ojwo")]
+position = Vector2(5524, 1250)
+
+[node name="HpMed" parent="Pickups" unique_id=1719648143 instance=ExtResource("20_5v52y")]
+position = Vector2(3139, 259)
+
+[node name="TrickRing" parent="Pickups" unique_id=56273673 instance=ExtResource("21_m2uap")]
+position = Vector2(680, 549)
+
+[node name="TrickRing2" parent="Pickups" unique_id=1419793254 instance=ExtResource("21_m2uap")]
+position = Vector2(706, 548)
+
+[node name="TrickRing3" parent="Pickups" unique_id=716789723 instance=ExtResource("21_m2uap")]
+position = Vector2(730, 547)
+
+[node name="TrickRing4" parent="Pickups" unique_id=1057864281 instance=ExtResource("21_m2uap")]
+position = Vector2(758, 548)
+
+[node name="TrickRing5" parent="Pickups" unique_id=1052552529 instance=ExtResource("21_m2uap")]
+position = Vector2(788, 549)
+
+[node name="TrickRing6" parent="Pickups" unique_id=693021365 instance=ExtResource("21_m2uap")]
+position = Vector2(2004, 542)
+
+[node name="TrickRing7" parent="Pickups" unique_id=1939990246 instance=ExtResource("21_m2uap")]
+position = Vector2(1985, 521)
+
+[node name="TrickRing8" parent="Pickups" unique_id=216025410 instance=ExtResource("21_m2uap")]
+position = Vector2(1959, 512)
+
+[node name="TrickRing9" parent="Pickups" unique_id=579957899 instance=ExtResource("21_m2uap")]
+position = Vector2(1982, 473)
+
+[node name="TrickRing10" parent="Pickups" unique_id=2015004150 instance=ExtResource("21_m2uap")]
+position = Vector2(2006, 462)
+
+[node name="TrickRing11" parent="Pickups" unique_id=1707158864 instance=ExtResource("21_m2uap")]
+position = Vector2(2033, 451)
+
+[node name="TrickRing12" parent="Pickups" unique_id=556458071 instance=ExtResource("21_m2uap")]
+position = Vector2(2060, 447)
+
+[node name="TrickRing13" parent="Pickups" unique_id=1267650736 instance=ExtResource("21_m2uap")]
+position = Vector2(2619, 443)
+
+[node name="TrickRing14" parent="Pickups" unique_id=1851644010 instance=ExtResource("21_m2uap")]
+position = Vector2(2656, 422)
+
+[node name="TrickRing15" parent="Pickups" unique_id=944528255 instance=ExtResource("21_m2uap")]
+position = Vector2(2681, 413)
+
+[node name="TrickRing16" parent="Pickups" unique_id=1840517665 instance=ExtResource("21_m2uap")]
+position = Vector2(2703, 408)
+
+[node name="TrickRing17" parent="Pickups" unique_id=700618975 instance=ExtResource("21_m2uap")]
+position = Vector2(2703, 408)
+
+[node name="TrickRing18" parent="Pickups" unique_id=720075023 instance=ExtResource("21_m2uap")]
+position = Vector2(3138, 309)
+
+[node name="TrickRing19" parent="Pickups" unique_id=259202000 instance=ExtResource("21_m2uap")]
+position = Vector2(3160, 302)
+
+[node name="TrickRing20" parent="Pickups" unique_id=1686741648 instance=ExtResource("21_m2uap")]
+position = Vector2(3184, 286)
+
+[node name="TrickRing21" parent="Pickups" unique_id=1588481371 instance=ExtResource("21_m2uap")]
+position = Vector2(3204, 261)
+
+[node name="TrickRing22" parent="Pickups" unique_id=1349146661 instance=ExtResource("21_m2uap")]
+position = Vector2(3175, 219)
+
+[node name="TrickRing23" parent="Pickups" unique_id=588858304 instance=ExtResource("21_m2uap")]
+position = Vector2(3140, 197)
+
+[node name="TrickRing24" parent="Pickups" unique_id=769155414 instance=ExtResource("21_m2uap")]
+position = Vector2(3106, 208)
+
+[node name="TrickRing25" parent="Pickups" unique_id=1420779158 instance=ExtResource("21_m2uap")]
+position = Vector2(3085, 235)
+
+[node name="TrickRing26" parent="Pickups" unique_id=950031500 instance=ExtResource("21_m2uap")]
+position = Vector2(3082, 277)
+
+[node name="TrickRing27" parent="Pickups" unique_id=1097675762 instance=ExtResource("21_m2uap")]
+position = Vector2(3109, 303)
+
+[node name="TrickRing28" parent="Pickups" unique_id=1546179031 instance=ExtResource("21_m2uap")]
+position = Vector2(3350, 363)
+
+[node name="TrickRing29" parent="Pickups" unique_id=1407997780 instance=ExtResource("21_m2uap")]
+position = Vector2(3372, 373)
+
+[node name="TrickRing30" parent="Pickups" unique_id=239696729 instance=ExtResource("21_m2uap")]
+position = Vector2(3390, 384)
+
+[node name="TrickRing31" parent="Pickups" unique_id=1651995073 instance=ExtResource("21_m2uap")]
+position = Vector2(3406, 396)
+
+[node name="TrickRing32" parent="Pickups" unique_id=1353704930 instance=ExtResource("21_m2uap")]
+position = Vector2(3424, 413)
+
+[node name="TrickRing33" parent="Pickups" unique_id=1712274983 instance=ExtResource("21_m2uap")]
+position = Vector2(3446, 437)
+
+[node name="TrickRing34" parent="Pickups" unique_id=521511121 instance=ExtResource("21_m2uap")]
+position = Vector2(3425, 457)
+
+[node name="TrickRing35" parent="Pickups" unique_id=811172969 instance=ExtResource("21_m2uap")]
+position = Vector2(3402, 474)
+
+[node name="TrickRing36" parent="Pickups" unique_id=1742425500 instance=ExtResource("21_m2uap")]
+position = Vector2(3382, 489)
+
+[node name="TrickRing37" parent="Pickups" unique_id=1080330968 instance=ExtResource("21_m2uap")]
+position = Vector2(3363, 508)
+
+[node name="TrickRing38" parent="Pickups" unique_id=495593344 instance=ExtResource("21_m2uap")]
+position = Vector2(4155, 1453)
+
+[node name="TrickRing39" parent="Pickups" unique_id=1512097317 instance=ExtResource("21_m2uap")]
+position = Vector2(4187, 1437)
+
+[node name="TrickRing40" parent="Pickups" unique_id=523960826 instance=ExtResource("21_m2uap")]
+position = Vector2(4223, 1431)
+
+[node name="TrickRing41" parent="Pickups" unique_id=1793852949 instance=ExtResource("21_m2uap")]
+position = Vector2(4259, 1443)
+
+[node name="TrickRing42" parent="Pickups" unique_id=453326977 instance=ExtResource("21_m2uap")]
+position = Vector2(4295, 1479)
+
+[node name="TrickRing43" parent="Pickups" unique_id=697679596 instance=ExtResource("21_m2uap")]
+position = Vector2(4786, 1569)
+
+[node name="TrickRing44" parent="Pickups" unique_id=1899199197 instance=ExtResource("21_m2uap")]
+position = Vector2(4811, 1553)
+
+[node name="TrickRing45" parent="Pickups" unique_id=1404457285 instance=ExtResource("21_m2uap")]
+position = Vector2(4832, 1547)
+
+[node name="TrickRing46" parent="Pickups" unique_id=1340422332 instance=ExtResource("21_m2uap")]
+position = Vector2(4849, 1553)
+
+[node name="TrickRing47" parent="Pickups" unique_id=1532738076 instance=ExtResource("21_m2uap")]
+position = Vector2(4865, 1564)
+
+[node name="TrickRing48" parent="Pickups" unique_id=881081356 instance=ExtResource("21_m2uap")]
+position = Vector2(4877, 1575)
+
+[node name="TrickRing49" parent="Pickups" unique_id=1574268517 instance=ExtResource("21_m2uap")]
+position = Vector2(4889, 1590)
+
+[node name="TrickRing50" parent="Pickups" unique_id=965655546 instance=ExtResource("21_m2uap")]
+position = Vector2(5365, 1568)
+
+[node name="TrickRing51" parent="Pickups" unique_id=222218077 instance=ExtResource("21_m2uap")]
+position = Vector2(5406, 1569)
+
+[node name="TrickRing52" parent="Pickups" unique_id=1453531400 instance=ExtResource("21_m2uap")]
+position = Vector2(5445, 1570)
+
+[node name="TrickRing53" parent="Pickups" unique_id=2011464236 instance=ExtResource("21_m2uap")]
+position = Vector2(5486, 1569)
+
+[node name="TrickRing54" parent="Pickups" unique_id=1960487496 instance=ExtResource("21_m2uap")]
+position = Vector2(5589, 1566)
+
+[node name="TrickRing55" parent="Pickups" unique_id=179798501 instance=ExtResource("21_m2uap")]
+position = Vector2(5627, 1567)
+
+[node name="TrickRing56" parent="Pickups" unique_id=845532100 instance=ExtResource("21_m2uap")]
+position = Vector2(5659, 1568)
+
+[node name="TrickRing57" parent="Pickups" unique_id=493082896 instance=ExtResource("21_m2uap")]
+position = Vector2(5697, 1567)
+
+[node name="TrickRing58" parent="Pickups" unique_id=1199591704 instance=ExtResource("21_m2uap")]
+position = Vector2(6765, 1466)
+
+[node name="TrickRing59" parent="Pickups" unique_id=2041950285 instance=ExtResource("21_m2uap")]
+position = Vector2(6822, 1469)
+
+[node name="TrickRing60" parent="Pickups" unique_id=1614049159 instance=ExtResource("21_m2uap")]
+position = Vector2(6869, 1466)
+
+[node name="TrickRing61" parent="Pickups" unique_id=33570794 instance=ExtResource("21_m2uap")]
+position = Vector2(6924, 1467)
+
+[node name="TrickRing62" parent="Pickups" unique_id=311964117 instance=ExtResource("21_m2uap")]
+position = Vector2(6377, 1449)
+
+[node name="TrickRing63" parent="Pickups" unique_id=1190517579 instance=ExtResource("21_m2uap")]
+position = Vector2(6414, 1433)
+
+[node name="TrickRing64" parent="Pickups" unique_id=1319924920 instance=ExtResource("21_m2uap")]
+position = Vector2(6453, 1424)
+
+[node name="TrickRing65" parent="Pickups" unique_id=1663928849 instance=ExtResource("21_m2uap")]
+position = Vector2(6481, 1433)
+
+[node name="TrickRing66" parent="Pickups" unique_id=709996264 instance=ExtResource("21_m2uap")]
+position = Vector2(6512, 1447)
+
+[node name="TrickRing67" parent="Pickups" unique_id=1052677717 instance=ExtResource("21_m2uap")]
+position = Vector2(6538, 1467)
+
+[node name="TrickRing68" parent="Pickups" unique_id=1980382680 instance=ExtResource("21_m2uap")]
+position = Vector2(7072, 1488)
+
+[node name="TrickRing69" parent="Pickups" unique_id=782315560 instance=ExtResource("21_m2uap")]
+position = Vector2(7110, 1486)
+
+[node name="TrickRing70" parent="Pickups" unique_id=963744259 instance=ExtResource("21_m2uap")]
+position = Vector2(7089, 1434)
+
+[node name="TrickRing71" parent="Pickups" unique_id=969152498 instance=ExtResource("21_m2uap")]
+position = Vector2(7356, 1551)
+
+[node name="TrickRing72" parent="Pickups" unique_id=1636615063 instance=ExtResource("21_m2uap")]
+position = Vector2(7381, 1526)
+
+[node name="TrickRing73" parent="Pickups" unique_id=1862828555 instance=ExtResource("21_m2uap")]
+position = Vector2(7406, 1505)
+
+[node name="TrickRing74" parent="Pickups" unique_id=1127266245 instance=ExtResource("21_m2uap")]
+position = Vector2(7429, 1495)
+
+[node name="TrickRing75" parent="Pickups" unique_id=1019226918 instance=ExtResource("21_m2uap")]
+position = Vector2(7459, 1503)
+
+[node name="TrickRing76" parent="Pickups" unique_id=1902843307 instance=ExtResource("21_m2uap")]
+position = Vector2(7486, 1530)
+
+[node name="TrickRing77" parent="Pickups" unique_id=2031054005 instance=ExtResource("21_m2uap")]
+position = Vector2(7511, 1556)
+
+[node name="TrickRing78" parent="Pickups" unique_id=54571990 instance=ExtResource("21_m2uap")]
+position = Vector2(8017, 1520)
+
+[node name="TrickRing79" parent="Pickups" unique_id=635138003 instance=ExtResource("21_m2uap")]
+position = Vector2(7989, 1505)
+
+[node name="TrickRing80" parent="Pickups" unique_id=846379340 instance=ExtResource("21_m2uap")]
+position = Vector2(7957, 1489)
+
+[node name="TrickRing81" parent="Pickups" unique_id=654973011 instance=ExtResource("21_m2uap")]
+position = Vector2(7984, 1453)
+
+[node name="TrickRing82" parent="Pickups" unique_id=767843490 instance=ExtResource("21_m2uap")]
+position = Vector2(8013, 1436)
+
+[node name="TrickRing83" parent="Pickups" unique_id=1732929425 instance=ExtResource("21_m2uap")]
+position = Vector2(8039, 1423)
+
+[node name="TrickRing84" parent="Pickups" unique_id=1521899580 instance=ExtResource("21_m2uap")]
+position = Vector2(8145, 1289)
+
+[node name="TrickRing85" parent="Pickups" unique_id=42403542 instance=ExtResource("21_m2uap")]
+position = Vector2(8178, 1273)
+
+[node name="TrickRing86" parent="Pickups" unique_id=1952888266 instance=ExtResource("21_m2uap")]
+position = Vector2(8212, 1259)
+
+[node name="TrickRing87" parent="Pickups" unique_id=1370200881 instance=ExtResource("21_m2uap")]
+position = Vector2(8248, 1254)
+
+[node name="TrickRing88" parent="Pickups" unique_id=902227164 instance=ExtResource("21_m2uap")]
+position = Vector2(8288, 1269)
+
+[node name="TrickRing89" parent="Pickups" unique_id=1682345775 instance=ExtResource("21_m2uap")]
+position = Vector2(8114, 1308)
+
+[node name="TrickRing90" parent="Pickups" unique_id=337015022 instance=ExtResource("21_m2uap")]
+position = Vector2(8319, 1293)
+
+[node name="TrickRing91" parent="Pickups" unique_id=1776065378 instance=ExtResource("21_m2uap")]
+position = Vector2(8585, 1379)
+
+[node name="TrickRing92" parent="Pickups" unique_id=1187617676 instance=ExtResource("21_m2uap")]
+position = Vector2(8602, 1380)
+
+[node name="TrickRing93" parent="Pickups" unique_id=722662957 instance=ExtResource("21_m2uap")]
+position = Vector2(8620, 1378)
+
+[node name="TrickRing94" parent="Pickups" unique_id=1645548549 instance=ExtResource("21_m2uap")]
+position = Vector2(8639, 1380)
+
+[node name="TrickRing95" parent="Pickups" unique_id=927065275 instance=ExtResource("21_m2uap")]
+position = Vector2(8733, 1375)
+
+[node name="TrickRing96" parent="Pickups" unique_id=143460224 instance=ExtResource("21_m2uap")]
+position = Vector2(8755, 1374)
+
+[node name="TrickRing97" parent="Pickups" unique_id=205612473 instance=ExtResource("21_m2uap")]
+position = Vector2(8778, 1374)
+
+[node name="TrickRing98" parent="Pickups" unique_id=351931216 instance=ExtResource("21_m2uap")]
+position = Vector2(8800, 1374)
+
+[node name="TrickRing99" parent="Pickups" unique_id=143683097 instance=ExtResource("21_m2uap")]
+position = Vector2(9012, 1395)
+
+[node name="TrickRing100" parent="Pickups" unique_id=341636143 instance=ExtResource("21_m2uap")]
+position = Vector2(9042, 1395)
+
+[node name="TrickRing101" parent="Pickups" unique_id=1075311194 instance=ExtResource("21_m2uap")]
+position = Vector2(9068, 1395)
+
+[node name="TrickRing102" parent="Pickups" unique_id=280114545 instance=ExtResource("21_m2uap")]
+position = Vector2(9093, 1395)
+
+[node name="TrickRing103" parent="Pickups" unique_id=1779452461 instance=ExtResource("21_m2uap")]
+position = Vector2(10258, 1190)
+
+[node name="TrickRing104" parent="Pickups" unique_id=2051435076 instance=ExtResource("21_m2uap")]
+position = Vector2(10283, 1169)
+
+[node name="TrickRing105" parent="Pickups" unique_id=11746131 instance=ExtResource("21_m2uap")]
+position = Vector2(10318, 1151)
+
+[node name="TrickRing106" parent="Pickups" unique_id=783470128 instance=ExtResource("21_m2uap")]
+position = Vector2(10351, 1145)
+
+[node name="TrickRing107" parent="Pickups" unique_id=1361005704 instance=ExtResource("21_m2uap")]
+position = Vector2(10386, 1154)
+
+[node name="TrickRing108" parent="Pickups" unique_id=451478908 instance=ExtResource("21_m2uap")]
+position = Vector2(10418, 1170)
+
+[node name="TrickRing109" parent="Pickups" unique_id=1386078390 instance=ExtResource("21_m2uap")]
+position = Vector2(10446, 1195)
+
+[node name="TrickRing110" parent="Pickups" unique_id=1015990853 instance=ExtResource("21_m2uap")]
+position = Vector2(10475, 1238)
+
+[node name="TrickRing111" parent="Pickups" unique_id=489185236 instance=ExtResource("21_m2uap")]
+position = Vector2(10509, 1282)
+
+[node name="TrickRing112" parent="Pickups" unique_id=1374437633 instance=ExtResource("21_m2uap")]
+position = Vector2(10539, 1332)
+
+[node name="TrickRing113" parent="Pickups" unique_id=898043293 instance=ExtResource("21_m2uap")]
+position = Vector2(10577, 1384)
+
+[node name="TrickRing114" parent="Pickups" unique_id=1509396721 instance=ExtResource("21_m2uap")]
+position = Vector2(10606, 1433)
+
+[node name="TrickRing115" parent="Pickups" unique_id=1462500133 instance=ExtResource("21_m2uap")]
+position = Vector2(10969, 1459)
+
+[node name="TrickRing116" parent="Pickups" unique_id=986217104 instance=ExtResource("21_m2uap")]
+position = Vector2(10997, 1440)
+
+[node name="TrickRing117" parent="Pickups" unique_id=281315907 instance=ExtResource("21_m2uap")]
+position = Vector2(11022, 1428)
+
+[node name="TrickRing118" parent="Pickups" unique_id=1416169644 instance=ExtResource("21_m2uap")]
+position = Vector2(11045, 1426)
+
+[node name="TrickRing119" parent="Pickups" unique_id=292690934 instance=ExtResource("21_m2uap")]
+position = Vector2(11734, 1424)
+
+[node name="TrickRing120" parent="Pickups" unique_id=299361494 instance=ExtResource("21_m2uap")]
+position = Vector2(11759, 1424)
+
+[node name="TrickRing121" parent="Pickups" unique_id=1334585239 instance=ExtResource("21_m2uap")]
+position = Vector2(11787, 1424)
+
+[node name="TrickRing122" parent="Pickups" unique_id=822059341 instance=ExtResource("21_m2uap")]
+position = Vector2(11807, 1424)
+
+[node name="TrickRing123" parent="Pickups" unique_id=939040778 instance=ExtResource("21_m2uap")]
+position = Vector2(11828, 1424)
+
+[node name="TrickRing124" parent="Pickups" unique_id=1264926281 instance=ExtResource("21_m2uap")]
+position = Vector2(11853, 1425)
+
+[node name="TrickRing125" parent="Pickups" unique_id=2095629829 instance=ExtResource("21_m2uap")]
+position = Vector2(12850, 1329)
+
+[node name="TrickRing126" parent="Pickups" unique_id=577864907 instance=ExtResource("21_m2uap")]
+position = Vector2(12831, 1310)
+
+[node name="TrickRing127" parent="Pickups" unique_id=1608531145 instance=ExtResource("21_m2uap")]
+position = Vector2(12808, 1299)
+
+[node name="TrickRing128" parent="Pickups" unique_id=706898377 instance=ExtResource("21_m2uap")]
+position = Vector2(12769, 1307)
+
+[node name="TrickRing129" parent="Pickups" unique_id=663054634 instance=ExtResource("21_m2uap")]
+position = Vector2(12744, 1325)
+
+[node name="TrickRing130" parent="Pickups" unique_id=1838833273 instance=ExtResource("21_m2uap")]
+position = Vector2(12721, 1341)
+
+[node name="TrickRing131" parent="Pickups" unique_id=1474966736 instance=ExtResource("21_m2uap")]
+position = Vector2(12677, 1315)
+
+[node name="TrickRing132" parent="Pickups" unique_id=1922349923 instance=ExtResource("21_m2uap")]
+position = Vector2(12642, 1301)
+
+[node name="TrickRing133" parent="Pickups" unique_id=1735922073 instance=ExtResource("21_m2uap")]
+position = Vector2(12598, 1311)
+
+[node name="TrickRing134" parent="Pickups" unique_id=720124194 instance=ExtResource("21_m2uap")]
+position = Vector2(12563, 1342)
+
+[node name="TrickRing135" parent="Pickups" unique_id=460968465 instance=ExtResource("21_m2uap")]
+position = Vector2(12849, 832)
+
+[node name="TrickRing136" parent="Pickups" unique_id=1423607448 instance=ExtResource("21_m2uap")]
+position = Vector2(12827, 830)
+
+[node name="TrickRing137" parent="Pickups" unique_id=761749967 instance=ExtResource("21_m2uap")]
+position = Vector2(12802, 831)
+
+[node name="TrickRing138" parent="Pickups" unique_id=1649358925 instance=ExtResource("21_m2uap")]
+position = Vector2(12781, 833)
+
+[node name="TrickRing139" parent="Pickups" unique_id=971723736 instance=ExtResource("21_m2uap")]
+position = Vector2(12760, 834)
+
+[node name="TrickRing140" parent="Pickups" unique_id=1032328656 instance=ExtResource("21_m2uap")]
+position = Vector2(12328, 209)
+
+[node name="TrickRing141" parent="Pickups" unique_id=1831277629 instance=ExtResource("21_m2uap")]
+position = Vector2(12350, 210)
+
+[node name="TrickRing142" parent="Pickups" unique_id=575814070 instance=ExtResource("21_m2uap")]
+position = Vector2(12374, 210)
+
+[node name="TrickRing143" parent="Pickups" unique_id=1144458062 instance=ExtResource("21_m2uap")]
+position = Vector2(12396, 211)
+
+[node name="TrickRing144" parent="Pickups" unique_id=1718949104 instance=ExtResource("21_m2uap")]
+position = Vector2(12420, 209)
+
+[node name="TrickRing145" parent="Pickups" unique_id=925050796 instance=ExtResource("21_m2uap")]
+position = Vector2(12442, 211)
+
+[node name="TrickRing146" parent="Pickups" unique_id=1322732634 instance=ExtResource("21_m2uap")]
+position = Vector2(12609, 248)
+
+[node name="TrickRing147" parent="Pickups" unique_id=1942524466 instance=ExtResource("21_m2uap")]
+position = Vector2(12637, 247)
+
+[node name="TrickRing148" parent="Pickups" unique_id=457604414 instance=ExtResource("21_m2uap")]
+position = Vector2(12667, 247)
+
+[node name="TrickRing149" parent="Pickups" unique_id=767444735 instance=ExtResource("21_m2uap")]
+position = Vector2(12696, 246)
+
+[node name="TrickRing150" parent="Pickups" unique_id=492094537 instance=ExtResource("21_m2uap")]
+position = Vector2(12731, 247)
+
+[node name="TrickRing151" parent="Pickups" unique_id=1624368344 instance=ExtResource("21_m2uap")]
+position = Vector2(13009, 165)
+
+[node name="TrickRing152" parent="Pickups" unique_id=1930081239 instance=ExtResource("21_m2uap")]
+position = Vector2(13044, 165)
+
+[node name="TrickRing153" parent="Pickups" unique_id=208501500 instance=ExtResource("21_m2uap")]
+position = Vector2(13080, 167)
+
+[node name="TrickRing154" parent="Pickups" unique_id=729891973 instance=ExtResource("21_m2uap")]
+position = Vector2(13730, 229)
+
+[node name="TrickRing155" parent="Pickups" unique_id=1504043603 instance=ExtResource("21_m2uap")]
+position = Vector2(13756, 217)
+
+[node name="TrickRing156" parent="Pickups" unique_id=1870101180 instance=ExtResource("21_m2uap")]
+position = Vector2(13782, 219)
+
+[node name="TrickRing157" parent="Pickups" unique_id=581081156 instance=ExtResource("21_m2uap")]
+position = Vector2(13803, 227)
+
+[node name="TrickRing158" parent="Pickups" unique_id=115237669 instance=ExtResource("21_m2uap")]
+position = Vector2(13821, 239)
+
+[node name="TrickRing159" parent="Pickups" unique_id=74952938 instance=ExtResource("21_m2uap")]
+position = Vector2(14807, 1019)
+
+[node name="TrickRing160" parent="Pickups" unique_id=739421383 instance=ExtResource("21_m2uap")]
+position = Vector2(14832, 1007)
+
+[node name="TrickRing161" parent="Pickups" unique_id=320291042 instance=ExtResource("21_m2uap")]
+position = Vector2(14855, 997)
+
+[node name="TrickRing162" parent="Pickups" unique_id=2012267475 instance=ExtResource("21_m2uap")]
+position = Vector2(14879, 1001)
+
+[node name="TrickRing163" parent="Pickups" unique_id=1211113342 instance=ExtResource("21_m2uap")]
+position = Vector2(14897, 1013)
+
+[node name="TrickRing164" parent="Pickups" unique_id=564902092 instance=ExtResource("21_m2uap")]
+position = Vector2(14915, 1024)
+
+[node name="TrickRing165" parent="Pickups" unique_id=804078305 instance=ExtResource("21_m2uap")]
+position = Vector2(15701, 873)
+
+[node name="TrickRing166" parent="Pickups" unique_id=62509636 instance=ExtResource("21_m2uap")]
+position = Vector2(15724, 876)
+
+[node name="TrickRing167" parent="Pickups" unique_id=216367840 instance=ExtResource("21_m2uap")]
+position = Vector2(15748, 885)
+
+[node name="TrickRing168" parent="Pickups" unique_id=1424644730 instance=ExtResource("21_m2uap")]
+position = Vector2(15772, 897)
+
+[node name="TrickRing169" parent="Pickups" unique_id=1901531749 instance=ExtResource("21_m2uap")]
+position = Vector2(15799, 915)
+
+[node name="TrickRing170" parent="Pickups" unique_id=1017431905 instance=ExtResource("21_m2uap")]
+position = Vector2(15821, 934)
+
+[node name="TrickRing171" parent="Pickups" unique_id=899512380 instance=ExtResource("21_m2uap")]
+position = Vector2(16602, 791)
+
+[node name="TrickRing172" parent="Pickups" unique_id=1915674444 instance=ExtResource("21_m2uap")]
+position = Vector2(16627, 776)
+
+[node name="TrickRing173" parent="Pickups" unique_id=598780874 instance=ExtResource("21_m2uap")]
+position = Vector2(16650, 768)
+
+[node name="TrickRing174" parent="Pickups" unique_id=1605109287 instance=ExtResource("21_m2uap")]
+position = Vector2(16684, 768)
+
+[node name="TrickRing175" parent="Pickups" unique_id=1870945717 instance=ExtResource("21_m2uap")]
+position = Vector2(16715, 781)
+
+[node name="TrickRing176" parent="Pickups" unique_id=641878441 instance=ExtResource("21_m2uap")]
+position = Vector2(17312, 874)
+
+[node name="TrickRing177" parent="Pickups" unique_id=68746593 instance=ExtResource("21_m2uap")]
+position = Vector2(17342, 863)
+
+[node name="TrickRing178" parent="Pickups" unique_id=423908837 instance=ExtResource("21_m2uap")]
+position = Vector2(17387, 864)
+
+[node name="TrickRing179" parent="Pickups" unique_id=1756646228 instance=ExtResource("21_m2uap")]
+position = Vector2(17437, 889)
+
+[node name="TrickRing180" parent="Pickups" unique_id=1185643981 instance=ExtResource("21_m2uap")]
+position = Vector2(17480, 931)
+
+[node name="TrickRing181" parent="Pickups" unique_id=647057740 instance=ExtResource("21_m2uap")]
+position = Vector2(18321, 806)
+
+[node name="TrickRing182" parent="Pickups" unique_id=418776588 instance=ExtResource("21_m2uap")]
+position = Vector2(18367, 777)
+
+[node name="TrickRing183" parent="Pickups" unique_id=441440612 instance=ExtResource("21_m2uap")]
+position = Vector2(18412, 757)
+
+[node name="TrickRing184" parent="Pickups" unique_id=32825240 instance=ExtResource("21_m2uap")]
+position = Vector2(18452, 747)
+
+[node name="TrickRing185" parent="Pickups" unique_id=2009736305 instance=ExtResource("21_m2uap")]
+position = Vector2(18497, 754)
+
+[node name="TrickRing186" parent="Pickups" unique_id=160106406 instance=ExtResource("21_m2uap")]
+position = Vector2(18540, 776)
+
+[node name="TrickRing187" parent="Pickups" unique_id=1994690168 instance=ExtResource("21_m2uap")]
+position = Vector2(19520, 880)
+
+[node name="TrickRing188" parent="Pickups" unique_id=1665600070 instance=ExtResource("21_m2uap")]
+position = Vector2(19556, 881)
+
+[node name="TrickRing189" parent="Pickups" unique_id=1097519782 instance=ExtResource("21_m2uap")]
+position = Vector2(19602, 880)
+
+[node name="TrickRing190" parent="Pickups" unique_id=950201356 instance=ExtResource("21_m2uap")]
+position = Vector2(19632, 879)
+
+[node name="TrickRing191" parent="Pickups" unique_id=1433426662 instance=ExtResource("21_m2uap")]
+position = Vector2(19816, 881)
+
+[node name="TrickRing192" parent="Pickups" unique_id=194552329 instance=ExtResource("21_m2uap")]
+position = Vector2(19848, 881)
+
+[node name="TrickRing193" parent="Pickups" unique_id=1854603418 instance=ExtResource("21_m2uap")]
+position = Vector2(19880, 881)
+
+[node name="TrickRing194" parent="Pickups" unique_id=1647261250 instance=ExtResource("21_m2uap")]
+position = Vector2(19917, 881)
+
+[node name="TrickRing195" parent="Pickups" unique_id=915025597 instance=ExtResource("21_m2uap")]
+position = Vector2(19948, 881)
+
+[node name="TrickRing196" parent="Pickups" unique_id=1999364884 instance=ExtResource("21_m2uap")]
+position = Vector2(20111, 895)
+
+[node name="TrickRing197" parent="Pickups" unique_id=1634342524 instance=ExtResource("21_m2uap")]
+position = Vector2(20140, 874)
+
+[node name="TrickRing198" parent="Pickups" unique_id=1901222303 instance=ExtResource("21_m2uap")]
+position = Vector2(20165, 854)
+
+[node name="TrickRing199" parent="Pickups" unique_id=1706406903 instance=ExtResource("21_m2uap")]
+position = Vector2(20191, 832)
+
+[node name="TrickRing200" parent="Pickups" unique_id=574792293 instance=ExtResource("21_m2uap")]
+position = Vector2(20567, 734)
+
+[node name="TrickRing201" parent="Pickups" unique_id=1876433358 instance=ExtResource("21_m2uap")]
+position = Vector2(20611, 736)
+
+[node name="TrickRing202" parent="Pickups" unique_id=1415882802 instance=ExtResource("21_m2uap")]
+position = Vector2(20644, 735)
+
+[node name="TrickRing203" parent="Pickups" unique_id=1780257641 instance=ExtResource("21_m2uap")]
+position = Vector2(20685, 734)
+
+[node name="TrickRing204" parent="Pickups" unique_id=175462660 instance=ExtResource("21_m2uap")]
+position = Vector2(21102, 744)
+
+[node name="TrickRing205" parent="Pickups" unique_id=932953906 instance=ExtResource("21_m2uap")]
+position = Vector2(21147, 744)
+
+[node name="TrickRing206" parent="Pickups" unique_id=1955341799 instance=ExtResource("21_m2uap")]
+position = Vector2(21201, 743)
+
+[node name="TrickRing207" parent="Pickups" unique_id=873750028 instance=ExtResource("21_m2uap")]
+position = Vector2(21053, 744)
+
+[node name="TrickRing208" parent="Pickups" unique_id=1569171722 instance=ExtResource("21_m2uap")]
+position = Vector2(21648, 320)
+
+[node name="TrickRing209" parent="Pickups" unique_id=877836771 instance=ExtResource("21_m2uap")]
+position = Vector2(21679, 319)
+
+[node name="TrickRing210" parent="Pickups" unique_id=465996365 instance=ExtResource("21_m2uap")]
+position = Vector2(21714, 319)
+
+[node name="TrickRing211" parent="Pickups" unique_id=1120743659 instance=ExtResource("21_m2uap")]
+position = Vector2(21740, 319)
+
+[node name="TrickRing212" parent="Pickups" unique_id=900297536 instance=ExtResource("21_m2uap")]
+position = Vector2(22314, 306)
+
+[node name="TrickRing213" parent="Pickups" unique_id=1639786025 instance=ExtResource("21_m2uap")]
+position = Vector2(22344, 306)
+
+[node name="TrickRing214" parent="Pickups" unique_id=1344563588 instance=ExtResource("21_m2uap")]
+position = Vector2(22384, 305)
+
+[node name="TrickRing215" parent="Pickups" unique_id=279720643 instance=ExtResource("21_m2uap")]
+position = Vector2(22423, 306)
+
+[node name="TrickRing216" parent="Pickups" unique_id=117256301 instance=ExtResource("21_m2uap")]
+position = Vector2(22460, 307)
+
+[node name="TrickRing217" parent="Pickups" unique_id=979623765 instance=ExtResource("21_m2uap")]
+position = Vector2(22494, 308)
+
+[node name="100combo" type="AudioStreamPlayer" parent="." unique_id=375608737]
+stream = ExtResource("22_g7y4e")
+volume_db = -8.667
+
+[node name="200combo" type="AudioStreamPlayer" parent="." unique_id=384187449]
+stream = ExtResource("23_7tr5b")
+volume_db = -8.667
+
+[node name="300combo" type="AudioStreamPlayer" parent="." unique_id=2116840967]
+stream = ExtResource("24_5v52y")
+volume_db = -8.667
+
+[node name="400combo" type="AudioStreamPlayer" parent="." unique_id=320452903]
+stream = ExtResource("25_m2uap")
+volume_db = -8.667
+
+[node name="TCamZoom" parent="." unique_id=1742638839 node_paths=PackedStringArray("c") instance=ExtResource("26_7tr5b")]
+position = Vector2(3672, 268.99997)
+rotation = -1.5663732
+offset_destination = Vector2(0, 60)
+c = NodePath("../Camera")
+
+[node name="TCamZoom3" parent="." unique_id=523696610 node_paths=PackedStringArray("c") instance=ExtResource("26_7tr5b")]
+position = Vector2(14220.999, 147.00003)
+rotation = -1.5720087
+offset_destination = Vector2(0, 60)
+c = NodePath("../Camera")
+
+[node name="TCamZoom5" parent="." unique_id=282650104 node_paths=PackedStringArray("c") instance=ExtResource("26_7tr5b")]
+position = Vector2(14220.999, 147.00003)
+rotation = -1.5720087
+offset_destination = Vector2(0, 60)
+c = NodePath("../Camera")
+
+[node name="TCamZoom4" parent="." unique_id=1197497533 node_paths=PackedStringArray("c") instance=ExtResource("26_7tr5b")]
+position = Vector2(14510, 875)
+zoom_destination = 1.0
+c = NodePath("../Camera")
+
+[node name="TCamZoom2" parent="." unique_id=2009068043 node_paths=PackedStringArray("c") instance=ExtResource("26_7tr5b")]
+position = Vector2(3979, 1324)
+zoom_destination = 1.0
+c = NodePath("../Camera")

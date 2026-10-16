@@ -47,8 +47,9 @@ func _step():
 	if Input.is_action_just_pressed("PAD1_C"):
 		parent.change_state("Dash")
 	
-	
-	
+	root.canhurt = true
+	root.vecairanim = true
+	root.crushable = true
 
 
 

@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b8roiu4x4eis4" path="res://SCENE/Placeholder.tres" id="1_dtwwn"]
 [ext_resource type="Script" uid="uid://5jge3orire0s" path="res://SCENE/STAGE.gd" id="1_jg7cs"]
 [ext_resource type="PackedScene" uid="uid://b86f5mn2egsuj" path="res://OBJECT/GENERAL/PLAYER/Rian.tscn" id="2_18pqr"]
-[ext_resource type="AudioStream" uid="uid://cnkw2adh2m2tu" path="res://AUDIO/BGM/Urban Chaos.ogg" id="2_stqdf"]
+[ext_resource type="AudioStream" uid="uid://dj2fagdq2luyg" path="res://AUDIO/BGM/SC_Streets.ogg" id="2_feiw1"]
 [ext_resource type="PackedScene" uid="uid://cdnb1n6v64d5p" path="res://OBJECT/GENERAL/CAMERA/Camera.tscn" id="3_udeur"]
 [ext_resource type="PackedScene" uid="uid://ctf2hfhhl7gc7" path="res://OBJECT/GENERAL/CAMERA/HUD.tscn" id="4_b3hcm"]
 [ext_resource type="Texture2D" uid="uid://b12sm4wadhw51" path="res://SPRITE/STAGE/STICKCITY/BuildingA.png" id="5_b3hcm"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="35_yytp7"]
 [ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="36_j5onk"]
 [ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="37_0gywr"]
+[ext_resource type="PackedScene" uid="uid://nma81q2pd7c2" path="res://OBJECT/Triggers/T_CamControl.tscn" id="38_2kw54"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
 atlas = ExtResource("34_2kw54")
@@ -115,8 +116,8 @@ size = Vector2(84, 80)
 
 [node name="Plaza" type="Node2D" unique_id=2107951573]
 script = ExtResource("1_jg7cs")
-MusicVolume = -4.0
-Stage_Music = ExtResource("2_stqdf")
+MusicVolume = -7.0
+Stage_Music = ExtResource("2_feiw1")
 stagepath = "res://SCENE/StickCity/Streets.tscn"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1156793548]
@@ -919,6 +920,18 @@ and shoot with the
 attack button, nyuu!", "you can also speed
 up with the dash 
 button, nyuu!"])
+
+[node name="TCamZoom" parent="." unique_id=1742638839 node_paths=PackedStringArray("c") instance=ExtResource("38_2kw54")]
+position = Vector2(2434, 37)
+rotation = -1.5663732
+offset_destination = Vector2(0, 60)
+c = NodePath("../Camera")
+
+[node name="TCamZoom2" parent="." unique_id=2100244591 node_paths=PackedStringArray("c") instance=ExtResource("38_2kw54")]
+position = Vector2(2510, 636)
+rotation = -0.00010895729
+zoom_destination = 1.0
+c = NodePath("../Camera")
 
 [connection signal="area_entered" from="NPC/Floof" to="NPC/Floof" method="_on_area_entered"]
 [connection signal="area_exited" from="NPC/Floof" to="NPC/Floof" method="_on_area_exited"]

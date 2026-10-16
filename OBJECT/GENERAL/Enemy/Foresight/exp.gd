@@ -19,4 +19,3 @@ func _process(delta):
 	if animation == "go" and not sound.is_playing() and is_instance_valid(sound):
 		sound.stop()
 		sound.play()
-

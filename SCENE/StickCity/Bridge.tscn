@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://btjrl8fhnryvx" path="res://SPRITE/NPC/FloofTalk.png" id="62_ujf1d"]
 [ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="63_guc6x"]
 [ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="64_xn40m"]
+[ext_resource type="PackedScene" uid="uid://nma81q2pd7c2" path="res://OBJECT/Triggers/T_CamControl.tscn" id="65_swrfm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpvi5"]
 texture = ExtResource("1_r2v4r")
@@ -501,6 +502,7 @@ func _step():
 		root.mon.queue_free()
 		root.subs.visible = false
 		root.active = false
+		Global.stage.bossMusicStart.emit()
 	
 	match (parent.state_time):
 		5:
@@ -532,6 +534,7 @@ func _step():
 		1200:
 			root.subs.text = \"Low IQ move on my part to even begin to \\nsuspect you'd make this easy for me.\"
 			Global.bossactive = true
+			Global.stage.bossMusicStart.emit()
 		1520:
 			root.subs.text = \"You're coming with me whether you like it or not.\"
 		1820:
@@ -757,25 +760,123 @@ texture = ExtResource("10_0dutn")
 
 [node name="Eyepiece" parent="Enemies" unique_id=1149563767 instance=ExtResource("7_w5213")]
 position = Vector2(404, 124)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hurtstop = null
+can_flinch = null
+speed = null
+unlocks_screen = null
+gravity_enabled = null
+has_damage_state = null
+anim_can_resume_after_hitstop = null
 
 [node name="Eyepiece2" parent="Enemies" unique_id=97717443 instance=ExtResource("7_w5213")]
 position = Vector2(473, 141)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hurtstop = null
+can_flinch = null
+speed = null
+unlocks_screen = null
+gravity_enabled = null
+has_damage_state = null
+anim_can_resume_after_hitstop = null
 
 [node name="Eyepiece3" parent="Enemies" unique_id=1047826783 instance=ExtResource("7_w5213")]
 position = Vector2(516, 113)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hurtstop = null
+can_flinch = null
+speed = null
+unlocks_screen = null
+gravity_enabled = null
+has_damage_state = null
+anim_can_resume_after_hitstop = null
 
 [node name="Eyepiece4" parent="Enemies" unique_id=1175683426 instance=ExtResource("7_w5213")]
 position = Vector2(855, 134)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hurtstop = null
+can_flinch = null
+speed = null
+unlocks_screen = null
+gravity_enabled = null
+has_damage_state = null
+anim_can_resume_after_hitstop = null
 
 [node name="Eyepiece5" parent="Enemies" unique_id=1399573519 instance=ExtResource("7_w5213")]
 position = Vector2(906, 153)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hurtstop = null
+can_flinch = null
+speed = null
+unlocks_screen = null
+gravity_enabled = null
+has_damage_state = null
 dropped_item = ExtResource("10_e3bjq")
+anim_can_resume_after_hitstop = null
 
 [node name="Eyepiece6" parent="Enemies" unique_id=988192119 instance=ExtResource("7_w5213")]
 position = Vector2(970, 132)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hurtstop = null
+can_flinch = null
+speed = null
+unlocks_screen = null
+gravity_enabled = null
+has_damage_state = null
+anim_can_resume_after_hitstop = null
 
 [node name="Eyepiece7" parent="Enemies" unique_id=2125443459 instance=ExtResource("7_w5213")]
 position = Vector2(1045, 61)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hurtstop = null
+can_flinch = null
+speed = null
+unlocks_screen = null
+gravity_enabled = null
+has_damage_state = null
+anim_can_resume_after_hitstop = null
 
 [node name="RogginHerd" parent="Enemies" unique_id=1497742308 instance=ExtResource("8_vo2k1")]
 position = Vector2(674, 83)
@@ -791,18 +892,72 @@ position = Vector2(914, 68)
 
 [node name="StickhuskGun" parent="Enemies" unique_id=1817796248 instance=ExtResource("10_igpy2")]
 position = Vector2(1514, 133)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hp = null
+speed = null
+unlocks_screen = null
+gravity = null
+gravity_enabled = null
+has_damage_state = null
+anim_can_resume_after_hitstop = null
 
 [node name="StickhuskGun2" parent="Enemies" unique_id=56299759 instance=ExtResource("10_igpy2")]
 position = Vector2(1664, 135)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hp = null
+speed = null
+unlocks_screen = null
+gravity = null
+gravity_enabled = null
+has_damage_state = null
 dropped_item = ExtResource("11_w0m1m")
+anim_can_resume_after_hitstop = null
 
 [node name="StickhuskSword" parent="Enemies" unique_id=1245503630 instance=ExtResource("11_ywd5o")]
 position = Vector2(1994, 126)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hp = null
+unlocks_screen = null
+gravity = null
+gravity_enabled = null
+has_damage_state = null
 dropped_item = ExtResource("16_2wglc")
+anim_can_resume_after_hitstop = null
 
 [node name="StickhuskSword2" parent="Enemies" unique_id=178580432 instance=ExtResource("11_ywd5o")]
 position = Vector2(1870, 136)
+infant = null
+human = null
+stick = null
+adversary = null
+dreamshock = null
+animenabled = null
+hitstopnull = null
+hp = null
+unlocks_screen = null
+gravity = null
+gravity_enabled = null
+has_damage_state = null
 dropped_item = ExtResource("16_hik4u")
+anim_can_resume_after_hitstop = null
 
 [node name="Hellstar" parent="Enemies" unique_id=1363026494 instance=ExtResource("12_7pwgt")]
 modulate = Color(18.892157, 0, 1.1297288, 1)
@@ -1274,6 +1429,18 @@ if you're taking it
 on the chest,
 tap left or right,
 nyuu!"])
+
+[node name="TCamControl" parent="." unique_id=1742638839 node_paths=PackedStringArray("c") instance=ExtResource("65_swrfm")]
+position = Vector2(2209.9998, 59)
+rotation = 1.5739241
+offset_destination = Vector2(64, 0)
+c = NodePath("../MasterCutsceneNode/Camera")
+
+[node name="TCamControl2" parent="." unique_id=1226888663 node_paths=PackedStringArray("c") instance=ExtResource("65_swrfm")]
+position = Vector2(3535, -20)
+rotation = 1.5739241
+zoom_destination = 1.0
+c = NodePath("../MasterCutsceneNode/Camera")
 
 [connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Idle" method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="MasterCutsceneNode/Player/Sprite" to="MasterCutsceneNode/Player/StateMachine/Attack1" method="_on_sprite_animation_finished"]

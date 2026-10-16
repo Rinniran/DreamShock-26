@@ -128,7 +128,16 @@ func advance():
 func make_timer(func_name:String, time, node = self, params:Array=[], ignore_freeze = false):
 	if time == 0:
 		node.callv(func_name, params)
-	var new_params = [func_name, state_id, active_state.name, get_path_to(node), params.duplicate(true)]
+		return
+
+	var new_params = [
+		func_name,
+		state_id,
+		active_state.name,
+		get_path_to(node),
+		params.duplicate(true)
+	]
+
 	custom_timers.make_timer("check_timer", time, self, new_params, ignore_freeze)
 
 

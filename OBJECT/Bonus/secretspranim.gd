@@ -13,7 +13,7 @@ func _ready():
 
 
 
-func _process(_delta):
+func _physics_process(_delta):
 	var this_ghost = preload("uid://c7xhtl7fh3si7").instantiate()
 	get_parent().add_child(this_ghost)
 	this_ghost.scale = scale

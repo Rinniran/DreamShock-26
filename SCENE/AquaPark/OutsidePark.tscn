@@ -32,6 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://b4j61axqu8yi1" path="res://SPRITE/NPC/InteractPrompt.png" id="29_ew5v3"]
 [ext_resource type="PackedScene" uid="uid://scgd78ixrqiy" path="res://OBJECT/GENERAL/NPC/Text.tscn" id="30_xnny6"]
 [ext_resource type="PackedScene" uid="uid://cqkxesri6sn2l" path="res://OBJECT/GENERAL/DroppedCapsules/Invincibility.tscn" id="32_gv67y"]
+[ext_resource type="PackedScene" uid="uid://ci6gc8yf3f1im" path="res://OBJECT/GENERAL/NextStageTrigger.tscn" id="33_xnny6"]
+[ext_resource type="PackedScene" uid="uid://d214ua5g34ojg" path="res://SCENE/AquaPark/IndoorPark.tscn" id="34_f3w14"]
+[ext_resource type="PackedScene" uid="uid://nma81q2pd7c2" path="res://OBJECT/Triggers/T_CamControl.tscn" id="35_f3w14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j105x"]
 atlas = ExtResource("27_iu1rh")
@@ -110,7 +113,7 @@ size = Vector2(84, 80)
 
 [node name="OutsidePark" type="Node2D" unique_id=1463188941]
 script = ExtResource("1_1iqdc")
-MusicVolume = -1.5
+MusicVolume = 4.0
 Stage_Music = ExtResource("2_wq2af")
 stagepath = "uid://d26lsylndn3gy"
 
@@ -1675,6 +1678,28 @@ next wall, nyuu!!", "nyuu can air dash after
 a wall jump, but they
 don't refresh, so nyuu
 should be extra careful!"])
+
+[node name="NextStageTrigger" parent="." unique_id=68347106 instance=ExtResource("33_xnny6")]
+position = Vector2(17619, 56)
+stage = ExtResource("34_f3w14")
+
+[node name="TCamControl" parent="." unique_id=1742638839 node_paths=PackedStringArray("c") instance=ExtResource("35_f3w14")]
+position = Vector2(5986, 1004)
+offset_destination = Vector2(0, -96)
+c = NodePath("../Camera")
+
+[node name="TCamControl2" parent="." unique_id=1643526108 node_paths=PackedStringArray("c") instance=ExtResource("35_f3w14")]
+position = Vector2(5860, 532)
+rotation = 1.5695758
+zoom_destination = 0.8
+offset_destination = Vector2(24, 0)
+c = NodePath("../Camera")
+
+[node name="TCamControl3" parent="." unique_id=581635490 node_paths=PackedStringArray("c") instance=ExtResource("35_f3w14")]
+position = Vector2(6649, 495.00006)
+rotation = 1.5695758
+zoom_destination = 1.0
+c = NodePath("../Camera")
 
 [connection signal="area_entered" from="NPC/Floof" to="NPC/Floof" method="_on_area_entered"]
 [connection signal="area_exited" from="NPC/Floof" to="NPC/Floof" method="_on_area_exited"]

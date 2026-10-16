@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7xhtl7fh3si7"]
 
 [ext_resource type="Texture2D" uid="uid://bmhly5efkvj1o" path="res://Sprites/Projectiles/Basic projectile.png" id="1_gyx8r"]
+[ext_resource type="Script" uid="uid://b143jgxipbtab" path="res://OBJECT/GENERAL/afterimage.gd" id="2_thkap"]
 
 [sub_resource type="Animation" id="Animation_gyx8r"]
 length = 0.001
@@ -15,6 +16,64 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_thkap"]
+resource_name = "blip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.10151136, 1, 0, 1), Color(0, 0.41, 0.0068333265, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rbhrg"]
+resource_name = "husk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.24240875, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_rs4ss"]
@@ -49,11 +108,14 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thkap"]
 _data = {
 &"RESET": SubResource("Animation_gyx8r"),
+&"blip": SubResource("Animation_thkap"),
+&"husk": SubResource("Animation_rbhrg"),
 &"main": SubResource("Animation_rs4ss")
 }
 
 [node name="Afterimage" type="Sprite2D" unique_id=453393398]
 texture = ExtResource("1_gyx8r")
+script = ExtResource("2_thkap")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=268083154]
 libraries/ = SubResource("AnimationLibrary_thkap")

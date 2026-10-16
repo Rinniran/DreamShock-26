@@ -11,6 +11,9 @@ func _enter(data = {}):
 	root.GRAV_ENABLED = true
 	root.sprite.play("idle")
 	root.vecair = false
+	root.canhurt = true
+	root.vecairanim = true
+	root.crushable = true
 
 
 func _step():

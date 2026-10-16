@@ -38,6 +38,8 @@ var activegame:bool = false
 var player1: Node = null
 var player2: Node = null
 
+var stage = null
+
 var pieces: int = 0
 
 var camera: Node = null
@@ -78,8 +80,11 @@ var hud = null
 @onready var ringstream = preload("res://AUDIO/SE/Trickring.wav")
 
 signal counted
+signal invincibility_started
+signal invincibility_ended
 
 func _ready() -> void:
+	
 	match(difficulty):
 		1:
 			time = 200
@@ -137,6 +142,12 @@ func _physics_process(delta: float) -> void:
 			ms += 0.5
 		else:
 			ms += 1
+	elif time <= 0:
+		if activegame:
+			if player1.isKilled == false:
+				#print_debug("no time!")
+				player1.state.change_state("Die")
+				player1.isKilled = true
 	if ms >= 60 && !timedeathoff:
 		time -= 1
 		ms = 0
@@ -150,7 +161,9 @@ func _physics_process(delta: float) -> void:
 		invincibility = true
 		invincibile_time -= 1
 	else:
-		invincibility = false
+		if invincibility== true:
+			invincibility_ended.emit()
+			invincibility = false
 	
 	if hitstopframes > 0:
 		hitstopframes -= 1

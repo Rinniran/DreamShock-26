@@ -1,6 +1,8 @@
 @tool
 extends BaseState
 
+var hurtsound = preload("res://AUDIO/SE/OrganicNL.mp3")
+
 func _enter(data = {}):
 	super._enter(data)
 	root.vecair = false
@@ -15,6 +17,11 @@ func _enter(data = {}):
 		root.velocity.x = -88
 	if root.sprite.flip_h == true:
 		root.velocity.x = 88
+	SoundEngine.playsound(0,hurtsound,-4)
+	root.canhurt = false
+	root.vecairanim = false
+	root.crushable = true
+	root.blood.emitting = true
 
 
 func _step():
@@ -22,6 +29,7 @@ func _step():
 	
 	if root.is_on_floor() && parent.state_time >= 10:
 		root.iframes = 30
+		root.blood.emitting = false
 		if Input.is_action_pressed("PAD1_C"):
 			parent.change_state("Dash")
 		else:

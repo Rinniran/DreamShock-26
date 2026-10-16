@@ -3,7 +3,6 @@ extends BaseState
 func _enter(data = {}):
 	super()
 	SoundEngine.playsound(5,root.deathsound.stream, -12)
-	
 	var obj = preload("uid://o3cqd4kts4be").instantiate()
 	obj.global_position = root.sprite.global_position 
 	get_parent().add_child(obj)
@@ -12,7 +11,6 @@ func _enter(data = {}):
 	Global.addcombo()
 	Global.score += 50 * (Global.chain)
 	root.anim.play("Die")
-	root.drop_item()
 	root.dead = true
 func _step():
 	super()

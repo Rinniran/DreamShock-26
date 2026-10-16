@@ -2,7 +2,6 @@
 extends BaseState
 
 func _enter(data = {}):
-	print_debug("idle")
 	root.anim.play("Idle")
 	root.velocity.x = 0
 	pass

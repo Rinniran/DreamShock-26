@@ -27,7 +27,7 @@ func _step():
 	if parent.state_time >= 60:
 		parent.change_state("Idle")
 	
-	if root.global_position.distance_to(Global.player1.global_position) < 200:
+	if root.global_position.distance_to(Global.player1.global_position) < 200 && parent.state_time > 32:
 		parent.change_state("Attack")
 	
 

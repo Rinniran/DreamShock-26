@@ -9,11 +9,16 @@ func _enter(data = {}):
 	super._enter(data)
 	root.CAN_MOVE = true
 	root.GRAV_ENABLED = true
+	root.regain_parrytime.emit()
 	
 	if root.vecair == true:
 		root.vecair = true
 	root.anim_can_resume_after_hitstop = false
 	root.sprite.play("attackg_a")
+	
+	root.canhurt = true
+	root.vecairanim = true
+	root.crushable = true
 
 
 func _step():

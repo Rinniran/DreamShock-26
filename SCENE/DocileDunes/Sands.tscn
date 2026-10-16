@@ -155,7 +155,7 @@ animations = [{
 
 [node name="Sands" type="Node2D" unique_id=1160020385]
 script = ExtResource("1_7y2qv")
-MusicVolume = -8.6
+MusicVolume = -2.0
 Stage_Music = ExtResource("2_axmqo")
 stagepath = "res://SCENE/DocileDunes/Sands.tscn"
 

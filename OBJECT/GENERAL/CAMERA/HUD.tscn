@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://kevrjf1asuvy" path="res://SPRITE/UI/HealthFront.png" id="9_jtsl8"]
 [ext_resource type="FontFile" uid="uid://b18hwdv7lc6md" path="res://SPRITE/FONT/Pixeland.ttf" id="11_7yq84"]
 [ext_resource type="Script" uid="uid://dx5xdaa4c0t5b" path="res://OBJECT/GENERAL/CAMERA/chainmeter.gd" id="13_jtsl8"]
+[ext_resource type="Script" uid="uid://dhbhy3trwfym" path="res://SRC/killcount.gd" id="14_3vqlp"]
 [ext_resource type="FontFile" uid="uid://duq8j8qdp43j2" path="res://Sprites/FONT/kromagrad_16x16.fnt" id="14_ckw0p"]
 [ext_resource type="Script" uid="uid://bt1ovky1mbqkb" path="res://OBJECT/GENERAL/CAMERA/chain_count.gd" id="15_7yq84"]
 [ext_resource type="Texture2D" uid="uid://dj6x4nl2yxopa" path="res://SPRITE/UI/SubIcon1.png" id="15_ckw0p"]
@@ -127,6 +128,24 @@ text = "02
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ko" type="Label" parent="." unique_id=677550728]
+modulate = Color(0.95, 0.61749995, 0, 1)
+offset_left = 364.0
+offset_top = 174.0
+offset_right = 460.0
+offset_bottom = 197.0
+theme_override_fonts/font = ExtResource("14_ckw0p")
+text = "k.o."
+
+[node name="ChainCount" type="Label" parent="." unique_id=583789923]
+offset_left = 370.0
+offset_top = 191.0
+offset_right = 410.0
+offset_bottom = 214.0
+theme_override_fonts/font = ExtResource("14_ckw0p")
+text = "0/8"
+script = ExtResource("15_7yq84")
+
 [node name="Chain" type="Node2D" parent="." unique_id=1459781004]
 
 [node name="Chainmeter" type="TextureProgressBar" parent="Chain" unique_id=1673514228]
@@ -138,14 +157,15 @@ texture_under = ExtResource("8_sisv3")
 texture_progress = ExtResource("9_jtsl8")
 script = ExtResource("13_jtsl8")
 
-[node name="ChainCount" type="Label" parent="Chain" unique_id=583789923]
-offset_left = 375.0
+[node name="ChainCount2" type="Label" parent="Chain" unique_id=362278658]
+offset_left = 361.0
 offset_top = 26.0
-offset_right = 415.0
-offset_bottom = 49.0
+offset_right = 409.0
+offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("14_ckw0p")
-text = "0"
-script = ExtResource("15_7yq84")
+text = "o
+"
+script = ExtResource("14_3vqlp")
 
 [node name="ChainLabel" type="Label" parent="Chain" unique_id=393156384]
 modulate = Color(0.95, 0.61749995, 0, 1)
